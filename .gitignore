@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Conda
+.conda/
+
+# OpenMC output files
+*.h5
+statepoint.*.h5
+summary.h5
+tallies.out
+geometry.xml
+materials.xml
+settings.xml
+tallies.xml
+plots.xml
+depletion_results.h5
+openmc_simulation_n*.h5
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
