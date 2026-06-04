@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aegis40"
+version = "0.1.0"
+description = "Aegis-40 iPWR detailed design toolkit for Teknofest 2026."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Aegis-40 Team" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

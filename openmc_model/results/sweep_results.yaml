@@ -1,0 +1,217 @@
+- stage: 1
+  label: e3.8-3.6-3.4_Gd6_Er0x0
+  enrich: (3.8, 3.6, 3.4)
+  gd_wt: 6
+  n_gd: 32
+  er_wt: 0.0
+  n_er: 0
+  k_bol: 0.99797
+  bol_excess_pcm: -203.0
+  status: ok
+- stage: 1
+  label: e3.8-3.6-3.4_Gd6_Er1x48
+  enrich: (3.8, 3.6, 3.4)
+  gd_wt: 6
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 48
+  k_bol: 0.94894
+  bol_excess_pcm: -5381.0
+  status: ok
+- stage: 1
+  label: e3.6-3.4-3.2_Gd5_Er0.5x48
+  enrich: (3.6, 3.4, 3.2)
+  gd_wt: 5
+  n_gd: 32
+  er_wt: 0.5
+  n_er: 48
+  k_bol: 0.95628
+  bol_excess_pcm: -4571.0
+  status: ok
+- stage: 1
+  label: e3.6-3.4-3.2_Gd5_Er1x48
+  enrich: (3.6, 3.4, 3.2)
+  gd_wt: 5
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 48
+  k_bol: 0.93899
+  bol_excess_pcm: -6497.0
+  status: ok
+- stage: 1
+  label: e3.6-3.4-3.2_Gd7_Er0.5x48
+  enrich: (3.6, 3.4, 3.2)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 0.5
+  n_er: 48
+  k_bol: 0.94644
+  bol_excess_pcm: -5659.0
+  status: ok
+- stage: 1
+  label: e3.6-3.4-3.2_Gd7_Er1x48
+  enrich: (3.6, 3.4, 3.2)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 48
+  k_bol: 0.93034
+  bol_excess_pcm: -7488.0
+  status: ok
+- stage: 1
+  label: e3.6-3.4-3.2_Gd7_Er1.5x48
+  enrich: (3.6, 3.4, 3.2)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 1.5
+  n_er: 48
+  k_bol: 0.9137
+  bol_excess_pcm: -9446.0
+  status: ok
+- stage: 1
+  label: e3.6-3.4-3.2_Gd6_Er1x64
+  enrich: (3.6, 3.4, 3.2)
+  gd_wt: 6
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 64
+  k_bol: 0.92278
+  bol_excess_pcm: -8368.0
+  status: ok
+- stage: 1
+  label: e4.0-3.7-3.4_Gd5_Er0.5x48
+  enrich: (4.0, 3.7, 3.4)
+  gd_wt: 5
+  n_gd: 32
+  er_wt: 0.5
+  n_er: 48
+  k_bol: 0.9806
+  bol_excess_pcm: -1979.0
+  status: ok
+- stage: 1
+  label: e4.0-3.7-3.4_Gd5_Er1x48
+  enrich: (4.0, 3.7, 3.4)
+  gd_wt: 5
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 48
+  k_bol: 0.96359
+  bol_excess_pcm: -3778.0
+  status: ok
+- stage: 1
+  label: e4.0-3.7-3.4_Gd7_Er0.5x48
+  enrich: (4.0, 3.7, 3.4)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 0.5
+  n_er: 48
+  k_bol: 0.96732
+  bol_excess_pcm: -3378.0
+  status: ok
+- stage: 1
+  label: e4.0-3.7-3.4_Gd7_Er1x48
+  enrich: (4.0, 3.7, 3.4)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 48
+  k_bol: 0.94939
+  bol_excess_pcm: -5331.0
+  status: ok
+- stage: 1
+  label: e4.0-3.7-3.4_Gd7_Er1.5x48
+  enrich: (4.0, 3.7, 3.4)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 1.5
+  n_er: 48
+  k_bol: 0.93804
+  bol_excess_pcm: -6605.0
+  status: ok
+- stage: 1
+  label: e4.0-3.7-3.4_Gd6_Er1x64
+  enrich: (4.0, 3.7, 3.4)
+  gd_wt: 6
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 64
+  k_bol: 0.94459
+  bol_excess_pcm: -5866.0
+  status: ok
+- stage: 1
+  label: e4.4-4.1-3.8_Gd5_Er0.5x48
+  enrich: (4.4, 4.1, 3.8)
+  gd_wt: 5
+  n_gd: 32
+  er_wt: 0.5
+  n_er: 48
+  k_bol: 1.00908
+  bol_excess_pcm: 899.0
+  status: ok
+- stage: 1
+  label: e4.4-4.1-3.8_Gd5_Er1x48
+  enrich: (4.4, 4.1, 3.8)
+  gd_wt: 5
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 48
+  k_bol: 0.98889
+  bol_excess_pcm: -1123.0
+  status: ok
+- stage: 1
+  label: e4.4-4.1-3.8_Gd7_Er0.5x48
+  enrich: (4.4, 4.1, 3.8)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 0.5
+  n_er: 48
+  k_bol: 0.99727
+  bol_excess_pcm: -273.0
+  status: ok
+- stage: 1
+  label: e4.4-4.1-3.8_Gd7_Er1x48
+  enrich: (4.4, 4.1, 3.8)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 48
+  k_bol: 0.98039
+  bol_excess_pcm: -2000.0
+  status: ok
+- stage: 1
+  label: e4.4-4.1-3.8_Gd7_Er1.5x48
+  enrich: (4.4, 4.1, 3.8)
+  gd_wt: 7
+  n_gd: 32
+  er_wt: 1.5
+  n_er: 48
+  k_bol: 0.96642
+  bol_excess_pcm: -3474.0
+  status: ok
+- stage: 1
+  label: e4.4-4.1-3.8_Gd6_Er1x64
+  enrich: (4.4, 4.1, 3.8)
+  gd_wt: 6
+  n_gd: 32
+  er_wt: 1.0
+  n_er: 64
+  k_bol: 0.97494
+  bol_excess_pcm: -2570.0
+  status: ok
+- stage: 2
+  label: e4.4-4.1-3.8_Gd5_Er0.5x48
+  enrich: (4.4, 4.1, 3.8)
+  gd_wt: 5
+  n_gd: 32
+  er_wt: 0.5
+  n_er: 48
+  k_bol: 1.0081
+  bol_excess_pcm: 804.0
+  peak_excess_pcm: 6098.0
+  swing_pcm: 18939.0
+  fresh_B1_efpd: 3.0
+  equilibrium_cycle_months: 0.0
+  discharge_burnup_GWd_t: 0.1
+  crossed: true
+  status: ok
+  score: -77.59

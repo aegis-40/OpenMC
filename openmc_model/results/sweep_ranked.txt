@@ -1,0 +1,4 @@
+======================================================================
+SWEEP RANKED RESULTS (best first)
+======================================================================
+(no successful Stage-2 candidate; widen k_window or grid)

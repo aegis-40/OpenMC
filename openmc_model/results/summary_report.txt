@@ -1,0 +1,37 @@
+==============================================================================
+  AEGIS-40 — 3D Full-Core OpenMC Safety Parameter Summary
+==============================================================================
+  Generated   : 2026-06-03T18:38:32.993893Z
+  OpenMC      : 0.15.3    Profile: {'batches': 180, 'inactive': 50, 'particles': 20000}    Threads: 6
+  Design      : hybrid   (3-zone 4.95/4.7/4.4 wt%, Gd₂O₃ 8 wt%×32, Er₂O₃ 0.5 wt%×16)
+  Core        : 21 FAs · 9 CR clusters · 125.0 MWth · 5.6 tHM
+  Reflectors  : radial 20.0 cm H₂O, axial ±30.0 cm; vacuum BCs
+------------------------------------------------------------------------------
+  Parameter                                  Value         Limit  Status  Unit
+------------------------------------------------------------------------------
+  k_eff_bol                                 1.0264         ==1.0    INFO  -
+  mtc_full_power_pcm_per_K                -35.8817          <0.0    PASS  pcm/K
+  dtc_pcm_per_K                            -1.8437          <0.0    PASS  pcm/K
+  void_coeff_pcm_per_pct                 -213.9636          <0.0    PASS  pcm/%void
+  control_rod_worth_aro_pcm             15225.8136        >=5000    PASS  pcm
+  shutdown_margin_dk_pct                   12.3828         >=1.0    PASS  % dk/k
+  max_reactivity_rate                   1.5000e-05     <=0.00075    PASS  dk/k/s
+  burnup_discharge_GWd_per_MTU             42.7947        <=62.0    PASS  GWd/MTU
+  cycle_length_efpd                       479.3001       >=365.0    PASS  EFPD
+  enrichment_max_pct                        4.9500         <=5.0    PASS  wt%
+------------------------------------------------------------------------------
+  Diagnostics:
+    k_eff ARI                  : 0.8877041207874652
+    k_eff worst-stuck-rod      : 0.8898158653071773
+    Central CR cluster worth   : 267.34557177784393 pcm
+    Pin-power F_q (3D)         : 3.478
+    Radial F_ΔH                : 2.268
+    Axial F_z                  : 1.027
+    Assembly peaking F_radial  : 1.228
+    Gd-157 EOC inventory       : 0.1 %
+    Er-167 EOC inventory       : 3.1 %
+    k_BOL (depletion step 0)   : 1.0253115921514901
+    k_EOC (depletion last)     : 0.8759024286987527
+------------------------------------------------------------------------------
+  OVERALL STATUS: PASS
+==============================================================================

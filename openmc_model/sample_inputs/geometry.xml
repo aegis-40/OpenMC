@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<geometry>
+  <cell id="2008" name="FA_aro_r0_plain_4.4_fuel" material="143" region="-1882 1885 -1886" universe="478"/>
+  <cell id="2009" name="FA_aro_r0_plain_4.4_gap" material="138" region="1882 -1883 1885 -1886" universe="478"/>
+  <cell id="2010" name="FA_aro_r0_plain_4.4_clad" material="137" region="1883 -1884 1885 -1886" universe="478"/>
+  <cell id="2011" name="FA_aro_r0_plain_4.4_mod" material="136" region="1884 1885 -1886" universe="478"/>
+  <cell id="2012" name="FA_aro_r0_plain_4.4_plenum_top" material="136" region="1886" universe="478"/>
+  <cell id="2013" name="FA_aro_r0_plain_4.4_plenum_bot" material="136" region="-1885" universe="478"/>
+  <cell id="2014" name="FA_aro_r0_plain_4.7_fuel" material="142" region="-1887 1890 -1891" universe="479"/>
+  <cell id="2015" name="FA_aro_r0_plain_4.7_gap" material="138" region="1887 -1888 1890 -1891" universe="479"/>
+  <cell id="2016" name="FA_aro_r0_plain_4.7_clad" material="137" region="1888 -1889 1890 -1891" universe="479"/>
+  <cell id="2017" name="FA_aro_r0_plain_4.7_mod" material="136" region="1889 1890 -1891" universe="479"/>
+  <cell id="2018" name="FA_aro_r0_plain_4.7_plenum_top" material="136" region="1891" universe="479"/>
+  <cell id="2019" name="FA_aro_r0_plain_4.7_plenum_bot" material="136" region="-1890" universe="479"/>
+  <cell id="2020" name="FA_aro_r0_plain_5.0_fuel" material="141" region="-1892 1895 -1896" universe="480"/>
+  <cell id="2021" name="FA_aro_r0_plain_5.0_gap" material="138" region="1892 -1893 1895 -1896" universe="480"/>
+  <cell id="2022" name="FA_aro_r0_plain_5.0_clad" material="137" region="1893 -1894 1895 -1896" universe="480"/>
+  <cell id="2023" name="FA_aro_r0_plain_5.0_mod" material="136" region="1894 1895 -1896" universe="480"/>
+  <cell id="2024" name="FA_aro_r0_plain_5.0_plenum_top" material="136" region="1896" universe="480"/>
+  <cell id="2025" name="FA_aro_r0_plain_5.0_plenum_bot" material="136" region="-1895" universe="480"/>
+  <cell id="2026" name="FA_aro_r0_Gd_pin_bot_cut" material="147" region="-1897 1900 -1902" universe="481"/>
+  <cell id="2027" name="FA_aro_r0_Gd_pin_fuel" material="146" region="-1897 1902 -1903" universe="481"/>
+  <cell id="2028" name="FA_aro_r0_Gd_pin_top_cut" material="147" region="-1897 1903 -1901" universe="481"/>
+  <cell id="2029" name="FA_aro_r0_Gd_pin_gap" material="138" region="1897 -1898 1900 -1901" universe="481"/>
+  <cell id="2030" name="FA_aro_r0_Gd_pin_clad" material="137" region="1898 -1899 1900 -1901" universe="481"/>
+  <cell id="2031" name="FA_aro_r0_Gd_pin_mod" material="136" region="1899 1900 -1901" universe="481"/>
+  <cell id="2032" name="FA_aro_r0_Gd_pin_plenum_top" material="136" region="1901" universe="481"/>
+  <cell id="2033" name="FA_aro_r0_Gd_pin_plenum_bot" material="136" region="-1900" universe="481"/>
+  <cell id="2034" name="FA_aro_r0_Er_pin_fuel" material="150" region="-1904 1907 -1908" universe="482"/>
+  <cell id="2035" name="FA_aro_r0_Er_pin_gap" material="138" region="1904 -1905 1907 -1908" universe="482"/>
+  <cell id="2036" name="FA_aro_r0_Er_pin_clad" material="137" region="1905 -1906 1907 -1908" universe="482"/>
+  <cell id="2037" name="FA_aro_r0_Er_pin_mod" material="136" region="1906 1907 -1908" universe="482"/>
+  <cell id="2038" name="FA_aro_r0_Er_pin_plenum_top" material="136" region="1908" universe="482"/>
+  <cell id="2039" name="FA_aro_r0_Er_pin_plenum_bot" material="136" region="-1907" universe="482"/>
+  <cell id="2040" material="136" region="-1909 1911 -1912" universe="483"/>
+  <cell id="2041" material="136" region="1909 -1910 1911 -1912" universe="483"/>
+  <cell id="2042" material="136" region="1910 1911 -1912" universe="483"/>
+  <cell id="2043" material="136" region="1912" universe="483"/>
+  <cell id="2044" material="136" region="-1911" universe="483"/>
+  <cell id="2050" material="136" universe="486"/>
+  <cell id="2051" name="FA_aro_r0_cell" fill="485" region="1917 -1918 1919 -1920" universe="487"/>
+  <cell id="2052" name="FA_aro_r1_plain_4.4_fuel" material="143" region="-1921 1924 -1925" universe="488"/>
+  <cell id="2053" name="FA_aro_r1_plain_4.4_gap" material="138" region="1921 -1922 1924 -1925" universe="488"/>
+  <cell id="2054" name="FA_aro_r1_plain_4.4_clad" material="137" region="1922 -1923 1924 -1925" universe="488"/>
+  <cell id="2055" name="FA_aro_r1_plain_4.4_mod" material="136" region="1923 1924 -1925" universe="488"/>
+  <cell id="2056" name="FA_aro_r1_plain_4.4_plenum_top" material="136" region="1925" universe="488"/>
+  <cell id="2057" name="FA_aro_r1_plain_4.4_plenum_bot" material="136" region="-1924" universe="488"/>
+  <cell id="2058" name="FA_aro_r1_plain_4.7_fuel" material="142" region="-1926 1929 -1930" universe="489"/>
+  <cell id="2059" name="FA_aro_r1_plain_4.7_gap" material="138" region="1926 -1927 1929 -1930" universe="489"/>
+  <cell id="2060" name="FA_aro_r1_plain_4.7_clad" material="137" region="1927 -1928 1929 -1930" universe="489"/>
+  <cell id="2061" name="FA_aro_r1_plain_4.7_mod" material="136" region="1928 1929 -1930" universe="489"/>
+  <cell id="2062" name="FA_aro_r1_plain_4.7_plenum_top" material="136" region="1930" universe="489"/>
+  <cell id="2063" name="FA_aro_r1_plain_4.7_plenum_bot" material="136" region="-1929" universe="489"/>
+  <cell id="2064" name="FA_aro_r1_plain_5.0_fuel" material="141" region="-1931 1934 -1935" universe="490"/>
+  <cell id="2065" name="FA_aro_r1_plain_5.0_gap" material="138" region="1931 -1932 1934 -1935" universe="490"/>
+  <cell id="2066" name="FA_aro_r1_plain_5.0_clad" material="137" region="1932 -1933 1934 -1935" universe="490"/>
+  <cell id="2067" name="FA_aro_r1_plain_5.0_mod" material="136" region="1933 1934 -1935" universe="490"/>
+  <cell id="2068" name="FA_aro_r1_plain_5.0_plenum_top" material="136" region="1935" universe="490"/>
+  <cell id="2069" name="FA_aro_r1_plain_5.0_plenum_bot" material="136" region="-1934" universe="490"/>
+  <cell id="2070" name="FA_aro_r1_Gd_pin_bot_cut" material="147" region="-1936 1939 -1941" universe="491"/>
+  <cell id="2071" name="FA_aro_r1_Gd_pin_fuel" material="146" region="-1936 1941 -1942" universe="491"/>
+  <cell id="2072" name="FA_aro_r1_Gd_pin_top_cut" material="147" region="-1936 1942 -1940" universe="491"/>
+  <cell id="2073" name="FA_aro_r1_Gd_pin_gap" material="138" region="1936 -1937 1939 -1940" universe="491"/>
+  <cell id="2074" name="FA_aro_r1_Gd_pin_clad" material="137" region="1937 -1938 1939 -1940" universe="491"/>
+  <cell id="2075" name="FA_aro_r1_Gd_pin_mod" material="136" region="1938 1939 -1940" universe="491"/>
+  <cell id="2076" name="FA_aro_r1_Gd_pin_plenum_top" material="136" region="1940" universe="491"/>
+  <cell id="2077" name="FA_aro_r1_Gd_pin_plenum_bot" material="136" region="-1939" universe="491"/>
+  <cell id="2078" name="FA_aro_r1_Er_pin_fuel" material="150" region="-1943 1946 -1947" universe="492"/>
+  <cell id="2079" name="FA_aro_r1_Er_pin_gap" material="138" region="1943 -1944 1946 -1947" universe="492"/>
+  <cell id="2080" name="FA_aro_r1_Er_pin_clad" material="137" region="1944 -1945 1946 -1947" universe="492"/>
+  <cell id="2081" name="FA_aro_r1_Er_pin_mod" material="136" region="1945 1946 -1947" universe="492"/>
+  <cell id="2082" name="FA_aro_r1_Er_pin_plenum_top" material="136" region="1947" universe="492"/>
+  <cell id="2083" name="FA_aro_r1_Er_pin_plenum_bot" material="136" region="-1946" universe="492"/>
+  <cell id="2084" material="136" region="-1948 1950 -1951" universe="493"/>
+  <cell id="2085" material="136" region="1948 -1949 1950 -1951" universe="493"/>
+  <cell id="2086" material="136" region="1949 1950 -1951" universe="493"/>
+  <cell id="2087" material="136" region="1951" universe="493"/>
+  <cell id="2088" material="136" region="-1950" universe="493"/>
+  <cell id="2094" material="136" universe="496"/>
+  <cell id="2095" name="FA_aro_r1_cell" fill="495" region="1956 -1957 1958 -1959" universe="497"/>
+  <cell id="2096" name="FA_aro_r2_plain_4.4_fuel" material="143" region="-1960 1963 -1964" universe="498"/>
+  <cell id="2097" name="FA_aro_r2_plain_4.4_gap" material="138" region="1960 -1961 1963 -1964" universe="498"/>
+  <cell id="2098" name="FA_aro_r2_plain_4.4_clad" material="137" region="1961 -1962 1963 -1964" universe="498"/>
+  <cell id="2099" name="FA_aro_r2_plain_4.4_mod" material="136" region="1962 1963 -1964" universe="498"/>
+  <cell id="2100" name="FA_aro_r2_plain_4.4_plenum_top" material="136" region="1964" universe="498"/>
+  <cell id="2101" name="FA_aro_r2_plain_4.4_plenum_bot" material="136" region="-1963" universe="498"/>
+  <cell id="2102" name="FA_aro_r2_plain_4.7_fuel" material="142" region="-1965 1968 -1969" universe="499"/>
+  <cell id="2103" name="FA_aro_r2_plain_4.7_gap" material="138" region="1965 -1966 1968 -1969" universe="499"/>
+  <cell id="2104" name="FA_aro_r2_plain_4.7_clad" material="137" region="1966 -1967 1968 -1969" universe="499"/>
+  <cell id="2105" name="FA_aro_r2_plain_4.7_mod" material="136" region="1967 1968 -1969" universe="499"/>
+  <cell id="2106" name="FA_aro_r2_plain_4.7_plenum_top" material="136" region="1969" universe="499"/>
+  <cell id="2107" name="FA_aro_r2_plain_4.7_plenum_bot" material="136" region="-1968" universe="499"/>
+  <cell id="2108" name="FA_aro_r2_plain_5.0_fuel" material="141" region="-1970 1973 -1974" universe="500"/>
+  <cell id="2109" name="FA_aro_r2_plain_5.0_gap" material="138" region="1970 -1971 1973 -1974" universe="500"/>
+  <cell id="2110" name="FA_aro_r2_plain_5.0_clad" material="137" region="1971 -1972 1973 -1974" universe="500"/>
+  <cell id="2111" name="FA_aro_r2_plain_5.0_mod" material="136" region="1972 1973 -1974" universe="500"/>
+  <cell id="2112" name="FA_aro_r2_plain_5.0_plenum_top" material="136" region="1974" universe="500"/>
+  <cell id="2113" name="FA_aro_r2_plain_5.0_plenum_bot" material="136" region="-1973" universe="500"/>
+  <cell id="2114" name="FA_aro_r2_Gd_pin_bot_cut" material="147" region="-1975 1978 -1980" universe="501"/>
+  <cell id="2115" name="FA_aro_r2_Gd_pin_fuel" material="146" region="-1975 1980 -1981" universe="501"/>
+  <cell id="2116" name="FA_aro_r2_Gd_pin_top_cut" material="147" region="-1975 1981 -1979" universe="501"/>
+  <cell id="2117" name="FA_aro_r2_Gd_pin_gap" material="138" region="1975 -1976 1978 -1979" universe="501"/>
+  <cell id="2118" name="FA_aro_r2_Gd_pin_clad" material="137" region="1976 -1977 1978 -1979" universe="501"/>
+  <cell id="2119" name="FA_aro_r2_Gd_pin_mod" material="136" region="1977 1978 -1979" universe="501"/>
+  <cell id="2120" name="FA_aro_r2_Gd_pin_plenum_top" material="136" region="1979" universe="501"/>
+  <cell id="2121" name="FA_aro_r2_Gd_pin_plenum_bot" material="136" region="-1978" universe="501"/>
+  <cell id="2122" name="FA_aro_r2_Er_pin_fuel" material="150" region="-1982 1985 -1986" universe="502"/>
+  <cell id="2123" name="FA_aro_r2_Er_pin_gap" material="138" region="1982 -1983 1985 -1986" universe="502"/>
+  <cell id="2124" name="FA_aro_r2_Er_pin_clad" material="137" region="1983 -1984 1985 -1986" universe="502"/>
+  <cell id="2125" name="FA_aro_r2_Er_pin_mod" material="136" region="1984 1985 -1986" universe="502"/>
+  <cell id="2126" name="FA_aro_r2_Er_pin_plenum_top" material="136" region="1986" universe="502"/>
+  <cell id="2127" name="FA_aro_r2_Er_pin_plenum_bot" material="136" region="-1985" universe="502"/>
+  <cell id="2128" material="136" region="-1987 1989 -1990" universe="503"/>
+  <cell id="2129" material="136" region="1987 -1988 1989 -1990" universe="503"/>
+  <cell id="2130" material="136" region="1988 1989 -1990" universe="503"/>
+  <cell id="2131" material="136" region="1990" universe="503"/>
+  <cell id="2132" material="136" region="-1989" universe="503"/>
+  <cell id="2138" material="136" universe="506"/>
+  <cell id="2139" name="FA_aro_r2_cell" fill="505" region="1995 -1996 1997 -1998" universe="507"/>
+  <cell id="2228" name="water_FA_cell" material="140" region="2077 -2078 2079 -2080" universe="528"/>
+  <cell id="2229" name="core_lat_cell" fill="529" region="2081 -2082 2083 -2084 2089 -2090" universe="530"/>
+  <cell id="2230" name="radial_reflector" material="140" region="2085 -2086 2087 -2088 2089 -2090 (-2081 | 2082 | -2083 | 2084)" universe="530"/>
+  <lattice id="485" name="FA_aro_r0_pinlattice">
+    <pitch>1.2623 1.2623</pitch>
+    <outer>486</outer>
+    <dimension>17 17</dimension>
+    <lower_left>-10.72955 -10.72955</lower_left>
+    <universes>
+482 482 478 478 478 478 478 478 478 478 478 478 478 478 478 482 482 
+482 482 478 478 478 478 478 478 478 478 478 478 478 478 478 482 482 
+478 478 478 478 478 483 479 479 483 479 479 483 478 478 478 478 478 
+478 478 478 483 479 481 481 481 481 481 481 481 479 483 478 478 478 
+478 478 478 479 481 481 481 479 479 479 481 481 481 479 478 478 478 
+478 478 483 481 481 483 479 480 483 480 479 483 481 481 483 478 478 
+478 478 479 481 481 479 480 480 480 480 480 479 481 481 479 478 478 
+478 478 479 481 479 480 480 480 480 480 480 480 479 481 479 478 478 
+478 478 483 481 479 483 480 480 483 480 480 483 479 481 483 478 478 
+478 478 479 481 479 480 480 480 480 480 480 480 479 481 479 478 478 
+478 478 479 481 481 479 480 480 480 480 480 479 481 481 479 478 478 
+478 478 483 481 481 483 479 480 483 480 479 483 481 481 483 478 478 
+478 478 478 479 481 481 481 479 479 479 481 481 481 479 478 478 478 
+478 478 478 483 479 481 481 481 481 481 481 481 479 483 478 478 478 
+478 478 478 478 478 483 479 479 483 479 479 483 478 478 478 478 478 
+482 482 478 478 478 478 478 478 478 478 478 478 478 478 478 482 482 
+482 482 478 478 478 478 478 478 478 478 478 478 478 478 478 482 482 </universes>
+  </lattice>
+  <lattice id="495" name="FA_aro_r1_pinlattice">
+    <pitch>1.2623 1.2623</pitch>
+    <outer>496</outer>
+    <dimension>17 17</dimension>
+    <lower_left>-10.72955 -10.72955</lower_left>
+    <universes>
+492 492 488 488 488 488 488 488 488 488 488 488 488 488 488 492 492 
+492 492 488 488 488 488 488 488 488 488 488 488 488 488 488 492 492 
+488 488 488 488 488 493 489 489 493 489 489 493 488 488 488 488 488 
+488 488 488 493 489 491 491 491 491 491 491 491 489 493 488 488 488 
+488 488 488 489 491 491 489 489 489 489 489 491 491 489 488 488 488 
+488 488 493 491 491 493 489 490 493 490 489 493 491 491 493 488 488 
+488 488 489 491 489 489 490 490 490 490 490 489 489 491 489 488 488 
+488 488 489 491 489 490 490 490 490 490 490 490 489 491 489 488 488 
+488 488 493 491 489 493 490 490 493 490 490 493 489 491 493 488 488 
+488 488 489 491 489 490 490 490 490 490 490 490 489 491 489 488 488 
+488 488 489 491 489 489 490 490 490 490 490 489 489 491 489 488 488 
+488 488 493 491 491 493 489 490 493 490 489 493 491 491 493 488 488 
+488 488 488 489 491 491 489 489 489 489 489 491 491 489 488 488 488 
+488 488 488 493 489 491 491 491 491 491 491 491 489 493 488 488 488 
+488 488 488 488 488 493 489 489 493 489 489 493 488 488 488 488 488 
+492 492 488 488 488 488 488 488 488 488 488 488 488 488 488 492 492 
+492 492 488 488 488 488 488 488 488 488 488 488 488 488 488 492 492 </universes>
+  </lattice>
+  <lattice id="505" name="FA_aro_r2_pinlattice">
+    <pitch>1.2623 1.2623</pitch>
+    <outer>506</outer>
+    <dimension>17 17</dimension>
+    <lower_left>-10.72955 -10.72955</lower_left>
+    <universes>
+502 502 498 498 498 498 498 498 498 498 498 498 498 498 498 502 502 
+502 502 498 498 498 498 498 498 498 498 498 498 498 498 498 502 502 
+498 498 498 498 498 503 499 499 503 499 499 503 498 498 498 498 498 
+498 498 498 503 499 499 501 501 499 501 501 499 499 503 498 498 498 
+498 498 498 499 499 501 499 499 499 499 499 501 499 499 498 498 498 
+498 498 503 499 501 503 499 500 503 500 499 503 501 499 503 498 498 
+498 498 499 501 499 499 500 500 500 500 500 499 499 501 499 498 498 
+498 498 499 501 499 500 500 500 500 500 500 500 499 501 499 498 498 
+498 498 503 499 499 503 500 500 503 500 500 503 499 499 503 498 498 
+498 498 499 501 499 500 500 500 500 500 500 500 499 501 499 498 498 
+498 498 499 501 499 499 500 500 500 500 500 499 499 501 499 498 498 
+498 498 503 499 501 503 499 500 503 500 499 503 501 499 503 498 498 
+498 498 498 499 499 501 499 499 499 499 499 501 499 499 498 498 498 
+498 498 498 503 499 499 501 501 499 501 501 499 499 503 498 498 498 
+498 498 498 498 498 503 499 499 503 499 499 503 498 498 498 498 498 
+502 502 498 498 498 498 498 498 498 498 498 498 498 498 498 502 502 
+502 502 498 498 498 498 498 498 498 498 498 498 498 498 498 502 502 </universes>
+  </lattice>
+  <lattice id="529" name="core_lattice">
+    <pitch>21.6038 21.6038</pitch>
+    <outer>528</outer>
+    <dimension>5 5</dimension>
+    <lower_left>-54.0095 -54.0095</lower_left>
+    <universes>
+528 507 507 507 528 
+507 497 497 497 507 
+507 497 487 497 507 
+507 497 497 497 507 
+528 507 507 507 528 </universes>
+  </lattice>
+  <surface id="1882" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1883" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1884" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1885" type="z-plane" coeffs="-100.0"/>
+  <surface id="1886" type="z-plane" coeffs="100.0"/>
+  <surface id="1887" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1888" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1889" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1890" type="z-plane" coeffs="-100.0"/>
+  <surface id="1891" type="z-plane" coeffs="100.0"/>
+  <surface id="1892" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1893" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1894" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1895" type="z-plane" coeffs="-100.0"/>
+  <surface id="1896" type="z-plane" coeffs="100.0"/>
+  <surface id="1897" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1898" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1899" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1900" type="z-plane" coeffs="-100.0"/>
+  <surface id="1901" type="z-plane" coeffs="100.0"/>
+  <surface id="1902" type="z-plane" coeffs="-90.0"/>
+  <surface id="1903" type="z-plane" coeffs="90.0"/>
+  <surface id="1904" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1905" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1906" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1907" type="z-plane" coeffs="-100.0"/>
+  <surface id="1908" type="z-plane" coeffs="100.0"/>
+  <surface id="1909" type="z-cylinder" coeffs="0.0 0.0 0.5624"/>
+  <surface id="1910" type="z-cylinder" coeffs="0.0 0.0 0.602"/>
+  <surface id="1911" type="z-plane" coeffs="-100.0"/>
+  <surface id="1912" type="z-plane" coeffs="100.0"/>
+  <surface id="1917" type="x-plane" coeffs="-10.8019"/>
+  <surface id="1918" type="x-plane" coeffs="10.8019"/>
+  <surface id="1919" type="y-plane" coeffs="-10.8019"/>
+  <surface id="1920" type="y-plane" coeffs="10.8019"/>
+  <surface id="1921" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1922" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1923" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1924" type="z-plane" coeffs="-100.0"/>
+  <surface id="1925" type="z-plane" coeffs="100.0"/>
+  <surface id="1926" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1927" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1928" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1929" type="z-plane" coeffs="-100.0"/>
+  <surface id="1930" type="z-plane" coeffs="100.0"/>
+  <surface id="1931" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1932" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1933" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1934" type="z-plane" coeffs="-100.0"/>
+  <surface id="1935" type="z-plane" coeffs="100.0"/>
+  <surface id="1936" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1937" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1938" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1939" type="z-plane" coeffs="-100.0"/>
+  <surface id="1940" type="z-plane" coeffs="100.0"/>
+  <surface id="1941" type="z-plane" coeffs="-90.0"/>
+  <surface id="1942" type="z-plane" coeffs="90.0"/>
+  <surface id="1943" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1944" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1945" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1946" type="z-plane" coeffs="-100.0"/>
+  <surface id="1947" type="z-plane" coeffs="100.0"/>
+  <surface id="1948" type="z-cylinder" coeffs="0.0 0.0 0.5624"/>
+  <surface id="1949" type="z-cylinder" coeffs="0.0 0.0 0.602"/>
+  <surface id="1950" type="z-plane" coeffs="-100.0"/>
+  <surface id="1951" type="z-plane" coeffs="100.0"/>
+  <surface id="1956" type="x-plane" coeffs="-10.8019"/>
+  <surface id="1957" type="x-plane" coeffs="10.8019"/>
+  <surface id="1958" type="y-plane" coeffs="-10.8019"/>
+  <surface id="1959" type="y-plane" coeffs="10.8019"/>
+  <surface id="1960" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1961" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1962" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1963" type="z-plane" coeffs="-100.0"/>
+  <surface id="1964" type="z-plane" coeffs="100.0"/>
+  <surface id="1965" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1966" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1967" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1968" type="z-plane" coeffs="-100.0"/>
+  <surface id="1969" type="z-plane" coeffs="100.0"/>
+  <surface id="1970" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1971" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1972" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1973" type="z-plane" coeffs="-100.0"/>
+  <surface id="1974" type="z-plane" coeffs="100.0"/>
+  <surface id="1975" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1976" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1977" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1978" type="z-plane" coeffs="-100.0"/>
+  <surface id="1979" type="z-plane" coeffs="100.0"/>
+  <surface id="1980" type="z-plane" coeffs="-90.0"/>
+  <surface id="1981" type="z-plane" coeffs="90.0"/>
+  <surface id="1982" type="z-cylinder" coeffs="0.0 0.0 0.40958"/>
+  <surface id="1983" type="z-cylinder" coeffs="0.0 0.0 0.41873"/>
+  <surface id="1984" type="z-cylinder" coeffs="0.0 0.0 0.476"/>
+  <surface id="1985" type="z-plane" coeffs="-100.0"/>
+  <surface id="1986" type="z-plane" coeffs="100.0"/>
+  <surface id="1987" type="z-cylinder" coeffs="0.0 0.0 0.5624"/>
+  <surface id="1988" type="z-cylinder" coeffs="0.0 0.0 0.602"/>
+  <surface id="1989" type="z-plane" coeffs="-100.0"/>
+  <surface id="1990" type="z-plane" coeffs="100.0"/>
+  <surface id="1995" type="x-plane" coeffs="-10.8019"/>
+  <surface id="1996" type="x-plane" coeffs="10.8019"/>
+  <surface id="1997" type="y-plane" coeffs="-10.8019"/>
+  <surface id="1998" type="y-plane" coeffs="10.8019"/>
+  <surface id="2077" type="x-plane" coeffs="-10.8019"/>
+  <surface id="2078" type="x-plane" coeffs="10.8019"/>
+  <surface id="2079" type="y-plane" coeffs="-10.8019"/>
+  <surface id="2080" type="y-plane" coeffs="10.8019"/>
+  <surface id="2081" type="x-plane" coeffs="-54.0095"/>
+  <surface id="2082" type="x-plane" coeffs="54.0095"/>
+  <surface id="2083" type="y-plane" coeffs="-54.0095"/>
+  <surface id="2084" type="y-plane" coeffs="54.0095"/>
+  <surface id="2085" type="x-plane" boundary="vacuum" coeffs="-74.0095"/>
+  <surface id="2086" type="x-plane" boundary="vacuum" coeffs="74.0095"/>
+  <surface id="2087" type="y-plane" boundary="vacuum" coeffs="-74.0095"/>
+  <surface id="2088" type="y-plane" boundary="vacuum" coeffs="74.0095"/>
+  <surface id="2089" type="z-plane" boundary="vacuum" coeffs="-130.0"/>
+  <surface id="2090" type="z-plane" boundary="vacuum" coeffs="130.0"/>
+</geometry>
