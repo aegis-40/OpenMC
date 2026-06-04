@@ -22,7 +22,11 @@ NOTE: :func:`discharge_grams_from_results`, :func:`run_decay_only` and
 decay heat (7.75 MW ≈ 6.2% of 125 MWth). Callers must set
 ``openmc.config['chain_file']`` so ``get_decay_heat``/``get_activity`` can load
 decay data, and pass ``nuc_with_data`` to ``Results.export_to_materials`` to skip
-the cross-sections lookup. :func:`build_storage_rack_model` is still UNRUN.
+the cross-sections lookup. :func:`build_storage_rack_model` is VALIDATED against
+live OpenMC 0.15.3 (2026-06-04, via ``scripts/run_storage_criticality.py``): it
+collects every geometry material (so the assembly fuel/clad survive into the
+Model), gives the water bound-hydrogen thermal scattering, and wraps its root in
+a Universe. All three §4.3.2 waste analyses now run end-to-end.
 """
 
 from __future__ import annotations
@@ -248,6 +252,9 @@ def build_storage_rack_model(
         # ppm by mass of natural boron in the water
         water.add_element("B", boron_ppm * 1.0e-6, "wo")
     water.set_density("g/cm3", moderator_density_g_cm3)
+    # Thermal scattering for bound hydrogen — essential for a correct k in a
+    # water-moderated lattice (without it k is biased high by ~hundreds of pcm).
+    water.add_s_alpha_beta("c_H_in_H2O")
 
     rack = openmc.RectLattice(name="storage_rack")
     rack.pitch = (storage_pitch_cm, storage_pitch_cm)
@@ -270,7 +277,7 @@ def build_storage_rack_model(
     rack_cell = openmc.Cell(name="rack", fill=rack)
     root = openmc.Cell(name="storage_root", region=+xlo & -xhi & +ylo & -yhi)
     root.fill = openmc.Universe(cells=[rack_cell])
-    geometry = openmc.Geometry(root)
+    geometry = openmc.Geometry(openmc.Universe(cells=[root]))
 
     s = openmc.Settings()
     s.run_mode = "eigenvalue"
@@ -278,5 +285,13 @@ def build_storage_rack_model(
     s.inactive = (settings or {}).get("inactive", 50)
     s.particles = (settings or {}).get("particles", 20000)
 
+    # Collect every material referenced by the geometry (the assembly's fuel /
+    # clad / gap / intra-assembly water from ``assembly_universe_factory`` plus
+    # the rack water) — passing only ``[water]`` would drop the fuel materials
+    # and OpenMC would fail to export a valid materials.xml.
+    all_mats = list(geometry.get_all_materials().values())
+    if water not in all_mats:
+        all_mats.append(water)
+
     return openmc.Model(geometry=geometry, settings=s,
-                        materials=openmc.Materials([water]))
+                        materials=openmc.Materials(all_mats))

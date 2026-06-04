@@ -42,6 +42,7 @@ models/**/*.log
 
 # Generated waste-analysis artifacts (keep the CSVs + .md reports, drop the heavy regenerable files)
 docs/competition/waste/decay_run/
+docs/competition/waste/storage_run/
 
 # Heavy/regenerable OpenMC run artifacts (keep notebooks, reports, plots, sample decks)
 *.h5
