@@ -44,6 +44,9 @@ models/**/*.log
 docs/competition/waste/decay_run/
 docs/competition/waste/storage_run/
 
+# Digital-Appendix V&V run artifacts (keep the .md/.csv reports, drop the heavy OpenMC files)
+docs/competition/digital-appendix/pincell_run/
+
 # Heavy/regenerable OpenMC run artifacts (keep notebooks, reports, plots, sample decks)
 *.h5
 openmc_model/**/statepoint.*
