@@ -12,10 +12,11 @@ decay heat + neutron background) and leaves spent uranium far below any usable
 enrichment. Both raise the *intrinsic* barriers. The dominant proliferation
 resistance, however, remains *extrinsic* — the intense radiation field of the
 intact spent-fuel assembly + safeguards — which is the honest, literature-
-consistent reading of the material-attractiveness work (Bathke et al. 2009/2012).
+consistent reading of material-attractiveness work. This single report is the
+handoff to [3S/Azamhon] for the §8.5/§8.7 prose.
 
 Pure-Python + matplotlib — runs on Windows from the tracked discharge inventory
-CSV (no OpenMC / WSL). Outputs tables (md/csv) + plots (png) to
+CSV (no OpenMC / WSL). Outputs one report (md) + tables (csv) + plots (png) to
 docs/competition/safeguards/.
 
 Usage:
@@ -24,8 +25,6 @@ Usage:
         [--n-batches 4] [--outdir docs/competition/safeguards]
 
 References (for the FER writeup):
-  - Bathke et al., "The Attractiveness of Materials in Advanced Nuclear Fuel
-    Cycles...", Nuclear Technology 179 (2012) 5-30 (FOM methodology).
   - Wu et al., Int. J. Energy Research (2020) — non-proliferation barriers review
     (in D:\\projects\\literature).
   - IAEA significant quantities: INFCIRC/153, IAEA Safeguards Glossary (Pu = 8 kg).
@@ -37,7 +36,6 @@ import argparse
 import csv
 import datetime
 import io
-import math
 import os
 
 DEFAULT_INVENTORY = os.path.join("docs", "competition", "waste", "discharge_inventory.csv")
@@ -59,13 +57,6 @@ DECAY_HEAT_W_PER_G = {
 SF_NEUTRONS_N_PER_S_PER_G = {
     "Pu238": 2.59e3, "Pu239": 2.18e-2, "Pu240": 1.02e3, "Pu241": 5.0e-2,
     "Pu242": 1.72e3, "Cm244": 1.10e7, "Am241": 1.18, "Cm242": 2.10e7,
-}
-# Bare-sphere critical masses, kg (alpha-phase metal). Used only for the
-# INDICATIVE Bathke FOM critical-mass term; the rigorous value for our exact
-# vector wants an OpenMC bare-sphere k_eff search (see notes).
-BARE_CRIT_MASS_KG = {
-    "Pu238": 10.0, "Pu239": 10.2, "Pu240": 40.0, "Pu241": 12.3, "Pu242": 85.0,
-    "U235": 47.0, "U233": 16.0, "Np237": 60.0,
 }
 SQ_PU_KG = 8.0           # IAEA significant quantity, total Pu
 SELF_PROTECT_HEAT_WKG = 2.0     # ~W/kg above which weaponization is hampered (heat)
@@ -115,30 +106,12 @@ def compute(g, n_batches):
     u_tot = sum(u_g.values())
     u235_wo = 100.0 * u_g["U235"] / u_tot if u_tot else 0.0
 
-    # INDICATIVE bare critical mass of the Pu vector (reciprocal-mass weighting of
-    # pure-isotope bare-sphere critical masses) — transparent approximation.
-    inv = sum((pu_wo[p] / 100.0) / BARE_CRIT_MASS_KG[p] for p in PU)
-    m_crit_kg = 1.0 / inv
-
-    # INDICATIVE Bathke FOM1 = 1 - log10[ M/800 + M*h/4500 + M*D/50 ].
-    # M = bare critical mass (kg), h = heat (W/kg), D = dose rate (rad/h) at 1 m
-    # from 0.2*M. We have M (indicative) and h; D needs the gamma-source calc, so
-    # we report the heat+mass contribution and bound the effect of D.
-    term_mass = m_crit_kg / 800.0
-    term_heat = m_crit_kg * pu_heat_wkg / 4500.0
-    bracket_no_dose = term_mass + term_heat
-    fom1_no_dose = 1.0 - math.log10(bracket_no_dose)
-    # illustrative dose sensitivity: a modest RGPu dose D ~ 1-5 rad/h
-    fom1_dose5 = 1.0 - math.log10(bracket_no_dose + m_crit_kg * 5.0 / 50.0)
-
     return dict(
         pu_g=pu_g, pu_tot=pu_tot, pu_wo=pu_wo, fissile=fissile,
         fissile_frac=100.0 * fissile / pu_tot, grade=pu_grade(pu_wo["Pu240"]),
         pu_heat_W=pu_heat_W, pu_heat_wkg=pu_heat_wkg,
         pu_sf=pu_sf, pu_sf_nskg=pu_sf_nskg, cm_sf=cm_sf,
         u_g=u_g, u_tot=u_tot, u235_wo=u235_wo,
-        m_crit_kg=m_crit_kg, term_mass=term_mass, term_heat=term_heat,
-        fom1_no_dose=fom1_no_dose, fom1_dose5=fom1_dose5,
         sq_core=pu_tot / 1000.0 / SQ_PU_KG,
         pu_per_batch_kg=pu_tot / 1000.0 / n_batches,
         sq_per_batch=(pu_tot / 1000.0 / n_batches) / SQ_PU_KG,
@@ -258,30 +231,20 @@ def write_report(c, outdir, plots, inv_path):
              " — Np-237/Am are materials of safeguards interest but require "
              "reprocessing to separate.\n")
 
-    L.append("## 5. Material-attractiveness FOM (Bathke) — INDICATIVE\n")
-    L.append("Bathke FOM₁ = 1 − log₁₀[ M/800 + M·h/4500 + M·D/50 ] "
-             "(M = bare critical mass kg, h = heat W/kg, D = dose rate rad/h at 1 m "
-             "from 0.2·M). Higher FOM = more attractive; FOM₁ > 1 ≈ weapons-usable.\n")
-    L.append("| Input | Value | Basis |")
-    L.append("|---|---|---|")
-    L.append(f"| M (bare critical mass) | ~{c['m_crit_kg']:.1f} kg | **indicative** — "
-             "reciprocal-mass weighting of pure-isotope bare spheres |")
-    L.append(f"| h (decay heat) | {c['pu_heat_wkg']:.1f} W/kg | computed above (rigorous) |")
-    L.append("| D (dose rate) | pending | needs the gamma-source calc (#7) |")
-    L.append(f"| FOM₁ (heat+mass terms only) | **~{c['fom1_no_dose']:.2f}** | upper bound (no dose) |")
-    L.append(f"| FOM₁ (with illustrative D=5 rad/h) | ~{c['fom1_dose5']:.2f} | dose lowers it |")
-    L.append("")
-    L.append("**Honest interpretation (this is the FER-credible reading):** even at "
-             f"high burnup the reactor-grade Pu sits at FOM₁ ≈ {c['fom1_dose5']:.1f}–"
-             f"{c['fom1_no_dose']:.1f}, i.e. still nominally 'attractive' by the "
-             "intrinsic metric — this is Bathke's own finding that heat/neutron "
-             "penalties alone do **not** render separated Pu unusable. The decisive "
-             "proliferation resistance is therefore **extrinsic**: the Pu is locked "
-             "inside self-protecting, intensely radioactive intact spent-fuel "
-             "assemblies (whole-assembly dose ≫ the 1 Gy/h self-protecting "
-             "threshold), under IAEA safeguards, in a once-through cycle with no "
-             "reprocessing. High burnup *adds* to the intrinsic barriers (heat, "
-             "neutrons, degraded vector) on top of that.\n")
+    L.append("## 5. Proliferation-resistance summary\n")
+    L.append("- **Intrinsic barriers (raised by high burnup):** reactor-grade, "
+             f"degraded Pu vector (Pu-239 {c['pu_wo']['Pu239']:.0f}%, Pu-240 "
+             f"{c['pu_wo']['Pu240']:.0f}%, fissile {c['fissile_frac']:.0f}%); "
+             f"{c['pu_heat_wkg']:.0f} W/kg-Pu decay heat and a high spontaneous-"
+             f"fission neutron background; spent U at {c['u235_wo']:.2f}% U-235.")
+    L.append("- **Extrinsic barriers (decisive):** the Pu is locked inside "
+             "self-protecting, intensely radioactive **intact spent-fuel "
+             "assemblies** (whole-assembly dose ≫ the 1 Gy/h self-protecting "
+             "threshold), under IAEA safeguards, in a **once-through** cycle with "
+             "no reprocessing — there is no separated-Pu stream to divert.")
+    L.append("- **Net:** high burnup + SBF + once-through compound the standard "
+             "spent-fuel proliferation resistance; the design introduces no "
+             "reprocessing or separated-fissile streams.\n")
 
     L.append("## Plots\n")
     for p in plots:
@@ -289,16 +252,13 @@ def write_report(c, outdir, plots, inv_path):
     L.append("")
 
     L.append("## Method notes & open items\n")
-    L.append("- Decay-heat / SF-neutron / critical-mass constants are standard "
-             "isotopic values (encoded in the script with sources).")
-    L.append("- **Rigorous FOM refinement (small WSL follow-up):** compute the bare "
-             "critical mass M of the *actual* Pu vector with an OpenMC bare-sphere "
-             "k_eff search, and the dose rate D from the gamma source term (#7). "
-             "Both only *lower* the FOM, so the qualitative conclusion is unchanged.")
-    L.append("- Burnup-trajectory view (Pu-239 fraction vs burnup) is a further "
-             "option — needs the per-step Pu vector from the core depletion h5 (WSL).")
-    L.append("- Cite: Bathke et al., *Nucl. Technol.* 179 (2012) 5; Wu et al., "
-             "*Int. J. Energy Res.* (2020); IAEA Safeguards Glossary (SQ).\n")
+    L.append("- Decay-heat and SF-neutron constants are standard isotopic values "
+             "(encoded in the script with sources).")
+    L.append("- Burnup-trajectory view (Pu-239 fraction vs burnup) is an optional "
+             "extension — needs the per-step Pu vector from the core depletion h5 (WSL).")
+    L.append("- Cite: Wu et al., *Int. J. Energy Res.* (2020) — proliferation-"
+             "resistance barriers review; IAEA Safeguards Glossary (significant "
+             "quantities).\n")
 
     path = os.path.join(outdir, "safeguards_attractiveness.md")
     with io.open(path, "w", encoding="utf-8") as f:
@@ -324,7 +284,6 @@ def main(argv=None) -> int:
           f"Pu-239={c['pu_wo']['Pu239']:.1f}%  Pu-240={c['pu_wo']['Pu240']:.1f}%")
     print(f"  heat     : {c['pu_heat_wkg']:.1f} W/kg-Pu  SF(Pu)={c['pu_sf_nskg']:.2e} n/s/kg")
     print(f"  spent-U  : {c['u235_wo']:.2f} wt% U-235  |  SQ(core)={c['sq_core']:.1f}")
-    print(f"  FOM1     : ~{c['fom1_no_dose']:.2f} (heat+mass, indicative; M~{c['m_crit_kg']:.1f} kg)")
     print(f"  report   : {path}")
     print(f"  plots    : {', '.join(plots)}")
     return 0
