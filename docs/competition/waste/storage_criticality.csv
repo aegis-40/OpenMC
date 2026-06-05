@@ -1,0 +1,7 @@
+case,fuel,array,pitch_cm,k_calc,sigma,k_calc_plus_2sigma,bias,unc,k_95_95,margin_to_0.95,pass
+"fresh, bare ∞ array",fresh 4.95 w/o,∞ (reflective),21.4591,1.49914,0.00060,1.50034,0.0000,0.0000,1.50034,-0.55034,FAIL
+"fresh, bare finite 3×3",fresh 4.95 w/o,3×3 + H₂O refl.,23.0000,1.36178,0.00067,1.36313,0.0000,0.0000,1.36313,-0.41313,FAIL
+"burnup credit, bare ∞ array",spent 42.8 GWd/t (core-avg),∞ (reflective),21.4591,1.07358,0.00060,1.07478,0.0000,0.0000,1.07478,-0.12478,FAIL
+"fresh, Boral box ∞ array",fresh 4.95 w/o,∞ + Boral box,23.5000,1.10566,0.00069,1.10704,0.0000,0.0000,1.10704,-0.15704,FAIL
+"burnup credit, Boral box ∞ array",spent 42.8 GWd/t (core-avg),∞ + Boral box,23.5000,0.78099,0.00054,0.78207,0.0000,0.0000,0.78207,0.16793,PASS
+"burnup credit, Metamic box ∞ array",spent 42.8 GWd/t (core-avg),∞ + Metamic box,23.5000,0.78856,0.00061,0.78977,0.0000,0.0000,0.78977,0.16023,PASS

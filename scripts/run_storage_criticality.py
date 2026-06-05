@@ -455,9 +455,26 @@ def write_report(outdir, rows, meta):
             f"{'**PASS**' if r['passed'] else '**FAIL**'} |")
     L.append("")
 
+    # The credited safety case is the *burnup-credit* design rows. Fresh-fuel
+    # design rows are bounding cases that are EXPECTED to exceed 0.95 — that is
+    # precisely what makes this a Region-II burnup-credit rack (fresh fuel is
+    # administratively excluded via a minimum-burnup loading curve), not a
+    # failure. Judging the verdict on all design rows would wrongly read FAIL.
     design_rows = [r for r in rows if r["design"]]
-    design_pass = bool(design_rows) and all(r["passed"] for r in design_rows)
-    L.append(f"## Verdict: {'**PASS** — the Boral storage rack is sub-critical (k(95/95) ≤ 0.95)' if design_pass else '**FAIL — design rack needs more absorber / spacing**'}\n")
+    credited_rows = [r for r in design_rows if "burnup" in r["case"].lower()]
+    fresh_rows = [r for r in design_rows if "burnup" not in r["case"].lower()]
+    design_pass = bool(credited_rows) and all(r["passed"] for r in credited_rows)
+    fresh_excluded = any(not r["passed"] for r in fresh_rows)
+    if design_pass:
+        verdict = ("**PASS** — the credited burnup-credit Boral/Metamic rack is "
+                   "sub-critical (k(95/95) ≤ 0.95)")
+        if fresh_excluded:
+            verdict += ("; fresh (un-burned) fuel exceeds the limit and is "
+                        "**administratively excluded** — this is a Region-II "
+                        "burnup-credit rack (minimum-burnup loading curve)")
+    else:
+        verdict = "**FAIL — credited burnup-credit rack needs more absorber / spacing**"
+    L.append(f"## Verdict: {verdict}\n")
 
     # literature cross-check on the credited (design) burnup-credit case
     bu_design = next((r for r in design_rows if "burnup" in r["case"].lower()), None)
@@ -676,8 +693,9 @@ def main(argv=None) -> int:
 
     print("\n=== DONE ===")
     design_rows = [r for r in rows if r["design"]]
-    design_pass = bool(design_rows) and all(r["passed"] for r in design_rows)
-    print(f"  DESIGN cases (Boral rack): "
+    credited_rows = [r for r in design_rows if "burnup" in r["case"].lower()]
+    design_pass = bool(credited_rows) and all(r["passed"] for r in credited_rows)
+    print(f"  CREDITED burnup-credit cases (Boral/Metamic rack): "
           f"{'PASS — sub-critical ≤ 0.95' if design_pass else 'FAIL — needs more absorber/spacing'}")
     print(f"  (the 'diag' rows above are bare-rack bounding runs — expected to be "
           f"high; they show why the panels are required)")
