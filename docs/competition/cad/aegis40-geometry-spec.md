@@ -40,7 +40,7 @@ All lengths in **mm** unless noted. OpenMC works in cm; ×10 conversions already
 ### A3. Burnable-absorber & blanket detail (the "smart" features to show)
 | Feature | Value | Note |
 |---|---|---|
-| Gd₂O₃ pins per FA (centre/inner/edge ring) | 48 / 40 / 26 | radially zoned, core-avg 32 |
+| Gd₂O₃ pins per FA (centre/inner/edge ring) | **48 / 40 / 24** (as-run) | radially zoned; locked-basis prose said 26 — model is authoritative |
 | Er₂O₃ pins per FA | 16 | flat hold-down + cold SDM |
 | Gd/Er **fueled length** | 1800 mm (z = −900 → +900) | **100 mm axial cutback each end** |
 | Gd/Er end-cutback plug | 100 mm top + 100 mm bottom | natural/blanket caps — a real, drawable detail |
