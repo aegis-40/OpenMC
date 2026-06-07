@@ -29,7 +29,7 @@ must cite *these* numbers. Source run: `aegis40_3d_core_outputs/summary_report.t
 | Reload scheme | 4-batch | |
 | Enrichment (inner/mid/outer) | **4.95 / 4.70 / 4.40 wt%** | max 4.95 ≤ 5.0 ceiling |
 | Burnable absorber | Gd₂O₃ 8 wt% (radially zoned) + Er₂O₃ 0.5 wt% | hybrid, SBF hold-down |
-| Gd rods per FA (centre/inner/edge ring) | 48 / 40 / 26 | core-avg 32, zoned to flatten radial power |
+| Gd rods per FA (centre/inner/edge ring) | 48 / 40 / 24 | core-avg 32, zoned to flatten radial power (as-run model; confirmed 2026-06-07) |
 | Er rods per FA | 16 | slow-depleting flat hold-down + cold SDM |
 | Cladding | Zr-4 | locked |
 | **Discharge burnup** | **42.8 GWd/MTU** | as-run rev_3 |
