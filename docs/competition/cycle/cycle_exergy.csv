@@ -1,0 +1,12 @@
+component,exergy_destruction_kW,share_pct_of_supplied
+OTSG / steam generator (finite-dT),3945,6.8
+Turbine + generator stages,6017,10.4
+Condenser (internal dT),-0,-0.0
+Condenser heat rejected to sea (loss),3702,6.4
+Feed / condensate / booster pumps,42,0.1
+FWH-1 (closed-loop open heater),810,1.4
+Deaerator (FWH-2),973,1.7
+Moisture separator,0,0.0
+Generator + BOP house load (loss),2767,4.8
+TOTAL_destroyed_lost,18256,31.5
+useful_electric_out,39686,68.5

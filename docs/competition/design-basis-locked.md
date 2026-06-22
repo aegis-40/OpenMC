@@ -70,13 +70,23 @@ the radial power. Result:
 | F_radial (assembly) | 1.62 | **1.23** | −24% |
 | F_ΔH (radial enthalpy-rise) | 2.77 | **2.27** | −18% |
 | F_q (3D total) | 3.62 | **3.48** | −4% |
-| F_z (axial) | — | 1.03 | — |
+| F_z (core-avg axial) | — | 1.03 | — |
+| F_z,hot (= F_q/F_ΔH) | — | 1.53 | — |
 
 **Reframe for the FER:** these are *diagnostics / DNBR-margin inputs*, not
 pass/fail gates. For context, the Jang SBF-SMPWR design limit is F_q < 5.09 and
 the KEPCO i-SMR (HIGA) SBF design runs F_q ≈ 2.08 / F_r ≈ 1.35 — our rev_3 sits
 well inside that SBF-SMR class. The binding constraint remains our own DNBR/MDNBR
 analysis (T-H), not a borrowed peaking number.
+
+**Enrichment-scheme robustness (2026-06-20).** The intra-assembly enrichment grading was
+benchmarked a third time against the literature SBF-SMR recipe — assembly-uniform ring
+enrichment (SMART/ATOM/PRATIC style) **with a 5 cm SS-304 steel reflector and Gd rods placed
+directly on the local hot pins**. The assembly-uniform approach regressed (per-pin F_ΔH
+1.85 → 1.94–2.05; F_radial 1.23 → 1.45–1.48), confirming that the result is not an artefact
+of the water reflector or of Gd placement: continuous per-pin grading is the necessary tool
+for this compact boron-free core. Full study: `fer/enrichment-zoning-benchmark-rev7.md`;
+FER §8.2.3 Table 8.2-6a.
 
 ---
 

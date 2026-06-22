@@ -1,0 +1,29 @@
+# Aegis-40 seawater once-through heat sink
+Q_condenser_MWth,82.6
+cp_seawater_J_kgK,4000.0,rho_seawater_kg_m3,1012.0
+
+section,case,dT_cond_K,mdot_kg_s,vdot_m3_s
+circuit,design,10.0,2065,2.04
+circuit,summer_managed,7.0,2950,2.92
+
+section,case,T_ambient_C,dT_cond_K,T_outfall_C
+outfall,"winter, design dT=10K",8.0,10.0,18.0
+outfall,"summer, design dT=10K",25.0,10.0,35.0
+outfall,"summer, managed dT=7K",25.0,7.0,32.0
+
+section,dilution_N,far_field_excess_dT_K
+far_field,1,5.000
+far_field,2,3.333
+far_field,3,2.500
+far_field,5,1.667
+far_field,10,0.909
+far_field,20,0.476
+far_field,30,0.323
+far_field,50,0.196
+far_field,100,0.099
+
+section,current_u_m_s,Q_dilution_m3_s,far_field_dT_K
+current,0.02,40.0,0.510
+current,0.05,100.0,0.204
+current,0.1,200.0,0.102
+current,0.2,400.0,0.051

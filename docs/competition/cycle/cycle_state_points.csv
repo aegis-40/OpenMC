@@ -1,0 +1,12 @@
+state,P_MPa,T_C,h_kJ_kg,s_kJ_kgK,x
+1  Turbine inlet (OTSG steam),4.5000,296.0,2932.1,6.2642,1.000
+2  HP extraction,1.0000,179.9,2676.8,6.3636,0.950
+3  Crossover / MS inlet,0.1500,111.4,2409.8,6.4861,0.873
+3g MS vapour outlet (dried),0.1500,111.4,2693.1,7.2229,1.000
+4  LP turbine exhaust,0.0070,39.0,2310.9,7.4390,0.892
+5  Condenser outlet (sat liq),0.0070,39.0,163.4,0.5591,0.000
+6  Condensate pump outlet,0.1500,39.0,163.5,0.5592,0.000
+7  FWH-2 deaerator outlet,0.1500,111.4,467.1,1.4335,0.000
+8  Booster pump outlet,1.0000,111.5,468.2,1.4341,0.000
+9  FWH-1 outlet (sat liq),1.0000,179.9,762.7,2.1384,0.000
+10 Feed pump outlet -> OTSG,4.5000,180.6,767.5,2.1403,0.000

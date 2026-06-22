@@ -1,0 +1,294 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="aegis40cogen" name="Aegis-40 Cogeneration PFD">
+    <mxGraphModel dx="2044" dy="1060" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1760" pageHeight="1120" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ni" parent="1" style="rounded=0;html=1;fillColor=none;strokeColor=#c0392b;dashed=1;dashPattern=10 6;verticalAlign=top;align=left;spacingLeft=6;spacingTop=4;fontSize=12;fontStyle=1;fontColor=#c0392b" value="NUCLEAR ISLAND  (safety)" vertex="1">
+          <mxGeometry height="696" width="264" x="54" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rpv" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#fbeee6;strokeColor=#c0392b;strokeWidth=2.5;verticalAlign=bottom;fontSize=11;fontStyle=2;fontColor=#c0392b;spacingBottom=4" value="Integral RPV  (R-1) natural circulation 12.8 MPa - 308/258 C - 125 MWth" vertex="1">
+          <mxGeometry height="456" width="156" x="96" y="216" as="geometry" />
+        </mxCell>
+        <mxCell id="core" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5b7b1;strokeColor=#1b2631;fontStyle=1;fontSize=11" value="Core 125 MWth" vertex="1">
+          <mxGeometry height="60" width="108" x="114" y="588" as="geometry" />
+        </mxCell>
+        <mxCell id="otsg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fadbd8;strokeColor=#1b2631;fontSize=10;fontStyle=1" value="helical-coil OTSG" vertex="1">
+          <mxGeometry height="108" width="108" x="114" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="pzr" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#f6ddcc;strokeColor=#1b2631;fontSize=9" value="self- pressurizer" vertex="1">
+          <mxGeometry height="60" width="84" x="126" y="276" as="geometry" />
+        </mxCell>
+        <mxCell id="tgrp" parent="1" style="rounded=0;html=1;fillColor=none;strokeColor=#34495e;dashed=1;dashPattern=4 3;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#34495e;spacingTop=2" value="SINGLE tandem-compound turbine-generator  (one shaft, T-1)" vertex="1">
+          <mxGeometry height="156" width="336" x="528" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="hpt" parent="1" style="shape=trapezoid;perimeter=trapezoidPerimeter;direction=north;rotation=-90;whiteSpace=wrap;html=1;fillColor=#aeb6bf;strokeColor=#1b2631;fontStyle=1;fontSize=11" value="HP" vertex="1">
+          <mxGeometry height="84" width="84" x="552" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="ms" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d4e6f1;strokeColor=#1b2631;fontStyle=1;fontSize=10" value="MS" vertex="1">
+          <mxGeometry height="54" width="42" x="654" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="lpt" parent="1" style="shape=trapezoid;perimeter=trapezoidPerimeter;direction=north;rotation=-90;whiteSpace=wrap;html=1;fillColor=#aeb6bf;strokeColor=#1b2631;fontStyle=1;fontSize=11" value="LP" vertex="1">
+          <mxGeometry height="108" width="108" x="714" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="gen" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f9e79f;strokeColor=#1b2631;fontStyle=1;fontSize=20" value="G" vertex="1">
+          <mxGeometry height="72" width="72" x="864" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="grid" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d4efdf;strokeColor=#1e8449;fontStyle=1;fontSize=10;fontColor=#1e8449" value="GRID 40.0 MWe (~35.6 charging)" vertex="1">
+          <mxGeometry height="72" width="144" x="1032" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="cond" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6eaf8;strokeColor=#1b2631;fontStyle=1;fontSize=11" value="Condenser  (E-1) 7 kPa - 39 C - 82.6 MWth" vertex="1">
+          <mxGeometry height="72" width="192" x="672" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="sea" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d4e6f1;strokeColor=#1f6fb2;fontStyle=1;fontSize=9;fontColor=#1f6fb2" value="SEAWATER ultimate heat sink Black Sea (Sinop) - once-through 2,065 kg/s (2.0 m3/s) - dT &lt;= 10 K multiport diffuser -&gt; far-field &lt;= 0.2 K" vertex="1">
+          <mxGeometry height="96" width="216" x="772" y="444" as="geometry" />
+        </mxCell>
+        <mxCell id="da" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d4efdf;strokeColor=#1b2631;fontStyle=1;fontSize=11" value="FWH / Deaerator" vertex="1">
+          <mxGeometry height="72" width="120" x="480" y="456" as="geometry" />
+        </mxCell>
+        <mxCell id="cp" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2471a3;fontStyle=1;fontSize=9" value="CP" vertex="1">
+          <mxGeometry height="31" width="31" x="656" y="422" as="geometry" />
+        </mxCell>
+        <mxCell id="fp" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2471a3;fontStyle=1;fontSize=9" value="FP" vertex="1">
+          <mxGeometry height="31" width="31" x="416" y="476" as="geometry" />
+        </mxCell>
+        <mxCell id="tces" parent="1" style="rounded=0;html=1;fillColor=none;strokeColor=#7e5109;dashed=1;dashPattern=8 5;verticalAlign=top;align=left;spacingLeft=6;spacingTop=3;fontSize=12;fontStyle=1;fontColor=#7e5109" value="TCES AUXILIARY  (non-safety, outside nuclear island)" vertex="1">
+          <mxGeometry height="360" width="744" x="936" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ihx" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdf2e9;strokeColor=#1b2631;fontStyle=1;fontSize=10" value="IHX  (E-3) isolation boundary" vertex="1">
+          <mxGeometry height="96" width="108" x="984" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="store" parent="1" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;whiteSpace=wrap;html=1;fillColor=#a04000;strokeColor=#1b2631;fontColor=#ffffff;fontStyle=1;fontSize=10" value="THERMOCHEMICAL STORE  (TCS-1) ammine NiCl2-SrCl2/NH3  735 t / 735 m3 - or zeolite-13X  1000 t / 1538 m3 - 200 MWh_th - loss-free - seasonal" vertex="1">
+          <mxGeometry height="252" width="216" x="1176" y="648" as="geometry" />
+        </mxCell>
+        <mxCell id="dhhx" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdebd0;strokeColor=#1b2631;fontStyle=1;fontSize=10" value="DH HX (E-4)" vertex="1">
+          <mxGeometry height="120" width="120" x="1464" y="672" as="geometry" />
+        </mxCell>
+        <mxCell id="dh" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef5e7;strokeColor=#ca6f1e;fontStyle=1;fontSize=11;fontColor=#ca6f1e" value="District heating network  (DH-1) 25 MWth peak" vertex="1">
+          <mxGeometry height="96" width="192" x="1440" y="834" as="geometry" />
+        </mxCell>
+        <mxCell id="el" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ebdef0;strokeColor=#7d3c98;fontStyle=1;fontSize=11;fontColor=#7d3c98" value="PEM electrolyser (off-peak)  EL-1 8 MWe" vertex="1">
+          <mxGeometry height="108" width="216" x="1152" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="h2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f4ecf7;strokeColor=#7d3c98;fontStyle=1;fontSize=11;fontColor=#7d3c98" value="H2 storage / export 160 kg/h - 640 t/yr" vertex="1">
+          <mxGeometry height="108" width="192" x="1440" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;align=left;fontSize=20;fontStyle=1;fontColor=#1b2631" value="AEGIS-40 iPWR  -  Cogeneration PFD: single turbine + thermochemical store (district heat) + H2" vertex="1">
+          <mxGeometry height="36" width="1440" x="48" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="sub" parent="1" style="text;html=1;align=left;fontSize=12;fontColor=#555555" value="125 MWth -&gt; 40.0 MWe (one tandem-compound turbine-generator)   -   co-products: district heat (TCES, 90/45 C) + H2   -   TCES is IHX-isolated, non-safety" vertex="1">
+          <mxGeometry height="30" width="1560" x="48" y="59" as="geometry" />
+        </mxCell>
+        <mxCell id="leg" parent="1" style="text;html=1;align=left;fontStyle=1;fontSize=11" value="LEGEND" vertex="1">
+          <mxGeometry height="19" width="144" x="48" y="828" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt0" parent="1" style="text;html=1;align=left;fontSize=10" value="primary coolant" vertex="1">
+          <mxGeometry height="17" width="312" x="84" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt1" parent="1" style="text;html=1;align=left;fontSize=10" value="main / extraction steam" vertex="1">
+          <mxGeometry height="17" width="312" x="444" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt2" parent="1" style="text;html=1;align=left;fontSize=10" value="feedwater / condensate" vertex="1">
+          <mxGeometry height="17" width="312" x="84" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt3" parent="1" style="text;html=1;align=left;fontSize=10" value="TCES charge loop (closed)" vertex="1">
+          <mxGeometry height="17" width="312" x="444" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt4" parent="1" style="text;html=1;align=left;fontSize=10" value="district heat water" vertex="1">
+          <mxGeometry height="17" width="312" x="84" y="901" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt5" parent="1" style="text;html=1;align=left;fontSize=10" value="electricity" vertex="1">
+          <mxGeometry height="17" width="312" x="444" y="901" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt6" parent="1" style="text;html=1;align=left;fontSize=10" value="hydrogen" vertex="1">
+          <mxGeometry height="17" width="312" x="84" y="923" as="geometry" />
+        </mxCell>
+        <mxCell id="tb" parent="1" style="text;html=1;align=left;fontSize=10;fontStyle=1" value="Fig 8.9-3  -  Aegis-40 cogeneration (TCES district heat + H2) single turbine - IHX-isolated store - 90/45 C DH - PEM H2   -   NTS" vertex="1">
+          <mxGeometry height="36" width="840" x="48" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="S1" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#e67e22;strokeWidth=2.8;fontSize=11;fontStyle=1;fontColor=#e67e22;labelBackgroundColor=#ffffff" value="main steam  4.5 MPa - 296 C - 57.8 kg/s">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="174" y="96" />
+            </Array>
+            <mxPoint x="174" y="216" as="sourcePoint" />
+            <mxPoint x="552" y="96" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#e67e22;strokeWidth=2.0;fontSize=11;fontStyle=1;fontColor=#e67e22;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="636" y="150" as="sourcePoint" />
+            <mxPoint x="654" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#e67e22;strokeWidth=2.0;fontSize=11;fontStyle=1;fontColor=#e67e22;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="696" y="150" as="sourcePoint" />
+            <mxPoint x="714" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1b2631;strokeWidth=3.0;fontSize=11;fontStyle=1;fontColor=#1b2631;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="822" y="150" as="sourcePoint" />
+            <mxPoint x="864" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sel" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1e8449;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#1e8449;labelBackgroundColor=#ffffff" value="40.0 MWe -&gt; grid">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="936" y="150" as="sourcePoint" />
+            <mxPoint x="1032" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S4" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#e67e22;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#e67e22;labelBackgroundColor=#ffffff" value="LP exhaust  x=0.892">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="768" y="204" as="sourcePoint" />
+            <mxPoint x="768" y="312" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SW2" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1f6fb2;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#1f6fb2;labelBackgroundColor=#ffffff" value="outfall +10 K">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="864" y="342" as="sourcePoint" />
+            <mxPoint x="888" y="342" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SW1" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1f6fb2;strokeWidth=2.4;dashed=1;dashPattern=8 6;fontSize=11;fontStyle=1;fontColor=#1f6fb2;labelBackgroundColor=#ffffff" value="intake 8-25 C">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="888" y="372" as="sourcePoint" />
+            <mxPoint x="864" y="372" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S5" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#2471a3;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#2471a3;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="672" y="384" as="sourcePoint" />
+            <mxPoint x="672" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S6" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#2471a3;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#2471a3;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="672" y="492" />
+            </Array>
+            <mxPoint x="672" y="456" as="sourcePoint" />
+            <mxPoint x="600" y="492" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S7" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#2471a3;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#2471a3;labelBackgroundColor=#ffffff" value="feedwater -&gt; OTSG  4.5 MPa">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="492" as="sourcePoint" />
+            <mxPoint x="449" y="492" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S7b" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#2471a3;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#2471a3;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="288" y="492" />
+              <mxPoint x="288" y="552" />
+            </Array>
+            <mxPoint x="415" y="492" as="sourcePoint" />
+            <mxPoint x="252" y="552" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sx" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#e67e22;strokeWidth=2.4;dashed=1;dashPattern=8 6;fontSize=11;fontStyle=1;fontColor=#e67e22;labelBackgroundColor=#ffffff" value="HP extraction  1.0 MPa - 180 C  (charge)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="276" />
+              <mxPoint x="1032" y="276" />
+            </Array>
+            <mxPoint x="480" y="96" as="sourcePoint" />
+            <mxPoint x="1032" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tc" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#7e5109;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#7e5109;labelBackgroundColor=#ffffff" value="charge loop  168 C (closed)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1092" y="654" as="sourcePoint" />
+            <mxPoint x="1176" y="654" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tcr" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#7e5109;strokeWidth=2.4;dashed=1;dashPattern=8 6;fontSize=11;fontStyle=1;fontColor=#7e5109;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1176" y="690" as="sourcePoint" />
+            <mxPoint x="1092" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Td" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#ca6f1e;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#ca6f1e;labelBackgroundColor=#ffffff" value="discharge  150 C">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1392" y="732" as="sourcePoint" />
+            <mxPoint x="1464" y="732" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tdh" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#ca6f1e;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#ca6f1e;labelBackgroundColor=#ffffff" value="supply 90 C">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1524" y="792" as="sourcePoint" />
+            <mxPoint x="1524" y="834" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tdr" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#ca6f1e;strokeWidth=2.4;dashed=1;dashPattern=8 6;fontSize=11;fontStyle=1;fontColor=#ca6f1e;labelBackgroundColor=#ffffff" value="return 45 C  (133 kg/s)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1488" y="882" as="sourcePoint" />
+            <mxPoint x="1488" y="793" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sp" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1e8449;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#1e8449;labelBackgroundColor=#ffffff" value="off-peak power">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1080" y="150" as="sourcePoint" />
+            <mxPoint x="1080" y="228" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1e8449;strokeWidth=2.0;fontSize=11;fontStyle=1;fontColor=#1e8449;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1080" y="264" as="sourcePoint" />
+            <mxPoint x="1152" y="264" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sh" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#7d3c98;strokeWidth=2.4;fontSize=11;fontStyle=1;fontColor=#7d3c98;labelBackgroundColor=#ffffff" value="H2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1368" y="282" as="sourcePoint" />
+            <mxPoint x="1440" y="282" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg0" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#c0392b;strokeWidth=4;fontSize=11;fontStyle=1;fontColor=#c0392b;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="866" as="sourcePoint" />
+            <mxPoint x="79" y="866" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg1" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#e67e22;strokeWidth=4;fontSize=11;fontStyle=1;fontColor=#e67e22;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="408" y="866" as="sourcePoint" />
+            <mxPoint x="439" y="866" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg2" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#2471a3;strokeWidth=4;fontSize=11;fontStyle=1;fontColor=#2471a3;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="888" as="sourcePoint" />
+            <mxPoint x="79" y="888" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg3" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#7e5109;strokeWidth=4;fontSize=11;fontStyle=1;fontColor=#7e5109;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="408" y="888" as="sourcePoint" />
+            <mxPoint x="439" y="888" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg4" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#ca6f1e;strokeWidth=4;fontSize=11;fontStyle=1;fontColor=#ca6f1e;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="910" as="sourcePoint" />
+            <mxPoint x="79" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg5" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1e8449;strokeWidth=4;fontSize=11;fontStyle=1;fontColor=#1e8449;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="408" y="910" as="sourcePoint" />
+            <mxPoint x="439" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg6" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#7d3c98;strokeWidth=4;fontSize=11;fontStyle=1;fontColor=#7d3c98;labelBackgroundColor=#ffffff" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="931" as="sourcePoint" />
+            <mxPoint x="79" y="931" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

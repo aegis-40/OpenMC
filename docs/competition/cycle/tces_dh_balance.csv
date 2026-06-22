@@ -1,0 +1,11 @@
+quantity,ammine,zeolite,unit
+round_trip_eff,0.88,0.78,-
+energy_density,0.272,0.2,kWh/kg
+discharge_temp,150.0,130.0,C
+store_mass,735,1000,t
+store_volume,735,1538,m3
+heat_to_charge,227,256,MWh_th
+charge_penalty,4.36,4.92,MWe
+store_delivered,200.0,200.0,MWh_th
+dh_peak,25.0,25.0,MWth
+h2_rate,160,160,kg/h
