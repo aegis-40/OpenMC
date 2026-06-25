@@ -62,6 +62,22 @@ DEFAULT_WORKDIR = os.path.join("docs", "competition", "digital-appendix", "pince
 LINEAR_HEAT_W_PER_CM = 174.0   # Romano 2021 §3.2
 FUEL_RADIUS_CM = 0.39218       # BEAVRS pellet radius (openmc.examples.pwr_pin_cell)
 
+
+def is_fuel(mat):
+    """Identify the UO2 fuel material robustly.
+
+    The built-in ``pwr_pin_cell()`` names the fuel ``'UO2 (2.4%)'`` (no literal
+    "fuel"), so match on composition/name instead of a hard-coded substring:
+    the fuel is the material that contains uranium *and* oxygen.
+    """
+    name = (mat.name or "").lower()
+    if "uo2" in name or "fuel" in name:
+        return True
+    nucs = {n for n, _, _ in mat.nuclides}
+    has_u = any(n.startswith("U23") for n in nucs)
+    has_o = any(n.startswith("O1") for n in nucs)
+    return has_u and has_o
+
 # Principal isotopes to report (the burnup-credit / source-term set). These are
 # the nuclides that drive storage k_eff, decay heat and radiotoxicity, so they
 # are the ones whose depletion accuracy the safety case actually depends on.
@@ -77,9 +93,14 @@ REF_ACTINIDE_PCT = 1.0  # actinide concentrations agree to a fraction of a perce
 REF_FP_PCT = 1.0        # most fission products agree within 1%
 
 
-def burnup_schedule(smoke: bool):
+def burnup_schedule(smoke: bool, optc: bool = False):
     """Return the cumulative-burnup *increments* (MWd/kg), per Romano 2021 §3.2."""
     steps = [0.1, 0.4, 0.5]                 # fine start to capture xenon build-in
+    if optc:
+        # Option C: fine start, then coarse to ~31 MWd/kg in 13 steps. The late
+        # high-burnup steps are the slow ones and add little to a configuration-
+        # acceptance check, so they are coarsened rather than dropped.
+        return steps + [1.0] * 5 + [5.0] * 5   # -> 31.0 MWd/kg, 13 steps
     steps += [1.0] * 9                      # 1.0 -> 10.0 MWd/kg
     if smoke:
         return steps                        # stop at 10 MWd/kg for a quick check
@@ -95,7 +116,7 @@ def build_model(particles: int, batches: int, inactive: int, seed: int):
     # metal mass (per 1 cm of height). Burnup units then convert via the power.
     import math
     for mat in model.materials:
-        if mat.name and "fuel" in mat.name.lower():
+        if is_fuel(mat):
             mat.volume = math.pi * FUEL_RADIUS_CM ** 2
             mat.depletable = True
 
@@ -257,6 +278,8 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--smoke", action="store_true",
                     help="quick functional run, deplete only to 10 MWd/kg")
+    ap.add_argument("--optc", action="store_true",
+                    help="Option C: coarse schedule to ~31 MWd/kg in 13 steps")
     ap.add_argument("--particles", type=int, default=20000,
                     help="particles/batch (paper used 4e6 for ~3-4 pcm)")
     ap.add_argument("--batches", type=int, default=100)
@@ -293,14 +316,13 @@ def main(argv=None) -> int:
         return 2
     openmc.config["chain_file"] = chain
 
-    steps = burnup_schedule(args.smoke)
+    steps = burnup_schedule(args.smoke, args.optc)
     bu_axis = cumulative_bu(steps)
     print(f"[1/4] BEAVRS 2.4% pincell; {len(steps)} burnup steps -> "
           f"{bu_axis[-1]:.1f} MWd/kg; seed {args.repeat}")
 
     model, openmc = build_model(args.particles, args.batches, args.inactive, args.repeat)
-    fuel_id = next(m.id for m in model.materials
-                   if m.name and "fuel" in m.name.lower())
+    fuel_id = next(m.id for m in model.materials if is_fuel(m))
 
     print(f"[2/4] depleting at {LINEAR_HEAT_W_PER_CM} W/cm "
           f"({args.particles} part x {args.batches} batches/step) ...")

@@ -1,0 +1,62 @@
+[
+  {
+    "state": "all_rods_out10",
+    "k": 1.0276237685609393,
+    "sigma_pcm": 33.757447553559466,
+    "crw_pcm": 0.0,
+    "ref_serpent": 1.02768,
+    "ref_openmc": 1.02786,
+    "ref_crw": null,
+    "dk_serpent_pcm": -5.623143906063888
+  },
+  {
+    "state": "RE1",
+    "k": 1.0074071333797132,
+    "sigma_pcm": 35.56346783549359,
+    "crw_pcm": -1952.8537120939357,
+    "ref_serpent": 1.00723,
+    "ref_openmc": 1.00751,
+    "ref_crw": -1975,
+    "dk_serpent_pcm": 17.71333797131458
+  },
+  {
+    "state": "RE2",
+    "k": 1.0037147448238957,
+    "sigma_pcm": 43.69319439569013,
+    "crw_pcm": -2318.0211718587184,
+    "ref_serpent": 1.00313,
+    "ref_openmc": 1.00333,
+    "ref_crw": -2381,
+    "dk_serpent_pcm": 58.47448238955888
+  },
+  {
+    "state": "SH3",
+    "k": 0.9895324374467637,
+    "sigma_pcm": 30.942463666641586,
+    "crw_pcm": -3745.9499765666105,
+    "ref_serpent": 0.98978,
+    "ref_openmc": 0.98994,
+    "ref_crw": -3726,
+    "dk_serpent_pcm": -24.75625532363246
+  },
+  {
+    "state": "SH4",
+    "k": 0.9900696203280204,
+    "sigma_pcm": 34.173029004949925,
+    "crw_pcm": -3691.118947797806,
+    "ref_serpent": 0.98971,
+    "ref_openmc": 0.98993,
+    "ref_crw": -3733,
+    "dk_serpent_pcm": 35.96203280203936
+  },
+  {
+    "state": "all_rods_in",
+    "k": 0.8571116540043442,
+    "sigma_pcm": 36.88520301376883,
+    "crw_pcm": -19359.034743599797,
+    "ref_serpent": 0.85791,
+    "ref_openmc": 0.85822,
+    "ref_crw": -19255,
+    "dk_serpent_pcm": -79.83459956557581
+  }
+]

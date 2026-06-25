@@ -105,10 +105,10 @@ architecture**, which eliminates large-bore primary piping and the reactor coola
 | Core inlet / outlet temperature | 258 / 308 | °C / °C |
 | Core temperature rise ΔT | 50 | K |
 | Core average temperature | 283 | °C |
-| Saturation temp. @ 12.8 MPa | 329.7 | °C (→ 21.7 °C hot-leg subcooling) |
-| Average primary mass flow | ≈ 483 | kg/s (natural circulation) |
-| Natural-circulation thermal height H_th | 2.85 | m (core-mid → OTSG-mid) |
-| Primary driving head | 2.62 | kPa (buoyancy) |
+| Saturation temp. @ 12.8 MPa | ≈ 331 | °C (→ ≈ 23 °C hot-leg subcooling) |
+| Average primary mass flow | ≈ 467 | kg/s (G ≈ 543 kg/m²·s; natural circulation) |
+| Natural-circulation thermal centre height H_tc | ≈ 4.0 | m (core-mid → OTSG-mid; §8.4 CFD loop balance) |
+| Primary driving head | ≈ 3.67 | kPa (buoyancy at H_tc 4 m) |
 | Primary coolant inventory | ≈ 26 (≈ 35 m³) | t [CONFIRM vs §8.4 T-H model] |
 | Steam-generator (secondary) pressure | 4.5 | MPa |
 | Steam temperature (OTSG outlet) | 296 | °C |
@@ -177,7 +177,9 @@ natural-circulation analysis** and feeds §8.2.4, §8.3 and §8.9.
 Major outages: **15 days every 12 months** (refuelling) + **30 days every 120 months** (turbine /
 vessel in-service inspection) → planned availability ≈ **95 %**, consistent with the design CF.
 Derived: net efficiency = 40/125 = **32.0 %**; specific power = 125/9.87 = **12.66 MW/tHM**; primary
-flow from Q = ṁ·c_p·ΔT (c_p ≈ 5.18 kJ/kg·K @ 283 °C/12.8 MPa) → **ṁ ≈ 483 kg/s**.
+flow from Q = ṁ·c_p·ΔT (c_p ≈ 5.35 kJ/kg·K @ 283 °C/12.8 MPa, IAPWS-IF97) → **ṁ ≈ 467 kg/s**
+(core mass flux G ≈ 543 kg/m²·s). [Reconciled to the §8.4 conjugate-CFD T-H model, Adilbek 2026; the
+earlier 483 kg/s used c_p 5.18.]
 
 ## 8.1.6 Design-preparation phase, methodology and basis documents
 
@@ -441,23 +443,98 @@ since zoning repeats each reload). A full equilibrium shuffle is the next deplet
 | SDM with most-reactive rod stuck; k_ARI < 0.95; N−1 < 1.0 | shutdown margin / single failure | SSR-2/1 Req. 25/46; NUREG-1431 LCO 3.1.1; GDC 26 |
 | Max enrichment 4.95 ≤ 5.0 | LEU fabrication/licensing | commercial LEU; IAEA fuel-safety guidance |
 
+**Neutronics verification & validation (V&V).** The OpenMC neutronics is qualified on the **same
+two-legged basis as the T-H toolchain** (§8.4.6): *verification* (is the transport solution converged?)
+and *validation* (does it reproduce reality?), then **anchored to the licensed NuScale NPM** — the
+reactor whose core Aegis-40 deliberately mirrors (the same reference Adilbek used to validate the CFD).
+
+*Verification — statistical convergence (the GCI-equivalent).* k_eff is converged to **< ~30 pcm (1σ)**
+at STAT_FINAL statistics with **Shannon-entropy** source-convergence confirmed before active batches;
+**seed-to-seed repeatability** holds within the Monte-Carlo σ (independent RNG streams) — the neutronics
+analogue of Adilbek's grid-convergence + energy-conservation gates.
+
+*Validation — published benchmarks (measured + code-to-code).* OpenMC's accuracy on PWR lattice/
+full-core physics and depletion is established in the open literature; we **cite** it and **run** the
+design deck + one confirmatory case per code (§8.13):
+
+**Table 8.2-6 — OpenMC neutronics validation basis**
+
+| Capability | Benchmark (type) | Published OpenMC agreement | Aegis-40 use |
+|---|---|---|---|
+| Code/transport verification | Romano & Forget 2013 (code paper) | reference implementation | solver trust |
+| Criticality (k_eff bias) | **ICSBEP** (OECD-NEA, *measured*) | within evaluated benchmark σ | core-deck k_eff |
+| Deterministic transport | **C5G7** (OECD-NEA) | reference lattice/core | method cross-check |
+| Full-core PWR (*measured*) | **BEAVRS** (MIT-CRPG) | k_eff & assembly power within measurement | 17×17 core physics, peaking |
+| Depletion / isotopics | **Serpent** code-to-code (Romano et al. 2021) | k < 20 pcm; actinides/FP < 1 % | burnup, coefficients, inventory |
+| Spent-fuel assay (*measured*) | **SFCOMPO 2.0** (OECD-NEA) | within assay uncertainty | §8.11 source term / storage |
+
+*Design anchor — Aegis-40 vs NuScale NPM.* Aegis-40's core is **geometrically the NuScale NPM core**
+(37 FA, 17×17, 2.0 m active height) run at a comparable rating, with **one deliberate departure: it is
+soluble-boron-free** (integral Gd₂O₃ + Er₂O₃ instead of NuScale's chemical-shim boron). Sitting inside
+a licensed NuScale-class neutronic envelope is a credibility anchor; being boron-free is the design
+differentiator (and a safety asset — guaranteed-negative MTC with no boron-dilution accident path):
+
+**Table 8.2-7 — Neutronic design-anchor comparison (Aegis-40 37-FA vs NuScale NPM)**
+
+| Parameter | Aegis-40 (latest 37-FA) | NuScale NPM (published) | Significance |
+|---|---|---|---|
+| Thermal power | 125 MWth | 160 MWth (NPM-160; 250 in US460) | Aegis lower → lower power density |
+| Fuel assemblies | **37** | **37** | identical core size |
+| Lattice | **17×17** | **17×17** | identical, off-the-shelf fuel |
+| Active fuel height | **2.0 m** | **≈ 2.0 m** (half-height) | identical class → CFD mesh transfers (§8.4) |
+| Heavy-metal loading | 9.44 tHM | 8.13 tHM | comparable inventory (Aegis +16 %, see note ‡) |
+| Specific power | **13.24 MW/tHM** | 19.7 MW/tHM | Aegis **~33 % lower** → wider thermal margin |
+| Max enrichment | 4.95 wt% | ≤ 4.95 wt% | identical LEU limit |
+| Burnable absorber | Gd₂O₃ **+ Er₂O₃** | Gd₂O₃ | Aegis adds Er for boron-free cold SDM |
+| Soluble boron (chemical shim) | **None (SBF)** | **Yes** | **key distinction** — no dilution accident; MTC always < 0 |
+| Reactivity coeffs (MTC/DTC/void) | all < 0 ⏳[37FA-PENDING] | all < 0 | both inherently self-regulating |
+| Control-rod assemblies | 12 | 16 (24 absorber rods each) | Aegis relies more on integral BA (boron-free) |
+| Cycle length | ⏳ *(21-FA: 479 EFPD)* | 24 months | comparable target |
+| Discharge burnup | ⏳ *(21-FA: 42.8 GWd/MTU)* | ≈ 35 GWd/MTU (design limit 62) | within LWR fleet range |
+
+> **What the comparison establishes — and its limits.** NuScale's detailed neutronics (k(BU), per-pin
+> peaking, coefficient values) are **proprietary**, so Table 8.2-7 is a **design-envelope anchor, not a
+> numeric benchmark** — the *numeric* validation is Table 8.2-6 (BEAVRS / ICSBEP / Serpent / SFCOMPO,
+> which are open and measured). The Aegis column uses the **latest pre-final 37-FA OpenMC** values
+> (⏳ replaced from the STAT_FINAL run); the **NuScale column is pinned to the NuScale DCA FSAR Tier 2,
+> Tables 4.1-1 / 4.1-2 / 4.1-3** (Rev. 0): 160 MWt, 549.48 lb UO₂/FA → 8.13 tHM, avg discharge ≈35
+> (peak-rod design limit 62) GWd/MTU, 16 CRAs × 24 rods, 24-month cycle.
+>
+> ‡ **Heavy-metal basis (the +16 % gap).** *Not* a Gd effect — both cores carry Gd₂O₃ (Aegis adds
+> Er₂O₃), which *displaces* UO₂ and *lowers* HM, so Aegis's extra burnable-absorber oxide would make it
+> the lighter, not heavier. The Aegis **9.44 tHM** is a **direct 37-FA geometric calc** (264 rods × 37 FA
+> × π·0.40958²·200 cm × 10.40 g/cm³ × 0.8814; `scripts/_compute_aegis_hm.py`), replacing the earlier
+> provisional 21-FA value (5.6 tHM, itself ~4.5 % high) scaled ×37/21 = 9.87. The residual gap is an
+> **accounting basis**: Aegis **638 lb UO₂/FA** vs the FSAR's *as-manufactured* **549.48 lb/FA**, driven
+> mainly by density basis (Aegis 10.40 g/cm³ vs the FSAR mass's implied ≈9.1 g/cm³ effective) and a
+> slightly larger pellet (Aegis Ø 0.323 in vs NuScale 0.3195 in). On a like (as-manufactured) basis the
+> two cores are ≈ equal.
+
 ## 8.2.4 Steady-state thermal-hydraulics (interface to §8.4)
 
-The full T-H solution (spatial coolant/clad temperature fields, loop pressure balance) is produced in
-§8.4. Core-side assumptions: full power 125 MWth on the BOC power shape, single-phase water at
-≈ 12.8 MPa cooled by natural circulation, boundary conditions 258 → 308 °C (ΔT 50 K), ṁ ≈ 483 kg/s;
-hot-channel DNB via the W-3 CHF correlation on the Table 8.2-5 peaking. The 37-FA core's **half
-specific power** widens every steady-state thermal margin relative to the 21-FA summary below.
+The full T-H solution (spatial coolant/clad/fuel temperature fields, loop pressure balance) is produced
+in §8.4 by a **3-region conjugate-CFD model** (OpenFOAM `chtMultiRegionFoam`, fuel/clad/coolant) on the
+37-FA pin geometry, coupled to a W-3/Jens-Lottes safety post-processor (Adilbek 2026). Core-side
+assumptions: full power 125 MWth on the chopped-cosine power shape (F_z 1.29, L_e 2.607 m), single-phase
+water at ≈ 12.8 MPa cooled by natural circulation, boundary conditions 258 → 308 °C (ΔT 50 K),
+ṁ ≈ 467 kg/s (G ≈ 543 kg/m²·s); hot-channel DNB via the W-3 CHF correlation (Tong non-uniform F-factor)
+on the Table 8.2-5 peaking. The 37-FA core's **half specific power** (q′_peak 24.6 → 12.8 kW/m vs 21-FA)
+is the direct cause of the wide margins below.
 
-**Table 8.2-10 — Core steady-state T-H summary (from §8.4; 21-FA values, 37-FA improves)**
+**Table 8.2-10 — Core steady-state T-H summary (37-FA conjugate CFD, §8.4)**
 
-| Quantity | Result (21-FA) | Limit | Margin | 37-FA expectation |
-|---|---|---|---|---|
-| Primary T (in/out/avg) | 258 / 308 / 283 °C | — | single-phase | unchanged (same legs) |
-| Hot-leg subcooling | 21.7 °C | > 0 | no bulk boiling | unchanged |
-| MDNBR (hot pin, W-3) | 1.466 | ≥ 1.3 | +12.8 % | higher (lower q′, flatter F_ΔH) [SIM-PENDING] |
-| Peak clad temp (steady) | 391 °C | < 1200 °C | +809 °C | lower |
-| Peak fuel centerline (BOL) | ≈ 1750 °C | < ~2840 °C | ≈ +1090 °C | lower (§8.3) |
+| Quantity | Result (37-FA CFD) | Limit | Margin |
+|---|---|---|---|
+| Primary T (in/out/avg) | 258 / 308 / 283 °C | — | single-phase |
+| Hot-channel mixing-cup outlet | ≈ 335 °C (≈ T_sat 331 °C) | T_sat | at subcooled-boiling onset *by design* |
+| MDNBR (hot pin, W-3 + Tong) | **1.56** (1.55 design anchor F_ΔH) | ≥ 1.3 | +20 % |
+| Peak clad temperature (PCT, boiling clamp) | **349 °C** | < 1200 °C | +851 °C |
+| Peak fuel centerline (BOL) | **734 °C** | < ~2840 °C | +2106 °C |
+
+> **Peaking sensitivity (open item).** The CFD safety case above uses the **design-target** peaking
+> (F_ΔH 1.55, F_q 2.00); the in-progress 37-FA STAT_FINAL run shows a partial F_ΔH ≈ 1.746. At that
+> value the hot-pin power rises ~13 % (19.8 → 22.3 kW/pin) and MDNBR erodes to **≈ 1.4** — still above
+> the 1.3 limit, but the +20 % headline tightens. MDNBR is re-run on the final per-pin map ⏳[37FA-PENDING].
 
 ## 8.2.5 Depleted-fuel inventory (BOC → EOC)
 
@@ -515,8 +592,9 @@ pivot:
 - Fuel rods in core: 37 FA × 264 = **9 768 rods**; active 2.0 m → **19 536 m** of fuel.
 - **Core-average linear heat rate** q′_avg = 125 MW / 19 536 m ≈ **6.4 kW/m** (vs 11.3 kW/m for
   21 FA).
-- **Peak linear heat rate** q′_peak = q′_avg × F_q ≤ 6.4 × 2.03 ≈ **13 kW/m** (with the 37-FA
-  separable F_q; ⏳ confirm at STAT_FINAL). Even bounding with the 21-FA F_q 3.48 gives ≈ 22 kW/m.
+- **Peak linear heat rate** q′_peak = q′_avg × F_q ≈ 6.4 × 2.00 ≈ **12.8 kW/m** (design-target
+  F_q 2.00, used by the §8.4 CFD; ⏳ confirm separable F_q at STAT_FINAL). Bounding with the 21-FA
+  F_q 3.48 gives ≈ 22 kW/m; the peak wall heat flux is q″ = q′_peak/(π·D_clad) ≈ **0.428 MW/m²**.
 - Core specific power = 125 MW / 9.87 tHM ≈ **12.66 MW/tHM**.
 
 The peak linear heat rate (~13 kW/m, ≤ 22 kW/m bounding) is well below the classic LWR guideline
@@ -527,28 +605,31 @@ quantitative payoff of the 37-FA / low-specific-power design.
 ## 8.3.3 Fuel-performance — centerline temperature
 
 The peak-rod steady-state centerline temperature is built from the coolant through each thermal
-resistance (1-D conduction, Todreas & Kazimi). The 37-FA peak q′ being lower than the 21-FA case, the
-21-FA stack-up below is a **conservative bound**:
+resistance (1-D radial conduction stack). For the 37-FA core this is now a **directly computed
+conjugate-CFD result** (OpenFOAM `chtMultiRegionFoam`, §8.4 / Adilbek 2026) at the 12.8 kW/m peak,
+cross-checked against the Dittus-Boelter + gap-resistance correlation stack to < 1 K on the fuel:
 
-**Table 8.3-2 — Peak-rod temperature stack-up (BOL, conservative 21-FA bound)**
+**Table 8.3-2 — Peak-rod radial temperature stack-up (BOL, 37-FA conjugate CFD at q′_peak 12.8 kW/m)**
 
-| Resistance | ΔT (K) | Method |
+| Resistance | Temperature / ΔT | Method |
 |---|---|---|
-| Bulk coolant (local hot) | ≈ 315 °C | §8.2.4 / §8.4 |
-| Film (q″ ≈ 1.3 MW/m²) | ~39 | ΔT = q″/h, h ≈ 34 000 W/m²·K |
-| Clad conduction | ~47 | q′·ln(r_o/r_i)/(2πk_clad) |
-| Pellet–clad gap (BOL) | ~250 | q″_gap/h_gap, h_gap ≈ 6000 |
-| Fuel pellet (surface→centre) | ~1100 | ∫k dT = q′/4π, k≈3 |
-| **Peak centerline** | **≈ 1750 °C** | sum |
+| Hot-channel bulk coolant | ≈ 335 °C | §8.4 CFD (mixing-cup, hot channel) |
+| Convective film (q″ ≈ 0.428 MW/m²) | clad outer ≈ **349 °C** | Jens-Lottes subcooled-boiling-clamped film |
+| Clad conduction (Zr-4) | clad inner ≈ **379 °C** | q′·ln(r_o/r_i)/(2πk_clad) |
+| Pellet–clad He gap (contact resistance) | large ΔT across gap | thicknessLayers 9.15e-5 / kappaLayers 0.48 |
+| Fuel pellet (surface→centre) | rises to centerline | ∫k dT = q′/4π (Lucuta k(T,BU)) |
+| **Peak fuel centerline** | **≈ 734 °C** | CFD (stack agrees to 0.7 K) |
 
-At the 37-FA peak q′ (~13 kW/m vs ~39 kW/m here) the centerline drops well below this; even the
-bounding value sits **~1090 °C below UO₂ melt** (~62 % of melt absolute). The gap term dominates and
-shrinks as the gap closes with burnup. [Refine with §8.4 coolant BC and an optional FRAPCON case.]
+The 37-FA peak centerline of **734 °C sits ~2 106 °C below UO₂ melt** (~36 % of melt absolute) — a
+direct consequence of the modest 12.8 kW/m peak linear power and the single most comfortable margin in
+the design. The gap term dominates the rise and shrinks as the gap closes with burnup, so this BOL
+value bounds the in-life centerline. [Optional FRAPCON confirmatory case noted in §8.13.]
 
 ## 8.3.4 Fission-gas release, rod pressure, clad integrity
 
-- **FGR:** with most of the pellet below ~1000 °C (further assured by the low 37-FA q′), FGR is
-  governed by the Halden threshold; peak-rod EOL FGR expected modest (≤ ~10 %). A ~180 mm gas plenum
+- **FGR:** with the **entire pellet below ~734 °C** (peak centerline, §8.3.3) — well under the
+  ~1000 °C Halden athermal-release threshold — FGR is governed by athermal/recoil release only;
+  peak-rod EOL FGR expected low (≤ ~5–10 %). A ~180 mm gas plenum
   (hold-down spring) keeps EOL rod internal pressure below system pressure (no clad lift-off).
 - **Clad stress/corrosion:** Zr-4 carries the pressure differential within primary-membrane
   allowables; oxide (≤ 100 µm), H-pickup, creep/growth, fast-fluence embrittlement all bounded by the
@@ -593,8 +674,11 @@ Radial stack (core outward), the basis of the coupled n-γ shielding model:
 
 # 8.4 Cooling Circuit System Design
 
-> **Code:** natural-circulation loop balance + DNBR, IAPWS-IF97 (`scripts/natcirc_primary.py`);
-> conjugate CFD for the hot-pin field. **All axial/flow values are preserved 21→37 FA.**
+> **Code:** 3-region conjugate CFD (OpenFOAM `chtMultiRegionFoam` v2412, k-ω SST) for the hot-pin
+> fuel/clad/coolant field, coupled to a W-3/Jens-Lottes correlation safety post-processor, plus a
+> 1-D natural-circulation loop balance (IAPWS-IF97) for the riser height. The toolchain is verified
+> (ASME V&V-20 grid convergence + energy-conservation gate) and validated against NuScale NPM-160
+> (§8.13; Adilbek 2026). T-H is solved on the **37-FA pin geometry** at 125 MWth.
 
 ## 8.4.1 Architecture
 
@@ -618,23 +702,39 @@ for stable natural circulation. ‹FIGURE 8.4-1 — in-vessel natural-circulatio
 ## 8.4.2 Primary cooling — natural circulation
 
 **Design conditions:** 125 MWth; 12.8 MPa op / 14.1 MPa design; hot leg 308 °C, cold leg 258 °C,
-ΔT 50 K, average 283 °C; saturation 329.7 °C → **21.7 °C hot-leg subcooling** (single-phase with
-margin); ṁ ≈ 483 kg/s; light water, boron-free.
+ΔT 50 K, average 283 °C; saturation 331 °C → **23 °C hot-leg subcooling** (single-phase with
+margin); ṁ ≈ 467 kg/s (G ≈ 543 kg/m²·s); light water, boron-free.
 
-**Driving head (heat-removal capability).** The flow is set by the balance of buoyancy head and loop
-losses (Todreas & Kazimi single-phase natural-circulation momentum integral):
+**Driving head and riser height.** With no pumps, the core flow is the output of a 1-D buoyancy
+balance between the hot riser and the cold downcomer:
 
-> ΔP_driving = (ρ_cold − ρ_hot)·g·H_th = Σ K_i · ½ρv²
+> ṁ = [ 2 ρ² A² g H_tc β P / (c_p K_tot) ]^(1/3),   ΔP_driving = (ρ_cold − ρ_hot)·g·H_tc = Σ K_i·½ρv²
 
-with H_th = 2.85 m (core-mid → OTSG-mid). ρ_cold = 796.7, ρ_hot = 703.1 kg/m³ (Δρ = 93.6),
-**ΔP_driving = 2.62 kPa**, core velocity 0.90 m/s (CFD), implied flow area 0.71 m², sustained
-loop-loss coefficient K_tot ≈ 8.6. The **independent loop momentum balance and the CFD velocity field
-agree** — the primary evidence that natural circulation removes 125 MWth as intended.
-[Adilbek: replace lumped K_tot with the component-resolved loss tally.]
+The single design knob is the **riser thermal-centre height H_tc** (core mid-plane → OTSG mid). With
+realistic component-resolved loop losses (K_form ≈ 12), the **FER-specified ΔT 50 K pins the flow at
+G ≈ 543 kg/m²·s, delivered at H_tc ≈ 4.0 m** (ρ_cold 796.7, ρ_hot 703.1 kg/m³, Δρ 93.6 →
+ΔP_driving ≈ **3.67 kPa**). The independent loop momentum balance and the conjugate-CFD velocity field
+agree, and the field is all-positive upflow (no recirculation) — the primary evidence that natural
+circulation removes 125 MWth as intended.
 
-> **37-FA preservation.** H_th, ΔT, flow, OTSG duty and the riser area are all **unchanged** by the
-> 21→37 pivot (constant power), so this entire loop balance carries over verbatim — no re-analysis
-> (CAD spec §0′).
+**Table 8.4-1a — Riser-height sweep (G and MDNBR vs H_tc; K_form 12).** H_tc ≈ 4 m is the practical
+floor; a taller riser trades vessel height for DNB margin.
+
+| H_tc [m] | G [kg/m²·s] | core ΔT [K] | MDNBR | Verdict |
+|---|---|---|---|---|
+| 3 | 492 | 55 | 1.27 | FAIL |
+| **4 (design)** | **542** | **50** | **1.56** | **PASS** |
+| 5 | 584 | 46 | 1.82 | PASS |
+| 6 | 622 | 44 | 2.06 | PASS |
+| 8 | 685 | 40 | 2.46 | PASS |
+
+> **37-FA basis & reconciliation.** The 21→37 pivot keeps active height, power and ΔT fixed, but the
+> riser height was **re-derived** with the conjugate-CFD loop balance: the more realistic loss tally
+> (K_form 12, vs the earlier lumped K_tot ≈ 8.6) raises the required H_tc to **≈ 4.0 m** (from the
+> earlier 2.85 m estimate) and the driving head to ≈ 3.67 kPa. This is the more conservative,
+> better-grounded value and is adopted plant-wide; it sets a compact **≈ 10 m integral vessel**
+> (§8.4.5, half the ≈ 8 m riser of the smaller-core concept because H_tc ∝ A_core·G³ and the required
+> G fell). ‹FIGURE 8.4-1b — natural-circulation sweep, `docs/figs/F8_natcirc_sweep.png`.›
 
 **Self-regulation (load-following without pumps).** Driving head scales with Δρ (≈ ΔT) and losses
 with ṁ², so the loop self-adjusts: ṁ ∝ P^(1/3) (the natural-circulation signature) — ~80 % flow at
@@ -664,7 +764,7 @@ developed in **§8.9**.
 
 | Component | Function | Capacity / key parameters | Material | Code |
 |---|---|---|---|---|
-| Reactor pressure vessel | Primary pressure boundary; houses all primary components | **ID 2700 mm, wall 150 + 5 mm**, ~7.2 m cyl + heads; 12.8 MPa op / 14.1 design; 60-yr life | SA-508 Gr.3 Cl.1 (SA-533B plate), SS clad | ASME III Div.1 Cl.1 (NB) |
+| Reactor pressure vessel | Primary pressure boundary; houses all primary components | **ID 2700 mm, wall 150 + 5 mm**, **overall height ≈ 10 m** (elevation budget Table 8.4-1b); 12.8 MPa op / 14.1 design; 60-yr life | SA-508 Gr.3 Cl.1 (SA-533B plate), SS clad | ASME III Div.1 Cl.1 (NB) |
 | Core barrel / riser | Separate hot riser from cold downcomer | barrel ID 1900 / OD 2000 mm; riser R 560 mm | SS-304/316L | ASME III, NG |
 | OTSG (helical coil) | 125 MWth primary→secondary; superheated steam | 6 coil layers R 665–1075 mm, axial pitch 230 mm | Inconel-690 TT tubes; SS shroud/tubesheets | ASME III, Cl.1 |
 | Self-pressuriser | Maintain/regulate primary pressure | integral top dome, heaters, surge line | SA-508 dome; Incoloy-800-sheathed heaters | ASME III, Cl.1 |
@@ -672,6 +772,23 @@ developed in **§8.9**.
 | Core support / flow plates | Locate core, distribute flow | lower/upper plates, flow distributor | SS-304 | ASME III, NG |
 | Radial reflector | Flatten power, protect barrel | 200 mm water (steel option) | H₂O / SA-965 Type 304 | — / ASME III |
 | DHRS heat exchanger | Passive decay-heat removal | ≥ 105 % of decay heat | SS / Inconel | ASME III, Cl.2 |
+
+**Table 8.4-1b — Integral-vessel elevation budget** (delivers H_tc = 4 m; the binding dimension is
+vessel *diameter* ≈ 3.0–3.5 m, NuScale-class, **not** height). Total ≈ 10 m — markedly more compact
+than NuScale (≈ 17.7 m) because the required riser is half as tall (Adilbek 2026, §10):
+
+| Elevation [m] | Component |
+|---|---|
+| 0.0 – 0.9 | Lower plenum / core inlet |
+| 0.9 – 2.9 | Core (2.0 m active; mid-plane 1.9 m) |
+| 2.9 – 4.4 | Outlet plenum + riser (chimney) |
+| 4.4 – 7.4 | Steam generator (helical coil, in annulus; mid 5.9 m) |
+| 7.4 – 7.9 | Upper plenum |
+| 7.9 – 9.9 | Integral self-pressuriser |
+
+> This is a **layout-scoping** budget (iPWR analogy + elevation balance); the mechanical vessel design
+> (seismic, wall thickness, SG supports) is detailed-design scope. The SG helical surface (≈ 1 250 m²
+> for 125 MWth at ΔT_pri 50 K, 467 kg/s) fits the annulus above the core with a ≈ 1.5 m riser gap.
 
 **Secondary / balance-of-plant** (capacities from the §8.9 heat balance):
 
@@ -686,23 +803,49 @@ developed in **§8.9**.
 
 ## 8.4.6 Heat-removal capacity — analyses and methods
 
-**Methods (literature-accepted):** natural-circulation loop momentum balance (Todreas & Kazimi);
-**W-3 CHF** correlation (Tong) for MDNBR; Dittus–Boelter / Gnielinski convection (CFD benchmark);
-**ANS-5.1** decay heat; **IAPWS-IF97** properties; conjugate CFD (k-ω SST) for the hot-pin field.
+**Methods (literature-accepted):** 3-region conjugate CFD (OpenFOAM `chtMultiRegionFoam`, k-ω SST) for
+the hot-pin fuel/clad/coolant field; **W-3 CHF** correlation with **Tong non-uniform F-factor** for
+MDNBR; **Jens-Lottes** subcooled-boiling wall clamp + Dittus-Boelter film for PCT; natural-circulation
+loop momentum balance (IAPWS-IF97) for riser height; **ANS-5.1** decay heat.
 
-**Core T-H results (full-power hot channel; 21-FA values, 37-FA improves on every line):**
+**Verification & validation (the credibility spine — ASME V&V-20, §8.13):**
+
+- **Energy-conservation gate (first acceptance test).** Advected power ṁ·c_p·ΔT vs the analytic source
+  (19.83 kW/hot-pin) closes to ×0.992 / 0.996 / 0.998 on coarse / medium / fine meshes — the model is
+  energy-conservative before any temperature is trusted. ‹FIGURE — `docs/figs/F2_energy_conservation.png`.›
+- **Grid convergence (ASME V&V-20 GCI).** Three geometrically-similar meshes (35.7 k / 103.6 k / 279.9 k
+  cells); every temperature changes < 0.4 % medium→fine, **fine-grid GCI < 0.15 %** on the convergent
+  metrics. The 103.6 k medium mesh is used for production. ‹FIGURE — `docs/figs/F1_grid_convergence.png`.›
+- **Near-wall validation.** At the identical operating point the CFD and the single-phase correlation
+  stack agree within **< 7 K** on every quantity (bulk and fuel < 1 K) — the CFD's resolved film
+  coefficient reproduces the validated correlation. ‹FIGURE — `docs/figs/F3_cfd_vs_stack.png`.›
+
+**Core T-H results (full-power hot channel, 37-FA conjugate CFD):**
 
 | Deliverable | Result | Limit | Margin |
 |---|---|---|---|
 | Primary T (in/out/avg) | 258 / 308 / 283 °C | — | — |
-| Peak clad temperature (steady) | 391 °C | < 1200 °C | +809 °C |
-| MDNBR (hot pin) | 1.466 | ≥ 1.3 | +12.8 % |
-| Hot-leg subcooling | 21.7 °C | > 0 | — |
+| Peak fuel centerline (BOL) | **734 °C** | < ~2840 °C (melt) | +2106 °C |
+| Peak clad temperature (PCT, boiling clamp) | **349 °C** | < 1200 °C (LOCA) | +851 °C |
+| MDNBR (hot pin, W-3 + Tong) | **1.56** | ≥ 1.3 | +20 % |
+| Hot-leg subcooling | 23 °C | > 0 | no bulk boiling |
 | Velocity field | all-positive upflow, no recirculation | stable nat-circ | — |
 | Mass flow vs power | ṁ ∝ P^(1/3) | self-regulating | — |
 
-> The 37-FA hot-channel MDNBR/PCT are re-run once the 37-FA peaking is final [SIM-PENDING], and are
-> expected to **improve** (lower q′, flatter F_ΔH). The values above are the validated 21-FA result.
+**Justification of the conservative/weak points (stated openly for the reviewer):**
+
+1. **W-3 below its validated mass-flux range.** W-3 was developed for G > 1356 kg/m²·s; the
+   natural-circulation point sits at G ≈ 543. In this regime **W-3 *under*-predicts CHF**, so the
+   reported MDNBR 1.56 is a **lower bound** — the true margin is larger. A low-flow CHF method
+   (Groeneveld look-up tables / bundle-specific CHF) is recommended to *recover* margin for the final
+   safety case, not to defend it. **Binding constraint = MDNBR**, and it still clears 1.3 by +20 %.
+2. **Hot-channel bulk slightly exceeds T_sat (~4 K) at the outlet.** The most-peaked channel reaches
+   subcooled-boiling onset *by design*; a two-phase enthalpy model would cap it at T_sat. Affects only
+   the very top of one channel; the Jens-Lottes clamp already removes ≈ 30 K of single-phase clad
+   over-prediction (385 → 349 °C), so PCT is reported conservatively.
+3. **Peaking inputs are design targets, not the final per-pin map.** The CFD uses F_ΔH 1.55 / F_q 2.00
+   (limits 1.65 / 2.32); the in-progress STAT_FINAL run shows partial F_ΔH ≈ 1.746, which would tighten
+   MDNBR to ≈ 1.4 (still > 1.3). Re-run on the final map ⏳[37FA-PENDING] — see §8.2.4 note.
 
 **OTSG coupling.** The OTSG removes 125 MWth across a counterflow once-through surface, so secondary
 steam is bounded by the primary legs; the binding constraint is the **evaporator pinch**. Re-coupling
@@ -716,7 +859,7 @@ design-elimination arguments).
 
 | Plant state | Primary | Heat sink | Mode |
 |---|---|---|---|
-| Full power (100 %) | 12.8 MPa, 308/258 °C, 483 kg/s | OTSG → turbine | nat-circ + OTSG |
+| Full power (100 %) | 12.8 MPa, 308/258 °C, 467 kg/s (G 543) | OTSG → turbine | nat-circ + OTSG |
 | Cogeneration | unchanged (~100 %) | OTSG; extraction → TCES; off-peak power → H₂ | nat-circ (§8.9) |
 | Hot standby | 12.8 MPa, near-isothermal | OTSG / DHRS | nat-circ |
 | Trip / loss of secondary sink | depressurise as needed | **DHRS** → tank | passive nat-circ |
@@ -770,7 +913,7 @@ Plant conditions follow IAEA SSR-2/1 Req. 13/20:
 | Max reactivity insertion rate | ≤ 7.5e-4 Δk/k/s | ⏳ *[21-FA: 1.5e-5]* | ANSI/ANS-58.21 |
 | **F_Q(Z) total peaking** | ≤ 2.32 (separable, +3 %) | **≈ 2.03 (37-FA latest)** | NUREG-1431 LCO 3.2.1 |
 | **F_ΔH radial peaking** | ≤ 1.65 | **1.746 (37-FA latest) — governing open item O1** | NUREG-1431 LCO 3.2.2 |
-| MDNBR (steady / AOO) | ≥ 1.3 | [SIM-PENDING — hot-channel; gated by 37-FA peaking] *[21-FA: 1.466]* | SRP 4.4 / 15.0 |
+| MDNBR (steady) | ≥ 1.3 | **1.56** (37-FA conjugate CFD, W-3+Tong, design F_ΔH 1.55); **≈ 1.4** if F_ΔH 1.746 — both PASS | SRP 4.4 / 15.0 |
 | PCT (LOCA envelope) | ≤ 1204 °C | [SIM-PENDING] | 10 CFR 50.46(b)(1) |
 | Clad oxidation / H₂ | ≤ 17 % / ≤ 1 % | [SIM-PENDING] | 50.46(b)(2,3) |
 | Primary design pressure | ≤ 14.1 MPa (iPWR) | 12.8 MPa operating | ASME III NB |
@@ -1161,7 +1304,53 @@ Charging draws 168 °C heat from HP extraction at **0.31 MWe/MWth**, dipping net
 the off-peak charge window; during peak discharge the full 40 MWe goes to grid **and** ~25 MWth flows
 from the store to the DH network with no live-steam penalty.
 
-## 8.9.6 Hydrogen co-generation (off-peak)
+## 8.9.6 TCES charging strategy and turbine duty
+
+**Why extraction, not throttle steam.** The store is charged from **regulated HP-extraction steam
+(1.0 MPa, ~180 °C)** — *not* from live throttle steam upstream of the turbine. This is a deliberate
+exergy- and life-management choice:
+
+- **Exergy match.** District heat needs only ~150 °C; diverting 4.5 MPa / 296 °C throttle steam to a
+  ~168 °C charge loop would destroy a large fraction of its work potential. Extraction steam has
+  already done its HP-stage work, so only its *residual* (well-matched) enthalpy is committed to
+  storage — the thermodynamically correct tap point for a 150 °C product.
+- **The HP turbine stays fully loaded.** Charging trims only the **LP-end** flow; the HP stages,
+  regulating stage, and shaft torque path see little change. Net output dips a **bounded
+  ~4.4 MWe (40.0 → 35.6 MWe, ≈ 11 %)** during the off-peak charge window (`tces_dh_balance.py`),
+  entirely on the low-pressure end.
+
+**Turbine-life basis.** A common concern is that off-peak charging shortens turbine life by reducing
+its duty. The governing life mechanism for a steam turbine is **low-cycle thermal fatigue driven by
+start-ups and fast thermal transients** in thick rotor/casing sections — **not** sustained part-load,
+which is within the normal operating envelope of any condensing machine. Under this charging strategy
+the turbine **never trips, never goes cold, and never deep-unloads**: it breathes slowly between 40.0
+and 35.6 MWe while staying hot and synchronised. The resulting duty is a *shallow, gradual, hot* load
+cycle — the gentlest class of cycling — and contributes negligible LCF damage relative to the
+start-stop cycles that size rotor fatigue life.
+
+**Reference-anchored.** This is precisely the duty of **automatic-extraction / extraction-condensing
+turbines in district-heating CHP plants**, which load-follow on extraction daily for multi-decade
+lifetimes (e.g. Nordic/European DH cogeneration practice). Aegis-40 therefore specifies a
+**controlled-extraction (automatic-extraction) turbine** — the charge tap is a *designed* regulating
+extraction, not an afterthought bleed — so the machine is qualified for the duty and the OEM supplies a
+**citable cyclic-life allowance (number of start/load cycles over 60 yr)** as the §8.9 design basis
+rather than an assertion. [CONFIRM — OEM cyclic-life datasheet at detailed-design stage.]
+
+**Couplings and limits to respect (Tier-B):**
+
+| Item | Effect | Design response |
+|---|---|---|
+| Extraction-vs-feedwater coupling | steam pulled for charge is steam not heating the FWH train → feed temp / cycle η shift slightly during charge | accounted in the charge-mode heat balance (`thermo_cycle.py`); η penalty folded into the 0.31 MWe/MWth charge cost |
+| LP last-stage low-flow limit | very low LP volumetric flow → windage heating / blade flutter | the 35.6 MWe point is far above the limit; flagged as the binding constraint **only if** stored fraction is deepened beyond the modelled window |
+| Reactor power | charging must not ramp the reactor | reactor stays constant ~100 %; the split is made on the **secondary** side only — primary T-H, OTSG duty and fuel duty are unaffected |
+
+**Turbine-neutral storage lever.** Where deeper off-peak storage is wanted without *any* steam
+diversion, the **H₂/electrolyser path (§8.9.7) absorbs electricity, not steam** — redirecting night
+MWe to electrolysis charges energy with **zero** turbine-flow impact. The design therefore biases deep
+off-peak absorption toward electrolysis and keeps TCES charging within the gentle ≈ 11 % extraction
+band.
+
+## 8.9.7 Hydrogen co-generation (off-peak)
 
 Off-peak (night-shift) electricity feeds a water-electrolysis unit, converting low-value night output
 into storable hydrogen and raising effective utilisation; the reactor stays at constant power. A
@@ -1426,10 +1615,12 @@ the design deck as the sample input + one cheap confirmatory benchmark per code*
 
 | Code / capability | Sample input | Confirmatory benchmark (cite + run) | Status |
 |---|---|---|---|
-| **OpenMC transport** (§8.2) | `openmc_model/sample_inputs/{geometry,materials,settings}.xml` (37-FA core deck) | ICSBEP / C5G7 / BEAVRS (OECD-NEA / MIT-CRPG) | core deck ✅; benchmark cite |
-| **OpenMC depletion** (§8.2/§8.11) | `scripts/benchmark_depletion_pincell.py` (BEAVRS 2.4 % pincell → 50 MWd/kg) | Romano et al. 2021: OpenMC vs Serpent k < 20 pcm, actinides/FPs < 1 % | scripted; WSL run pending |
-| **OpenMC criticality (storage)** (§8.11) | `scripts/run_storage_criticality.py` | OECD-NEA Burnup-Credit Phase II; SFCOMPO 2.0 → Δ_bias/Δ_unc | cross-checked; formal benchmark pending |
-| **Thermal-hydraulics** (§8.4) | natural-circ + W-3 hot-channel deck | OECD-NEA PSBT (subchannel) / ANS-5.1 (decay heat); de Vahl Davis (CFD verif.) | method set; [TH] run |
+| **OpenMC transport** (§8.2) | `openmc_model/sample_inputs/{geometry,materials,settings}.xml` (37-FA core deck) | ICSBEP / C5G7 / BEAVRS (OECD-NEA / MIT-CRPG); **NuScale NPM design anchor** — Tables 8.2-6/8.2-7; verification by Shannon-entropy + seed repeatability | core deck ✅; benchmark cite |
+| **OpenMC depletion** (§8.2/§8.11) | `scripts/benchmark_depletion_pincell.py` (BEAVRS 2.4 % pincell → 31 MWd/kg) | Romano 2021 §3.2: OpenMC–Serpent k 20–30 pcm, actinides/FPs < 1 %; inputs verified vs **BEAVRS v2.0.2 spec < 0.05 %** | **✅ run** — k(BU)+isotopics, σ 76–95 pcm (`digital-appendix/pincell_run_10k/`) |
+| **OpenMC criticality — design-anchor benchmark** (§8.2) | NuScale-like core deck (Fridman, RODARE 2457; Ez-Aldeen, Zenodo 15231335), ENDF/B-VII.1 | **6 control-rod states** (ARO/RE1/RE2/SH3/SH4/SCRAM) k_eff + rod worths vs **Serpent reference** | **✅ full Table-3: k_eff within −80…+58 pcm; control-rod worths within ~0.5–3 % (incl. −19,255 pcm SCRAM)** — `digital-appendix/nuscale_benchmark/` |
+| **OpenMC shielding — fixed source** (§8.8) | `openmc_model/rev7_shielding/` (coupled n+γ, MAGIC weight windows) | total dose < 10 µSv/h; RPV fast fluence vs PTS screen | **✅ run** — PASS; RPV 60-yr fluence 7.0×10¹⁷ ≪ 10¹⁹ |
+| **OpenMC criticality (storage)** (§8.11) | `scripts/run_storage_criticality.py` + `benchmark_takahama_pincell.py` | OECD-NEA Burnup-Credit Phase II; **Takahama-3 PIE / SFCOMPO** (NEA/NSC/DOC(2013)1) → Δ_bias/Δ_unc | Takahama deck set up; run pending |
+| **Thermal-hydraulics — conjugate CFD** (§8.4) | OpenFOAM `chtMultiRegionFoam` v2412 case (`pin/`, +`pin_coarse`/`pin_fine` for GCI) + W-3/Jens-Lottes post-processor (`tools/mdnbr.py`, `natcirc.py`, `thermal_stack.py`) | **ASME V&V-20 GCI** (3 meshes, GCI < 0.15 %) + **energy-conservation gate** (×1.00) + CFD↔correlation < 7 K; validated vs **NuScale NPM-160**; CHF vs OECD-NEA PSBT; decay heat ANS-5.1 | **✅ run & validated** (Adilbek 2026) |
 | **Fuel performance** (§8.3) | 1-D conduction stack (optional FRAPCON case) | OECD-NEA IFPE / Halden instrumented rod | cite; run if FRAPCON used |
 | **Energy cycle** (§8.9) | `scripts/thermo_cycle.py` (IAPWS-IF97 deck) | IAPWS-IF97 reference standard | ✅ |
 | **Back-end physics** (§8.11) | `src/aegis40/back_end/` (15/15 unit tests) | ANSI/ANS-5.1 decay-heat standard | ✅ |
@@ -1438,6 +1629,53 @@ the design deck as the sample input + one cheap confirmatory benchmark per code*
 Established open-source codes (ICSBEP, C5G7, BEAVRS, IFPE, ANS-5.1, IAPWS-IF97) are **cited published
 validation**, not work we reproduce — standard, accepted practice. Detailed plan:
 `digital-appendix-vv-plan.md`, `code-benchmark-matrix.md`.
+
+---
+
+# Design basis and parameter provenance
+
+Every headline figure in this FER carries a **basis class** so a reviewer can trace it to a physical
+derivation, a licensed reference design, a code/standard, an explicit assumption, or a pending
+analysis — no number is "free-floating." Classes:
+
+| Class | Meaning |
+|---|---|
+| **[D] Derived** | computed from other design parameters by a stated equation |
+| **[R] Reference-anchored** | taken or scaled from a named licensed/operating design |
+| **[S] Standard / limit** | fixed by a code, regulation, or material property |
+| **[A] Assumption** | engineering judgment for this design stage, flagged for confirmation |
+| **[P] Pending** | awaits an OpenMC / T-H / OEM result (marked ⏳ in the body) |
+
+This table is being populated across §8.1–§8.12; the energy-conversion / TCES-charging (§8.9) and the
+thermal-hydraulic (§8.4, conjugate CFD) parameters are entered first.
+
+| Parameter | Value | Class | Basis / reasoning | §
+|---|---|---|---|---|
+| Thermal power | 125 MWth | [A]→[R] | SMR-class target bracketing CAREM-25 (100 MWth) and the NuScale module | 8.1 |
+| Net electric output | 40.0 MWe | [D] | = 125 MWth × η (η from §8.9 cycle balance) | 8.1 |
+| Net cycle efficiency | 31.8 % | [D] | regenerative Rankine state-point balance, IAPWS-IF97 (`thermo_cycle.py`) | 8.9 |
+| Live-steam conditions | 4.5 MPa, 296 °C, 57.8 kg/s | [D] | OTSG energy balance at 125 MWth with pinch limit (§8.9.4) | 8.9 |
+| Condenser pressure | 7 kPa (39 °C) | [R]/[S] | once-through seawater sink at Sinop; saturation per IAPWS-IF97 | 8.9 |
+| Turbine type | controlled-extraction condensing, tandem-compound | [R] | district-heating CHP practice; supports regulated charge extraction (§8.9.6) | 8.9 |
+| TCES charge tap | HP-extraction 1.0 MPa, ~180 °C | [D] | exergy-matched to ~150 °C DH product; keeps HP stages loaded (§8.9.6) | 8.9 |
+| Charge-loop temperature | ~168 °C | [D] | IHX pinch below 180 °C extraction; drives endothermic regeneration | 8.9 |
+| Charge penalty | 0.31 MWe per MWth | [D] | lost LP work of diverted extraction steam (`tces_dh_balance.py`) | 8.9 |
+| Net output while charging | 35.6 MWe (≈ −11 %) | [D] | 40.0 − 4.4 MWe; bounded LP-side swing, turbine stays hot/synchronised | 8.9 |
+| Turbine cyclic-life basis | OEM cycle allowance over 60 yr | [P] | shallow hot load cycles ≪ start-stop LCF; OEM datasheet to confirm | 8.9 |
+| DH supply / return | 90 / 45 °C, 133 kg/s, ≤ 25 MWth | [R]/[A] | typical low-temperature DH network; sized with layout team | 8.9 |
+| Store medium (baseline) | zeolite-13X / H₂O | [R]/[A] | demonstrated DH store; water-only safety case on a nuclear site | 8.9 |
+| Electrolyser block | 8 MWe PEM, ~50 kWh/kg | [R]/[A] | off-peak electric charging — **zero** turbine-flow impact | 8.9 |
+| Primary mass flow | 467 kg/s (G 543) | [D] | = 125 MWth /(c_p·ΔT), c_p 5.35 kJ/kg·K @ 283 °C (IAPWS-IF97) | 8.1/8.4 |
+| Coolant c_p @ 283 °C/12.8 MPa | 5.35 kJ/kg·K | [S] | IAPWS-IF97 water property | 8.4 |
+| Riser thermal height H_tc | ≈ 4.0 m | [D] | buoyancy balance ṁ=[2ρ²A²gH_tc βP/(c_p K_tot)]^⅓, K_form 12; sweep Table 8.4-1a | 8.4 |
+| Primary driving head | ≈ 3.67 kPa | [D] | Δρ·g·H_tc, Δρ 93.6 kg/m³ at 4.0 m | 8.4 |
+| Integral vessel height | ≈ 10 m | [D]/[R] | elevation budget Table 8.4-1b; ½ NuScale (17.7 m) riser | 8.4/8.10 |
+| Peak fuel centerline | 734 °C | [D] | conjugate CFD `chtMultiRegionFoam` at q′_peak 12.8 kW/m (stack < 1 K) | 8.3/8.4 |
+| Peak clad temp (PCT, steady) | 349 °C | [D] | Jens-Lottes subcooled-boiling-clamped film | 8.4 |
+| MDNBR (hot pin) | 1.56 (≈1.4 at F_ΔH 1.746) | [D]/[P] | W-3 CHF + Tong F-factor; **conservative** below W-3 range (G 543 < 1356) | 8.4 |
+| Peaking (T-H input) | F_q 2.00 / F_ΔH 1.55 / F_z 1.29 | [A]/[P] | design targets (limits 2.32/1.65); OpenMC STAT_FINAL pending | 8.2/8.4 |
+| CFD verification | GCI < 0.15 %; energy ×1.00 | [D] | ASME V&V-20, 3-mesh Richardson + conservation gate | 8.4/8.13 |
+| Toolchain validation | vs NuScale NPM-160 | [R] | companion V&V report; same 37-FA/9768-pin/2.0 m core geometry | 8.4/8.13 |
 
 ---
 
@@ -1460,7 +1698,7 @@ pending the 37-FA STAT_FINAL run.
 | 8.2 | Composition & locations of all core components (tables + drawings) | §8.2.2 Table 8.2-2 + Figs 8.2-1/2/3 | ✅ |
 | 8.2 | Conformity of safety criteria with national/international regs | §8.2.3 compliance table | ✅ |
 | 8.2 | Analyses initial-cycle → equilibrium-cycle | §8.2.3 "BOC→equilibrium" | 🟡 (bounding arg.; equilibrium shuffle next) |
-| 8.2 | Steady-state thermal-hydraulics: T-distributions, ΔP, T-H params | §8.2.4 + §8.4.6 | ⏳ (37-FA MDNBR re-run) |
+| 8.2 | Steady-state thermal-hydraulics: T-distributions, ΔP, T-H params | §8.2.4 + §8.4.6 (37-FA conjugate CFD, GCI-verified) | ✅ (final-peaking MDNBR re-run is the only ⏳) |
 | 8.3 | Fuel-performance & fuel-safety analyses/calculations | §8.3.2–8.3.4 | ✅ (centerline/FGR/clad) |
 | 8.3 | Front-end fuel-cycle structural-material specs | §8.3.5 | ✅ |
 | 8.4 | General description of primary & secondary cooling systems | §8.4.1–8.4.3 | ✅ |
@@ -1501,9 +1739,13 @@ pending the 37-FA STAT_FINAL run.
    present the validated 21-FA predecessor values as a conservative reference and the latest 37-FA
    partial peaking (F_ΔH 1.746, F_q ≈ 2.03). Basis: OpenMC 0.15.3 + ENDF/B-VIII.0, benchmarked per
    §8.13 (Romano et al. 2015/2021; ICSBEP/BEAVRS).
-2. **MDNBR / LOCA PCT / clad-oxidation (hot-channel & accident T-H).** Reason: gated by the 37-FA
-   peaking re-tally (O1/O2). Method fixed (W-3 CHF; conjugate CFD), 21-FA values quoted as the
-   conservative anchor (MDNBR 1.466, PCT 391 °C steady). Basis: Tong W-3; ANS-5.1; OECD-NEA PSBT.
+2. **Steady-state hot-channel T-H — now CLOSED (37-FA conjugate CFD, Adilbek 2026).** MDNBR **1.56**,
+   steady PCT **349 °C**, peak fuel centerline **734 °C**, verified by ASME V&V-20 grid convergence
+   (GCI < 0.15 %) + energy-conservation gate + < 7 K CFD-vs-correlation agreement, toolchain validated
+   vs NuScale NPM-160 (§8.4.6, §8.13). **Still open:** (a) MDNBR re-run on the *final* per-pin peaking
+   (≈ 1.4 at the partial F_ΔH 1.746 — still PASS); (b) the **LOCA-transient** PCT / clad-oxidation /
+   ECR envelope (accident, not steady) gated by the DBA analysis. Basis: Tong W-3 + Jens-Lottes;
+   ANS-5.1; OECD-NEA PSBT.
 3. **Containment design pressure / P-T response.** Reason: the containment concept (dry vs
    submerged-pool) is an open team decision; the P/T accident response sets the design pressure
    (O3/O4). Written against the 0.414 MPa dry baseline. Basis: SSR-2/1 Req. 56.
