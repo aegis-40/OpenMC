@@ -1,0 +1,180 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| Aegis-40 pin - OpenMC-consistent build : FULL 360 fuel pin in square subchannel.     |
+|  Body-fitted butterfly/O-grid: fuel (core square + 4 sectors), clad (4 ring     |
+|  sectors), coolant (4 circle->square sectors). 3 cellZones -> splitMeshRegions. |
+|  He gap collapsed (interface resistance, defined on fuel/T). Lateral faces sym.  |
+|                                                                                 |
+|  >>> WHY THIS MESH DIFFERS FROM pin_x05/x1/x15 (the abandoned set) <<<           |
+|  Those carried a x3.18 CHT ENERGY NON-CONSERVATION whose fingerprint was the     |
+|  COOLANT cell quality: aspect ratio 663, skew 1.71, non-ortho 38 deg, run with   |
+|  nNonOrthogonalCorrectors 0. Root = AR, driven by 25-50 mm tall axial cells      |
+|  (nAx 40-80) sitting next to 0.04 mm near-wall radial cells (nRco 20, gCo 4).    |
+|  FIX, same cell budget, redistributed:                                          |
+|    * UNIFORM coolant radial (gCo 1, nRco 6)  -> wall cell ~0.26 mm (not 0.04)    |
+|    * MANY axial cells (nAx 140) -> axial ~14 mm (not 25-50)                      |
+|  => near-wall AR ~50-90 (was 663); y+ lands ~45-120 (valid wall-fn band).        |
+|  Energy conservation is RESOLUTION-INDEPENDENT, so this stays COMPACT (~100k)    |
+|  for a fast GATE-1 conservation test; refine for GATE-2 (Nusselt) only after.   |
+|                                                                                 |
+|  >>> PARAMETRIC: edit the DESIGN KNOBS block to retarget geometry/resolution.    |
+|  x,y = cross-section ; z = axial (coolant flows +z). All units METRES.          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// ===================== DESIGN KNOBS (change these) =======================
+Rf   4.0958e-3;     // fuel pellet radius (fuel<->clad interface)
+Rc   4.76e-3;      // clad outer radius  (clad<->coolant interface = pin surface)
+H    6.3115e-3;       // subchannel half-pitch (square half-width); pitch = 2H
+a    1.6e-3;       // central O-grid square half-side  (~0.4*Rf works well)
+L    2.0;          // active length (axial)
+
+nAz  10;           // azimuthal cells per 90-deg sector (=> 4*nAz around)
+                   //   NOTE: coolant circle->square CORNER non-ortho ~40 deg is
+                   //   GEOMETRIC, not a resolution artifact -- tested nAz 10->16:
+                   //   40.7->41.7 deg (no improvement, fuel AR worsened >100).
+                   //   It is handled conservatively by nNonOrthogonalCorrectors=2;
+                   //   the old bug was 0 correctors at this same angle, NOT the angle.
+nRf  6;            // radial cells in fuel sector (square -> Rf)
+nRcl 4;            // radial cells across clad (Rf -> Rc)
+nRco 6;            // radial cells in coolant (Rc -> square)  -- UNIFORM (gCo=1)
+nAx  140;          // axial cells over L  -> ~14 mm cells (LOW AR; was 80)
+gCo  1.0;          // coolant radial grading -- UNIFORM (was 4; that made AR 663)
+// ========================================================================
+
+// 45-deg point radii = R/sqrt(2). (#calc is blocked under root in Docker,
+// so these are hard-coded. >>> IF YOU CHANGE Rf/Rc, UPDATE rf/rc TOO <<<)
+rf   2.8962e-3;    // = Rf/sqrt(2)  (Rf=4.095e-3)
+rc   3.3658e-3;    // = Rc/sqrt(2)  (Rc=4.75e-3)
+
+convertToMeters 1;
+
+vertices
+(
+    // ---- z = 0 cross-section (0..15) ----
+    ( $a   $a  0)   // 0  square NE
+    (-$a   $a  0)   // 1  square NW
+    (-$a  -$a  0)   // 2  square SW
+    ( $a  -$a  0)   // 3  square SE
+    ( $rf  $rf 0)   // 4  fuel  NE (45)
+    (-$rf  $rf 0)   // 5  fuel  NW (135)
+    (-$rf -$rf 0)   // 6  fuel  SW (225)
+    ( $rf -$rf 0)   // 7  fuel  SE (315)
+    ( $rc  $rc 0)   // 8  clad  NE
+    (-$rc  $rc 0)   // 9  clad  NW
+    (-$rc -$rc 0)   // 10 clad  SW
+    ( $rc -$rc 0)   // 11 clad  SE
+    ( $H   $H  0)   // 12 outer NE
+    (-$H   $H  0)   // 13 outer NW
+    (-$H  -$H  0)   // 14 outer SW
+    ( $H  -$H  0)   // 15 outer SE
+
+    // ---- z = L cross-section (16..31 = above + 16) ----
+    ( $a   $a  $L)  // 16
+    (-$a   $a  $L)  // 17
+    (-$a  -$a  $L)  // 18
+    ( $a  -$a  $L)  // 19
+    ( $rf  $rf $L)  // 20
+    (-$rf  $rf $L)  // 21
+    (-$rf -$rf $L)  // 22
+    ( $rf -$rf $L)  // 23
+    ( $rc  $rc $L)  // 24
+    (-$rc  $rc $L)  // 25
+    (-$rc -$rc $L)  // 26
+    ( $rc -$rc $L)  // 27
+    ( $H   $H  $L)  // 28
+    (-$H   $H  $L)  // 29
+    (-$H  -$H  $L)  // 30
+    ( $H  -$H  $L)  // 31
+);
+
+blocks
+(
+    // ----- FUEL: central square + 4 sectors  (local: radial, azimuthal, axial) -
+    hex (0 1 2 3 16 17 18 19) fuel    ($nAz $nAz $nAx) simpleGrading (1 1 1)  // core
+    hex (0 4 5 1 16 20 21 17) fuel    ($nRf $nAz $nAx) simpleGrading (1 1 1)  // N
+    hex (1 5 6 2 17 21 22 18) fuel    ($nRf $nAz $nAx) simpleGrading (1 1 1)  // W
+    hex (2 6 7 3 18 22 23 19) fuel    ($nRf $nAz $nAx) simpleGrading (1 1 1)  // S
+    hex (3 7 4 0 19 23 20 16) fuel    ($nRf $nAz $nAx) simpleGrading (1 1 1)  // E
+
+    // ----- CLAD: 4 ring sectors (Rf -> Rc) -----
+    hex (4 8 9 5 20 24 25 21) clad    ($nRcl $nAz $nAx) simpleGrading (1 1 1)  // N
+    hex (5 9 10 6 21 25 26 22) clad   ($nRcl $nAz $nAx) simpleGrading (1 1 1)  // W
+    hex (6 10 11 7 22 26 27 23) clad  ($nRcl $nAz $nAx) simpleGrading (1 1 1)  // S
+    hex (7 11 8 4 23 27 24 20) clad   ($nRcl $nAz $nAx) simpleGrading (1 1 1)  // E
+
+    // ----- COOLANT: 4 circle->square sectors (Rc -> square), UNIFORM radial -----
+    hex (8 12 13 9 24 28 29 25) coolant   ($nRco $nAz $nAx) simpleGrading ($gCo 1 1)  // N
+    hex (9 13 14 10 25 29 30 26) coolant  ($nRco $nAz $nAx) simpleGrading ($gCo 1 1)  // W
+    hex (10 14 15 11 26 30 31 27) coolant ($nRco $nAz $nAx) simpleGrading ($gCo 1 1)  // S
+    hex (11 15 12 8 27 31 28 24) coolant  ($nRco $nAz $nAx) simpleGrading ($gCo 1 1)  // E
+);
+
+edges
+(
+    // fuel circle (Rf) arcs, midpoints on cardinal axes
+    arc  4  5 (0     $Rf  0 )
+    arc  5  6 (-$Rf  0    0 )
+    arc  6  7 (0    -$Rf  0 )
+    arc  7  4 ($Rf   0    0 )
+    arc 20 21 (0     $Rf  $L)
+    arc 21 22 (-$Rf  0    $L)
+    arc 22 23 (0    -$Rf  $L)
+    arc 23 20 ($Rf   0    $L)
+    // clad circle (Rc) arcs
+    arc  8  9 (0     $Rc  0 )
+    arc  9 10 (-$Rc  0    0 )
+    arc 10 11 (0    -$Rc  0 )
+    arc 11  8 ($Rc   0    0 )
+    arc 24 25 (0     $Rc  $L)
+    arc 25 26 (-$Rc  0    $L)
+    arc 26 27 (0    -$Rc  $L)
+    arc 27 24 ($Rc   0    $L)
+);
+
+boundary
+(
+    inlet                    // z = 0 : coolant inlet + solid bottom ends
+    {
+        type patch;
+        faces
+        (
+            ( 0  1  2  3)
+            ( 0  4  5  1) ( 1  5  6  2) ( 2  6  7  3) ( 3  7  4  0)
+            ( 4  8  9  5) ( 5  9 10  6) ( 6 10 11  7) ( 7 11  8  4)
+            ( 8 12 13  9) ( 9 13 14 10) (10 14 15 11) (11 15 12  8)
+        );
+    }
+    outlet                   // z = L : coolant outlet + solid top ends
+    {
+        type patch;
+        faces
+        (
+            (16 17 18 19)
+            (16 20 21 17) (17 21 22 18) (18 22 23 19) (19 23 20 16)
+            (20 24 25 21) (21 25 26 22) (22 26 27 23) (23 27 24 20)
+            (24 28 29 25) (25 29 30 26) (26 30 31 27) (27 31 28 24)
+        );
+    }
+    sides                    // 4 outer square faces -> infinite lattice
+    {
+        type symmetry;
+        faces
+        (
+            (12 13 29 28)    // y = +H
+            (13 14 30 29)    // x = -H
+            (14 15 31 30)    // y = -H
+            (15 12 28 31)    // x = +H
+        );
+    }
+);
+
+mergePatchPairs ( );
+
+// ************************************************************************* //

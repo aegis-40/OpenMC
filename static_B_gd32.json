@@ -1,0 +1,20 @@
+{
+  "k_eff_bol": 1.0722351328176112,
+  "k_eff_bol_sigma": 0.0005904864292550404,
+  "core_geometry": {
+    "n_fuel_assemblies": 37,
+    "n_cr_clusters": 12,
+    "core_half_width_cm": 75.6133,
+    "outer_half_width_cm": 95.6133,
+    "z_outer_cm": 130.0,
+    "active_height_cm": 200.0,
+    "radial_reflector_cm": 20.0,
+    "axial_reflector_cm": 30.0
+  },
+  "pin_peaking_factor_Fq": 2.093,
+  "radial_peaking_FdeltaH": 1.788,
+  "pin_peaking_factor_Fq_raw": 3.962,
+  "radial_peaking_FdeltaH_raw": 1.736,
+  "axial_peaking_Fz": 1.171,
+  "assembly_peaking_F_radial": 1.291
+}

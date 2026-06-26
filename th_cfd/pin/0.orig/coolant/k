@@ -1,0 +1,27 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - COOLANT turbulent kinetic energy (I~5%)                     |
+|  k = 1.5*(I*U)^2, I=0.05, U=0.909 -> ~3.1e-3 ; use 0.02 (robust, relaxes fast)  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/coolant";
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0.02;
+
+boundaryField
+{
+    inlet           { type fixedValue; value uniform 0.02; }
+    outlet          { type inletOutlet; inletValue uniform 0.02; value uniform 0.02; }
+    sides           { type symmetry; }
+    coolant_to_clad { type kLowReWallFunction; value uniform 0.02; }
+}
+
+// ************************************************************************* //

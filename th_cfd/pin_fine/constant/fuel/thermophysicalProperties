@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - FUEL pellet UO2 (solid)                                    |
+|  >>> material knobs: rho / Cp / kappa  <<<                                     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/fuel";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            heSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;       // isotropic constant conductivity
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   270.0;          // UO2 (nominal; irrelevant to solid conduction)
+    }
+    transport
+    {
+        kappa       3.5;            // W/m.K  (UO2; strongly T-dependent, placeholder)
+    }
+    thermodynamics
+    {
+        Hf          0;
+        Cp          300;            // J/kg.K
+    }
+    equationOfState
+    {
+        rho         10400;          // kg/m3
+    }
+}
+
+// ************************************************************************* //

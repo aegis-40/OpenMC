@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/Downloads Edge/**)",
+      "Read(//c/Users/User/Downloads/Telegram Desktop/**)",
+      "Read(//d/Engineering/NUClearly/**)",
+      "Read(//d/conda-envs/openmc-py311/SMRs/Claude version/**)"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<materials>
+  <material id="1" name="UO2 (2.4%)" depletable="true" volume="0.4831931368640985">
+    <density value="10.29769" units="g/cm3"/>
+    <nuclide name="O16" ao="0.045829"/>
+    <nuclide name="U234" ao="4.4843e-06"/>
+    <nuclide name="U235" ao="0.00055815"/>
+    <nuclide name="U238" ao="0.022408"/>
+  </material>
+  <material id="2" name="Zircaloy">
+    <density value="6.55" units="g/cm3"/>
+    <nuclide name="Zr90" ao="0.021827"/>
+    <nuclide name="Zr91" ao="0.00476"/>
+    <nuclide name="Zr92" ao="0.0072758"/>
+    <nuclide name="Zr94" ao="0.0073734"/>
+    <nuclide name="Zr96" ao="0.0011879"/>
+  </material>
+  <material id="3" name="Hot borated water">
+    <density value="0.740582" units="g/cm3"/>
+    <nuclide name="H1" ao="0.049457"/>
+    <nuclide name="B10" ao="8.0042e-06"/>
+    <nuclide name="B11" ao="3.2218e-05"/>
+    <nuclide name="O16" ao="0.024672"/>
+    <sab name="c_H_in_H2O"/>
+  </material>
+</materials>

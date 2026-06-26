@@ -1,0 +1,20 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| Aegis-40 pin - parallel domain decomposition (chtMultiRegionFoam -parallel)     |
+|  8 subdomains -> use 8 of the M4's 10 cores instead of 1 (serial default).       |
+|  scotch = graph-based, automatic load balance, no manual coeffs.                 |
+|  Applies to ALL regions via:  decomposePar -allRegions                           |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      decomposeParDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+numberOfSubdomains  8;
+
+method              scotch;
+
+// ************************************************************************* //

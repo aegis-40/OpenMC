@@ -1,0 +1,75 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - COOLANT (fluid) fvSolution : CLEAN PIMPLE marching.         |
+|  Band-aids of the abandoned cases REMOVED:                                      |
+|    * NO maxIter caps (was 200/300 on p_rgh) -> linear solver runs to tolerance  |
+|    * NO relTol 0.1 (was on rho/p_rgh/U/h/k/omega) -> relTol 0.01, Final 0       |
+|    * nNonOrthogonalCorrectors 2 (was 0) -> conservative laplacian/snGrad on the |
+|      non-orthogonal cells (the prime-suspect fix for the x3.18 energy bug)      |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system/coolant";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    rho      { solver PCG; preconditioner DIC; tolerance 1e-7; relTol 0; }
+    rhoFinal { $rho; relTol 0; }
+
+    p_rgh
+    {
+        solver           GAMG;
+        smoother         DICGaussSeidel;   // robust on anisotropic (high-AR) cells
+                                           // -> far fewer iters than plain GaussSeidel.
+                                           // PERFORMANCE only; gate result unchanged.
+        tolerance        1e-7;
+        relTol           0.01;
+        nPreSweeps       0;
+        nPostSweeps      2;
+        nFinestSweeps    2;
+        nCellsInCoarsestLevel 20;
+        cacheAgglomeration true;
+        agglomerator     faceAreaPair;
+        mergeLevels      1;
+    }
+    p_rghFinal { $p_rgh; relTol 0; }
+
+    "(U|h|k|omega)"
+    {
+        solver           PBiCGStab;
+        preconditioner   DILU;
+        tolerance        1e-8;
+        relTol           0.01;
+    }
+    "(U|h|k|omega)Final" { $U; relTol 0; }
+}
+
+PIMPLE
+{
+    // (outer region loop is driven by the GLOBAL system/fvSolution nOuterCorrectors)
+    momentumPredictor        yes;
+    nCorrectors              2;    // PISO pressure correctors
+    nNonOrthogonalCorrectors 2;    // <<< the key numerics fix (was 0)
+}
+
+relaxationFactors
+{
+    fields
+    {
+        p_rgh       0.7;
+        p_rghFinal  1.0;
+    }
+    equations
+    {
+        U            0.7;   UFinal           1.0;
+        "(h|e)"      0.7;   "(h|e)Final"     1.0;
+        "(k|omega)"  0.7;   "(k|omega)Final" 1.0;
+    }
+}
+
+// ************************************************************************* //

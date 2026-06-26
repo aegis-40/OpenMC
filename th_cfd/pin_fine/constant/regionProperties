@@ -1,0 +1,19 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - region roles for chtMultiRegionFoam                         |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      regionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+regions
+(
+    fluid   (coolant)
+    solid   (fuel clad)
+);
+
+// ************************************************************************* //

@@ -1,0 +1,26 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - global fvSolution : multi-region OUTER corrector loop.      |
+|  nOuterCorrectors = passes over ALL regions per time step.                      |
+|  Steady state is independent of nOuterCorrectors (verified). Use 2:             |
+|   - 1 is INCOMPATIBLE with p_rgh field relaxation (prevIter is only stored for  |
+|     a PIMPLE loop, nOuterCorrectors>=2) -> "field not stored" fatal error.      |
+|   - 2 stores prevIter (no error), keeps the proven-stable relaxation, and is    |
+|     still cheaper than 3. Gate result unchanged.                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers { }
+
+PIMPLE
+{
+    nOuterCorrectors 2;
+}
+
+// ************************************************************************* //

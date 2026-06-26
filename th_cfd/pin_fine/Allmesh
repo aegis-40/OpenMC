@@ -1,0 +1,18 @@
+#!/bin/sh
+# NuScale pin_clean - mesh pipeline (blockMesh -> splitMeshRegions).
+# Resolution/quality set by the n* / gCo knobs in system/blockMeshDict.
+cd "${0%/*}" || exit 1
+
+# clean previous mesh, regions, and time dirs (keep 0.orig)
+rm -rf constant/polyMesh \
+       constant/fuel/polyMesh constant/clad/polyMesh constant/coolant/polyMesh \
+       constant/cellToRegion processor* [1-9]* 0
+
+blockMesh                              || exit 1
+splitMeshRegions -cellZones -overwrite || exit 1
+
+# fresh uniform initial fields onto the new regions
+rm -rf 0
+cp -r 0.orig 0
+
+echo "Allmesh: done."

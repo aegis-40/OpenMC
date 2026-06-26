@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| AEGIS-40 conjugate-pin - FUEL volumetric heat source, AXIAL CHOPPED COSINE (125 MWt)|
+|  q'''(z) = qpeak * cos( pi*(z - L/2) / Le )                                    |
+|  qpeak  = hot-pin axial-peak volumetric source = q'_peak/(pi*Rf^2)             |
+|                                                                                |
+|  >>> DESIGN UPDATED 2026-06-22 (FER notebook aegis40_neutronics_FER.ipynb):    |
+|  37 FA / 9768 fuel pins (was 21/5544). q'_avg = 125e6/(9768*2.0) = 6.40 kW/m.  |
+|  Peaking F_q 2.00 / F_dH 1.55 / F_z 1.29 (notebook DESIGN TARGETS; limits      |
+|  2.32/1.65). -> q'_peak = 6.40*2.00 = 12.8 kW/m                                |
+|     -> qpeak = 12.8e3/(pi*0.0040958^2) = 2.428e8 W/m3 ; q''_peak 0.428 MW/m2.  |
+|  Le set so F_z = 2.00/1.55 = 1.29 (chopped cosine).                            |
+|  Integral over the hot pin ~ 19.83 kW (= q'_avg*L*F_dH 1.55).                  |
+|                                                                                |
+|  PEAKING = OpenMC/FER design targets F_q 2.00 (= F_dH 1.55 * F_z 1.29). The    |
+|  notebook reports the SEPARABLE F_dH*F_z (raw single-node 3-D max is MC noise).|
+|  F_q = F_dH*F_z, so this qpeak + Le capture BOTH the local-flux peak (F_q) and |
+|  the enthalpy rise (F_dH).                                                     |
+|                                                                                |
+|  >>> GATE-1 ENERGY BALANCE (FIRST acceptance test, run on EVERY mesh):         |
+|      this 19.83 kW MUST equal m_dot*cp*dT in the hot subchannel                |
+|      = 0.0478*5350*dT  =>  dT ~ 77.5 K, T_out ~ 608.6 K (single-phase). Verify |
+|      conservation BEFORE trusting any temperature. Gap contact-R is SYMMETRIC  |
+|      on fuel_to_clad AND clad_to_fuel (thicknessLayers 9.15e-5 / kappaLayers   |
+|      0.48) -- the asymmetric-gap non-conservation bug fix carried from NuScale.|
+|                                                                                |
+|  >>> NOTE: scalarCodedSource compiles C++ at runtime -> run the container as   |
+|      NON-root (see run command), else "should not be executed by admin".       |
+|  >>> knobs: qpeak, L, Le below.                                                |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/fuel";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+cosineHeat
+{
+    type            scalarCodedSource;
+    selectionMode   all;            // whole fuel region
+    fields          (h);            // solid energy (sensible enthalpy)
+    name            cosineHeatSrc;
+
+    codeInclude
+    #{
+        #include "mathematicalConstants.H"
+    #};
+
+    codeCorrect
+    #{
+    #};
+
+    codeConstrain
+    #{
+    #};
+
+    codeAddSup
+    #{
+    #};
+
+    codeAddSupRho
+    #{
+        const vectorField& C = mesh_.C();      // cell centres
+        const scalarField& V = mesh_.V();      // cell volumes
+        scalarField& heSource = eqn.source();  // RHS (subtract to ADD heat)
+
+        const scalar qpeak = 2.428e8;          // W/m3 Aegis-40 hot-pin axial peak.
+        // = q'_avg 6398 * F_q 2.00 / (pi*Rf^2). F_q 2.00 = FER design target
+        // (F_dH 1.55 * F_z 1.29). Hot pin 19.83 kW. q''_peak 0.428 MW/m2.
+        const scalar L     = 2.0;              // active length
+        const scalar Le    = 2.607;            // -> F_z = pi*L/(2Le)/sin(..) = 1.29
+        const scalar pi    = constant::mathematical::pi;
+
+        forAll(C, i)
+        {
+            const scalar z = C[i].z();
+            const scalar q = qpeak*Foam::cos(pi*(z - 0.5*L)/Le);  // W/m3
+            heSource[i] -= q*V[i];             // inject +q*V (W) into energy eqn
+        }
+    #};
+}
+
+// ************************************************************************* //

@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - controlDict : chtMultiRegionFoam steady marching            |
+|  fluid = Euler + adjustTimeStep (maxCo 1.0); solids = steadyState.              |
+|  March in physical time until fields stop changing -> steady state.            |
+|                                                                                |
+|  >>> GATE-1 ENERGY-CONSERVATION PROBES (functions below) <<<                    |
+|   bulkTout  = mixing-cup (flux-weighted) outlet T  = weightedAverage(T, w=phi)  |
+|   massFlow  = sum(phi) over outlet = m_dot [kg/s]                               |
+|   ACCEPTANCE:  dT = bulkTout - 531 ~ 82 K ; T_out ~ 613 K ; m_dot ~ 0.0607.     |
+|   Then Q_coolant = m_dot*cp*dT = 0.0607*5250*82 ~ 26.1 kW = source. PASS.       |
+|   (Old abandoned cases: bulkTout ~ 792 K, dT 261 K, Q 83 kW = the x3.18 bug.)   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     chtMultiRegionFoam;
+
+startFrom       startTime;
+startTime       0;
+stopAt          endTime;
+endTime         15;            // ~6.8 flow-throughs (L/u=2.2 s) -> thermal steady
+deltaT          1e-3;
+
+writeControl    adjustableRunTime;
+writeInterval   3;             // snapshots t=3,6,9,12,15 -> watch dT plateau
+purgeWrite      0;
+
+writeFormat     ascii;
+writePrecision  8;
+writeCompression off;
+timeFormat      general;
+timePrecision   6;
+runTimeModifiable yes;
+
+adjustTimeStep  yes;
+maxCo           1.0;           // steady answer is Co-independent; 1.0 marches faster
+maxDi           1e6;           // solids steadyState -> do not let Di limit dt
+maxDeltaT       0.05;
+
+// ---------------- GATE-1 energy-balance function objects -----------------
+functions
+{
+    bulkTout                       // mixing-cup outlet temperature
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          coolant;
+        writeControl    timeStep;
+        writeInterval   20;        // log ~every 20 steps -> convergence trace
+        log             true;
+        writeFields     false;
+        regionType      patch;
+        name            outlet;
+        operation       weightedAverage;   // Sum(phi*T)/Sum(phi) = bulk T (NOT area-avg)
+        weightField     phi;
+        fields          (T);
+    }
+
+    massFlow                       // m_dot = Sum(phi) over outlet [kg/s]
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        region          coolant;
+        writeControl    timeStep;
+        writeInterval   20;
+        log             true;
+        writeFields     false;
+        regionType      patch;
+        name            outlet;
+        operation       sum;
+        fields          (phi);
+    }
+}
+
+// ************************************************************************* //

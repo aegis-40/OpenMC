@@ -1,0 +1,26 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - COOLANT turbulent viscosity (Spalding, all y+)              |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/coolant";
+    object      nut;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet           { type calculated; value uniform 0; }
+    outlet          { type calculated; value uniform 0; }
+    sides           { type symmetry; }
+    coolant_to_clad { type nutUSpaldingWallFunction; value uniform 0; }
+}
+
+// ************************************************************************* //

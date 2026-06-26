@@ -1,0 +1,46 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - CLAD temperature. Coupled to fuel (gap on fuel side)        |
+|  and to coolant (clad outer = pin surface).                                     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/clad";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 545;
+
+boundaryField
+{
+    inlet           { type zeroGradient; }
+    outlet          { type zeroGradient; }
+
+    clad_to_fuel
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        Tnbr            T;
+        kappaMethod     solidThermo;
+        // He gap contact resistance - MUST be specified IDENTICALLY on BOTH sides
+        // (fuel_to_clad AND here). The BC flux per side = dT/(R_local+R_nbr+R_gap_local);
+        // one-sided R_gap made the two sides disagree -> +80 kW created at the gap
+        // (the x4.08 non-conservation). Symmetric -> both sides see dT/(R_f+R_c+R_gap).
+        thicknessLayers (9.15e-5);
+        kappaLayers     (0.48);
+        value           uniform 545;
+    }
+    clad_to_coolant
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        Tnbr            T;
+        kappaMethod     solidThermo;
+        value           uniform 545;
+    }
+}
+
+// ************************************************************************* //

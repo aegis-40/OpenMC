@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - COOLANT (fluid) fvSchemes : Euler pseudo-transient march.   |
+|  div(phi,h) = Gauss upwind for GATE-1: upwind is FULLY CONSERVATIVE (its only   |
+|  cost is numerical diffusion, which cannot break the global energy balance).    |
+|  >>> GATE-2 (Nusselt accuracy): switch div(phi,h) -> Gauss limitedLinear 1.     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system/coolant";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes        { default Euler; }
+
+gradSchemes       { default Gauss linear; }
+
+divSchemes
+{
+    default          none;
+    div(phi,U)       Gauss upwind;
+    div(phi,K)       Gauss linear;
+    div(phi,h)       Gauss upwind;        // GATE-1: conservative & robust
+    div(phi,k)       Gauss upwind;
+    div(phi,omega)   Gauss upwind;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+}
+
+laplacianSchemes  { default Gauss linear corrected; }   // full non-orthogonal correction
+interpolationSchemes { default linear; }
+snGradSchemes     { default corrected; }
+
+wallDist          { method meshWave; }   // k-omega SST blending needs wall distance
+
+// ************************************************************************* //

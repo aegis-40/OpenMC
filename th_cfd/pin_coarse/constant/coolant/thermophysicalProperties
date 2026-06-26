@@ -1,0 +1,55 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - COOLANT water @ 12.76 MPa, ~545 K (single-phase liquid)     |
+|  rhoConst (incompressible liquid). Pr = mu*Cp/kappa -> kappa = mu*Cp/Pr.        |
+|                                                                                |
+|  >>> Cp = 5250 IS THE REAL VALUE AND IS USED AS-IS. <<<                         |
+|  Unlike the abandoned SMR40/pin_x* cases (which masked an energy-conservation   |
+|  bug behind a deliberately LOWERED effective Cp ~1031), this rebuild runs the   |
+|  physical Cp and GATES on energy conservation directly. If the coolant dT is    |
+|  not ~82 K with this Cp, the bug is in the mesh/numerics, not the properties -  |
+|  do NOT lower Cp to compensate. See docs / memory nuscale_rebuild_plan.         |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/coolant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   18.0;           // water
+    }
+    equationOfState
+    {
+        rho         748;            // kg/m3
+    }
+    thermodynamics
+    {
+        Hf          0;
+        Cp          5350;           // J/kg.K  (REAL value - use as-is)
+    }
+    transport
+    {
+        mu          9.1e-5;         // Pa.s
+        Pr          0.87;           // = mu*Cp/kappa -> kappa = 0.5875 W/m.K
+    }
+}
+
+// ************************************************************************* //

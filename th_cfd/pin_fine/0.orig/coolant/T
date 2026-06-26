@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| AEGIS-40 conjugate-pin - COOLANT temperature (inlet 531.15 K = 258 C). Wall-coupled.|
+|  >>> Coupling BC kept IDENTICAL to the abandoned cases ON PURPOSE: the rebuild  |
+|      changes ONLY mesh+numerics first, so a passed GATE-1 cleanly attributes     |
+|      the fix to mesh/numerics (plan step 4a). If GATE-1 still overheats on this  |
+|      clean mesh, THEN investigate kappaMethod (step 4b).                         |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/coolant";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 531.15;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 531.15;
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 531.15;
+        value           uniform 531.15;
+    }
+    sides           { type symmetry; }
+    coolant_to_clad
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        Tnbr            T;
+        kappaMethod     fluidThermo;
+        value           uniform 531.15;
+    }
+}
+
+// ************************************************************************* //

@@ -1,0 +1,7 @@
+#!/bin/sh
+# NuScale pin_clean - mesh + solve. Run INSIDE the OpenFOAM container (NON-root,
+# because the cosine heat source compiles C++ at runtime). See run command in docs.
+cd "${0%/*}" || exit 1
+
+./Allmesh                       2>&1 | tee log.mesh
+chtMultiRegionFoam              2>&1 | tee log.run

@@ -1,0 +1,26 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - COOLANT p (derived from p_rgh; calculated everywhere)       |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/coolant";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 12.8e6;
+
+boundaryField
+{
+    inlet           { type calculated; value uniform 12.8e6; }
+    outlet          { type calculated; value uniform 12.8e6; }
+    sides           { type symmetry; }
+    coolant_to_clad { type calculated; value uniform 12.8e6; }
+}
+
+// ************************************************************************* //

@@ -1,0 +1,37 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - FUEL temperature. He gap = interface resistance here.       |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/fuel";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 555;
+
+boundaryField
+{
+    inlet           { type zeroGradient; }   // axial ends ~ adiabatic
+    outlet          { type zeroGradient; }
+
+    fuel_to_clad
+    {
+        type            compressible::turbulentTemperatureRadCoupledMixed;
+        Tnbr            T;
+        kappaMethod     solidThermo;
+        // He gap as interface resistance (h_gap = kappa/thickness = 0.48/8.5e-5 = 5647).
+        // MUST be IDENTICAL on the clad side (clad_to_fuel) too, else the coupling is
+        // non-conservative (one-sided gap created +80 kW = the x4.08 bug). See clad/T.
+        thicknessLayers (9.15e-5);
+        kappaLayers     (0.48);
+        value           uniform 555;
+    }
+}
+
+// ************************************************************************* //

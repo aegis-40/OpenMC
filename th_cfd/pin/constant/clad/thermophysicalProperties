@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - CLAD Zircaloy-4 (solid)                                    |
+|  >>> material knobs: rho / Cp / kappa  <<<                                     |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant/clad";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            heSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   91.0;           // Zr (nominal)
+    }
+    transport
+    {
+        kappa       16.0;           // W/m.K  (Zircaloy-4)
+    }
+    thermodynamics
+    {
+        Hf          0;
+        Cp          330;            // J/kg.K
+    }
+    equationOfState
+    {
+        rho         6550;           // kg/m3
+    }
+}
+
+// ************************************************************************* //

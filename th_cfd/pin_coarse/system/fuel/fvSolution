@@ -1,0 +1,34 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - FUEL (solid) fvSolution                                     |
+|  CLEAN: relTol 0.01 (was 0.1) ; nNonOrthogonalCorrectors 2 (was 0).            |
+|  The solid conduction path fuel->clad->interface feeds the coolant; an          |
+|  under-corrected solid laplacian on non-orthogonal cells is part of the         |
+|  suspected non-conservation, so the solids get correctors too.                  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system/fuel";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    h
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-7;
+        relTol          0.01;
+    }
+    hFinal { $h; relTol 0; }
+}
+
+PIMPLE { nNonOrthogonalCorrectors 2; }
+
+relaxationFactors { equations { h 1; } }
+
+// ************************************************************************* //

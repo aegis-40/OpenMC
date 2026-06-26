@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| NuScale pin_clean - COOLANT p_rgh (= p - rho*g*h). System pressure 12.76 MPa.   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/coolant";
+    object      p_rgh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 12.8e6;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedFluxPressure;
+        value           uniform 12.8e6;
+    }
+    outlet
+    {
+        type            fixedValue;
+        value           uniform 12.8e6;
+    }
+    sides           { type symmetry; }
+    coolant_to_clad
+    {
+        type            fixedFluxPressure;
+        value           uniform 12.8e6;
+    }
+}
+
+// ************************************************************************* //

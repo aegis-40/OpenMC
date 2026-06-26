@@ -71,7 +71,7 @@ All lengths in **mm** unless noted. OpenMC works in cm; ×10 conversions already
 
 **Core loading pattern (place by ring for enrichment/Gd zoning):** the 5×5−corners map
 in `geometry.xml` uses three FA recipes r0/r1/r2 (rings). Mirror that in the loading-map
-drawing — central FA, inner ring, outer ring — with the 4.95/4.70/4.40 wt% + Gd 48/40/26 zoning.
+drawing — central FA, inner ring, outer ring — with the 4.95/4.70/4.40 wt% + Gd 48/40/24 zoning.
 
 ---
 
@@ -148,7 +148,7 @@ You know Creo well, so build it **parametric** so a dimension change ripples thr
    Make a second config for Gd/Er pins with the 1800 mm fueled length + 100 mm cutbacks.
 3. **Guide-tube part.**
 4. **Assembly (17×17):** pattern the pin part on a 12.623 mm grid; replace the 24+1
-   guide-tube positions; colour Gd (48/40/26) and Er (16) pins distinctly. Save as a
+   guide-tube positions; colour Gd (48/40/24) and Er (16) pins distinctly. Save as a
    subassembly.
 5. **Core assembly:** pattern the FA on the 216.038 mm grid, delete the 4 corners → 21 FA.
    Apply the r0/r1/r2 ring recipes by colour.
