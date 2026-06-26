@@ -121,7 +121,7 @@ GD_RING_WEIGHTS  = {0: 1.65, 1: 1.45, 2: 0.95, 3: 0.68}   # rings 1/8/16/12; cor
 AXIAL_BLANKET_CM     = 0.0  # optional reduced-enrichment axial blanket (0 = off)
 AXIAL_BLANKET_ENRICH = 2.5
 if DESIGN == "hybrid":
-    ER_WT_PCT = 0.5        # light Er hold-down through mid/late cycle + cold SDM
+    ER_WT_PCT = 0.75        # light Er hold-down through mid/late cycle + cold SDM
     N_ER_RODS = 16
 else:
     ER_WT_PCT = 0.0
@@ -153,7 +153,7 @@ N_BATCHES      = 4
 STAT_FAST   = dict(batches=80,  inactive=25, particles=5000)
 STAT_MEDIUM = dict(batches=180, inactive=50, particles=20000)
 STAT_FINAL  = dict(batches=400, inactive=80, particles=50000)
-STAT = STAT_FINAL
+STAT = STAT_MEDIUM
 
 _enr_avg = (ENRICH_INNER + 2*ENRICH_MID + ENRICH_OUTER) / 4.0
 print(f"Core: {N_FA_TOTAL} FA (7-wide octagon) | {N_CR_CLUSTERS} control-rod clusters")

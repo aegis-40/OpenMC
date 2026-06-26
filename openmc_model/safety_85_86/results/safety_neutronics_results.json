@@ -1,13 +1,13 @@
 {
   "N5_SDM": {
     "case": "N5_rod_worth_SDM",
-    "k_aro_hot": 1.1603427919008362,
-    "k_ari_hot": 1.0053445705470905,
-    "total_bank_worth_pcm": 13286.955148146137,
-    "k_ari_cold": 1.1012194502538462,
-    "k_stuck_cold": 1.1184761271011727,
-    "sdm_all_rods_cold_pct": -9.191578502406008,
-    "sdm_stuck_rod_cold_pct": -10.592637985777579,
+    "k_aro_hot": 1.1582633544201277,
+    "k_ari_hot": 1.0025516737422802,
+    "total_bank_worth_pcm": 13409.330955915793,
+    "k_ari_cold": 1.0979770336122292,
+    "k_stuck_cold": 1.114216940324799,
+    "sdm_all_rods_cold_pct": -8.923413752097806,
+    "sdm_stuck_rod_cold_pct": -10.250870920298903,
     "hot_trip_all_rods_subcritical": false,
     "rods_alone_cold_subcritical": false,
     "note": "boron-free high-excess core: control rods give the fast hot trip; EBIS soluble boron (N10) provides/holds cold subcriticality - the diverse 2nd shutdown system (SSR-2/1 Req.46). SDM reported SIGNED (notebook calc uses abs() which masks a supercritical stuck-rod state).",
@@ -24,37 +24,37 @@
     "sweep": [
       {
         "boron_ppm": 0,
-        "keff": 1.2391210061239768,
-        "sigma_pcm": 64.23171193613585
+        "keff": 1.2356737419835508,
+        "sigma_pcm": 58.121552797882174
       },
       {
         "boron_ppm": 1000,
-        "keff": 1.1059615140632648,
-        "sigma_pcm": 58.181987898750116
+        "keff": 1.1030519536018761,
+        "sigma_pcm": 62.259935961147185
       },
       {
         "boron_ppm": 1800,
-        "keff": 1.022562213101139,
-        "sigma_pcm": 54.446372429890324
+        "keff": 1.0210858151549913,
+        "sigma_pcm": 57.07765011114535
       },
       {
         "boron_ppm": 2400,
-        "keff": 0.9690489801099929,
-        "sigma_pcm": 55.82652385383591
+        "keff": 0.9683070742752685,
+        "sigma_pcm": 56.93661980012865
       },
       {
         "boron_ppm": 3000,
-        "keff": 0.9240954403858865,
-        "sigma_pcm": 58.61014109367103
+        "keff": 0.9216501634967881,
+        "sigma_pcm": 50.815535041130886
       },
       {
         "boron_ppm": 3600,
-        "keff": 0.8832386265194165,
-        "sigma_pcm": 54.25413624328294
+        "keff": 0.8806539957937571,
+        "sigma_pcm": 55.54771519643165
       }
     ],
-    "boron_for_keff_1p00_ppm": 2052.971594202188,
-    "boron_for_keff_0p99_ppm": 2165.0933940753657,
+    "boron_for_keff_1p00_ppm": 2039.7080506680938,
+    "boron_for_keff_0p99_ppm": 2153.390186694669,
     "criterion": "independent_shutdown_systems (EBIS alone cold-subcritical, k<=0.99)",
     "refs": [
       "IAEA SSR-2/1 Req.46 (two diverse shutdown systems)",
@@ -72,20 +72,20 @@
       {
         "rack": "SS304_unborated",
         "boron_ppm": 0,
-        "k_inf": 1.395769331213215,
-        "sigma_pcm": 52.76708471117285
+        "k_inf": 1.3957693312132127,
+        "sigma_pcm": 52.76708471180485
       },
       {
         "rack": "Boral_unborated",
         "boron_ppm": 0,
-        "k_inf": 1.0788695173726328,
-        "sigma_pcm": 58.06632892529402
+        "k_inf": 1.078869517372648,
+        "sigma_pcm": 58.06632892585969
       },
       {
         "rack": "Boral_2000ppm_SFP_boron",
         "boron_ppm": 2000,
-        "k_inf": 0.8854025524006942,
-        "sigma_pcm": 53.53929273426524
+        "k_inf": 0.8854025524006883,
+        "sigma_pcm": 53.53929273429807
       }
     ],
     "criterion": "10 CFR 50.68(b): unborated k<1.0 (defence-in-depth) AND borated k<=0.95",
@@ -104,47 +104,47 @@
       {
         "T_K": 556,
         "rho": 0.748,
-        "keff": 1.0219154035941747,
-        "sigma_pcm": 53.46376727353312
+        "keff": 1.0183225048022986,
+        "sigma_pcm": 57.76535008150235
       },
       {
         "T_K": 523,
         "rho": 0.803,
-        "keff": 1.0405809800307169,
-        "sigma_pcm": 54.693184362079904
+        "keff": 1.0377048785681562,
+        "sigma_pcm": 60.23818007562539
       },
       {
         "T_K": 473,
         "rho": 0.87,
-        "keff": 1.0634719935971229,
-        "sigma_pcm": 62.41212531181961
+        "keff": 1.0611210761337226,
+        "sigma_pcm": 60.65636591925835
       },
       {
         "T_K": 423,
         "rho": 0.922,
-        "keff": 1.0901511289101447,
-        "sigma_pcm": 63.1473116625736
+        "keff": 1.086746669113171,
+        "sigma_pcm": 60.36544200340835
       },
       {
         "T_K": 373,
         "rho": 0.963,
-        "keff": 1.1044924959399012,
-        "sigma_pcm": 61.43758148880693
+        "keff": 1.1011338601042553,
+        "sigma_pcm": 60.260984048381495
       },
       {
         "T_K": 323,
         "rho": 0.994,
-        "keff": 1.1132246484367074,
-        "sigma_pcm": 52.751881528545226
+        "keff": 1.1109949198592066,
+        "sigma_pcm": 57.41843182107331
       },
       {
         "T_K": 294,
         "rho": 1.003,
-        "keff": 1.1184761271011825,
-        "sigma_pcm": 60.420469120183526
+        "keff": 1.1142169403247975,
+        "sigma_pcm": 63.9595568400492
       }
     ],
-    "keff_max_on_cooldown": 1.1184761271011825,
+    "keff_max_on_cooldown": 1.1142169403247975,
     "return_to_power": true,
     "criterion": "MSLB no return-to-power: k<1 with most-reactive rod stuck out",
     "refs": [
@@ -161,26 +161,26 @@
       {
         "T_K": 556,
         "boron_ppm": 3000,
-        "keff": 0.8239773722191647,
-        "sigma_pcm": 52.05773692963069,
-        "k_adj": 0.83002
+        "keff": 0.8241104034314833,
+        "sigma_pcm": 50.4812701675021,
+        "k_adj": 0.83012
       },
       {
         "T_K": 423,
         "boron_ppm": 3000,
-        "keff": 0.8402968852909667,
-        "sigma_pcm": 57.95056675558145,
-        "k_adj": 0.84646
+        "keff": 0.8367780041029488,
+        "sigma_pcm": 55.58912044336524,
+        "k_adj": 0.84289
       },
       {
         "T_K": 294,
         "boron_ppm": 3000,
-        "keff": 0.8386908443755974,
-        "sigma_pcm": 47.058867262203435,
-        "k_adj": 0.84463
+        "keff": 0.836931479984426,
+        "sigma_pcm": 50.54755125307876,
+        "k_adj": 0.84294
       }
     ],
-    "k_adj_cold": 0.84463,
+    "k_adj_cold": 0.84294,
     "subcritical_with_margin": true,
     "criterion": "credited MSLB termination (RT+MSI+EBIS): cold/stuck-rod k_adj <= 0.95",
     "note": "credited safe state = reactor trip + main-steam isolation + EBIS; the rods-alone N12 is the diagnostic limiting case that establishes the EBIS requirement",
@@ -193,14 +193,14 @@
   "N5B_enriched_rods": {
     "case": "N5B_enriched_B10_rods",
     "b10_enrichment": 0.9,
-    "k_aro_hot": 1.1603427919008382,
-    "k_ari_hot": 0.9831931205895819,
-    "total_bank_worth_pcm": 15527.98886664405,
-    "k_adj_ari_hot": 0.98936,
-    "k_ari_cold": 1.0841988892217318,
-    "k_stuck_cold": 1.1011552093928667,
-    "sdm_all_rods_cold_pct": -7.766000321414469,
-    "sdm_stuck_rod_cold_pct": -9.18628078312772,
+    "k_aro_hot": 1.158263354420123,
+    "k_ari_hot": 0.9803077652119735,
+    "total_bank_worth_pcm": 15672.629746629329,
+    "k_adj_ari_hot": 0.98663,
+    "k_ari_cold": 1.0814720212491913,
+    "k_stuck_cold": 1.097957985085261,
+    "sdm_all_rods_cold_pct": -7.53343772639483,
+    "sdm_stuck_rod_cold_pct": -8.921833659933185,
     "hot_trip_subcritical": true,
     "note": "enriched-B10 SOLID B4C control rods - does NOT add soluble boron, SBF claim intact; EBIS remains the diverse cold/standalone shutdown backup",
     "criterion": "rod-based hot trip k_adj<=0.99 with SDM; cold shutdown by rods + EBIS",
@@ -232,12 +232,12 @@
         1
       ]
     ],
-    "k_aro_hot": 1.1603427919008098,
-    "k_ari_hot": 0.9292129728933739,
-    "total_bank_worth_pcm": 21436.526049915265,
-    "k_adj_ari_hot": 0.9354,
-    "k_stuck_cold": 1.0351672502014087,
-    "hot_sdm_pct": 7.62,
+    "k_aro_hot": 1.158263354420124,
+    "k_ari_hot": 0.9272544941146468,
+    "total_bank_worth_pcm": 21509.10672225237,
+    "k_adj_ari_hot": 0.93338,
+    "k_stuck_cold": 1.0311479859562467,
+    "hot_sdm_pct": 7.85,
     "note": "4 extra CRAs in central-cross fuel FAs (existing guide tubes; +4 CRDMs vs 12); enriched-B10 SOLID rods, SBF intact; EBIS still the diverse cold backup",
     "criterion": "hot trip k_adj<=0.98 (jury 'Good'); cold by rods + EBIS",
     "refs": [

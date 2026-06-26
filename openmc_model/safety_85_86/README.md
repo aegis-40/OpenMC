@@ -4,7 +4,9 @@ Standalone OpenMC criticality study for the safety-neutronics simulations identi
 in `docs/competition/SIMULATION_ANALYSIS_PLAN.md` (N10/N11/N12), plus the control-rod
 shutdown analyses (N5/N5B) and the EBIS-credited MSLB case (N12-B) that close the
 shutdown safety story. Geometry/materials reuse the **locked design** verbatim
-(Approach B, Gd 20 @ 6 wt% + Er 16 @ 0.5 wt%) from `aegis40_neutronics_FER.ipynb`.
+(Approach B, Gd 20 @ 6 wt% + **Er 16 @ 0.75 wt%**) from `aegis40_neutronics_FER.ipynb`.
+*(Er set to 0.75 wt% — Laziz, 2026-06-27; vs the prior 0.50 wt% every margin moved ~2 pcm
+deeper, no grade changes. Numbers below are the Er=0.75 values.)*
 
 ## Acceptance convention — judge by adjusted k, not the raw mean
 All criticality claims use the **conservative adjusted multiplication factor**:
@@ -19,14 +21,14 @@ preferred / ≤ 0.98 acceptable; rod hot-trip **k_adj ≤ 0.99** with SDM.
 
 | Case | What it proves | k_mean | **k_adj** | Verdict |
 |---|---|---|---|---|
-| **N5** hot trip — natural B₄C, 12 CRAs | RPS rods alone at BOC | 1.0053 | **1.010** | ❌ **diagnostic** — rods alone insufficient |
-| **N5B** hot trip — 90% B-10 B₄C, 12 CRAs | enriched solid rods | 0.9832 | **0.989** | ✅ subcritical (thin ~1% margin) |
-| **N5C** hot trip — 90% B-10, **16 CRAs** (+4) | enriched rods + extra CRAs | 0.9292 | **0.935** | ✅ **Great** (matches NuScale 16-CRA) |
-| **N10** EBIS standalone, 3000 ppm | diverse cold shutdown | 0.9241 | **0.930** | ✅ **Great** |
-| **N11** SFP, Boral, unborated | defence-in-depth bound | 1.0789 | 1.085 | conservative bound (fresh∞) |
+| **N5** hot trip — natural B₄C, 12 CRAs | RPS rods alone at BOC | 1.0026 | **1.008** | ❌ **diagnostic** — rods alone insufficient |
+| **N5B** hot trip — 90% B-10 B₄C, 12 CRAs | enriched solid rods | 0.9803 | **0.987** | ✅ subcritical (thin ~1% margin) |
+| **N5C** hot trip — 90% B-10, **16 CRAs** (+4) | enriched rods + extra CRAs | 0.9273 | **0.933** | ✅ **Great** (matches NuScale 16-CRA) |
+| **N10** EBIS standalone, 3000 ppm | diverse cold shutdown | 0.9217 | **0.928** | ✅ **Great** |
+| **N11** SFP, Boral, unborated | defence-in-depth bound | 1.0789 | 1.085 | conservative bound (fresh∞, Er-independent) |
 | **N11** SFP, Boral + 2000 ppm | credited storage | 0.8854 | **0.892** | ✅ **Great** (50.68(b)) |
-| **N12-A** MSLB rods-alone, cold/stuck | diagnostic limiting case | 1.1185 | **1.125** | ❌ **diagnostic** — establishes EBIS need |
-| **N12-B** MSLB + EBIS 3000 ppm, cold/stuck | credited MSLB termination | 0.8387 | **0.845** | ✅ **Great** |
+| **N12-A** MSLB rods-alone, cold/stuck | diagnostic limiting case | 1.1142 | **1.120** | ❌ **diagnostic** — establishes EBIS need |
+| **N12-B** MSLB + EBIS 3000 ppm, cold/stuck | credited MSLB termination | 0.8369 | **0.843** | ✅ **Great** |
 
 **Bottom line:** every *credited* safety function clears its target with margin. The two
 red rows are **deliberate diagnostic limiting cases**, retained to *establish the design
