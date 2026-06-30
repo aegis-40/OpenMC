@@ -52,3 +52,9 @@ docs/competition/digital-appendix/pincell_run/
 openmc_model/**/statepoint.*
 openmc_model/**/summary.*
 docs/competition/waste/_materials_base.xml
+
+# session cleanup: result archives, temp zips, root scratch json, competition spec doc
+*.rar
+*.zip
+/static_*.json
+docs/2026_NUCLEAR_ENERGY_TECHNOLOGIES_DESIGN_COMPETITION_DETAILED_DESIGN_FER_T.docx
