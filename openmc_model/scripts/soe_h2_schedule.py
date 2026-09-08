@@ -39,7 +39,11 @@ print(f"  SOE steam slipstream = {soe_steam_kgs:.2f} kg/s = {steam_frac:.2f}% of
 HEATING_DAYS    = 212
 NONHEATING_DAYS = 153
 # off-peak hours/day available for charge + H2 (night valley)
-OFFPEAK_H_DAY   = 8
+OFFPEAK_H_DAY   = 8            # TCES charging window
+# SOE hydrogen: only the DEEPEST valley (~02:00-06:00), non-heating season only,
+# net of outage/low-demand nights (DECIDED 2026-07-02: modest schedule -> ~120 t/yr)
+SOE_H_NIGHT     = 4
+SOE_NIGHTS      = 140
 
 print("\n=== Seasonal operating schedule (Sinop) ===")
 modes = [
@@ -52,7 +56,7 @@ for s, m in modes:
 
 # ---------------- annual yields ----------------
 # H2: runs off-peak year-round; winter reduced (electricity prioritised to grid+DH)
-h2_hours = NONHEATING_DAYS*OFFPEAK_H_DAY + HEATING_DAYS*(OFFPEAK_H_DAY*0.5)
+h2_hours = SOE_NIGHTS * SOE_H_NIGHT
 h2_tyr   = soe_kg_h * h2_hours / 1000.0
 # DH: store delivers DH over heating season, avg ~50% of peak
 dh_avg_mwth = DH_PEAK_MWTH*0.5

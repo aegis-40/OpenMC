@@ -1,0 +1,11 @@
+# Aegis-40 python toolchain
+# Core physics tools (natcirc, mdnbr, thermal_stack, aoo_dnbr, cycle_mdnbr,
+# stability_map, f5_prhr, b2_loss_budget, groeneveld, meshindep) are pure
+# python3 (>= 3.9) with NO third-party dependencies.
+#
+# Only the figure and report generators need:
+matplotlib>=3.5
+python-docx>=0.8.11
+#
+# Optional (CFD field rendering, figures F9a-c):
+#   ParaView >= 5.10 (pvbatch) — external application, not a pip package.

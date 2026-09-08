@@ -41,8 +41,11 @@ OUT = Path(os.environ.get("TWIN_OUT", os.path.join(os.path.dirname(__file__), "s
 OUT.mkdir(parents=True, exist_ok=True); (OUT / "maps").mkdir(exist_ok=True)
 N_PTS = int(os.environ.get("TWIN_N", "120"))
 SEED  = int(os.environ.get("TWIN_SEED", "12345"))
-STAT  = {"fast": STAT_FAST, "medium": STAT_MEDIUM, "final": STAT_FINAL}[
-    os.environ.get("TWIN_STAT", "medium")]
+_STAT_MAP = {"fast": STAT_FAST, "medium": STAT_MEDIUM, "final": STAT_FINAL}
+STAT = _STAT_MAP.get(os.environ.get("TWIN_STAT", "custom"),
+                     dict(batches=int(os.environ.get("TWIN_BATCHES", "220")),
+                          inactive=int(os.environ.get("TWIN_INACTIVE", "50")),
+                          particles=int(os.environ.get("TWIN_PARTICLES", "25000"))))
 print(f"[twin] N={N_PTS} STAT={STAT} seed={SEED} -> {OUT}", flush=True)
 ROOT = OUT / "runs"; ROOT.mkdir(parents=True, exist_ok=True)   # statepoints on ext4 (fast), not /mnt/d
 

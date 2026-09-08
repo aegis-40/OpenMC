@@ -6,7 +6,7 @@ Aegis-40 spent fuel at discharge, to support the §8.5/§8.7 3S (Safety / Securi
 Safeguards) case. The physics is produced here by [NEU] from the OpenMC depletion
 discharge inventory; the prose/framing is [3S]'s (Azamhon).
 
-Headline argument: a high-burnup (42.8 GWd/t) soluble-boron-free core **degrades
+Headline argument: a high-burnup (29.6 GWd/t) soluble-boron-free core **degrades
 the plutonium** (low Pu-239, high Pu-240/Pu-238/Pu-241 -> reactor-grade, high
 decay heat + neutron background) and leaves spent uranium far below any usable
 enrichment. Both raise the *intrinsic* barriers. The dominant proliferation
@@ -127,7 +127,7 @@ def make_plots(c, outdir):
 
     # Plot 1 — Pu isotopic vector vs reference grades
     fig, ax = plt.subplots(figsize=(8, 4.5))
-    labels = ["Aegis-40\n(42.8 GWd/t)"] + list(REF_VECTORS.keys())
+    labels = ["Aegis-40\n(29.6 GWd/t)"] + list(REF_VECTORS.keys())
     x = range(len(PU))
     width = 0.26
     series = [[c["pu_wo"][p] for p in PU]] + \
@@ -186,7 +186,7 @@ def write_report(c, outdir, plots, inv_path):
     L.append("# Safeguards & non-proliferation — attractiveness of discharge "
              "materials (FER 3S, §8.5/§8.7)\n")
     L.append(f"- Generated: `{now}`")
-    L.append(f"- Source inventory: `{inv_path}` (whole-core discharge, 42.8 GWd/t, "
+    L.append(f"- Source inventory: `{inv_path}` (whole-core discharge, 29.6 GWd/t, "
              "OpenMC depletion). Produced by [NEU]; framing by [3S].")
     L.append("- Basis: whole 21-FA core at discharge; per-batch = /4 (4-batch reload).\n")
 

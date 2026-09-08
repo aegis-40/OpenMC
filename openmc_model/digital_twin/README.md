@@ -20,21 +20,24 @@ reactivity surrogate; **∂k/∂input** gives MTC/DTC/void (no extra runs); the 
 the POD spatial surrogate. (Burnup axis is handled later by overlaying the existing
 `depletion_results.h5` k(BU) curve — no re-depletion here.)
 
-## How to launch (tonight)
+## How to launch
 ```bash
 # set threads to your physical-core count first (32 on the workstation):
 OPENMC_THREADS=32 bash run_twin_sweep.sh
 ```
-- **STAT_MEDIUM** (180×20k, ~50–60 pcm/run, ~20–30 s/run) → **~120 points ≈ 45–60 min** on 32 threads.
+- Default statistics **220×25k** (~45–50 pcm/run) → **~120 points ≈ 6 h on 8 threads / ~1.5–2 h on 32**.
 - **Resumable + sleep-proof:** it checkpoints in `core_sweep.csv` and skips done points; the launcher
   re-runs until `TWIN_SWEEP_COMPLETE`. If the box sleeps, just re-run the same command.
+- **Detached (survives closing the terminal):** `bash resume_detached.sh` — reports progress and
+  relaunches (via `setsid`) only if not already running; safe to re-run after any sleep.
 - Outputs land on ext4 at `~/aegis_run/twin_sweep/` (CSV + `maps/`). Copy to this folder when done:
   `cp ~/aegis_run/twin_sweep/core_sweep.csv ~/aegis_run/twin_sweep/maps -r .`
 
 ## Knobs (env)
-`TWIN_N` (points) · `TWIN_STAT` (fast|medium|final) · `TWIN_SEED` · `TWIN_OUT` · `OPENMC_THREADS`.
+`TWIN_N` (points) · `TWIN_STAT` (custom [default, 220×25k] | fast | medium | final) · `TWIN_SEED` ·
+`TWIN_OUT` · `OPENMC_THREADS`.
 Quick smoke test first: `TWIN_N=4 TWIN_STAT=fast bash run_twin_sweep.sh` (~1 min) to confirm it writes
-`core_sweep.csv` + 4 maps, then launch the full 120 at medium.
+`core_sweep.csv` + 4 maps, then launch the full 120.
 
 ## Regenerate the script (if the notebook config changes)
 `python ../../scripts/_gen_twin_sweep.py`  (re-extracts `build_core` from `ref_neutronics.ipynb`).

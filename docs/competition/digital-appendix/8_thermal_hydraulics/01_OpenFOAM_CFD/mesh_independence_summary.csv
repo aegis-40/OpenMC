@@ -1,0 +1,14 @@
+# Aegis-40 conjugate-pin CFD - mesh-independence summary (ASME V&V-20 / Celik-2008 GCI)
+# Three geometrically-similar meshes; refinement r21 = 1.393 (fine/medium), r32 = 1.426 (medium/coarse); Fs = 1.25
+# Run at the binding COLR-envelope source (qpeak 2.996e8 W/m3, F_q 2.4675, hot pin 22.40 kW).
+# Source: tools/meshindep.py (field-direct, reads the latest-time fields).
+metric,coarse_35700,medium_103600,fine_279888,change_med_to_fine_pct,observed_order_p,richardson_extrap,GCI_fine_pct,note
+peak_fuel_T_K,1136.82,1139.18,1141.29,0.18,0.12,1192.0,5.56,degenerate Richardson - use direct med->fine change
+peak_clad_T_K,680.86,681.32,681.55,0.03,1.79,681.8,0.05,
+near_wall_coolant_T_K,661.66,661.93,662.16,0.03,0.47,663.5,0.25,degenerate Richardson - use direct med->fine change
+outlet_mixing_cup_T_K,617.34,618.00,618.32,0.05,1.97,618.66,0.07,
+dp_frictional_Pa,669,682,695,1.78,0.04,1679,177.06,degenerate Richardson - use direct med->fine change
+mdot_kg_per_s,0.04817,0.04800,0.04792,0.16,1.98,0.04784,0.22,
+# GATE-1 energy conservation (advected power / analytic source 22.40 kW): coarse 0.992x / medium 0.996x / fine 0.998x -> conserves x1.00 (worst 0.8%)
+# CFD vs correlation stack at the identical point: bulk 345/345 C (0.4 K), fuel 866/867 C (0.5 K), clad 408/400 C (8.7 K), near-wall 389/382 C (7.3 K)
+# Verdict: mesh-independent (all temperatures change < 0.2% medium->fine); medium mesh used for production.

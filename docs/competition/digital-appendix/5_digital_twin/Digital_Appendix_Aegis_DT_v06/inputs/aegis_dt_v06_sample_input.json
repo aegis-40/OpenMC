@@ -1,0 +1,27 @@
+{
+  "appendix_id": "Aegis-DT-v0.6-sample-input",
+  "purpose": "Demonstrate the latest Aegis-DT v0.6 dashboard with separated STAT_FINAL cycle records, GP/POD surrogate sensitivity, and simplified plant scenario display logic.",
+  "reactor_basis": {
+    "thermal_power_MWth": 125,
+    "net_electric_MWe": 40,
+    "core": "37 FA, 17x17, 2.0 m active height, soluble-boron-free normal operation",
+    "note": "The dashboard is read-only and advisory. It is not credited for protection, shutdown, decay heat removal, containment isolation, or safety actuation."
+  },
+  "cycle_state_records": [
+    {"state": "BOC", "description": "Beginning of cycle HFP/ARO STAT_FINAL record"},
+    {"state": "MOC", "description": "Middle-of-cycle gadolinia/erbia burnout hump STAT_FINAL record"},
+    {"state": "EOC", "description": "End-of-cycle STAT_FINAL record near k=1 crossing"}
+  ],
+  "surrogate_sensitivity_cases": [
+    {"case_id": "reference_HFP_ARO", "T_mod_K": 550, "T_fuel_K": 1000, "n_rods_in": 0, "void": 0.0, "description": "Reference hot-full-power, all-rods-out surrogate point"},
+    {"case_id": "hot_moderator", "T_mod_K": 555, "T_fuel_K": 1000, "n_rods_in": 0, "void": 0.0, "description": "Local moderator-temperature perturbation for sensitivity demonstration"},
+    {"case_id": "partial_rods", "T_mod_K": 550, "T_fuel_K": 1000, "n_rods_in": 6, "void": 0.0, "description": "Intermediate rod-insertion sensitivity demonstration"},
+    {"case_id": "void_5pct", "T_mod_K": 550, "T_fuel_K": 1000, "n_rods_in": 0, "void": 0.05, "description": "Five-percent void sensitivity demonstration"}
+  ],
+  "plant_display_scenarios": [
+    {"scenario": "normal", "description": "Full-power electricity mode"},
+    {"scenario": "tces_h2", "description": "TCES display mode with 8 MWe SOE hydrogen load"},
+    {"scenario": "loss_normal_heat_sink", "description": "Loss of seawater/condenser normal heat sink; passive PRHR/IRWST display"},
+    {"scenario": "station_blackout", "description": "Station blackout passive-cooling display"}
+  ]
+}

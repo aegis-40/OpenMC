@@ -1,0 +1,53 @@
+================================================================================
+ SAMPLE INPUT: sample_case/  (OpenFOAM v2412, chtMultiRegionFoam)
+================================================================================
+
+WHAT THE CASE IS
+  Conjugate heat-transfer model of the Aegis-40 hot fuel pin: three coupled
+  regions — UO2 fuel (with He-gap contact resistance on the coupling patches),
+  Zircaloy-4 cladding, and the water subchannel — solved to steady state with
+  chtMultiRegionFoam. This is the production (medium, 103.6k-cell) member of a
+  three-mesh grid-convergence set (35.7k / 103.6k / 279.9k cells).
+
+CONDITIONS THE INPUT WAS CREATED FOR
+  System pressure          12.8 MPa
+  Core inlet temperature   531.15 K (258 C)
+  Subchannel mass flow     natural-circulation-delivered (G ~ 542 kg/m2 s)
+  Heat source              axial chopped cosine, qpeak = 2.996e8 W/m3
+                           = the COLR design envelope from the cycle-resolved
+                           OpenMC record: F_q 2.4675 (F_dH 1.750 x F_z 1.410),
+                           hot-pin integral 22.40 kW (constant/fuel/fvOptions)
+  Geometry                 pellet r 4.0958 mm, clad 4.1873/4.76 mm, pitch
+                           12.623 mm, active length 2.0 m — one-for-one from
+                           the locked OpenMC neutronics model
+  Turbulence               k-omega SST; buoyant, constant-property liquid
+
+APPROACHES USED
+  - The mesh is a parametric butterfly O-grid (system/blockMeshDict knobs);
+    ./Allmesh runs blockMesh -> splitMeshRegions -> seeds 0/ from 0.orig.
+  - The volumetric source is a scalarCodedSource (compiles C++ at runtime;
+    run the container NON-root).
+  - He-gap contact resistance is specified IDENTICALLY on both coupling patches
+    (thicknessLayers 9.15e-5 m / kappaLayers 0.48 W/m K) — an asymmetric
+    specification silently breaks energy conservation.
+  - Acceptance gate 1 (before any temperature is trusted): advected power
+    mdot*cp*(Tout - Tin) must equal the analytic source integral (22.40 kW).
+  - Single-phase CFD is used for the flow/energy field only; clad temperatures
+    above Tsat are post-processed by the correlation stack (02_Python_safety_toolchain:
+    Jens-Lottes subcooled boiling, W-3/Bowring/Groeneveld CHF), which carries
+    the boiling physics a single-phase solver cannot.
+
+RESULTS OBTAINED FROM THE OUTPUT (see also mesh_independence_summary.csv)
+  - GATE-1 energy conservation x1.00 on every mesh (worst deviation 0.8 %).
+  - Mesh-independent: ASME V&V-20 GCI < 0.15 % on outlet / clad / near-wall T.
+  - CFD vs Dittus-Boelter correlation stack agree < 9 K on every quantity
+    (bulk and fuel centreline < 1 K).
+  - Safety metrics at the COLR envelope (correlation stack, record axial
+    shapes): MDNBR 1.33 (W-3, conservative) / 2.13 (Bowring, in-range),
+    corroborated by the Groeneveld look-up table (6.18); PCT 353 C;
+    peak fuel centreline 828 C.
+
+HOW TO RUN
+  See 04_VV_and_benchmarking/reproducibility_steps.md (Docker command, serial
+  and parallel variants, expected runtimes and outputs).
+================================================================================

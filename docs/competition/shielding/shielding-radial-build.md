@@ -1,45 +1,52 @@
-# Aegis-40 — radial shielding build (CAD-anchored)
+# Aegis-40 — radial shielding build (CAD-anchored, adopted)
 
-**Model:** `openmc_model/rev7_shielding/aegis40_3d_core_shielding_rev7.ipynb` (§9), lead-free.
-**Source:** the real 21-FA core lattice (eigenvalue mode, photon transport ON), normalised to
-125 MWth → 9.5×10¹⁸ n/s. ICRP-116 AP flux-to-dose; MAGIC weight windows for deep penetration.
+> **Authoritative results:** see `core-shielding-results.md` (dose, RPV fluence, figures,
+> references). This file is the geometry/basis summary only.
+
+**Model:** `openmc_model/rev7_shielding/shield_37fa_cad.py` (fixed-source coupled n+γ) +
+`point_kernel_dose.py` (ANS-6.4 dose), lead-free.
+**Source:** 125 MWth fission emission — Watt neutrons (~9.5×10¹⁸ n/s) + Maienschein prompt-fission
+gammas (~2.8×10¹⁹ γ/s), volume-smeared core emitter. ICRP-116 AP flux-to-dose; MAGIC weight windows.
 **Geometry:** concentric `ZCylinder` shells (axisymmetric integral RPV), bounded ±180 cm in z.
 
-## Radial layer stack (cylindrical, from centreline)
+## Radial layer stack (cylindrical, from centreline) — adopted CAD build
 
 | # | Layer | Material | Inner r (cm) | Outer r (cm) | Thickness (cm) | Basis |
 |---|---|---|---|---|---|---|
-| 1 | Active core + radial reflector | real pin lattice + H₂O | 0 | 80.0 | — | core box 54 + 20 cm reflector → barrel ID 1600 mm (CAD B1) |
-| 2 | Core barrel | SS-304 | 80.0 | 82.5 | 2.5 | barrel OD 1650 mm (CAD B1) |
-| 3 | Downcomer + helical-SG annulus | H₂O (downcomer) | 82.5 | 140.0 | 57.5 | RPV ID 2800 mm (CAD B1) — **dominant attenuator** |
-| 4 | Reactor pressure vessel | SA-508 + clad | 140.0 | 156.5 | 16.5 | wall 160 + 5 mm, OD ~3130 mm (CAD B1) — fast-flux/fluence tally here |
-| 5 | Reactor cavity | air | 156.5 | 171.5 | 15.0 | standoff gap |
-| 6 | Thermal / neutron shield | SS-304 | 171.5 | 176.5 | 5.0 | gamma + fast-n (Ogul SMART multilayer) |
-| 7 | Borated polyethylene | 5 wt% B PE | 176.5 | 186.5 | 10.0 | thermal-n capture, low 2° gamma (Bagheri & Khalafi) |
-| 8 | Bulk biological shield | magnetite (heavy) concrete | 186.5 | 306.5 | 120.0 | lead-free γ+n bulk; bound water moderates |
-| 9 | Outer finish | ordinary concrete | 306.5 | 316.5 | 10.0 | structural / finish |
+| 1 | Active core + radial reflector | homogenised core + H₂O | 0 | 97.5 | — | core env. R = 75.54 → barrel ID R975 (CAD) |
+| 2 | Core barrel | SS-304 | 97.5 | 100.0 | 2.5 | barrel OD R1000 (CAD) |
+| 3 | Downcomer + OTSG annulus | H₂O (conservative) | 100.0 | 135.0 | 35.0 | RPV ID 1350 mm (CAD) |
+| 4 | Reactor pressure vessel | SA-508 + clad | 135.0 | 151.5 | 16.5 | wall 160 + clad 5 mm, OD 1515 mm (CAD) — fluence tally here |
+| 5 | Reactor cavity | air | 151.5 | 166.5 | 15.0 | standoff gap |
+| 6 | Thermal / neutron shield | SS-304 | 166.5 | 171.5 | 5.0 | γ + fast-n (Ogul SMART multilayer) |
+| 7 | Borated polyethylene (neutron layer) | 5 wt% B PE | 171.5 | 191.5 | **20.0** | fast/thermal-n; sized in §4.3 (Bagheri & Khalafi) |
+| 8 | Bulk biological shield | magnetite (heavy) concrete | 191.5 | 371.5 | **180.0** | lead-free γ bulk; sized in §4.3 |
+| 9 | Outer finish | ordinary concrete | 371.5 | 381.5 | 10.0 | structural / finish |
 
-Total radial envelope ≈ **3.17 m** from centreline (≈ 6.3 m shield diameter).
+Total radial envelope ≈ **3.82 m** from centreline (≈ **7.6 m** shield outer diameter).
 
-## Design criteria
-- **Operational dose target:** < 10 µSv/h just outside the bulk concrete (ALARA, Bagheri & Khalafi).
-- **RPV fast fluence:** E > 1 MeV neutron flux at the vessel wall → 60-yr fluence (embrittlement / RTNDT).
-- **Materials are LEAD-FREE by team constraint** (toxicity/disposal); tungsten reserved for transport casks only.
+## Design criteria & result
+- **Operational dose:** < 10 µSv/h just outside the bulk concrete (ALARA) — **met** (~0.23 µSv/h
+  nominal, ≤ 5.5 µSv/h bounding; PASS).
+- **RPV fast fluence:** E > 1 MeV, 60-yr < 1×10¹⁹ n/cm² (embrittlement / RTₙdt) — **met**
+  (3.0×10¹⁸ n/cm²; PASS).
+- **Materials are LEAD-FREE by team constraint** (toxicity/disposal); tungsten reserved for
+  transport casks only.
 
-## Why the vessel dims matter (and why the model was corrected, 2026-06-20)
-The earlier draft used placeholder compact radii (RPV inner at r=93 cm, ~13 cm downcomer). The CAD
-integral RPV actually has a **57 cm downcomer + helical-SG annulus** (water + SG steel) before a
-16.5 cm SA-508 wall. That annulus is the single largest attenuator between core and bioshield;
-modelling it correctly **lowers** the predicted bioshield dose and removes a "where did these radii
-come from?" question. Layer *thicknesses* (rows 5–9) are the shield design and are unchanged — only
-their standoff was anchored to the real vessel.
+## Neutron-layer sizing (§4.3)
+Rows 7–8 were resized from the earlier **10 cm PE / 120 cm magnetite** stack. Magnetite is an
+excellent gamma shield but hydrogen-poor, so the earlier stack did not robustly meet the
+fast-neutron dose target across the removal-cross-section band. Increasing the borated-PE
+neutron layer to **20 cm** and the magnetite bulk to **180 cm** closes the dose with ~40× margin,
+at the cost of **+70 cm** radial growth (shield OD ≈ 6.2 m → ≈ 7.6 m — feeds plant-layout / civil
+estimates). Vessel standoff and the RPV-fluence result are unaffected.
 
 ## Relationship to the core neutronics model
 The biological shield is **decoupled** from the core eigenvalue/peaking results: neutrons reaching
 the shield (beyond the RPV) have already left the multiplying region, so adding the shield changes
-k_eff by ≪ 100 pcm and the pin-peaking factors not at all. The core model's vacuum boundary at the
-20 cm reflector is mildly conservative on k (the real vessel reflects marginally more). Shielding is
-therefore correctly run as a **separate fixed-spectrum dose calculation** off the same lattice source.
+k_eff by ≪ 100 pcm and the pin-peaking factors not at all. Shielding is therefore run as a
+**separate fixed-source dose calculation** off the same core source.
 
-_Dims source: `docs/competition/cad/aegis40-geometry-spec.md` Tier B §B1. Layer architecture:
-Ogul et al. (2026) SMART multilayer; Bagheri & Khalafi (2023) GA-optimised water+steel→poly→concrete._
+_Dims source: final 37-FA CAD. Layer architecture: Ogul et al. (2026) SMART multilayer; Bagheri &
+Khalafi (2023) GA-optimised water+steel→poly→concrete. Method/coefficients: Rockwell TID-7004,
+Chilton-Shultis-Faw, NIST-XCOM, ICRP-116._

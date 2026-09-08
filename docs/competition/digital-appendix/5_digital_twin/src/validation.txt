@@ -1,0 +1,14 @@
+Aegis-DT surrogate validation (5-fold hold-out CV) - the ROM's core strength:
+k_eff         CV R2=0.9964  RMSE=0.002585
+F_assembly    CV R2=0.9977  RMSE=0.05224
+
+Reactivity coefficients - INDICATIVE ROM sensitivity (sign & trend), not the
+design values: the authoritative coefficients are the direct STAT_FINAL OpenMC
+runs below. (A wide LHS sweep is optimal for k/power-map, coarse for local dk/dT.)
+  MTC        surrogate=   -39.90   STAT_FINAL=   -26.87   (+48%)
+  DTC        surrogate=    -2.63   STAT_FINAL=    -1.91   (+38%)
+  void       surrogate=  -243.77   STAT_FINAL=  -173.20   (+41%)
+  rod_worth  surrogate=+13383.44   STAT_FINAL=+13390.00   (-0%)
+  note: rod_worth = 0->16-rod 90%-enriched-B10 sweep basis; final 16-CRA = 21,509 pcm (DA-4 N5C)
+
+power-map POD (6 modes, var 0.972)  CV R2=0.9900

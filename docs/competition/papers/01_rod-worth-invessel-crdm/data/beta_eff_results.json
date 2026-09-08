@@ -1,0 +1,21 @@
+{
+  "case": "beta_eff_prompt_method",
+  "method": "prompt-k: beta_eff = 1 - k_prompt/k_total (create_delayed_neutrons=False)",
+  "state": "BOC fresh, HFP, all rods out, 12.8 MPa, T_mod 556 K, T_fuel 900 K",
+  "statistics": {
+    "batches": 400,
+    "inactive": 80,
+    "particles": 50000
+  },
+  "k_total": 1.150421201743101,
+  "k_total_sigma_pcm": 23.86312562642055,
+  "k_prompt": 1.1423161271142754,
+  "k_prompt_sigma_pcm": 22.16694595217746,
+  "beta_eff_pcm": 704.5,
+  "beta_eff_sigma_pcm": 28.2,
+  "ejected_rod_worth_production_pcm": 722.5,
+  "ejected_rod_worth_safety_model_pcm": 844.0,
+  "dollars_production": 1.026,
+  "dollars_safety_model": 1.198,
+  "note": "prompt-k estimate, not adjoint-weighted IFP; OpenMC 0.15.3 exposes no IFP tally scores. Computed in the safety-neutronics model; beta_eff is a ratio of prompt to total fission-neutron production and is far less sensitive to the ~590 pcm absolute-reactivity offset between the two core models than k itself."
+}

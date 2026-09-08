@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "upload_type": "dataset",
+    "title": "Model, scripts and results for: Relaxing the rod-ejection constraint in soluble-boron-free PWR cores (Aegis-40 integral PWR, OpenMC)",
+    "creators": [
+      {
+        "name": "Achilova, Samira",
+        "affiliation": "New Uzbekistan University, Tashkent, Uzbekistan"
+      },
+      {
+        "name": "Ismailov, Laziz",
+        "affiliation": "New Uzbekistan University, Tashkent, Uzbekistan"
+      },
+      {
+        "name": "Abdikarimov, Adilbek",
+        "affiliation": "New Uzbekistan University, Tashkent, Uzbekistan"
+      }
+    ],
+    "description": "<p>Model input, run scripts and complete result files for the study <em>&ldquo;Relaxing the rod-ejection constraint in soluble-boron-free PWR cores: attainable control-rod worth and residual boron dependency with in-vessel drives&rdquo;</em>.</p><p>All results are continuous-energy Monte Carlo eigenvalue calculations with <strong>OpenMC 0.15.3</strong> and <strong>ENDF/B-VIII.0</strong> on a fully three-dimensional, pin-explicit model of a 125 MW<sub>th</sub>, 37-assembly, 17&times;17, 2.0 m active-height natural-circulation integral PWR with in-vessel control-rod drives. No assembly homogenisation or few-group condensation is used at any stage.</p><p><strong>Contents</strong></p><ul><li><code>code/aegis40_safety_neutronics.py</code> &mdash; the core model and the published safety-neutronics case suite (rod-worth ladder, cooldown, emergency boron sizing, spent-fuel-pool criticality).</li><li><code>code/run_paper_extra_cases.py</code> &mdash; the three additional cases: single-cluster worth by symmetry class, the 16-cluster natural-B<sub>4</sub>C corner of the lever matrix, and the boron sweep bracketing the cold-shutdown acceptance crossing.</li><li><code>code/fig3_design_space.py</code> &mdash; generates the design-space figure.</li><li><code>data/</code> &mdash; every eigenvalue reported in the manuscript, as JSON.</li><li><code>figures/</code> &mdash; the four manuscript figures at 300 dpi.</li><li><code>MANIFEST.sha256</code> &mdash; SHA-256 of every file.</li></ul><p><strong>Reproducing</strong>: with OpenMC and an ENDF/B-VIII.0 cross-section library available, run <code>python run_paper_extra_cases.py all</code>. The script imports the locked model rather than redefining it, and checkpoints after every eigenvalue run, so it can be interrupted and resumed.</p><p>Code is released under the MIT licence; result files and figures under CC BY 4.0.</p>",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "language": "eng",
+    "version": "1.0.0",
+    "keywords": [
+      "soluble-boron-free",
+      "small modular reactor",
+      "integral PWR",
+      "control-rod worth",
+      "rod-ejection accident",
+      "shutdown margin",
+      "effective delayed neutron fraction",
+      "Monte Carlo",
+      "OpenMC",
+      "ENDF/B-VIII.0",
+      "reactor physics"
+    ],
+    "notes": "Supplementary material for a manuscript submitted to Nuclear Engineering and Design. The reference core was developed for the TEKNOFEST 2026 Detailed Design Competition (Nuclear, 40 MWe Modular PWR).",
+    "related_identifiers": [
+      {
+        "relation": "isSupplementTo",
+        "identifier": "TO BE ADDED - the article DOI once accepted",
+        "resource_type": "publication-article"
+      }
+    ]
+  }
+}

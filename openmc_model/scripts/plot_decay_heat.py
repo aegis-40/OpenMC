@@ -27,7 +27,7 @@ ax2.set_ylabel("ingestion radiotoxicity  [Sv]", color=c2)
 ax2.tick_params(axis="y", labelcolor=c2)
 
 ax1.set_title("Aegis-40 spent fuel — decay heat & radiotoxicity vs cooling time\n"
-              "(discharge inventory, 5.04 tHM, 42.8 GWd/tHM)")
+              "(once-through discharge inventory, ~9.1 tHM, 29.6 GWd/tHM — STAT_FINAL record)")
 ax1.axvline(5, color="0.6", ls=":", lw=1)
 ax1.text(5.5, 30, "pool→cask\nwindow", fontsize=7.5, color="0.4")
 fig.tight_layout()

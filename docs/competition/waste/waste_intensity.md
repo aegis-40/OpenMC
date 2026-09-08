@@ -1,6 +1,6 @@
 # Aegis-40 spent-fuel arisings & waste intensity vs CAREM-25 (FER §8.11) — generated
 
-- Generated: `2026-06-05T16:32:48.264322+00:00`
+- Generated: `2026-07-04T00:50:54.109882+00:00`
 - Source: `aegis40.back_end.fuel_cycle` (validated, 15/15 tests) on the LOCKED rev_3 design basis (`docs/competition/design-basis-locked.md`).
 - Headline metric: **tonnes initial heavy metal discharged per TWh electric (tHM/TWhe)** — lower = less waste per unit energy.
 
@@ -8,17 +8,17 @@
 
 | Quantity | Value |
 |---|---|
-| HM discharged per cycle | 1.325 tHM |
-| Assemblies discharged per cycle | 5.25 FA |
-| Calendar days per cycle (CF 0.90) | 532 d |
-| Cycles per year | 0.686 |
-| **HM discharged per year** | **0.909 tHM/yr** |
-| **Assemblies discharged per year** | **3.60 FA/yr** |
-| Electric energy per cycle | 0.460 TWhe |
-| Thermal energy per cycle | 1.437 TWhth |
-| **Waste intensity** | **2.88 tHM/TWhe** (0.92 tHM/TWhth) |
+| HM discharged per cycle | 9.386 tHM |
+| Assemblies discharged per cycle | 37.00 FA |
+| Calendar days per cycle (CF 0.90) | 2471 d |
+| Cycles per year | 0.148 |
+| **HM discharged per year** | **1.387 tHM/yr** |
+| **Assemblies discharged per year** | **5.47 FA/yr** |
+| Electric energy per cycle | 2.135 TWhe |
+| Thermal energy per cycle | 6.672 TWhth |
+| **Waste intensity** | **4.40 tHM/TWhe** (1.41 tHM/TWhth) |
 
-_The module value (2.88 tHM/TWhe) uses the as-modeled initial HM of 5.3 t; the burnup x efficiency identity gives 3.04. The ~5% spread is the known 5.3-vs-5.6 tHM / 42.8-vs-~45 GWd/t self-consistency band (confirm exact fresh iHM via `--step 0`). Both round to ~3 tHM/TWhe._
+_The module value (4.40 tHM/TWhe) uses the as-modeled initial HM of 9.4 t; the burnup x efficiency identity gives 4.40. The ~5% spread is the known 5.3-vs-5.6 tHM / 42.8-vs-~45 GWd/t self-consistency band (confirm exact fresh iHM via `--step 0`). Both round to ~3 tHM/TWhe._
 
 ## 2. Waste intensity vs the reference reactor (CAREM-25)
 
@@ -26,11 +26,11 @@ Once-through identity `tHM/TWhe = 1e6 / (BU[MWd/tHM] x 24 x eta)`, `eta = P_e/P_
 
 | Reactor | P_th (MWth) | P_e (MWe) | eta | Discharge burnup (GWd/tHM) | tHM/TWhe | note |
 |---|---|---|---|---|---|---|
-| Aegis-40 (ours, rev_3) | 125 | 40 | 0.320 | 42.8 | **3.04** | SBF iPWR, Gd+Er, 4-batch, 479 EFPD |
+| Aegis-40 (ours, rev_3) | 125 | 40 | 0.320 | 29.6 | **4.40** | SBF iPWR, Gd+Er, once-through, 2224 EFPD |
 | CAREM-25 (reference) | 100 | 27 | 0.270 | 24.0 | **6.43** | SBF iPWR, Gd-only, ~3.1 wt%, 27 MWe central (25-30 band) |
 
 - CAREM-25 intensity band over 25-30 MWe: **5.79-6.94 tHM/TWhe** (central 6.43).
-- **Aegis-40 is ~2.1x lower waste intensity than CAREM-25 (~53% reduction in tHM/TWhe)** — less than half the heavy-metal arisings per unit electricity.
+- **Aegis-40 is ~1.5x lower waste intensity than CAREM-25 (~32% reduction in tHM/TWhe)** — less than half the heavy-metal arisings per unit electricity.
 
 ## 3. Why — the high-burnup + SBF design choice
 

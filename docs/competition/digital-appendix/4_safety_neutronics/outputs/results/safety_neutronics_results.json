@@ -1,0 +1,248 @@
+{
+  "N5_SDM": {
+    "case": "N5_rod_worth_SDM",
+    "k_aro_hot": 1.1582633544201277,
+    "k_ari_hot": 1.0025516737422802,
+    "total_bank_worth_pcm": 13409.330955915793,
+    "k_ari_cold": 1.0979770336122292,
+    "k_stuck_cold": 1.114216940324799,
+    "sdm_all_rods_cold_pct": -8.923413752097806,
+    "sdm_stuck_rod_cold_pct": -10.250870920298903,
+    "hot_trip_all_rods_subcritical": false,
+    "rods_alone_cold_subcritical": false,
+    "note": "boron-free high-excess core: control rods give the fast hot trip; EBIS soluble boron (N10) provides/holds cold subcriticality - the diverse 2nd shutdown system (SSR-2/1 Req.46). SDM reported SIGNED (notebook calc uses abs() which masks a supercritical stuck-rod state).",
+    "criterion": "hot trip subcritical by rods; cold shutdown by rods+EBIS; SDM>=1%",
+    "refs": [
+      "IAEA SSR-2/1 Req.46 (two diverse shutdown systems)",
+      "NUREG-0800 SRP 4.3",
+      "RG 1.77"
+    ]
+  },
+  "N10_EBIS": {
+    "case": "N10_EBIS",
+    "state": "cold 294 K / BOC fresh / ARO (rods out) / soluble-boron only",
+    "sweep": [
+      {
+        "boron_ppm": 0,
+        "keff": 1.2356737419835508,
+        "sigma_pcm": 58.121552797882174
+      },
+      {
+        "boron_ppm": 1000,
+        "keff": 1.1030519536018761,
+        "sigma_pcm": 62.259935961147185
+      },
+      {
+        "boron_ppm": 1800,
+        "keff": 1.0210858151549913,
+        "sigma_pcm": 57.07765011114535
+      },
+      {
+        "boron_ppm": 2400,
+        "keff": 0.9683070742752685,
+        "sigma_pcm": 56.93661980012865
+      },
+      {
+        "boron_ppm": 3000,
+        "keff": 0.9216501634967881,
+        "sigma_pcm": 50.815535041130886
+      },
+      {
+        "boron_ppm": 3600,
+        "keff": 0.8806539957937571,
+        "sigma_pcm": 55.54771519643165
+      }
+    ],
+    "boron_for_keff_1p00_ppm": 2039.7080506680938,
+    "boron_for_keff_0p99_ppm": 2153.390186694669,
+    "criterion": "independent_shutdown_systems (EBIS alone cold-subcritical, k<=0.99)",
+    "refs": [
+      "IAEA SSR-2/1 Req.46 (two diverse shutdown systems)",
+      "10 CFR 50.68 / NUREG-0800 4.3"
+    ]
+  },
+  "N11_SFP": {
+    "case": "N11_SFP_rack",
+    "fuel": "bounding fresh 4.95% UO2 assembly, NO burnable-absorber credit",
+    "array": "infinite (fully reflective) -> k_inf (bounds any finite rack)",
+    "rack": "flux-trap Boral (50 wt% B4C-in-Al, 0.45 cm), pitch FA+1.4 cm",
+    "rack_pitch_cm": 23.0038,
+    "wall_thickness_cm": 0.45,
+    "results": [
+      {
+        "rack": "SS304_unborated",
+        "boron_ppm": 0,
+        "k_inf": 1.3957693312132127,
+        "sigma_pcm": 52.76708471180485
+      },
+      {
+        "rack": "Boral_unborated",
+        "boron_ppm": 0,
+        "k_inf": 1.078869517372648,
+        "sigma_pcm": 58.06632892585969
+      },
+      {
+        "rack": "Boral_2000ppm_SFP_boron",
+        "boron_ppm": 2000,
+        "k_inf": 0.8854025524006883,
+        "sigma_pcm": 53.53929273429807
+      }
+    ],
+    "criterion": "10 CFR 50.68(b): unborated k<1.0 (defence-in-depth) AND borated k<=0.95",
+    "note": "fresh 4.95% infinite array is the extreme bound; licensed storage of >4 wt% fuel credits BURNUP + SFP soluble boron - the borated case is the design demo",
+    "refs": [
+      "10 CFR 50.68(b)",
+      "NUREG-0800 SRP 9.1.1",
+      "ANSI/ANS-8.1",
+      "IAEA SSG-15"
+    ]
+  },
+  "N12_MSLB": {
+    "case": "N12_MSLB_cooldown",
+    "config": "11/12 CRAs inserted; most-reactive rod (3, 2) stuck OUT",
+    "sweep": [
+      {
+        "T_K": 556,
+        "rho": 0.748,
+        "keff": 1.0183225048022986,
+        "sigma_pcm": 57.76535008150235
+      },
+      {
+        "T_K": 523,
+        "rho": 0.803,
+        "keff": 1.0377048785681562,
+        "sigma_pcm": 60.23818007562539
+      },
+      {
+        "T_K": 473,
+        "rho": 0.87,
+        "keff": 1.0611210761337226,
+        "sigma_pcm": 60.65636591925835
+      },
+      {
+        "T_K": 423,
+        "rho": 0.922,
+        "keff": 1.086746669113171,
+        "sigma_pcm": 60.36544200340835
+      },
+      {
+        "T_K": 373,
+        "rho": 0.963,
+        "keff": 1.1011338601042553,
+        "sigma_pcm": 60.260984048381495
+      },
+      {
+        "T_K": 323,
+        "rho": 0.994,
+        "keff": 1.1109949198592066,
+        "sigma_pcm": 57.41843182107331
+      },
+      {
+        "T_K": 294,
+        "rho": 1.003,
+        "keff": 1.1142169403247975,
+        "sigma_pcm": 63.9595568400492
+      }
+    ],
+    "keff_max_on_cooldown": 1.1142169403247975,
+    "return_to_power": true,
+    "criterion": "MSLB no return-to-power: k<1 with most-reactive rod stuck out",
+    "refs": [
+      "NUREG-0800 SRP 15.1.5 (steam-line break)",
+      "IAEA SSG-2 (deterministic safety analysis)",
+      "ANS-51.1 cooldown event"
+    ]
+  },
+  "N12B_MSLB_EBIS": {
+    "case": "N12B_MSLB_EBIS_credited",
+    "config": "11/12 CRAs in, rod (3, 2) stuck OUT, EBIS 3000 ppm",
+    "ebis_ppm": 3000,
+    "sweep": [
+      {
+        "T_K": 556,
+        "boron_ppm": 3000,
+        "keff": 0.8241104034314833,
+        "sigma_pcm": 50.4812701675021,
+        "k_adj": 0.83012
+      },
+      {
+        "T_K": 423,
+        "boron_ppm": 3000,
+        "keff": 0.8367780041029488,
+        "sigma_pcm": 55.58912044336524,
+        "k_adj": 0.84289
+      },
+      {
+        "T_K": 294,
+        "boron_ppm": 3000,
+        "keff": 0.836931479984426,
+        "sigma_pcm": 50.54755125307876,
+        "k_adj": 0.84294
+      }
+    ],
+    "k_adj_cold": 0.84294,
+    "subcritical_with_margin": true,
+    "criterion": "credited MSLB termination (RT+MSI+EBIS): cold/stuck-rod k_adj <= 0.95",
+    "note": "credited safe state = reactor trip + main-steam isolation + EBIS; the rods-alone N12 is the diagnostic limiting case that establishes the EBIS requirement",
+    "refs": [
+      "NUREG-0800 SRP 15.1.5",
+      "IAEA SSR-2/1 Req.46",
+      "RG 1.77"
+    ]
+  },
+  "N5B_enriched_rods": {
+    "case": "N5B_enriched_B10_rods",
+    "b10_enrichment": 0.9,
+    "k_aro_hot": 1.158263354420123,
+    "k_ari_hot": 0.9803077652119735,
+    "total_bank_worth_pcm": 15672.629746629329,
+    "k_adj_ari_hot": 0.98663,
+    "k_ari_cold": 1.0814720212491913,
+    "k_stuck_cold": 1.097957985085261,
+    "sdm_all_rods_cold_pct": -7.53343772639483,
+    "sdm_stuck_rod_cold_pct": -8.921833659933185,
+    "hot_trip_subcritical": true,
+    "note": "enriched-B10 SOLID B4C control rods - does NOT add soluble boron, SBF claim intact; EBIS remains the diverse cold/standalone shutdown backup",
+    "criterion": "rod-based hot trip k_adj<=0.99 with SDM; cold shutdown by rods + EBIS",
+    "refs": [
+      "IAEA SSR-2/1 Req.46",
+      "NUREG-0800 SRP 4.3"
+    ]
+  },
+  "N5C_extra_cra": {
+    "case": "N5C_enriched_plus_extraCRA",
+    "n_cra": 16,
+    "n_extra": 4,
+    "b10_enrichment": 0.9,
+    "extra_cra": [
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "k_aro_hot": 1.158263354420124,
+    "k_ari_hot": 0.9272544941146468,
+    "total_bank_worth_pcm": 21509.10672225237,
+    "k_adj_ari_hot": 0.93338,
+    "k_stuck_cold": 1.0311479859562467,
+    "hot_sdm_pct": 7.85,
+    "note": "4 extra CRAs in central-cross fuel FAs (existing guide tubes; +4 CRDMs vs 12); enriched-B10 SOLID rods, SBF intact; EBIS still the diverse cold backup",
+    "criterion": "hot trip k_adj<=0.98 (jury 'Good'); cold by rods + EBIS",
+    "refs": [
+      "IAEA SSR-2/1 Req.46",
+      "NUREG-0800 SRP 4.3"
+    ]
+  }
+}

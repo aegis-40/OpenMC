@@ -1,0 +1,14 @@
+{
+  "case": "REA_ejected_rod_worth_Tfuel900",
+  "note": "corrects the fuel-temperature error in the safety-module helpers",
+  "k_aro": 1.150421,
+  "k_one_in": 1.1386028029527082,
+  "ejected_rod_worth_pcm": 902.2,
+  "sigma_pcm": 34.0,
+  "beta_eff_pcm": 704.5,
+  "beta_eff_sigma_pcm": 28.2,
+  "dollars": 1.281,
+  "dollars_sigma": 0.07,
+  "production_run_value_pcm": 722.5,
+  "superseded_value_pcm": 844.0
+}

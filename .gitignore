@@ -58,3 +58,15 @@ docs/competition/waste/_materials_base.xml
 *.zip
 /static_*.json
 docs/2026_NUCLEAR_ENERGY_TECHNOLOGIES_DESIGN_COMPETITION_DETAILED_DESIGN_FER_T.docx
+
+/_ARCHIVE/
+
+# ---- binary deliverables: keep the repo lightweight -------------------
+# Office documents, exported reports, presentations and local backups are
+# regenerable or belong in the separately-uploaded Digital Appendix ZIP.
+*.docx
+*.pptx
+*.pdf
+*.bak
+*.pkl
+*.html

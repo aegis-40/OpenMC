@@ -79,9 +79,13 @@ the feedstock and low-grade preheat, not the high-temperature reaction heat.
 | Electrical demand | 50 kWh/kg | **37.55 kWh/kg** (−25 %) |
 | H₂ at 8 MWe off-peak | 160 kg/h | **213 kg/h** (+33 %) |
 | Steam slipstream | — | **0.53 kg/s = 0.92 % of main steam** (deaerator bleed) |
-| Annual H₂ | ~640 t/yr* | **~441 t/yr** (at the duty cycle below) |
+| Annual H₂ | ~640 t/yr* | **~120 t/yr** (at the duty cycle below) |
 
-*The PEM figure assumed continuous run; the SOE figure uses the realistic seasonal duty.
+*The PEM figure assumed continuous run; the SOE figure uses the adopted modest schedule:
+**4 h/night in the deepest valley (~02:00–06:00), non-heating season only, ~140 operating
+nights/yr (net of outages) → 560 electrolysis-h/yr × 213 kg/h ≈ 120 t/yr** (SOE capacity
+factor ~6 %; conservative — capacity exists to scale toward ~441 t/yr at 2,070 h/yr if the
+grid valley deepens).
 
 **Mode-exclusive routing (no double-conversion).** The cogeneration extraction is sent
 **directly to whichever product is active — TCES (district-heat mode) or SOE (H₂ mode) — never
@@ -117,9 +121,9 @@ Prices: electricity $40 (off-peak)/$100 (peak)/MWh, H₂ $5/kg, DH heat $40/MWh-
 | Stream | Annual | Note |
 |---|---|---|
 | Electricity | **$22.4 M** | 40 MWe baseload |
-| Hydrogen (SOE) | **$2.2 M** rev / **$1.5 M margin** | 441 t/yr, off-peak electricity |
+| Hydrogen (SOE) | **$0.60 M** rev / **$0.42 M margin** | 120 t/yr × $5/kg; off-peak electricity cost −$0.18 M |
 | District heat | **$2.5 M** | 63.6 GWh-th/yr (avg 12.5 MWth) |
-| **Cogen uplift** | **+$4.1 M/yr (≈ +18 %)** | heat+H₂ over electricity-only |
+| **Cogen uplift** | **+$2.9 M/yr (≈ +13 %)** | heat+H₂ over electricity-only |
 
 The cogeneration block adds **~18 % revenue** with negligible cycle disturbance (<1 % steam
 diverted to SOE; a designed bleed for TCES) and improves **grid flexibility** (H₂ + TCES

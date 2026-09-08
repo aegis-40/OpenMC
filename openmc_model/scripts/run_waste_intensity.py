@@ -41,15 +41,15 @@ DEFAULT_OUTDIR = os.path.join("docs", "competition", "waste")
 # ---------------------------------------------------------------------------
 # Design points
 # ---------------------------------------------------------------------------
-# Aegis-40 — LOCKED rev_3 design basis (docs/competition/design-basis-locked.md).
+# Aegis-40 — RECORD basis (STAT_FINAL 2026-07-03, fixed volumes, once-through).
 AEGIS40 = CoreCycleSpec(
-    hm_mass_t=5.3,            # as-modeled initial HM (confirm exact via --step 0)
-    n_assemblies=21,
-    n_batches=4,
+    hm_mass_t=9.386,          # OpenMC step-0 heavy-metal inventory
+    n_assemblies=37,
+    n_batches=1,              # once-through (no refuelling)
     thermal_power_mwt=125.0,
     electric_power_mwe=40.0,
-    cycle_length_efpd=479.0,
-    discharge_burnup_gwd_t=42.8,
+    cycle_length_efpd=2224.0, # B1 (k=1 crossing), STAT_FINAL
+    discharge_burnup_gwd_t=29.6,
     capacity_factor=0.90,
 )
 
@@ -92,7 +92,7 @@ def build_rows():
     comparison = [
         dict(reactor="Aegis-40 (ours, rev_3)", pth=125.0, pe=40.0, eta=aegis_eta,
              bu=AEGIS40.discharge_burnup_gwd_t, intensity=aegis_int_id,
-             note="SBF iPWR, Gd+Er, 4-batch, 479 EFPD"),
+             note="SBF iPWR, Gd+Er, once-through, 2224 EFPD"),
         dict(reactor="CAREM-25 (reference)", pth=CAREM_PTH_MWT, pe=CAREM_PE_CENTRAL_MWE,
              eta=carem_eta, bu=CAREM_BU_GWD_T, intensity=carem_int,
              note="SBF iPWR, Gd-only, ~3.1 wt%, 27 MWe central (25-30 band)"),

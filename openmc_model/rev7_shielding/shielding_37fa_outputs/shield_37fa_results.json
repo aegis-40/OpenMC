@@ -1,0 +1,14 @@
+{
+  "dose_neutron_uSv_h": 0.0,
+  "dose_gamma_uSv_h": 0.0,
+  "dose_total_uSv_h": 0.0,
+  "target_uSv_h": 10.0,
+  "rpv_fast_flux_n_cm2_s": 1594968769.0945714,
+  "rpv_fluence_60y_n_cm2": 3.0202328611574804e+18,
+  "rpv_fluence_limit": 1e+19,
+  "radial_envelope_cm": 311.5,
+  "stats": {
+    "batches": 50,
+    "particles": 60000
+  }
+}

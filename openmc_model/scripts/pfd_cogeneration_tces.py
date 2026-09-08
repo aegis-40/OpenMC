@@ -9,7 +9,8 @@ FER §8.9 figure. Tells the integration story the design committee asked for:
     back into the reactor steam cycle.
   * Discharge delivers reaction heat to a SEPARATE district-heating water loop
     (90/45 C). Store = ammine NiCl2-SrCl2/NH3 (primary) or zeolite-13X (ammonia-free).
-  * Off-peak electricity drives a PEM electrolyser for H2.
+  * Off-peak electricity drives an SOE electrolyser for H2 (4 h/night valley,
+    ~140 nights/yr outside the heating season -> ~120 t H2/yr at 213 kg/h).
 
 Numbers from thermo_cycle.py + tces_dh_balance.py.
 Output: docs/competition/cycle/pfd_cogeneration_tces.png   Run: py scripts/pfd_cogeneration_tces.py
@@ -129,6 +130,15 @@ tag(14.5, 28.4, "RPV (R-1)  ·  125 MWth")
 ax.text(14.5, 22.2, "natural circulation\n12.8 MPa · 308→258 °C", ha="center", va="center",
         fontsize=6.8, color=C_PRIM, style="italic", zorder=6)
 
+# passive heat removal: PRHR HX immersed in the IRWST pool (in-containment, safety)
+ax.add_patch(Rectangle((27.5, 58.5), 14.5, 10.5, fill=False, ec=C_PRIM, lw=1.5,
+                       ls=(0, (7, 4)), zorder=2))
+box(28.5, 60, 12.5, 7.5, "PRHR HX in\nIRWST pool", fc="#d6eaf8", fs=7.4, tcol="#1a5276")
+tag(34.7, 57.1, "in-containment passive UHS · ≥72 h grace")
+ax.plot([21, 28.5], [66, 66], color=C_PRIM, lw=1.5, ls=(0, (4, 3)), zorder=3)
+ax.plot([21, 28.5], [62, 62], color=C_PRIM, lw=1.5, ls=(0, (4, 3)), zorder=3)
+label(24.6, 67.6, "PRHR (passive,\nsafety)", col=C_PRIM, fs=6.0)
+
 # ===================================================================== single turbine train
 pipe([(14.5, 68), (14.5, 78), (44, 78)], C_STEAM, lw=2.8)
 label(30, 79.6, "main steam  4.5 MPa · 296 °C · 57.8 kg/s", col=C_STEAM, fs=8)
@@ -145,7 +155,7 @@ ax.plot([68.5, 72], [73.5, 73.5], color=INK, lw=3.0, zorder=3)         # common 
 gen(75, 73.5)
 pipe([(78, 73.5), (90, 73.5)], C_ELEC, lw=2.6)
 label(85, 75.2, "40.0 MWe → grid", col=C_ELEC, fs=8.5)
-label(85, 71.2, "(≈35.6 MWe while charging)", col=C_ELEC, fs=6.8)
+label(85, 71.2, "(≈35.6 MWe while TCES charging; ≈27.6 MWe if SOE also on — night valley only)", col=C_ELEC, fs=6.2)
 
 # ===================================================================== condenser + feedwater
 pipe([(64, 69), (64, 60)], C_STEAM, lw=2.4)
@@ -193,7 +203,7 @@ label(94.5, 34.4, "charge loop\n168 °C (closed)", col=C_CHG, fs=6.3)
 
 # the store (ammine primary; zeolite alternative)
 tank(98, 11, 16, 21, "THERMOCHEMICAL\nSTORE  (TCS-1)",
-     "#a04000", "ammine NiCl₂-SrCl₂/NH₃\n735 t · 735 m³\n— or zeolite-13X 1000 t —",)
+     "#a04000", "REFERENCE: Zeolite-13X / H₂O (NH₃-free)\n1000 t · 1538 m³ · 200 MWh_th\n(compact alt.: ammine NiCl₂-SrCl₂/NH₃ 735 t)",)
 ax.text(106, 9.0, "200 MWh_th · loss-free · seasonal-capable", ha="center",
         fontsize=6.4, color=C_CHG, style="italic", zorder=6)
 pipe([(98, 30), (91, 30)], C_CHG, lw=1.5, ls=(0, (3, 3)), arrow=False)   # return leg
@@ -225,7 +235,7 @@ label(75, 65.3, "LP turbine extraction → SOE feed  (0.15 MPa · 0.53 kg/s, dea
 ax.text(50, 35.6, "cogeneration steam routed BY MODE:  → TCES (winter / DH)   or   → SOE (summer / H₂)",
         ha="left", fontsize=6.6, color=INK, style="italic", fontweight="bold", zorder=7)
 pipe([(114, 62.5), (120, 62.5)], C_H2, lw=2.4)
-box(120, 58, 16, 9, "H₂ storage / export\n213 kg/h · 441 t/yr", fc="#f4ecf7", fs=7.6, tcol=C_H2)
+box(120, 58, 16, 9, "H₂ storage / export\n213 kg/h · ≈120 t/yr\n(4 h/night × ~140 nights)", fc="#f4ecf7", fs=7.2, tcol=C_H2)
 
 # ===================================================================== legend + titleblock
 legends = [("primary coolant", C_PRIM), ("main / extraction steam", C_STEAM),

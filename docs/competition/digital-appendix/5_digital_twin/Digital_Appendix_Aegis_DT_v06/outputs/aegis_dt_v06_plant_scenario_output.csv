@@ -1,0 +1,5 @@
+scenario,power_MWth,net_electric_MWe,h2_kg_h,tces_soc_percent,irwst_temp_C,mdnbr_display,mode,note
+normal,125,40,0,45,42,1.56,Full power,system-display only
+tces_h2,125,34,205,82,42,1.56,TCES + SOE,8 MWe / 39 kWh/kg = 205 kg/h
+loss_normal_heat_sink,4.5,0,0,45,66,2.90,PRHR/IRWST,simplified passive-cooling display
+station_blackout,3.0,0,0,45,72,3.10,SBO passive,simplified passive-cooling display

@@ -1,0 +1,10 @@
+k_eff         CV R2=0.9964  RMSE=0.002585
+F_assembly    CV R2=0.9977  RMSE=0.05224
+
+Reactivity coefficients (surrogate dk/dinput vs STAT_FINAL):
+  MTC        surrogate=   -39.08   STAT_FINAL=   -27.10   (+44%)
+  DTC        surrogate=    -1.67   STAT_FINAL=    -1.90   (-12%)
+  void       surrogate=  -154.06   STAT_FINAL=  -166.00   (-7%)
+  rod_worth  surrogate=+13383.44   STAT_FINAL=+13390.00   (-0%)
+
+power-map POD (6 modes, var 0.972)  CV R2=0.9900

@@ -1,0 +1,5 @@
+scenario,n_batches,cycle_EFPD,cycle_yr,HM_tHM,n_assemblies,discharge_BU_GWd_t,tHM_per_TWhe,vs_CAREM_ratio,reduction_pct
+Aegis-40 n=1,1,2175.4,5.96,9.87,37,27.55,4.726,1.36,26.5
+Aegis-40 n=3,3,1087.7,2.98,9.87,37,41.33,3.151,2.04,51.0
+Aegis-40 n=4,4,870.2,2.38,9.87,37,44.08,2.954,2.18,54.1
+CAREM-25 (reference),?,—,—,—,—,24.0,6.430,1.00,0.0

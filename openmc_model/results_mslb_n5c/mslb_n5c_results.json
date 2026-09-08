@@ -1,0 +1,144 @@
+{
+  "N12C_MSLB_rods_alone_N5C": {
+    "case": "N12C_MSLB_cooldown_N5C_basis",
+    "config": "15/16 CRAs inserted (16 CRA, 90% B-10); rod (3, 2) stuck OUT",
+    "basis": "N5C (final): bank 21,509 pcm, k_ARI hot 0.9273 - supersedes N12 (12 CRA, natural B4C)",
+    "sweep": [
+      {
+        "T_K": 556,
+        "rho": 0.748,
+        "keff": 0.9344534381052727,
+        "sigma_pcm": 62.10400356238384,
+        "k_adj": 0.9407
+      },
+      {
+        "T_K": 523,
+        "rho": 0.803,
+        "keff": 0.9565161154167043,
+        "sigma_pcm": 65.7230624055864,
+        "k_adj": 0.96283
+      },
+      {
+        "T_K": 473,
+        "rho": 0.87,
+        "keff": 0.9787207537228713,
+        "sigma_pcm": 59.34657079797314,
+        "k_adj": 0.98491
+      },
+      {
+        "T_K": 423,
+        "rho": 0.922,
+        "keff": 1.0038537066109716,
+        "sigma_pcm": 62.544715862561794,
+        "k_adj": 1.0101
+      },
+      {
+        "T_K": 373,
+        "rho": 0.963,
+        "keff": 1.0190727218664106,
+        "sigma_pcm": 53.2549667831567,
+        "k_adj": 1.02514
+      },
+      {
+        "T_K": 323,
+        "rho": 0.994,
+        "keff": 1.0291808473179627,
+        "sigma_pcm": 66.77416794707229,
+        "k_adj": 1.03552
+      },
+      {
+        "T_K": 294,
+        "rho": 1.003,
+        "keff": 1.031147985956237,
+        "sigma_pcm": 63.04362496019417,
+        "k_adj": 1.03741
+      }
+    ],
+    "keff_max_on_cooldown": 1.031147985956237,
+    "return_to_power": true,
+    "criterion": "MSLB no return-to-power: k<1 with most-reactive rod stuck out",
+    "refs": [
+      "NUREG-0800 SRP 15.1.5",
+      "IAEA SSG-2",
+      "ANS-51.1"
+    ]
+  },
+  "N12D_MSLB_EBIS_N5C": {
+    "case": "N12D_MSLB_EBIS_credited_N5C_basis",
+    "config": "15/16 CRAs in (16 CRA, 90% B-10), rod (3, 2) stuck OUT, EBIS 3000 ppm",
+    "ebis_ppm": 3000,
+    "sweep": [
+      {
+        "T_K": 556,
+        "boron_ppm": 3000,
+        "keff": 0.7536381389545705,
+        "sigma_pcm": 52.18104738576219,
+        "k_adj": 0.75968
+      },
+      {
+        "T_K": 423,
+        "boron_ppm": 3000,
+        "keff": 0.7792307734282082,
+        "sigma_pcm": 58.289397022065245,
+        "k_adj": 0.7854
+      },
+      {
+        "T_K": 294,
+        "boron_ppm": 3000,
+        "keff": 0.7841190184165074,
+        "sigma_pcm": 52.274970190049864,
+        "k_adj": 0.79016
+      }
+    ],
+    "k_adj_cold": 0.79016,
+    "subcritical_with_margin": true,
+    "criterion": "credited MSLB termination (RT+MSI+EBIS): cold/stuck-rod k_adj <= 0.95",
+    "refs": [
+      "NUREG-0800 SRP 15.1.5",
+      "IAEA SSR-2/1 Req.46",
+      "RG 1.77"
+    ]
+  },
+  "N12E_EBIS_requirement_N5C": {
+    "case": "N12E_EBIS_boron_requirement_N5C_basis",
+    "state": "cold 294 K, MSLB endpoint, 15/16 CRAs in, most-reactive rod stuck OUT",
+    "sweep": [
+      {
+        "boron_ppm": 0,
+        "keff": 1.031147985956237,
+        "sigma_pcm": 63.04362496019417,
+        "k_adj": 1.03741
+      },
+      {
+        "boron_ppm": 500,
+        "keff": 0.9720454466985156,
+        "sigma_pcm": 54.64714991515822,
+        "k_adj": 0.97814
+      },
+      {
+        "boron_ppm": 1000,
+        "keff": 0.9227772745732211,
+        "sigma_pcm": 51.404627289679674,
+        "k_adj": 0.92881
+      },
+      {
+        "boron_ppm": 1500,
+        "keff": 0.882733997276045,
+        "sigma_pcm": 59.61232099843595,
+        "k_adj": 0.88893
+      },
+      {
+        "boron_ppm": 2000,
+        "keff": 0.8448854512282189,
+        "sigma_pcm": 57.055661721289965,
+        "k_adj": 0.85103
+      }
+    ],
+    "ppm_for_kadj_0p95": 785.0,
+    "note": "EBIS boron still required for the cold stuck-rod state at the final 16-CRA basis; this is the residual soluble-boron dependency of the SBF design",
+    "refs": [
+      "IAEA SSR-2/1 Req.46",
+      "NUREG-0800 SRP 15.1.5"
+    ]
+  }
+}

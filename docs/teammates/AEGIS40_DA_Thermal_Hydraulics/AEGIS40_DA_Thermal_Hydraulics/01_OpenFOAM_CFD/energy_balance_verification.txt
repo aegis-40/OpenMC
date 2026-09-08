@@ -1,0 +1,40 @@
+================================================================================
+ GATE-1: ENERGY-BALANCE VERIFICATION (the first acceptance test, every mesh)
+================================================================================
+
+PRINCIPLE
+  Before any temperature from the conjugate CFD is trusted, the advected power
+  in the coolant must equal the analytic heat-source integral:
+
+      Q_advected = mdot * cp * (T_out,mixing-cup - T_in)   ==   Q_source
+
+  where Q_source = qpeak * A_pellet * INT_0^L cos(pi (z - L/2)/Le) dz
+  (the chopped-cosine source in constant/fuel/fvOptions, integrated exactly).
+
+  The mixing-cup outlet temperature and mdot are computed FIELD-DIRECT from the
+  latest-time fields (T, phi on the outlet patch): T_out = Sum(phi*T)/Sum(phi),
+  mdot = Sum(phi). This is immune to stale postProcessing copies; the tool also
+  audits the field write-times to prove the three meshes are independent runs.
+
+WHY THIS GATE EXISTS
+  In conjugate multi-region cases an inconsistent He-gap contact-resistance
+  specification (thicknessLayers/kappaLayers present on one coupling patch but
+  not its counterpart) silently destroys energy conservation while producing
+  plausible-looking temperature fields. The gate catches this class of error
+  unconditionally. The gap resistance is therefore specified identically on
+  BOTH patches (fuel_to_clad and clad_to_fuel: 9.15e-5 m / 0.48 W/m K).
+
+RESULT (run at the binding COLR-envelope source; regenerate with tools/meshindep.py)
+  mesh     N cells    Q_advected    Q_source    ratio
+  coarse    35 700     22.21 kW     22.40 kW    0.992x
+  medium   103 600     22.30 kW     22.40 kW    0.996x
+  fine     279 888     22.35 kW     22.40 kW    0.998x
+
+  Worst deviation 0.8 % -> the model CONSERVES ENERGY (x1.00) on every mesh.
+  (The conservation ratios are identical to the earlier lower-power anchor run,
+  confirming the linearity of the single-phase constant-property problem.)
+
+REPRODUCE
+  python3 02_Python_safety_toolchain/meshindep.py     (run from the repository root that
+  contains pin/, pin_coarse/, pin_fine/ with completed runs)
+================================================================================

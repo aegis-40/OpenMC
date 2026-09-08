@@ -109,7 +109,7 @@ node("dh", "District heating\nnetwork  (DH-1)\n25 MWth peak", "rounded=0;whiteSp
 node("el", "SOE electrolyser\n(solid-oxide O2-, ~800 C)  EL-1\n8 MWe - 37.55 kWh/kg (vs PEM 50)", "rounded=0;whiteSpace=wrap;html=1;"
      "fillColor=#ebdef0;strokeColor=%s;fontStyle=1;fontSize=11;fontColor=%s" % (C_H2, C_H2),
      rect(96, 58, 18, 9))
-node("h2", "H2 storage / export\n213 kg/h - 441 t/yr", "rounded=0;whiteSpace=wrap;html=1;"
+node("h2", "H2 storage / export\n213 kg/h - ~120 t/yr\n(4 h/night x ~140 nights)", "rounded=0;whiteSpace=wrap;html=1;"
      "fillColor=#f4ecf7;strokeColor=%s;fontStyle=1;fontSize=11;fontColor=%s" % (C_H2, C_H2),
      rect(120, 58, 16, 9))
 

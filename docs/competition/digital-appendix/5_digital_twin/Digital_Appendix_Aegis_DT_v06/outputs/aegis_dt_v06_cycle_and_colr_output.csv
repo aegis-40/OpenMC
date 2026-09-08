@@ -1,0 +1,5 @@
+type,state,burnup_GWd_tHM,k_eff,F_assembly,F_deltaH,Fz,Fq,MDNBR_W3,MDNBR_Bowring,PCT_C,Fuel_T_C,status
+STAT,BOC,0.0,1.1502,1.238,1.513,1.280,1.937,1.60,2.72,348,722,screen-pass
+STAT,MOC,13.5,1.1358,1.571,1.729,1.408,2.435,1.38,2.23,352,822,COLR-basis
+STAT,EOC,30.8,0.9910,1.302,1.497,1.417,2.121,1.51,2.56,350,759,screen-pass
+COLR,MOC_envelope,, , ,1.75,1.41,2.468,1.33,2.13,353,828,closed

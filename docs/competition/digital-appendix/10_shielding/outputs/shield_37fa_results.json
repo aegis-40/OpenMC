@@ -1,0 +1,19 @@
+{
+  "case": "Operating biological shield, 37-FA core, adopted CAD build (20 cm borated-PE + 180 cm magnetite)",
+  "source": "125 MWth fission emission (Watt neutrons + Maienschein prompt-fission gammas)",
+  "rpv_fast_flux_n_cm2_s": 1.59e9,
+  "rpv_fluence_60y_n_cm2": 3.02e18,
+  "rpv_fluence_limit_n_cm2": 1.0e19,
+  "rpv_verdict": "PASS (3.0e18 < 1e19)",
+  "dose_target_uSv_h": 10.0,
+  "gamma_dose_uSv_h": 5.0e-7,
+  "neutron_dose_nominal_uSv_h": 0.23,
+  "neutron_dose_bounding_uSv_h": 5.5,
+  "total_dose_nominal_uSv_h": 0.23,
+  "dose_verdict": "PASS (0.23 nominal, <=5.5 bounding across the Sigma_R band, both < 10)",
+  "dose_method": "ANS-6.4 point-kernel / removal-cross-section; neutron term anchored on the converged OpenMC RPV fast flux; gamma term point-kernel from the core source (NIST-XCOM mu + concrete buildup).",
+  "mc_method": "OpenMC 0.15.3 fixed-source coupled n+gamma, ENDF/B-VIII.0, ICRP-116 AP dose, MAGIC weight windows; volume-smeared core emitter.",
+  "radial_build_cm": {"core_env": 75.541, "barrel": [97.5, 100.0], "downcomer": [100.0, 135.0], "rpv": [135.0, 151.5], "cavity_air": [151.5, 166.5], "thermal_shield_SS": [166.5, 171.5], "borated_PE": [171.5, 191.5], "magnetite_concrete": [191.5, 371.5], "ordinary_concrete": [371.5, 381.5]},
+  "outer_shield_diameter_m": 7.63,
+  "note": "Adopted build closes both criteria. As-built stack to be re-confirmed with the two-stage MAGIC weight-window Monte-Carlo run for the record."
+}

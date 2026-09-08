@@ -1,0 +1,15 @@
+{
+  "case": "REA_ejected_rod_worth_N5C",
+  "config": "16 CRA @ 90 % B-10; single most-central CRA (3, 2) ejected from ARO",
+  "k_aro": 1.1582633544201182,
+  "k_aro_sigma_pcm": 57.875232614555465,
+  "k_one_in": 1.1470544315624778,
+  "k_one_in_sigma_pcm": 58.42186598694936,
+  "ejected_rod_worth_pcm": 844,
+  "sigma_pcm": 82,
+  "beta_eff_pcm": 650.0,
+  "worth_dollars": 1.3,
+  "prompt_critical": true,
+  "criterion": "NUREG-0800 SRP 15.4.8 / RG 1.77 screening: ejected worth < 1$ is benign",
+  "note": "unshadowed single-rod worth from ARO bounds the ejected-rod worth; compare with total bank worth 21,509 pcm (N5C)"
+}

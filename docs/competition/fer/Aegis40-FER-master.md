@@ -1,9 +1,18 @@
+> # ⚠ SUPERSEDED — DO NOT CITE
+>
+> This file is **not** the authoritative FER. §§8.11 and 8.12 were written **30 June 2026** and
+> were never refreshed after the **4 July basis freeze**, so its waste-intensity, burnup,
+> fuel-cost, LCOE and plutonium figures are wrong.
+>
+> **Cite `docs/Aegis40_FER_submission_ready_compact_final.docx` (15 Jul 2026) instead.**
+> See `docs/competition/WHICH-FER-IS-AUTHORITATIVE.md`.
+
 # Aegis-40 iPWR — Final Engineering Report (FER), Section 8 (Master)
 
 **Project:** Aegis-40 — 40 MWe / 125 MWth soluble-boron-free integral PWR (iPWR-SMR)
 **Category:** TEKNOFEST 2026 Nuclear Energy Technologies — Detailed Design (40 MWe PWR)
-**Document:** Consolidated master of the §8 technical body (§8.1 – §8.12) + mandatory Digital-Appendix
-plan + full requirements-coverage matrix.
+**Document:** Consolidated master of the §8 technical body (§8.1 – §8.12)mandatory Digital-Appendix
+planfull requirements-coverage matrix.
 **Revision:** master r1, 2026-06-22. **Supersedes** the per-section drafts
 (`section-8.1-…`, `section-8.2-8.3-…`, `section-8.4-…`, `section-8.9-…`, `section-8.11-…`,
 `section-8.12-…`, and `FER_Aegis40_safety_ic_layout_draft.md`), which are archived under
@@ -68,12 +77,12 @@ equipment — core, helical-coil once-through steam generator, self-pressuriser 
 drives — is housed within a **single reactor pressure vessel (RPV)**; the primary coolant moves by
 **natural circulation** (no reactor coolant pumps). The plant is designed for a 60-year life, a small
 (~0.5 km) emergency-planning zone enabled by passive safety, factory-modular construction, and
-**polygeneration** (electricity + district heat via thermochemical storage + off-peak hydrogen).
+**polygeneration** (electricitydistrict heat via thermochemical storageoff-peak hydrogen).
 The candidate site is the **Sinop Black-Sea coast** (once-through seawater ultimate heat sink).
 
 The two defining design choices are (i) **operation without soluble boron**, which removes the
 chemical-shim system and its boron-dilution accident pathway and transfers reactivity hold-down to
-solid burnable absorbers (Gd₂O₃ + Er₂O₃) and control rods, and (ii) the **integral natural-circulation
+solid burnable absorbers (Gd₂O₃Er₂O₃) and control rods, and (ii) the **integral natural-circulation
 architecture**, which eliminates large-bore primary piping and the reactor coolant pumps and so
 *design-eliminates* the large-break LOCA, the rod-ejection and the surge-line-break accident classes
 (§8.6.1).
@@ -89,7 +98,7 @@ architecture**, which eliminates large-bore primary piping and the reactor coola
 | Design lifetime | 60 | years |
 | Capacity factor — design target | 95 | % |
 | Capacity factor — used in fuel-cycle/waste analysis | 90 | % (conservative) |
-| Non-electric output | district heat (TCES) + off-peak H₂ | §8.9 |
+| Non-electric output | district heat (TCES)off-peak H₂ | §8.9 |
 | Available process-heat temperature | 100–260 (flexible) | °C |
 | Modular design | Yes | factory-fabricated |
 | Construction duration (n-th unit) | < 30 | months (first concrete → criticality) |
@@ -127,7 +136,7 @@ natural-circulation analysis** and feeds §8.2.4, §8.3 and §8.9.
 | Parameter | Value | Unit / note |
 |---|---|---|
 | Number of fuel assemblies | **37** | 7×7 octagon (rows 3-5-7-7-7-5-3) |
-| Lattice | 17×17 Westinghouse-type | 264 fuel + 24 guide + 1 instrument |
+| Lattice | 17×17 Westinghouse-type | 264 fuel24 guide1 instrument |
 | Active core height | 200 | cm (+ 30 cm H₂O axial reflector each end) |
 | Equivalent core diameter | ≈ 1483 | mm (across-flats 1512) |
 | Heavy-metal loading (fresh) | **9.87** | tHM |
@@ -138,7 +147,7 @@ natural-circulation analysis** and feeds §8.2.4, §8.3 and §8.9.
 | Enrichment (core average / maximum) | **4.43 / 4.95** | wt% |
 | Cladding | Zircaloy-4 (Zr-4) | locked |
 | Primary burnable absorber | Gd₂O₃ 8 wt%, ring-zoned (avg 32 rods/FA) | rings 1/8/16/12, weights 1.65/1.45/0.95/0.68 |
-| Secondary burnable absorber | Er₂O₃ 0.5 wt% (16 rods/FA) | slow hold-down + cold SDM |
+| Secondary burnable absorber | Er₂O₃ 0.5 wt% (16 rods/FA) | slow hold-downcold SDM |
 | Reload scheme | 4-batch | once-through |
 | Control-rod clusters (CRA) | **12** | checkerboard; central FA = instrument; in-vessel CRDM |
 | Control-rod absorber | B₄C (/ Ag-In-Cd or Hf) | [CONFIRM §8.6] |
@@ -167,14 +176,14 @@ natural-circulation analysis** and feeds §8.2.4, §8.3 and §8.9.
 | Passive containment cooling | 3 trains | continuously in service |
 | Passive safety injection | gravity feed from IRWST | low-pressure coincidence |
 | Containment | Dry steel-lined | Ø ≈ 15 m; design pressure ≈ 0.414 MPa [ANALYSIS-PENDING P/T] |
-| Emergency power | 2 × EDG + 1E batteries | monitoring/backup only — core cooling is passive |
+| Emergency power | 2 × EDG1E batteries | monitoring/backup only — core cooling is passive |
 | Safety grace period (no AC, no seawater, no operator) | ≥ 72 h (target unlimited) | passive UHS = IRWST |
 | Core Damage Frequency (CDF) | < 1×10⁻⁷ /ry (projected class target) | LOHS ≈ 1e-8, SBO ≈ 1e-11 demonstrated (§8.6.3) |
 | Large Release Frequency (LRF) | < 1×10⁻⁸ /ry (projected class target) | — |
 
 ## 8.1.5 Outage schedule and derived relations
 
-Major outages: **15 days every 12 months** (refuelling) + **30 days every 120 months** (turbine /
+Major outages: **15 days every 12 months** (refuelling)**30 days every 120 months** (turbine /
 vessel in-service inspection) → planned availability ≈ **95 %**, consistent with the design CF.
 Derived: net efficiency = 40/125 = **32.0 %**; specific power = 125/9.87 = **12.66 MW/tHM**; primary
 flow from Q = ṁ·c_p·ΔT (c_p ≈ 5.35 kJ/kg·K @ 283 °C/12.8 MPa, IAPWS-IF97) → **ṁ ≈ 467 kg/s**
@@ -192,13 +201,13 @@ verified input to detailed design.
 
 | Design domain | Method / tool | Controlled output |
 |---|---|---|
-| Neutronics, depletion, reactivity coefficients | OpenMC Monte-Carlo (ENDF/B-VIII.0), 37-FA 3-D core + depletion | `aegis40_neutronics_FER.ipynb`; §8.2 |
+| Neutronics, depletion, reactivity coefficients | OpenMC Monte-Carlo (ENDF/B-VIII.0), 37-FA 3-D coredepletion | `aegis40_neutronics_FER.ipynb`; §8.2 |
 | Fuel performance (T_cl, FGR, rod pressure) | Steady-state fuel-rod conduction stack vs SSG-52 limits | §8.3 |
-| Primary thermal-hydraulics | Natural-circulation loop balance + DNBR (IAPWS-IF97) | §8.4 (`natcirc_primary.py`) |
-| Secondary power conversion | Regenerative Rankine + exergy (IAPWS-IF97) | §8.9 (`thermo_cycle.py`, `thermo_exergy.py`) |
-| Shielding / dose | Coupled n-γ transport + ICRP-116 flux-to-dose | §8.2.6 (`…_shielding_rev7.ipynb`) |
-| Waste / source term | Depletion inventory + ANSI/ANS-5.1 decay heat | §8.11 (`src/aegis40/back_end`) |
-| Safety / PRA | Deterministic DBA + event/fault trees | §8.5/§8.6 (`safety/`) |
+| Primary thermal-hydraulics | Natural-circulation loop balanceDNBR (IAPWS-IF97) | §8.4 (`natcirc_primary.py`) |
+| Secondary power conversion | Regenerative Rankineexergy (IAPWS-IF97) | §8.9 (`thermo_cycle.py`, `thermo_exergy.py`) |
+| Shielding / dose | Coupled n-γ transport + ANS-6.4 point-kernelICRP-116 flux-to-dose | §8.2.6 (`shield_37fa_cad.py`, `point_kernel_dose.py`) |
+| Waste / source term | Depletion inventoryANSI/ANS-5.1 decay heat | §8.11 (`src/aegis40/back_end`) |
+| Safety / PRA | Deterministic DBAevent/fault trees | §8.5/§8.6 (`safety/`) |
 | Geometry / layout | Parametric CAD (RPV, assembly, pin, site STEP) | `cad/`, §8.10 |
 
 ## 8.1.7 Design codes and standards — Table 8.1-7
@@ -231,14 +240,14 @@ No. 7381, 2022), whose design regulations adopt the IAEA Safety Standards.
 |---|---|---|
 | **IAEA SSR-2/1 (Rev. 1)** — Safety of NPPs: Design | Top-level design safety; defence-in-depth | Req. 24–25 redundant/independent reactivity control; Req. 35 (cogen isolation); Req. 45 inherent stability (coeffs < 0); Req. 46 ≥ 2 diverse shutdown systems; Req. 52–53 heat sink/grace (§8.2, §8.5, §8.6) |
 | **IAEA SSG-52** — Design of the Reactor Core | Core-design limits & methods | peaking, DNBR, coefficients, LHGR (§8.2) |
-| **IAEA GSR Part 4 (Rev.1)** — Safety Assessment | Methodology | deterministic + projected-PSA (§8.5/§8.6) |
+| **IAEA GSR Part 4 (Rev.1)** — Safety Assessment | Methodology | deterministicprojected-PSA (§8.5/§8.6) |
 | **IAEA SSG-3 / SSG-4** — L1 / L2 PSA | PSA methodology | CDF / LRF class targets (§8.6) |
 | **IAEA GSR Part 5** — Predisposal Waste Mgmt | Waste safety | on-site storage & conditioning (§8.11) |
 | **IAEA SSR-1; SSG-9** — Site Evaluation / external hazards | Siting | seismic, coastal hazard (§8.5, §8.10) |
 | **US NRC 10 CFR 50 App. A** — GDC | Generic design criteria | GDC 11/26/27/35 (§8.2, §8.5, §8.6) |
 | **US NRC NUREG-1431 Rev. 5** — STS | LCO forms | SDM, MTC, F_Q, F_ΔH limits (§8.2) |
 | **US NRC NUREG-0800 / 10 CFR 50.68** | SRP; SFP criticality | k(95/95) ≤ 0.95 (§8.11) |
-| **Türkiye NDK — Law No. 7381 (2022)** + NDK design regulation | National licensing | primary framework; adopts the IAEA standards above |
+| **Türkiye NDK — Law No. 7381 (2022)**NDK design regulation | National licensing | primary framework; adopts the IAEA standards above |
 
 ## 8.1.9 Parameters requiring confirmation (tracked)
 
@@ -270,10 +279,10 @@ high-burnup core, (ii) demonstrated in-pile performance with a qualified propert
 
 | Component | Material | Rationale |
 |---|---|---|
-| Fuel | UO₂, enriched 4.95 / 4.70 / 4.40 wt% (intra-FA zones) + 4.0 wt% edge pins | Reference LWR fuel; largest qualification base; T_melt ≈ 2840 °C; ≤ 5.0 wt% keeps the commercial LEU envelope |
+| Fuel | UO₂, enriched 4.95 / 4.70 / 4.40 wt% (intra-FA zones)4.0 wt% edge pins | Reference LWR fuel; largest qualification base; T_melt ≈ 2840 °C; ≤ 5.0 wt% keeps the commercial LEU envelope |
 | Cladding | Zircaloy-4 | Low absorption; qualified to high burnup; well-characterised corrosion/creep; locked |
 | Burnable absorber (primary) | Gd₂O₃ 8 wt%, admixed, ring-zoned | Strong BOC hold-down (Gd-155/157), burns out ~10 GWd/t; integral (no hardware) — the SBF excess-reactivity solution |
-| Burnable absorber (secondary) | Er₂O₃ 0.5 wt%, admixed | Slow residual hold-down flattening mid/late cycle + cold shutdown margin |
+| Burnable absorber (secondary) | Er₂O₃ 0.5 wt%, admixed | Slow residual hold-down flattening mid/late cyclecold shutdown margin |
 | Coolant / moderator | Light water (H₂O) | Reference PWR; negative MTC by design; self-regulating |
 | Reflector | Light water (radial 20 cm, axial 30 cm) — heavy SS-304 reflector option under evaluation | Returns leakage, flattens power; the small-core water albedo flattens better than steel for the intra-FA-graded design (see §8.2.3 note) |
 | Control-rod absorber | B₄C (Ag-In-Cd / Hf alternative) | Solid neutron absorber, fully SBF-compatible (no boron in coolant) |
@@ -300,7 +309,7 @@ geometry and the CAD spec.
 
 | Feature | Value | Note |
 |---|---|---|
-| Lattice | 17×17 square, 289 positions/FA | 264 fuel + 24 guide + 1 instrument |
+| Lattice | 17×17 square, 289 positions/FA | 264 fuel24 guide1 instrument |
 | Fuel pellet diameter | 8.192 mm | ~95 % TD |
 | Pellet–clad radial gap | 0.0915 mm | |
 | Cladding OD / ID | 9.520 / 8.375 mm (0.573 wall) | Zr-4 |
@@ -308,7 +317,7 @@ geometry and the CAD spec.
 | Active lattice span (FA side) | 214.59 mm | 17 × pin pitch |
 | Assembly pitch (in core) | 216.038 mm | inter-assembly water gap ≈ 1.45 mm |
 | Guide / instrument tube OD / ID | 12.040 / 11.248 mm | |
-| Active fuel height | 2000 mm | + 300 mm H₂O axial reflector each end |
+| Active fuel height | 2000 mm |300 mm H₂O axial reflector each end |
 | Number of assemblies | **37** (7×7 octagon, 3-5-7-7-7-5-3) | |
 | Across-flats / equivalent core diameter | 1512 / ≈ 1483 mm | corner-pin radius ≈ 764 mm |
 | Radial / axial reflector | 200 / 300 mm H₂O | (steel reflector option, §8.2.3) |
@@ -331,16 +340,16 @@ reflector), where excess moderation drives a local pin-power peak; de-enriching 
 suppresses exactly that peak. This is standard LWR assembly practice (and the NuScale reference,
 FSAR §4.3).
 
-‹FIGURE 8.2-1 — 37-FA core loading map coloured by ring (enrichment + Gd zoning) with the 12 CRA
+‹FIGURE 8.2-1 — 37-FA core loading map coloured by ring (enrichmentGd zoning) with the 12 CRA
 positions. Source: `cad/ga/37fa/ga37_sheet3_coremap.png`.›
-‹FIGURE 8.2-2 — fuel-assembly 17×17 pin map (enrichment + Gd/Er pins).
+‹FIGURE 8.2-2 — fuel-assembly 17×17 pin map (enrichmentGd/Er pins).
 Source: `aegis40_neutronics_FER.ipynb` §6 FA-lattice figure.›
 ‹FIGURE 8.2-3 — RPV / core radial cross-section. Source: `cad/ga/37fa/ga37_sheet1_radial.png`.›
 
 ## 8.2.3 Neutronic analysis
 
 The neutronic design uses **OpenMC 0.15.3** continuous-energy Monte Carlo on the full 3-D 37-FA core
-(axial + radial reflectors), with coupled depletion from BOC toward the equilibrium cycle (transport
+(axialradial reflectors), with coupled depletion from BOC toward the equilibrium cycle (transport
 statistics 180/50/20 000 at STAT_FINAL).
 
 **Criticality and reactivity control.** The fresh core is slightly supercritical, the excess held
@@ -351,13 +360,13 @@ criteria are met with margin (Table 8.2-3).
 
 | Parameter | 37-FA value (STAT_FINAL, 400×50k) | 21-FA reference | Limit / criterion | Status |
 |---|---|---|---|---|
-| k_eff, BOL (HFP, ARO) | **1.1535 ± 24 pcm** | 1.0264 | excess held by integral Gd/Er + rods | INFO |
+| k_eff, BOL (HFP, ARO) | **1.1535 ± 24 pcm** | 1.0264 | excess held by integral Gd/Errods | INFO |
 | Moderator temp. coeff. (HFP) | **−27.1 pcm/K** | −35.9 pcm/K | < 0 | **PASS** |
 | Doppler (fuel) coeff. | **−1.90 pcm/K** | −1.84 pcm/K | < 0 | **PASS** |
 | Void coefficient | **−166 pcm/%void** | −214 pcm/%void | < 0 | **PASS** |
 | Control-rod worth (ARO→ARI, 12 CRA) | **13 390 pcm** | 15 226 pcm (9 CRA) | ≥ 5 000 | **PASS** |
 | k_eff all-rods-in (ARI, HFP) | **0.9992** | 0.888 | < 1.0 (hot trip subcritical) | **PASS** |
-| Shutdown margin (most-reactive rod stuck) | **−1.5 %Δk/k with natural rods → met via enriched-B10 rods + EBIS** | 12.4 %Δk/k | ≥ 1.0 | **PASS (§8.6)** † |
+| Shutdown margin (most-reactive rod stuck) | **−1.5 %Δk/k with natural rods → met via enriched-B10 rodsEBIS** | 12.4 %Δk/k | ≥ 1.0 | **PASS (§8.6)** † |
 | Max reactivity insertion rate | **1.5×10⁻⁵ Δk/k/s** | 1.5×10⁻⁵ | ≤ 7.5×10⁻⁴ | **PASS** |
 | Maximum enrichment | 4.95 wt% (avg 4.43) | 4.95 wt% | ≤ 5.0 | **PASS** |
 
@@ -393,7 +402,7 @@ power-flattening tool, supported by intra-assembly enrichment grading for the pi
 > **Peaking convention (important).** The **separable** F_q = F_ΔH·F_z (with a +3 % engineering
 > uncertainty per SSG-52 3.18(f)) is the checked pass/fail value. At STAT_FINAL the 37-FA core meets
 > **both** LCOs with margin — **F_ΔH = 1.583 ≤ 1.65** and **F_q = 2.035 ≤ 2.32** — achieved by the
-> discrete uniform-enrichment loading with in-out radial grading + a light FA-perimeter de-rate (the
+> discrete uniform-enrichment loading with in-out radial gradinga light FA-perimeter de-rate (the
 > de-peak trade study, §8.2.3). The former governing open item **O1 is therefore closed PASS.**
 
 **Enrichment / burnable-absorber zoning — design basis and trade study.** A boron-free core must
@@ -407,9 +416,9 @@ controlled full-core OpenMC variants (carried over from the 21-FA study, mechani
   thermal-margin-governing per-pin F_q and cost ~20 EFPD — because (1) we are boron-free (NuScale
   pairs out-in with ~1235 ppm shim that does the bulk shaping) and (2) a small water-reflected core
   leaks, so pushing fissile outward bleeds neutrons.
-- **Combined out-in + intra-FA (rev_5)** achieved the flattest assembly map but still worse F_q,
+- **Combined out-inintra-FA (rev_5)** achieved the flattest assembly map but still worse F_q,
   pinned the peak pin at exactly 5.0 wt% (zero margin) and left 36 % of the Gd-157 unburnt at EOC.
-- **Assembly-uniform + steel reflector + targeted Gd (rev_7, the literature SMART/ATOM/PRATIC
+- **Assembly-uniformsteel reflectortargeted Gd (rev_7, the literature SMART/ATOM/PRATIC
   recipe)** regressed the per-pin F_ΔH (1.85 → 1.94–2.05): 32 discrete Gd rods cannot simultaneously
   de-peak the 24 guide-tube water holes and the assembly edges, whereas continuous per-pin
   enrichment grading sets every pin's local power at once.
@@ -421,12 +430,12 @@ The adopted scheme therefore wins on every binding metric and is retained; widen
 **Reflector note.** For this intra-FA-graded compact core, **water** outperformed a steel radial
 reflector on peaking (higher thermal albedo lifts the cool edges → flattens; steel absorbs thermal →
 edge cools → centre peaks harder). The locked neutronics basis is therefore **20 cm water**; a heavy
-SS-304 reflector (NuScale concept, compact barrel + claimed flattening) remains an option to re-test
+SS-304 reflector (NuScale concept, compact barrelclaimed flattening) remains an option to re-test
 on the 37-FA core (`RADIAL_REFLECTOR_MODE="steel"`) — until re-run, water is the basis.
 
 ‹FIGURE 8.2-4 — cycle reactivity k_eff(BU), BOC→EOC, showing the SBF Gd-burnout signature
 (dip → hump → decline). ⏳[37FA-PENDING from depletion run].›
-‹FIGURE 8.2-5 — BOC/MOC/EOC radial power maps + axial shapes + EOC per-assembly burnup map
+‹FIGURE 8.2-5 — BOC/MOC/EOC radial power mapsaxial shapesEOC per-assembly burnup map
 (`aegis40_neutronics_FER.ipynb` §9). ⏳[37FA-PENDING].›
 
 **Fuel cycle — once-through (no refuelling).** The depletion k_eff curve **dips, then rises, then
@@ -447,7 +456,7 @@ Multi-batch remains a future option without geometry change.
 | Neutronic result | Criterion | Regulatory basis |
 |---|---|---|
 | MTC, DTC, void all < 0 | inherent negative feedback | NDK design reg.; IAEA SSR-2/1 Req. 35/45; 10 CFR 50 App. A GDC 11 |
-| Two independent control means (rods + integral BA) | redundant, independent reactivity control | SSR-2/1 Req. 24–25; GDC 26/27 |
+| Two independent control means (rodsintegral BA) | redundant, independent reactivity control | SSR-2/1 Req. 24–25; GDC 26/27 |
 | SDM with most-reactive rod stuck; k_ARI < 0.95; N−1 < 1.0 | shutdown margin / single failure | SSR-2/1 Req. 25/46; NUREG-1431 LCO 3.1.1; GDC 26 |
 | Max enrichment 4.95 ≤ 5.0 | LEU fabrication/licensing | commercial LEU; IAEA fuel-safety guidance |
 
@@ -459,11 +468,11 @@ reactor whose core Aegis-40 deliberately mirrors (the same reference Adilbek use
 *Verification — statistical convergence (the GCI-equivalent).* k_eff is converged to **< ~30 pcm (1σ)**
 at STAT_FINAL statistics with **Shannon-entropy** source-convergence confirmed before active batches;
 **seed-to-seed repeatability** holds within the Monte-Carlo σ (independent RNG streams) — the neutronics
-analogue of Adilbek's grid-convergence + energy-conservation gates.
+analogue of Adilbek's grid-convergenceenergy-conservation gates.
 
-*Validation — published benchmarks (measured + code-to-code).* OpenMC's accuracy on PWR lattice/
+*Validation — published benchmarks (measuredcode-to-code).* OpenMC's accuracy on PWR lattice/
 full-core physics and depletion is established in the open literature; we **cite** it and **run** the
-design deck + one confirmatory case per code (§8.13):
+design deckone confirmatory case per code (§8.13):
 
 **Table 8.2-6 — OpenMC neutronics validation basis**
 
@@ -474,11 +483,10 @@ design deck + one confirmatory case per code (§8.13):
 | Deterministic transport | **C5G7** (OECD-NEA) | reference lattice/core | method cross-check |
 | Full-core PWR (*measured*) | **BEAVRS** (MIT-CRPG) | k_eff & assembly power within measurement | 17×17 core physics, peaking |
 | Depletion / isotopics | **Serpent** code-to-code (Romano et al. 2021) | k < 20 pcm; actinides/FP < 1 % | burnup, coefficients, inventory |
-| Spent-fuel assay (*measured*) | **SFCOMPO 2.0** (OECD-NEA) | within assay uncertainty | §8.11 source term / storage |
 
 *Design anchor — Aegis-40 vs NuScale NPM.* Aegis-40's core is **geometrically the NuScale NPM core**
 (37 FA, 17×17, 2.0 m active height) run at a comparable rating, with **one deliberate departure: it is
-soluble-boron-free** (integral Gd₂O₃ + Er₂O₃ instead of NuScale's chemical-shim boron). Sitting inside
+soluble-boron-free** (integral Gd₂O₃Er₂O₃ instead of NuScale's chemical-shim boron). Sitting inside
 a licensed NuScale-class neutronic envelope is a credibility anchor; being boron-free is the design
 differentiator (and a safety asset — guaranteed-negative MTC with no boron-dilution accident path):
 
@@ -502,7 +510,7 @@ differentiator (and a safety asset — guaranteed-negative MTC with no boron-dil
 
 > **What the comparison establishes — and its limits.** NuScale's detailed neutronics (k(BU), per-pin
 > peaking, coefficient values) are **proprietary**, so Table 8.2-7 is a **design-envelope anchor, not a
-> numeric benchmark** — the *numeric* validation is Table 8.2-6 (BEAVRS / ICSBEP / Serpent / SFCOMPO,
+> numeric benchmark** — the *numeric* validation is Table 8.2-6 (BEAVRS / ICSBEP / Serpent,
 > which are open and measured). The Aegis column uses the **latest pre-final 37-FA OpenMC** values
 > (STAT_FINAL values); the **NuScale column is pinned to the NuScale DCA FSAR Tier 2,
 > Tables 4.1-1 / 4.1-2 / 4.1-3** (Rev. 0): 160 MWt, 549.48 lb UO₂/FA → 8.13 tHM, avg discharge ≈35
@@ -535,7 +543,7 @@ is the direct cause of the wide margins below.
 |---|---|---|---|
 | Primary T (in/out/avg) | 258 / 308 / 283 °C | — | single-phase |
 | Hot-channel mixing-cup outlet | ≈ 335 °C (≈ T_sat 331 °C) | T_sat | at subcooled-boiling onset *by design* |
-| MDNBR (hot pin, W-3 + Tong) | **1.56** (1.55 design anchor F_ΔH) | ≥ 1.3 | +20 % |
+| MDNBR (hot pin, W-3Tong) | **1.56** (1.55 design anchor F_ΔH) | ≥ 1.3 | +20 % |
 | Peak clad temperature (PCT, boiling clamp) | **349 °C** | < 1200 °C | +851 °C |
 | Peak fuel centerline (BOL) | **734 °C** | < ~2840 °C | +2106 °C |
 
@@ -575,7 +583,7 @@ eigenvalue (k shifts ≪ 100 pcm). Full radial stack and materials: §8.3.6 Tabl
 
 # 8.3 Fuel and Material Design
 
-> **Method:** established correlations + published in-pile data (no new simulation); every
+> **Method:** established correlationspublished in-pile data (no new simulation); every
 > calculation states method, inputs and assumptions, all bounded by §8.2.
 
 ## 8.3.1 Fuel and structural-material technical data — Table 8.3-1
@@ -616,7 +624,7 @@ quantitative payoff of the 37-FA / low-specific-power design.
 The peak-rod steady-state centerline temperature is built from the coolant through each thermal
 resistance (1-D radial conduction stack). For the 37-FA core this is now a **directly computed
 conjugate-CFD result** (OpenFOAM `chtMultiRegionFoam`, §8.4 / Adilbek 2026) at the 12.8 kW/m peak,
-cross-checked against the Dittus-Boelter + gap-resistance correlation stack to < 1 K on the fuel:
+cross-checked against the Dittus-Boeltergap-resistance correlation stack to < 1 K on the fuel:
 
 **Table 8.3-2 — Peak-rod radial temperature stack-up (BOL, 37-FA conjugate CFD at q′_peak 12.8 kW/m)**
 
@@ -644,7 +652,7 @@ value bounds the in-life centerline. [Optional FRAPCON confirmatory case noted i
   allowables; oxide (≤ 100 µm), H-pickup, creep/growth, fast-fluence embrittlement all bounded by the
   moderate discharge burnup (≪ 62 GWd/MTU ceiling). Accident behaviour (oxidation, ballooning, 1204 °C
   PCT, 17 % ECR) carried in §8.5.
-- **PCMI:** mitigated by dished/chamfered pellets + base-load low-ramp operation; bounded by the low
+- **PCMI:** mitigated by dished/chamfered pelletsbase-load low-ramp operation; bounded by the low
   q′.
 
 ‹FIGURE 8.3-1 — fuel-rod / end-plug cross-section (pellet stack, gap, Zr-4 clad, end plugs, plenum
@@ -665,12 +673,12 @@ Radial stack (core outward), the basis of the coupled n-γ shielding model:
 | Region | Material | Density (g/cm³) | Thickness (cm) | Function |
 |---|---|---|---|---|
 | Core barrel | SS-304 | 8.00 | 5 | Core support; first γ/fast-n attenuation |
-| Downcomer + integral OTSG annulus | H₂O (+ SG steel) | 0.72 (hot) | ~35 | Coolant return; **dominant attenuator**; RPV fluence reduction |
-| Reactor pressure vessel | SA-508 Gr.3 + SS clad | 7.90 | 15 + 0.5 | Pressure boundary; principal γ shield; fast-fluence-limited |
+| Downcomerintegral OTSG annulus | H₂O (+ SG steel) | 0.72 (hot) | ~35 | Coolant return; **dominant attenuator**; RPV fluence reduction |
+| Reactor pressure vessel | SA-508 Gr.3SS clad | 7.90 | 150.5 | Pressure boundary; principal γ shield; fast-fluence-limited |
 | Reactor cavity | Air | 0.0012 | 15 | ISI / standoff |
 | Thermal shield | SS-304 | 8.00 | 5 | γ-heating interception; protects bioshield concrete |
 | Neutron-capture layer | Borated polyethylene (5 wt% B) | 0.95 | 10 | Thermal-n capture (¹⁰B), low 2° γ |
-| Biological shield | Magnetite (heavy) concrete | 3.90 | 120 | **Bulk lead-free γ + n shield**; bound water moderates |
+| Biological shield | Magnetite (heavy) concrete | 3.90 | 120 | **Bulk lead-free γn shield**; bound water moderates |
 | Outer finish | Ordinary concrete | 2.30 | 10 | Structural finish; dose-acceptance surface |
 
 > Radii are re-anchored to the 37-FA vessel (RPV ID 2700 / OD 3010 mm) in the CAD spec; the **layer
@@ -686,7 +694,7 @@ Radial stack (core outward), the basis of the coupled n-γ shielding model:
 > **Code:** 3-region conjugate CFD (OpenFOAM `chtMultiRegionFoam` v2412, k-ω SST) for the hot-pin
 > fuel/clad/coolant field, coupled to a W-3/Jens-Lottes correlation safety post-processor, plus a
 > 1-D natural-circulation loop balance (IAPWS-IF97) for the riser height. The toolchain is verified
-> (ASME V&V-20 grid convergence + energy-conservation gate) and validated against NuScale NPM-160
+> (ASME V&V-20 grid convergenceenergy-conservation gate) and validated against NuScale NPM-160
 > (§8.13; Adilbek 2026). T-H is solved on the **37-FA pin geometry** at 125 MWth.
 
 ## 8.4.1 Architecture
@@ -763,7 +771,7 @@ developed in **§8.9**.
 | System | Function | Key characteristics |
 |---|---|---|
 | **Passive DHRS / PRHR** | Decay-heat removal after trip / loss of secondary sink, by natural circulation to an in-containment tank — no AC, no operator | 2 × 100 % trains; each ≥ 105 % of decay heat at actuation; supports ≥ 72 h grace (§8.5/§8.6) |
-| **Self-pressuriser** | Maintain 12.8 MPa via the integral top steam dome | In-vessel dome, sheathed heaters + spray, surge connection |
+| **Self-pressuriser** | Maintain 12.8 MPa via the integral top steam dome | In-vessel dome, sheathed heatersspray, surge connection |
 | **CVCS** | Inventory makeup/letdown, chemistry; **no boration** | Small lines (no large penetrations → large-break LOCA design-eliminated) |
 | **Seawater once-through / UHS** | Reject ~82.6 MWth condenser heat to the Black Sea (Sinop) | ~2 065 kg/s (≈ 2.0 m³/s), ΔT ≤ 10 K, multiport diffuser → far-field rise ≤ 0.2 K (→ §8.9) |
 
@@ -773,7 +781,7 @@ developed in **§8.9**.
 
 | Component | Function | Capacity / key parameters | Material | Code |
 |---|---|---|---|---|
-| Reactor pressure vessel | Primary pressure boundary; houses all primary components | **ID 2700 mm, wall 150 + 5 mm**, **overall height ≈ 10 m** (elevation budget Table 8.4-1b); 12.8 MPa op / 14.1 design; 60-yr life | SA-508 Gr.3 Cl.1 (SA-533B plate), SS clad | ASME III Div.1 Cl.1 (NB) |
+| Reactor pressure vessel | Primary pressure boundary; houses all primary components | **ID 2700 mm, wall 1505 mm**, **overall height ≈ 10 m** (elevation budget Table 8.4-1b); 12.8 MPa op / 14.1 design; 60-yr life | SA-508 Gr.3 Cl.1 (SA-533B plate), SS clad | ASME III Div.1 Cl.1 (NB) |
 | Core barrel / riser | Separate hot riser from cold downcomer | barrel ID 1900 / OD 2000 mm; riser R 560 mm | SS-304/316L | ASME III, NG |
 | OTSG (helical coil) | 125 MWth primary→secondary; superheated steam | 6 coil layers R 665–1075 mm, axial pitch 230 mm | Inconel-690 TT tubes; SS shroud/tubesheets | ASME III, Cl.1 |
 | Self-pressuriser | Maintain/regulate primary pressure | integral top dome, heaters, surge line | SA-508 dome; Incoloy-800-sheathed heaters | ASME III, Cl.1 |
@@ -790,12 +798,12 @@ than NuScale (≈ 17.7 m) because the required riser is half as tall (Adilbek 20
 |---|---|
 | 0.0 – 0.9 | Lower plenum / core inlet |
 | 0.9 – 2.9 | Core (2.0 m active; mid-plane 1.9 m) |
-| 2.9 – 4.4 | Outlet plenum + riser (chimney) |
+| 2.9 – 4.4 | Outlet plenumriser (chimney) |
 | 4.4 – 7.4 | Steam generator (helical coil, in annulus; mid 5.9 m) |
 | 7.4 – 7.9 | Upper plenum |
 | 7.9 – 9.9 | Integral self-pressuriser |
 
-> This is a **layout-scoping** budget (iPWR analogy + elevation balance); the mechanical vessel design
+> This is a **layout-scoping** budget (iPWR analogyelevation balance); the mechanical vessel design
 > (seismic, wall thickness, SG supports) is detailed-design scope. The SG helical surface (≈ 1 250 m²
 > for 125 MWth at ΔT_pri 50 K, 467 kg/s) fits the annulus above the core with a ≈ 1.5 m riser gap.
 
@@ -814,7 +822,7 @@ than NuScale (≈ 17.7 m) because the required riser is half as tall (Adilbek 20
 
 **Methods (literature-accepted):** 3-region conjugate CFD (OpenFOAM `chtMultiRegionFoam`, k-ω SST) for
 the hot-pin fuel/clad/coolant field; **W-3 CHF** correlation with **Tong non-uniform F-factor** for
-MDNBR; **Jens-Lottes** subcooled-boiling wall clamp + Dittus-Boelter film for PCT; natural-circulation
+MDNBR; **Jens-Lottes** subcooled-boiling wall clampDittus-Boelter film for PCT; natural-circulation
 loop momentum balance (IAPWS-IF97) for riser height; **ANS-5.1** decay heat.
 
 **Verification & validation (the credibility spine — ASME V&V-20, §8.13):**
@@ -836,7 +844,7 @@ loop momentum balance (IAPWS-IF97) for riser height; **ANS-5.1** decay heat.
 | Primary T (in/out/avg) | 258 / 308 / 283 °C | — | — |
 | Peak fuel centerline (BOL) | **734 °C** | < ~2840 °C (melt) | +2106 °C |
 | Peak clad temperature (PCT, boiling clamp) | **349 °C** | < 1200 °C (LOCA) | +851 °C |
-| MDNBR (hot pin, W-3 + Tong) | **1.56** | ≥ 1.3 | +20 % |
+| MDNBR (hot pin, W-3Tong) | **1.56** | ≥ 1.3 | +20 % |
 | Hot-leg subcooling | 23 °C | > 0 | no bulk boiling |
 | Velocity field | all-positive upflow, no recirculation | stable nat-circ | — |
 | Mass flow vs power | ṁ ∝ P^(1/3) | self-regulating | — |
@@ -868,18 +876,18 @@ design-elimination arguments).
 
 | Plant state | Primary | Heat sink | Mode |
 |---|---|---|---|
-| Full power (100 %) | 12.8 MPa, 308/258 °C, 467 kg/s (G 543) | OTSG → turbine | nat-circ + OTSG |
+| Full power (100 %) | 12.8 MPa, 308/258 °C, 467 kg/s (G 543) | OTSG → turbine | nat-circOTSG |
 | Cogeneration | unchanged (~100 %) | OTSG; extraction → TCES; off-peak power → H₂ | nat-circ (§8.9) |
 | Hot standby | 12.8 MPa, near-isothermal | OTSG / DHRS | nat-circ |
 | Trip / loss of secondary sink | depressurise as needed | **DHRS** → tank | passive nat-circ |
-| Station blackout (no AC/DC) | passive | DHRS + inventory, ≥ 72 h | fully passive (§8.5/§8.6) |
+| Station blackout (no AC/DC) | passive | DHRSinventory, ≥ 72 h | fully passive (§8.5/§8.6) |
 
 ---
 
 # 8.5 Safety Criteria
 
 > **Codes/standards:** OpenMC (neutronics gates), W-3 / CFD (T-H gates), ANS-5.1 (decay heat),
-> deterministic DBA + projected PSA. Criteria maintained in `safety/safety_criteria.yaml`.
+> deterministic DBAprojected PSA. Criteria maintained in `safety/safety_criteria.yaml`.
 
 ## 8.5.1 Criteria framework and plant states
 
@@ -914,7 +922,7 @@ Plant conditions follow IAEA SSR-2/1 Req. 13/20:
 
 | Criterion | Limit | Demonstrated | Source |
 |---|---|---|---|
-| Shutdown margin (most-reactive rod stuck) | ≥ 1 % Δk/k | **met via enriched-B10 rods + EBIS (§8.6)** | NRC SRP 4.3 |
+| Shutdown margin (most-reactive rod stuck) | ≥ 1 % Δk/k | **met via enriched-B10 rodsEBIS (§8.6)** | NRC SRP 4.3 |
 | MTC (HFP) | < 0 | **−27.1 pcm/K** ✅ | GDC-11 |
 | Doppler coefficient | < 0 | **−1.90 pcm/K** ✅ | GDC-11 |
 | Void coefficient | < 0 | **−166 pcm/%void** ✅ | GDC-11 |
@@ -951,9 +959,9 @@ requires an asymmetric band (−0.10/+0.00 wt%) [VERIFY — mechanical/fuel sect
 
 Per SSR-2/1 Req. 52–53 the design distinguishes:
 
-- **Normal heat sink = the Black Sea, once-through seawater** (condenser + CCWS + TCES rejection),
+- **Normal heat sink = the Black Sea, once-through seawater** (condenserCCWSTCES rejection),
   **non-safety-classified** (graded per TECDOC-1936) — the safety function does not depend on it.
-- **Safety ultimate heat sink = the passive IRWST + containment cooling** (atmosphere-coupled),
+- **Safety ultimate heat sink = the passive IRWSTcontainment cooling** (atmosphere-coupled),
   **independent of seawater**, supporting the ≥ 72 h grace.
 
 Therefore **loss of the seawater intake** (storm surge, biofouling, jellyfish/algal bloom, debris,
@@ -962,7 +970,7 @@ ice) or **loss of TCES** is a power-conversion event that does **not** challenge
 ## 8.5.3 Defence in depth
 
 The criteria map onto the five IAEA DiD levels (SSR-2/1 §2.13): **L1** prevention via inherently
-negative feedback + DNB margin; **L2** control via the reactor-protection envelope (§8.7); **L3** DBA
+negative feedbackDNB margin; **L2** control via the reactor-protection envelope (§8.7); **L3** DBA
 control by passive ECCS/EFW/PRHR (§8.6); **L4** severe-accident management via the ≥ 72 h no-operator
 grace and three passive containment-cooling trains; **L5** mitigation via the ≤ 0.5 km EPZ
 ([ANALYSIS-PENDING dose basis]).
@@ -997,7 +1005,7 @@ Aegis-40 **removes classes of design-basis events by construction** (the determi
   shutdown** (~6.2 % of 125 MWth), full-chain depletion, cross-validated to ANS-5.1.
 - **Passive containment cooling** — three trains; condensate return maintains the IRWST as the
   ≥ 72 h heat sink. **This — not the seawater system — is the safety UHS (§8.5.2a).**
-- **Passive safety injection** — gravity feed from the IRWST on low pressuriser pressure + level
+- **Passive safety injection** — gravity feed from the IRWST on low pressuriser pressurelevel
   coincidence.
 - **Containment** — dry steel-lined, Ø ≈ 15 m, design pressure 0.414 MPa. [DECISION-PENDING — a
   NuScale-style submerged-pool configuration is under team evaluation; this section is written against
@@ -1026,7 +1034,7 @@ Two initiators analysed to event-tree depth (top-event demands map 1:1 onto §8.
   failures; per-initiator CDF ≈ **1e-8/ry** [PRA-PENDING — generic reliability data]. The lead safe
   path is the **passive PRHR/IRWST, seawater-independent** — loss of the marine intake degrades only
   the normal (power) sink. ‹FIGURE 8.6-1 — event_tree_LOHS.›
-- **Station Blackout (SBO)** — LOOP + failure of both standby AC sources (≈ 1e-5/ry). Every credited
+- **Station Blackout (SBO)** — LOOPfailure of both standby AC sources (≈ 1e-5/ry). Every credited
   function actuates on de-energisation (breakers open, rods drop, EFW/PRHR valves fail open, CIVs
   fail closed) → **loss of power is actuation, not challenge**. No AC/DC/operator/external water for
   72 h; 1E batteries (72 h) serve post-accident monitoring only. SBO CDF ≈ **1e-11/ry** — four orders
@@ -1088,7 +1096,7 @@ OPΔT composites from T_hot/T_cold/flux/pressure; low flow < 90 %; pressuriser p
 ## 8.7.3 ESFAS
 
 Same 4-division / 2-of-4 structure; actuations **latching** (deliberate operator reset). Functions:
-passive safety injection (low pzr P + level), containment isolation (high containment P or radiation),
+passive safety injection (low pzr Plevel), containment isolation (high containment P or radiation),
 EFW (low SG level / loss of normal FW), PRHR/PCC alignment, main-steam isolation (high MSL radiation
 or containment P), and **cogeneration-interface isolation** (fail-closed on high intermediate-loop /
 product activity or SGTR — §8.8.9, Req. 35). All actuated devices move to safe state on loss of
@@ -1104,7 +1112,7 @@ for EBIS**, which carries the ATWS burden in this boron-free core.
 
 ## 8.7.5 Control room, control philosophy and human factors
 
-Two-operator MCR per NUREG-0700 (reactor-operator + BOP consoles, STA station, 4×80″ overview wall
+Two-operator MCR per NUREG-0700 (reactor-operatorBOP consoles, STA station, 4×80″ overview wall
 with plant mimic / SPDS / critical safety functions); alarm management per ISA 18.2 (≤ 10 alarms /
 10-min window under DBA); computer-based procedures with paper backup; **hardwired,
 software-independent manual actions** (trip, SI, CI, EFW, MSIV) per IEEE 603 §5.8. A **Remote
@@ -1146,10 +1154,10 @@ Per-system P&IDs (A4) and the single-line (A5) are in the drawing pass.
 |---|---|---|---|---|
 | 1 | HVAC / Ventilation | **Yes (ESF)** | RXB/AB/CB/SFB | Negative-pressure cascade clean→contaminated→HEPA+charcoal→stack; MCR habitability is an ESF actuation |
 | 2 | Fire Protection | **Yes (DiD)** | site-wide | 3 h barriers between RPS/ESFAS divisions A–D; clean-agent in I&C/MCR; protects the 2/4 separation basis (NFPA) |
-| 3 | Radiation Protection + Monitoring | **Yes** | site-wide | 4 layers (area/process/personnel/post-accident high-range RG 1.97); effluent monitors gate all releases incl. the seawater discharge |
-| 4 | Emergency Power (Class 1E) | **Yes (1E)** | DGB/CB | 2× EDG + 1E batteries; supports monitoring + active backup (core cooling is passive); battery duty to the 72 h grace |
+| 3 | Radiation ProtectionMonitoring | **Yes** | site-wide | 4 layers (area/process/personnel/post-accident high-range RG 1.97); effluent monitors gate all releases incl. the seawater discharge |
+| 4 | Emergency Power (Class 1E) | **Yes (1E)** | DGB/CB | 2× EDG1E batteries; supports monitoringactive backup (core cooling is passive); battery duty to the 72 h grace |
 | 5 | Normal Electrical Distribution | No | EHB/CB | 40 MWe → ~50 MVA main transformer → 33 kV; dual offsite/onsite feed |
-| 6 | Fuel Handling + Storage | **Yes** | RXB/SFB | Flooded transfer; **unborated SFP**, subcriticality by fixed-absorber rack geometry + burnup credit, k(95/95) ≤ 0.95 (consistent with the boron-free core, §8.11) |
+| 6 | Fuel HandlingStorage | **Yes** | RXB/SFB | Flooded transfer; **unborated SFP**, subcriticality by fixed-absorber rack geometryburnup credit, k(95/95) ≤ 0.95 (consistent with the boron-free core, §8.11) |
 | 7 | Fission-Product Release Control | **Yes (top-tier)** | RXB/WMB | Three-barrier chain; containment isolation; gaseous/liquid radwaste before monitored discharge |
 | 8 | Service Systems (instrument air · demin · SFP cooling) | Mixed | AB/SFB | Instrument air fail-safe; SFP cooling rejects to once-through seawater (normal sink); large pool inertia gives long grace; safety UHS stays passive |
 | 9 | **Cogeneration Interface Isolation (SSR-2/1 Req. 35)** | **Yes** | TB/EUB | §8.8.9 |
@@ -1165,7 +1173,7 @@ any leak flows **inward** (clean→reactor). Result: **≥ 3 independent barrier
 (2) intermediate-loop boundary, (3) customer-side HX wall. Accident-condition isolation: fail-closed
 ESFAS valves on high intermediate-loop / product activity, SGTR signal, or containment isolation
 (§8.7.3). **Tritium** is the governing nuclide at the high-temperature electrolyser interface →
-permeation-barrier coatings + product tritium monitor + intermediate-loop getter [ANALYSIS-PENDING —
+permeation-barrier coatingsproduct tritium monitorintermediate-loop getter [ANALYSIS-PENDING —
 tritium permeation/carryover budget, O7].
 
 ## 8.8.10 Electrical-supply summary
@@ -1178,7 +1186,7 @@ power needed)**. The passive core-cooling decision lets the chain end in "no pow
 
 # 8.9 Energy Conversion and Integrated Systems
 
-> **Code:** regenerative-Rankine + exergy model, IAPWS-IF97 (`scripts/thermo_cycle.py`,
+> **Code:** regenerative-Rankineexergy model, IAPWS-IF97 (`scripts/thermo_cycle.py`,
 > `thermo_exergy.py`, `thermo_cycle_recouple.py`).
 
 ## 8.9.1 Energy-conversion architecture
@@ -1208,7 +1216,7 @@ The district-heat and H₂ off-takes add **no** further turbine (the store is ch
 | Steam mass flow | 57.8 kg/s |
 | Condenser pressure | 7 kPa (Tsat 39 °C) |
 | HP extraction → FWH-1 | 1.0 MPa |
-| Crossover / MS + deaerator | 0.15 MPa |
+| Crossover / MSdeaerator | 0.15 MPa |
 | Turbine / pump isentropic efficiency | 0.85 / 0.82 |
 | Generator × mechanical | 0.985 |
 | BOP house load | 5.0 % of gross |
@@ -1252,7 +1260,7 @@ deaerating the feedwater.
 | **Net plant efficiency** | **31.8 %** |
 | Heat rejected at condenser | 82.6 MWth |
 
-Closure: 125 MWth in = 39.7 MWe + 82.6 MWth + ~2.5 MWe auxiliaries (< 1 %). 31.8 % is in line with
+Closure: 125 MWth in = 39.7 MWe82.6 MWth~2.5 MWe auxiliaries (< 1 %). 31.8 % is in line with
 operating iPWRs (NuScale ~30 %, mPower ~31 %), the slight edge from superheated OTSG steam +
 regeneration.
 
@@ -1379,20 +1387,20 @@ control (cf. AP1000/NuScale/SMART), extended for cogeneration:
 
 - **Nuclear Island (NI)** — RXB, AB, CB, SFB, DGB, WMB. Seismic Cat I on a common 0.3 g SSE mat;
   Protected Area. ~100 × 80 m.
-- **Conventional Island (CI)** — TB, EHB/switchyard, **Circulating-Water Pump house + seawater
+- **Conventional Island (CI)** — TB, EHB/switchyard, **Circulating-Water Pump houseseawater
   intake/outfall (once-through, no cooling tower)**, water/services. Seismic Cat II. ~80 × 80 m.
 - **Industrial Island (II)** — **TCES (zeolite-13X)**, electrolyser, H₂ storage. Non-safety, NFPA 2
   H₂ classification; **100 m H₂ stand-off** to the nearest NI building. ~60 × 60 m.
 
 Driving constraints: EPZ ≤ 0.5 km, SSE 0.3 g, consolidated containment penetrations, H₂ explosion
 stand-off (NFPA 2 / IEC 60079). The TB is adjacent to the NI (shortest main-steam/feedwater run
-~47 m); the seawater intake/outfall + CWP at the shoreline.
+~47 m); the seawater intake/outfallCWP at the shoreline.
 
 ## 8.10.2 Building inventory and cooling
 
-Full table in `layout/building_list.md` (14 named buildings + infrastructure). Cooling is
+Full table in `layout/building_list.md` (14 named buildingsinfrastructure). Cooling is
 **once-through Black Sea seawater**: condenser circ-water and CCWS reject to the sea via a
-breakwater-protected **intake** (trash racks + redundant travelling screens + chlorination), the
+breakwater-protected **intake** (trash racksredundant travelling screenschlorination), the
 **CWP house** (~240 m² on-island), and a **discharge/outfall** structure. Heat rejected ≈ 82 MWth at
 ΔT ≈ 8–10 K (~2–2.5 m³/s); plume negligible at site scale. Thermal discharge under the Turkish Water
 Pollution Control Regulation (SKKY) [VERIFY — max-T/ΔT clause, O9]. **Normal heat sink only; the
@@ -1428,7 +1436,7 @@ structures, system weight distributions, structural requirements) per the §8.10
 weight/foundation data are in `layout/building_list.md`. All four FER §8.10 categories (reactor
 building / energy-conversion systems / O&M services / other systems) are populated.
 
-> **Figure status.** The site plan, elevation, CAD STEP and viewer are current to the seawater + TCES
+> **Figure status.** The site plan, elevation, CAD STEP and viewer are current to the seawaterTCES
 > configuration. The integrated process-flow diagram is the master figure feeding the §8.9/§8.4
 > diagrams. (CAD 3D/STEP assets are held in the local working tree per the project's CAD-handling
 > practice and are not part of this doc commit.)
@@ -1437,7 +1445,7 @@ building / energy-conversion systems / O&M services / other systems) are populat
 
 # 8.11 Nuclear Waste Management
 
-> **Codes:** OpenMC depletion + `src/aegis40.back_end` (15/15 tests). Burnup-dependent numbers below
+> **Codes:** OpenMC depletion`src/aegis40.back_end` (15/15 tests). Burnup-dependent numbers below
 > are the **37-FA STAT_FINAL once-through** values (discharge 27.6 GWd/tHM, whole-core 9.1 tHM).
 
 Aegis-40 addresses waste on the three fronts mandated by Technical-Specification §4.3.2: **(i)** an
@@ -1472,7 +1480,7 @@ multi-batch reload to ~41–44 GWd/tHM would cut the intensity to ~3.0 tHM/TWhe 
 
 **Once-through** cycle. Discharged assemblies (~3.6 FA/yr) cool in the spent-fuel pool, then transfer
 to **on-site dry-cask interim storage** after the decay-heat and dose criteria are met (§8.11.3). The
-very low arisings make a single compact pool + small cask pad sufficient for the plant lifetime,
+very low arisings make a single compact poolsmall cask pad sufficient for the plant lifetime,
 deferring repository transfer. No reprocessing (the discharged Pu vector and safeguards
 attractiveness are in §7 / the non-proliferation assessment).
 
@@ -1495,7 +1503,7 @@ At discharge: total activity **4.72×10¹⁸ Bq**, decay heat **444 kW** (48.9 k
 is classified **HLW / SNF**. Dominant nuclides at discharge are short-lived fission/activation products
 (Np-239, Xe-133, Mo-99, Zr/Nb-95, Ce-144), decaying ~16× over the first year; the long-term term is set
 by Cs-137, Sr-90 and the transuranics. The decay-heat curve is the input to the pool-cooling load and the
-dry-cask passive-cooling design. ‹FIGURE 8.11-1 — decay heat + ingestion radiotoxicity vs cooling time,
+dry-cask passive-cooling design. ‹FIGURE 8.11-1 — decay heatingestion radiotoxicity vs cooling time,
 `waste_sim/output/decay_heat_rigorous.csv`.›
 
 ## 8.11.4 Spent-fuel storage criticality (§4.3.2)
@@ -1509,15 +1517,15 @@ bounding infinite array:
 
 | Configuration | k_calc ± σ | k(95/95) | Verdict |
 |---|---|---|---|
-| Spent fuel + Boral box (0.40 B₄C) | 0.78099 ± 0.00054 | 0.782 | ✅ PASS |
-| Spent fuel + Metamic box (0.31 B₄C) | 0.78856 ± 0.00061 | 0.790 | ✅ PASS |
+| Spent fuelBoral box (0.40 B₄C) | 0.78099 ± 0.00054 | 0.782 | ✅ PASS |
+| Spent fuelMetamic box (0.31 B₄C) | 0.78856 ± 0.00061 | 0.790 | ✅ PASS |
 
 Both sit **~0.16 below the 0.95 limit**, confirmed by two absorber materials. Reactivity ladder: fresh
-bare touching fuel (1.50) → **burnup credit** (1.075) → **absorber + pitch** (0.782). A minimum-burnup
+bare touching fuel (1.50) → **burnup credit** (1.075) → **absorberpitch** (0.782). A minimum-burnup
 loading curve administratively excludes fresh/low-burnup assemblies (held in a Region-I flux-trap
 rack). Consistent with, and more conservative than, the published SBF small-PWR envelope (Kim, Jung &
 Yoon 2024). **V&V:** the reported margins use Δ_bias = Δ_unc = 0; a licensing-grade result adds the
-OpenMC + ENDF/B-VIII.0 bias from the OECD/NEA Burnup-Credit Benchmark (Phase II) and SFCOMPO 2.0
+OpenMCENDF/B-VIII.0 bias from the OECD/NEA Burnup-Credit Benchmark (Phase II)
 (§8.13); even Δ ≈ 0.02–0.05 leaves 0.78 comfortably under 0.95.
 
 ## 8.11.5 Secondary radioactive-waste minimisation
@@ -1545,7 +1553,7 @@ the plant life, recovers all discounted costs. With real discount rate *r* and l
 
 ```
 CRF  = r(1+r)^N / [(1+r)^N − 1]
-LCOE = [OCC·IDC·CRF + FixedO&M] / (8760·CF) + VarO&M + Fuel + Decommissioning     [$/MWh]
+LCOE = [OCC·IDC·CRFFixedO&M] / (8760·CF)VarO&MFuelDecommissioning     [$/MWh]
 ```
 
 The **levelised fuel-cycle cost (LFCC)** follows the same discounted-cash-flow form (Ashley 2014 Eq. 3)
@@ -1597,7 +1605,7 @@ helps both OCC and O&M, and a high CF from the long SBF cycle dilutes fixed char
 
 This places Aegis-40 in the expected FOAK-SMR range (90–150 $/MWh) — uncompetitive with GW-class
 nuclear on $/MWh alone, but that is the wrong comparison: the SMR value proposition is **dispatchable
-polygeneration** (electricity + the §8.9 district-heat / H₂ revenue streams, not captured in a
+polygeneration** (electricitythe §8.9 district-heat / H₂ revenue streams, not captured in a
 single-product LCOE), **grid-independent siting**, and **low absolute capital-at-risk**. Against the
 SMR peer set, a weighted figure-of-merit ranks Aegis-40 a robust second (NuScale > **Aegis-40** >
 CAREM-25 > SMART), with the boron-free / high-burnup / low-waste-intensity attributes its
@@ -1608,27 +1616,27 @@ differentiators. [CONFIRM — replace the literature CAPEX triangular with a bot
 
 # 8.13 Digital Appendix — Verification & Validation (mandatory, spec p. 8)
 
-The competition requires, **per code**, one sample input file + an explanation of the
+The competition requires, **per code**, one sample input filean explanation of the
 case/approach/output **and** reproducibility / benchmarking / repeatability evidence against
-IAEA / OECD-NEA data. The Aegis-40 strategy is **cite published V&V of the open-source tools + run
-the design deck as the sample input + one cheap confirmatory benchmark per code**.
+IAEA / OECD-NEA data. The Aegis-40 strategy is **cite published V&V of the open-source toolsrun
+the design deck as the sample inputone cheap confirmatory benchmark per code**.
 
 | Term | What it answers | How shown |
 |---|---|---|
-| Reproducibility | Can someone rebuild our result from the inputs? | public built-in benchmark models + tracked sample decks + fixed library/chain versions |
+| Reproducibility | Can someone rebuild our result from the inputs? | public built-in benchmark modelstracked sample decksfixed library/chain versions |
 | Repeatability | Does our result hold across reruns? | re-run with independent RNG seeds; agreement within Monte-Carlo σ |
-| Benchmarking | Does the code reproduce a known answer? | code-to-code (Serpent) + measured assay (SFCOMPO) + criticality arrays / IAPWS / ANS-5.1 |
+| Benchmarking | Does the code reproduce a known answer? | code-to-code (Serpent)OECD/NEA criticality arrays (ICSBEP) / IAPWS / ANS-5.1 |
 
 **Sample-input / V&V index:**
 
-| Code / capability | Sample input | Confirmatory benchmark (cite + run) | Status |
+| Code / capability | Sample input | Confirmatory benchmark (citerun) | Status |
 |---|---|---|---|
-| **OpenMC transport** (§8.2) | `openmc_model/sample_inputs/{geometry,materials,settings}.xml` (37-FA core deck) | ICSBEP / C5G7 / BEAVRS (OECD-NEA / MIT-CRPG); **NuScale NPM design anchor** — Tables 8.2-6/8.2-7; verification by Shannon-entropy + seed repeatability | core deck ✅; benchmark cite |
+| **OpenMC transport** (§8.2) | `openmc_model/sample_inputs/{geometry,materials,settings}.xml` (37-FA core deck) | ICSBEP / C5G7 / BEAVRS (OECD-NEA / MIT-CRPG); **NuScale NPM design anchor** — Tables 8.2-6/8.2-7; verification by Shannon-entropyseed repeatability | core deck ✅; benchmark cite |
 | **OpenMC depletion** (§8.2/§8.11) | `scripts/benchmark_depletion_pincell.py` (BEAVRS 2.4 % pincell → 31 MWd/kg) | Romano 2021 §3.2: OpenMC–Serpent k 20–30 pcm, actinides/FPs < 1 %; inputs verified vs **BEAVRS v2.0.2 spec < 0.05 %** | **✅ run** — k(BU)+isotopics, σ 76–95 pcm (`digital-appendix/pincell_run_10k/`) |
-| **OpenMC criticality — design-anchor benchmark** (§8.2) | NuScale-like core deck (Fridman, RODARE 2457; Ez-Aldeen, Zenodo 15231335), ENDF/B-VII.1 | **6 control-rod states** (ARO/RE1/RE2/SH3/SH4/SCRAM) k_eff + rod worths vs **Serpent reference** | **✅ full Table-3: k_eff within −80…+58 pcm; control-rod worths within ~0.5–3 % (incl. −19,255 pcm SCRAM)** — `digital-appendix/nuscale_benchmark/` |
+| **OpenMC criticality — design-anchor benchmark** (§8.2) | NuScale-like core deck (Fridman, RODARE 2457; Ez-Aldeen, Zenodo 15231335), ENDF/B-VII.1 | **6 control-rod states** (ARO/RE1/RE2/SH3/SH4/SCRAM) k_effrod worths vs **Serpent reference** | **✅ full Table-3: k_eff within −80…+58 pcm; control-rod worths within ~0.5–3 % (incl. −19,255 pcm SCRAM)** — `digital-appendix/nuscale_benchmark/` |
 | **OpenMC shielding — fixed source** (§8.8) | `openmc_model/rev7_shielding/` (coupled n+γ, MAGIC weight windows) | total dose < 10 µSv/h; RPV fast fluence vs PTS screen | **✅ run** — PASS; RPV 60-yr fluence 7.0×10¹⁷ ≪ 10¹⁹ |
-| **OpenMC criticality (storage)** (§8.11) | `scripts/run_storage_criticality.py` + `benchmark_takahama_pincell.py` | OECD-NEA Burnup-Credit Phase II; **Takahama-3 PIE / SFCOMPO** (NEA/NSC/DOC(2013)1) → Δ_bias/Δ_unc | Takahama deck set up; run pending |
-| **Thermal-hydraulics — conjugate CFD** (§8.4) | OpenFOAM `chtMultiRegionFoam` v2412 case (`pin/`, +`pin_coarse`/`pin_fine` for GCI) + W-3/Jens-Lottes post-processor (`tools/mdnbr.py`, `natcirc.py`, `thermal_stack.py`) | **ASME V&V-20 GCI** (3 meshes, GCI < 0.15 %) + **energy-conservation gate** (×1.00) + CFD↔correlation < 7 K; validated vs **NuScale NPM-160**; CHF vs OECD-NEA PSBT; decay heat ANS-5.1 | **✅ run & validated** (Adilbek 2026) |
+| **OpenMC criticality (storage)** (§8.11) | `scripts/run_storage_criticality.py``benchmark_takahama_pincell.py` | OECD-NEA Burnup-Credit Phase II → Δ_bias/Δ_unc | cross-checked (Kim 2024 band); formal bias derivation identified as follow-up |
+| **Thermal-hydraulics — conjugate CFD** (§8.4) | OpenFOAM `chtMultiRegionFoam` v2412 case (`pin/`, +`pin_coarse`/`pin_fine` for GCI)W-3/Jens-Lottes post-processor (`tools/mdnbr.py`, `natcirc.py`, `thermal_stack.py`) | **ASME V&V-20 GCI** (3 meshes, GCI < 0.15 %)**energy-conservation gate** (×1.00)CFD↔correlation < 7 K; validated vs **NuScale NPM-160**; CHF vs OECD-NEA PSBT; decay heat ANS-5.1 | **✅ run & validated** (Adilbek 2026) |
 | **Fuel performance** (§8.3) | 1-D conduction stack (optional FRAPCON case) | OECD-NEA IFPE / Halden instrumented rod | cite; run if FRAPCON used |
 | **Energy cycle** (§8.9) | `scripts/thermo_cycle.py` (IAPWS-IF97 deck) | IAPWS-IF97 reference standard | ✅ |
 | **Back-end physics** (§8.11) | `src/aegis40/back_end/` (15/15 unit tests) | ANSI/ANS-5.1 decay-heat standard | ✅ |
@@ -1680,9 +1688,9 @@ thermal-hydraulic (§8.4, conjugate CFD) parameters are entered first.
 | Integral vessel height | ≈ 10 m | [D]/[R] | elevation budget Table 8.4-1b; ½ NuScale (17.7 m) riser | 8.4/8.10 |
 | Peak fuel centerline | 734 °C | [D] | conjugate CFD `chtMultiRegionFoam` at q′_peak 12.8 kW/m (stack < 1 K) | 8.3/8.4 |
 | Peak clad temp (PCT, steady) | 349 °C | [D] | Jens-Lottes subcooled-boiling-clamped film | 8.4 |
-| MDNBR (hot pin) | 1.56 (≈1.4 at F_ΔH 1.746) | [D]/[P] | W-3 CHF + Tong F-factor; **conservative** below W-3 range (G 543 < 1356) | 8.4 |
+| MDNBR (hot pin) | 1.56 (≈1.4 at F_ΔH 1.746) | [D]/[P] | W-3 CHFTong F-factor; **conservative** below W-3 range (G 543 < 1356) | 8.4 |
 | Peaking (T-H input) | F_q 2.00 / F_ΔH 1.55 / F_z 1.29 | [A]/[P] | design targets (limits 2.32/1.65); OpenMC STAT_FINAL pending | 8.2/8.4 |
-| CFD verification | GCI < 0.15 %; energy ×1.00 | [D] | ASME V&V-20, 3-mesh Richardson + conservation gate | 8.4/8.13 |
+| CFD verification | GCI < 0.15 %; energy ×1.00 | [D] | ASME V&V-20, 3-mesh Richardsonconservation gate | 8.4/8.13 |
 | Toolchain validation | vs NuScale NPM-160 | [R] | companion V&V report; same 37-FA/9768-pin/2.0 m core geometry | 8.4/8.13 |
 
 ---
@@ -1695,64 +1703,64 @@ pending the 37-FA STAT_FINAL run.
 | § | Requirement (paraphrased from the spec) | Where addressed | Status |
 |---|---|---|---|
 | top | Tables of technical specs (qty, material, dims, standards) for key components | §8.1, §8.2.2, §8.4.5, §8.3.6 tables | ✅ |
-| top | One sample input per code + V&V (reproducibility/benchmarking/repeatability) vs IAEA/OECD-NEA | §8.13 | 🟡 (confirmatory runs scheduled in WSL) |
-| 8.1 | Preparation-phase docs prior to detailed design | §8.1.6 + Table 8.1-6 | ✅ |
+| top | One sample input per codeV&V (reproducibility/benchmarking/repeatability) vs IAEA/OECD-NEA | §8.13 | 🟡 (confirmatory runs scheduled in WSL) |
+| 8.1 | Preparation-phase docs prior to detailed design | §8.1.6Table 8.1-6 | ✅ |
 | 8.1 | Codes & standards for all systems/components/materials | §8.1.7 Table 8.1-7 | ✅ |
 | 8.1 | General design parameters (Table-1 style) | §8.1.1–8.1.5 Tables 8.1-1…5 | ✅ |
 | 8.1 | Reference regulatory / nuclear-safety requirements list | §8.1.8 Table 8.1-8 | ✅ |
-| 8.2 | Material selection + behaviour under neutron flux & temperature (SS/transient/accident) | §8.2.1 | ✅ |
-| 8.2 | Geometry & layout: quantities, dimensions, modelling parameters | §8.2.2 + figures | ✅ |
+| 8.2 | Material selectionbehaviour under neutron flux & temperature (SS/transient/accident) | §8.2.1 | ✅ |
+| 8.2 | Geometry & layout: quantities, dimensions, modelling parameters | §8.2.2figures | ✅ |
 | 8.2 | Neutronics: criticality, flux/burnup distribution, feedback coeffs, reactivity-control values | §8.2.3 Tables 8.2-3/5 | ⏳ |
-| 8.2 | Composition & locations of all core components (tables + drawings) | §8.2.2 Table 8.2-2 + Figs 8.2-1/2/3 | ✅ |
+| 8.2 | Composition & locations of all core components (tablesdrawings) | §8.2.2 Table 8.2-2Figs 8.2-1/2/3 | ✅ |
 | 8.2 | Conformity of safety criteria with national/international regs | §8.2.3 compliance table | ✅ |
 | 8.2 | Analyses initial-cycle → equilibrium-cycle | §8.2.3 "BOC→equilibrium" | 🟡 (bounding arg.; equilibrium shuffle next) |
-| 8.2 | Steady-state thermal-hydraulics: T-distributions, ΔP, T-H params | §8.2.4 + §8.4.6 (37-FA conjugate CFD, GCI-verified) | ✅ (final-peaking MDNBR re-run is the only ⏳) |
+| 8.2 | Steady-state thermal-hydraulics: T-distributions, ΔP, T-H params | §8.2.4§8.4.6 (37-FA conjugate CFD, GCI-verified) | ✅ (final-peaking MDNBR re-run is the only ⏳) |
 | 8.3 | Fuel-performance & fuel-safety analyses/calculations | §8.3.2–8.3.4 | ✅ (centerline/FGR/clad) |
 | 8.3 | Front-end fuel-cycle structural-material specs | §8.3.5 | ✅ |
 | 8.4 | General description of primary & secondary cooling systems | §8.4.1–8.4.3 | ✅ |
-| 8.4 | Component functions/specs/capacities/performance + material compliance | §8.4.5 tables | ✅ |
+| 8.4 | Component functions/specs/capacities/performancematerial compliance | §8.4.5 tables | ✅ |
 | 8.4 | Heat-removal capacity by accepted methods; operating conditions defined | §8.4.6–8.4.7 | ✅ |
-| 8.5 | Anticipated transients, criticality accidents, DBA scenarios stated | §8.5.1 + 8.6.3 | 🟡 (MSLB/SBLOCA trees pending) |
+| 8.5 | Anticipated transients, criticality accidents, DBA scenarios stated | §8.5.18.6.3 | 🟡 (MSLB/SBLOCA trees pending) |
 | 8.5 | Modelling/analysis results for those scenarios | §8.6.3 (LOHS, SBO) | 🟡 |
-| 8.5 | Operating-limit conditions + the calculations that set them | §8.5.2 Table 8.5-1 | ⏳ |
+| 8.5 | Operating-limit conditionsthe calculations that set them | §8.5.2 Table 8.5-1 | ⏳ |
 | 8.5 | Safety maintained in worst-case; reactivity/cooling/FP-release under all conditions | §8.5.1a, §8.5.3 | ✅ |
-| 8.6 | All safety-function systems described + functions (RPS, HRS, ECCS, containment, etc.) | §8.6.1–8.6.2a | ✅ |
+| 8.6 | All safety-function systems describedfunctions (RPS, HRS, ECCS, containment, etc.) | §8.6.1–8.6.2a | ✅ |
 | 8.6 | Auto-initiation; fuel-design-limit protection; accident detection | §8.6.2, §8.7.2/8.7.3 | ✅ |
 | 8.6 | Fail-safe transition on loss of power/air/adverse environment | §8.6.2 (de-energise-to-actuate) | ✅ |
-| 8.6 | Reactivity-control limits protect RCPB & core support | §8.5.2 + §8.6.1 | ⏳ |
+| 8.6 | Reactivity-control limits protect RCPB & core support | §8.5.2§8.6.1 | ⏳ |
 | 8.6 | Fault trees & event trees; redundancy & necessity analyses | §8.6.3–8.6.4 | 🟡 (CDF/LRF partial) |
-| 8.6 | Schematic diagrams: monitored variables → protective action logic | §8.7.2 + Fig 8.7-1 | ✅ |
-| 8.7 | I&C architecture, components, subsystems, block/logic/flow diagrams | §8.7.1 + Fig 8.7-1 | ✅ |
-| 8.7 | Sensors/detectors + real-time HW/SW; HMI & secure comms | §8.7.1–8.7.6 | ✅ |
+| 8.6 | Schematic diagrams: monitored variables → protective action logic | §8.7.2Fig 8.7-1 | ✅ |
+| 8.7 | I&C architecture, components, subsystems, block/logic/flow diagrams | §8.7.1Fig 8.7-1 | ✅ |
+| 8.7 | Sensors/detectorsreal-time HW/SW; HMI & secure comms | §8.7.1–8.7.6 | ✅ |
 | 8.7 | Design criteria/principles: redundancy, diversity, separation | §8.7.2–8.7.4, 8.7.7 | ✅ |
 | 8.7 | MCR ergonomically designed | §8.7.5 | ✅ |
-| 8.8 | All auxiliary systems by sub-heading (purpose/principle/layout/safety/perf/maint.) + P&IDs | §8.8 table + 8.8.9/8.8.10 | 🟡 (per-system P&IDs in drawing pass) |
+| 8.8 | All auxiliary systems by sub-heading (purpose/principle/layout/safety/perf/maint.)P&IDs | §8.8 table8.8.9/8.8.10 | 🟡 (per-system P&IDs in drawing pass) |
 | 8.8 | On-/off-site electrical incl. emergency & UPS, with drawings | §8.8.10 (item 4/5) | 🟡 (single-line in drawing pass) |
-| 8.9 | Energy-conversion design + flow diagrams (electricity) | §8.9.1–8.9.4 + Figs 8.9-1/2 | ✅ |
-| 8.9 | Non-electric integrations (H₂, desalination, district heat, process heat) + analyses | §8.9.5 (TCES DH), §8.9.6 (H₂) | ✅ (desalination noted as a process-heat option) |
+| 8.9 | Energy-conversion designflow diagrams (electricity) | §8.9.1–8.9.4Figs 8.9-1/2 | ✅ |
+| 8.9 | Non-electric integrations (H₂, desalination, district heat, process heat)analyses | §8.9.5 (TCES DH), §8.9.6 (H₂) | ✅ (desalination noted as a process-heat option) |
 | 8.10 | Optimum general layout (constructability/economy/safety/operations) | §8.10.1 | ✅ |
 | 8.10 | General layout incl. reactor/energy-conversion/O&M/other buildings | §8.10.2 | ✅ |
-| 8.10 | 2D/3D plans + connections; structural/steel/weight/structural-requirement data | §8.10.5 + `layout/building_list.md` | 🟡 (CAD assets held locally) |
+| 8.10 | 2D/3D plansconnections; structural/steel/weight/structural-requirement data | §8.10.5`layout/building_list.md` | 🟡 (CAD assets held locally) |
 | 8.10 | Critical-piping routing within/between structures | §8.10.4 | ✅ |
 | 8.11 | Innovative fuel-cycle waste minimisation | §8.11.1 | ⏳ (intensity re-gen with 37-FA BU) |
 | 8.11 | Back-end management plan (per §4.3.2: source term, decay heat, storage criticality) | §8.11.2–8.11.4 | ✅ |
 | 8.11 | Conformity of results with regulations | §8.11.4 (k(95/95)), §8.11.5 (GSR Part 5) | ✅ |
 | 8.11 | Secondary radioactive-waste management | §8.11.5 | ✅ |
-| 8.12 | Economic advantages vs reference reactors; investment/operating/production costs | §8.12.1–8.12.5 | 🟡 (bottom-up CAPEX + cogen credit pending) |
+| 8.12 | Economic advantages vs reference reactors; investment/operating/production costs | §8.12.1–8.12.5 | 🟡 (bottom-up CAPEXcogen credit pending) |
 
 **Items we could not fully close, with the reason and the citation basis:**
 
 1. **37-FA neutronic results (k_eff, burnup, cycle, peaking, coefficients, rod worth, SDM,
    inventory).** Reason: the STAT_FINAL OpenMC depletion run is in progress (multi-day in WSL). We
    present the validated 21-FA predecessor values as a conservative reference and the latest 37-FA
-   partial peaking (F_ΔH 1.746, F_q ≈ 2.03). Basis: OpenMC 0.15.3 + ENDF/B-VIII.0, benchmarked per
+   partial peaking (F_ΔH 1.746, F_q ≈ 2.03). Basis: OpenMC 0.15.3ENDF/B-VIII.0, benchmarked per
    §8.13 (Romano et al. 2015/2021; ICSBEP/BEAVRS).
 2. **Steady-state hot-channel T-H — now CLOSED (37-FA conjugate CFD, Adilbek 2026).** MDNBR **1.56**,
    steady PCT **349 °C**, peak fuel centerline **734 °C**, verified by ASME V&V-20 grid convergence
-   (GCI < 0.15 %) + energy-conservation gate + < 7 K CFD-vs-correlation agreement, toolchain validated
+   (GCI < 0.15 %)energy-conservation gate< 7 K CFD-vs-correlation agreement, toolchain validated
    vs NuScale NPM-160 (§8.4.6, §8.13). **Still open:** (a) MDNBR re-run on the *final* per-pin peaking
    (≈ 1.4 at the partial F_ΔH 1.746 — still PASS); (b) the **LOCA-transient** PCT / clad-oxidation /
-   ECR envelope (accident, not steady) gated by the DBA analysis. Basis: Tong W-3 + Jens-Lottes;
+   ECR envelope (accident, not steady) gated by the DBA analysis. Basis: Tong W-3Jens-Lottes;
    ANS-5.1; OECD-NEA PSBT.
 3. **Containment design pressure / P-T response.** Reason: the containment concept (dry vs
    submerged-pool) is an open team decision; the P/T accident response sets the design pressure
@@ -1768,7 +1776,7 @@ pending the 37-FA STAT_FINAL run.
    equipment list; the literature FOAK triangular is used in the interim. Basis: OECD-NEA (1994);
    Ashley et al. (2014); IEA/NEA *Projected Costs* (2020).
 7. **Seawater desalination** is named in the spec's §8.9 examples; Aegis-40's chosen non-electric
-   products are **district heat (TCES) + hydrogen**, with desalination available as an alternative
+   products are **district heat (TCES)hydrogen**, with desalination available as an alternative
    process-heat off-take from the same intermediate loop (not separately analysed). This is a design
    choice, not an omission.
 
@@ -1796,8 +1804,8 @@ at assembly time. Principal anchors:
   10 CFR 50 App. A (GDC), 50.46, 50.62, 50.68, 100.11, 73.54, NUREG-0800/0700/0711/1431, RG 1.60/1.97/
   1.105/1.174/5.71; IEEE 323/344/384/603; IEC 61513/60880/60079; NFPA 2; Türkiye NDK Law No. 7381
   (2022), SKKY.
-- **Waste / 3S / economics:** NUREG-0800 §9.1.1 + 10 CFR 50.68; OECD/NEA Burnup-Credit Benchmark
-  (Phase I-B/II) + SFCOMPO 2.0; IAEA GSR Part 5; Ashley et al., *Ann. Nucl. Energy* 69 (2014) 314;
+- **Waste / 3S / economics:** NUREG-0800 §9.1.110 CFR 50.68; OECD/NEA Burnup-Credit Benchmark
+  (Phase I-B/II); IAEA GSR Part 5; Ashley et al., *Ann. Nucl. Energy* 69 (2014) 314;
   Bathke et al., *Nucl. Technol.* 179 (2012) 5; GIF PR&PP (2006); OECD-NEA (1994); IEA/NEA (2020).
 
 ---

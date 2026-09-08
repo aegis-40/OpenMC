@@ -1,6 +1,6 @@
 # Aegis-40 spent-fuel storage criticality (FER §8.11) — generated
 
-- Generated: `2026-06-04T17:09:56.309419+00:00`
+- Generated: `2026-07-04T00:45:30.966398+00:00`
 - Acceptance criterion: **k_eff(95/95) ≤ 0.95** in unborated water (soluble-boron-free — no pool-boron credit)
 - Assembly: 17×17, 264 fuel pins + 25 water tubes, pin pitch 1.2623 cm, pellet r=0.40958 cm, clad OD=0.9520 cm
 - Pool water: 0.9982 g/cm³ (20 °C), with S(α,β) `c_H_in_H2O`
@@ -15,16 +15,16 @@ _DESIGN rows are the credited Boral-rack configuration (the safety case). DIAG r
 |---|---|---|---|---|---|---|---|---|---|
 | diag | fresh, bare ∞ array | fresh 4.95 w/o | ∞ (reflective) | 21.46 | 1.49914 ± 0.00060 | 1.50034 | 1.50034 | -0.5503 | **FAIL** |
 | diag | fresh, bare finite 3×3 | fresh 4.95 w/o | 3×3 + H₂O refl. | 23.00 | 1.36178 ± 0.00067 | 1.36313 | 1.36313 | -0.4131 | **FAIL** |
-| diag | burnup credit, bare ∞ array | spent 42.8 GWd/t (core-avg) | ∞ (reflective) | 21.46 | 1.07358 ± 0.00060 | 1.07478 | 1.07478 | -0.1248 | **FAIL** |
-| DESIGN | fresh, Boral box ∞ array | fresh 4.95 w/o | ∞ + Boral box | 23.50 | 1.10566 ± 0.00069 | 1.10704 | 1.10704 | -0.1570 | **FAIL** |
-| DESIGN | burnup credit, Boral box ∞ array | spent 42.8 GWd/t (core-avg) | ∞ + Boral box | 23.50 | 0.78099 ± 0.00054 | 0.78207 | 0.78207 | +0.1679 | **PASS** |
-| DESIGN | burnup credit, Metamic box ∞ array | spent 42.8 GWd/t (core-avg) | ∞ + Metamic box | 23.50 | 0.78856 ± 0.00061 | 0.78977 | 0.78977 | +0.1602 | **PASS** |
+| diag | burnup credit, bare ∞ array | spent 42.8 GWd/t (core-avg) | ∞ (reflective) | 21.46 | 1.14732 ± 0.00066 | 1.14864 | 1.14864 | -0.1986 | **FAIL** |
+| diag | fresh, Boral box ∞ array (Region-I check) | fresh 4.95 w/o | ∞ + Boral box | 23.50 | 1.10566 ± 0.00069 | 1.10704 | 1.10704 | -0.1570 | **FAIL** |
+| DESIGN | burnup credit, Boral box ∞ array | spent 42.8 GWd/t (core-avg) | ∞ + Boral box | 23.50 | 0.83537 ± 0.00065 | 0.83667 | 0.83667 | +0.1133 | **PASS** |
+| DESIGN | burnup credit, Metamic box ∞ array | spent 42.8 GWd/t (core-avg) | ∞ + Metamic box | 23.50 | 0.84521 ± 0.00064 | 0.84650 | 0.84650 | +0.1035 | **PASS** |
 
-## Verdict: **PASS** — the credited burnup-credit Boral/Metamic rack is sub-critical (k(95/95) ≤ 0.95); fresh (un-burned) fuel exceeds the limit and is **administratively excluded** — this is a Region-II burnup-credit rack (minimum-burnup loading curve)
+## Verdict: **PASS** — the credited burnup-credit Boral/Metamic rack is sub-critical (k(95/95) ≤ 0.95)
 
 ## Cross-check vs literature
 
-Kim, Jung & Yoon (Nucl. Eng. Tech. 56 (2024) 3144) report SBF small-PWR cold/storage sub-criticality of k ≈ 0.932–0.949. Our credited burnup-credit + Boral case gives k(95/95) = 0.7821, in/below that band — consistent with an unborated SBF storage configuration.
+Kim, Jung & Yoon (Nucl. Eng. Tech. 56 (2024) 3144) report SBF small-PWR cold/storage sub-criticality of k ≈ 0.932–0.949. Our credited burnup-credit + Boral case gives k(95/95) = 0.8367, in/below that band — consistent with an unborated SBF storage configuration.
 
 ## Storage-rack design
 
@@ -36,6 +36,7 @@ Kim, Jung & Yoon (Nucl. Eng. Tech. 56 (2024) 3144) report SBF small-PWR cold/sto
 ## Method notes
 
 - **Unborated water** throughout — the SBF design philosophy carries into the pool: no soluble-boron reactivity credit is taken, so the result is valid even on a total loss of any boron injection. Sub-criticality rests entirely on the solid Boral panels (+ burnup credit), exactly as an SBF rack must.
-- The **bare infinite (reflective) array at the assembly envelope pitch (~21.46 cm, assemblies touching)** is the diagnostic bounding spacing: no water gap / flux trap and no absorber. Its high k is the quantitative justification for the Boral panels in the design rows.
+- The **bare infinite (reflective) array at the assembly envelope pitch (~21.46 cm, assemblies touching)** is the diagnostic bounding spacing: no water gap / flux trap and no absorber. Its high k is the quantitative justification for the absorber panels in the design rows.
+- This is a **Region-II (high-density, burnup-credit) rack**: it is sub-critical for the design-basis *spent* fuel, but the diagnostic fresh-fuel-in-Boral row exceeds 0.95, so fresh and low-burnup assemblies are **administratively excluded** via a minimum-burnup loading curve. Fresh fuel is held in new-fuel dry storage or a separate **Region-I flux-trap** rack (wider pitch), which is the standard two-region pool layout.
 - **Burnup credit** uses the regulator-standard *principal isotope* set (actinides + FP absorbers) at the **core-average** discharge burnup (42.8 GWd/tHM). A licensing submission would refine this to the *minimum*-burnup assembly and add an axial burnup profile; the core-average value here is a representative, not yet bounding, credit case.
 - **k(95/95) = k_calc + 2σ + Δ_bias + Δ_unc.** σ is the Monte-Carlo statistical std-dev. Δ_bias (code/data bias) and Δ_unc (method + manufacturing tolerances) are inputs here; the bias must come from the Digital-Appendix V&V — benchmarking OpenMC against the **OECD/NEA Burnup-Credit Criticality Benchmark Phase II** and **SFCOMPO 2.0** assay — before the numbers are licensing-grade. With Δ=0 the table reports the raw calculated margin.

@@ -1,0 +1,17 @@
+# Aegis-40 Digital Appendix - pinned Python environment
+# Monte-Carlo neutronics, thermal-hydraulic post-processing, digital twin, economics.
+# (OpenFOAM v2412 and the Clojure TCES model are separate toolchains - see their folders.)
+python_requires >= 3.10
+
+openmc==0.15.3            # continuous-energy Monte Carlo (neutronics, depletion, shielding)
+numpy>=1.24,<2.0
+scipy>=1.10
+h5py>=3.8                 # depletion / statepoint HDF5 I/O
+matplotlib>=3.7          # figures
+pandas>=2.0              # result tables
+scikit-learn>=1.3        # digital-twin GP / POD surrogates
+PyYAML>=6.0              # safety_criteria.yaml
+
+# Nuclear data (not pip-installable - install separately):
+#   ENDF/B-VIII.0 HDF5 cross sections  -> OPENMC_CROSS_SECTIONS
+#   chain_endfb80_pwr.xml depletion chain -> OPENMC_CHAIN_FILE

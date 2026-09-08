@@ -21,8 +21,8 @@ It runs a small matrix of cases via
   * FRESH fuel, realistic rack pitch (water gap)        -- a finite, reflected
     rack at a credible centre-to-centre pitch.
   * BURNUP-CREDIT fuel, infinite array (reflective)     -- the discharged
-    (42.8 GWd/tHM core-average) principal-isotope composition; only if a
-    depletion ``--results`` file is given.
+    (~27.6 GWd/tHM once-through discharge) principal-isotope composition; only if
+    a depletion ``--results`` file is given.
 
 Cross-check: Kim, Jung & Yoon (Nucl. Eng. Tech. 56 (2024) 3144) report SBF
 small-PWR cold/storage sub-criticality of k ~= 0.932-0.949; our fresh-fuel
@@ -534,8 +534,7 @@ def write_report(outdir, rows, meta):
              "statistical std-dev. Δ_bias (code/data bias) and Δ_unc "
              "(method + manufacturing tolerances) are inputs here; the bias must "
              "come from the Digital-Appendix V&V — benchmarking OpenMC against the "
-             "**OECD/NEA Burnup-Credit Criticality Benchmark Phase II** and "
-             "**SFCOMPO 2.0** assay — before the numbers are licensing-grade. "
+             "**OECD/NEA Burnup-Credit Criticality Benchmark Phase II** and " ""
              "With Δ=0 the table reports the raw calculated margin.")
     L.append("")
 
