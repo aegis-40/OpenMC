@@ -19,9 +19,9 @@
 
 Soluble-boron-free (SBF) operation removes the boron-dilution accident, deletes the boron make-up and recovery plant, and makes the moderator temperature coefficient more negative, but it transfers the whole cycle excess reactivity onto the control-rod system. The resulting demand for total bank worth raises individual cluster worth until the rod-ejection accident (REA) becomes design-limiting, and a body of recent work is devoted to optimising SBF cores to survive it. That constraint is a property of the drive-line topology rather than of the core: in an integral PWR with in-vessel control-rod drive mechanisms there is no head penetration, and the pressure-boundary-mediated ejection mechanism assumed for externally mounted drives does not apply. Both features are established individually and coexist in several SMR concepts, but the neutron-physics consequence of *deliberately relaxing the individual-cluster-worth constraint* on that basis has not, to our knowledge, been quantified.
 
-We address that question for a 125 MWth, 37-assembly, 17×17, 2.0 m active-height natural-circulation integral PWR with in-vessel drives, using continuous-energy Monte Carlo (OpenMC 0.15.3, ENDF/B-VIII.0) validated against four ICSBEP LEU-COMP-THERM-008 measured criticals (mean bias −50 pcm, worst case 0.86σ) and against a NuScale-like rod-worth sequence reproduced to within ±80 pcm across 19,400 pcm of total worth. A complete 2 × 2 matrix over two design levers — absorber B-10 enrichment and cluster count — spans 13,409 to 21,509 pcm of bank worth. The levers are approximately additive, with a small but statistically significant positive interaction of +392 pcm. The 12-cluster natural-B₄C base configuration cannot achieve hot shutdown at all (k = 1.00255 with all rods inserted), and either lever alone recovers it: enrichment gives +2.01 % Δk/k and the four added clusters alone give +5.20 %, while both together reach 7.85 %. Of the sixteen clusters, only the four centre-adjacent positions exceed one dollar in single-cluster worth. For context, a published SBF core of near-identical geometry — 37 assemblies, 17×17, 200 cm active height — requires 29 to 37 Ag–In–Cd clusters to reach 14,906 to 20,570 pcm of available worth.
+We address that question for a 125 MWth, 37-assembly, 17×17, 2.0 m active-height natural-circulation integral PWR with in-vessel drives, using continuous-energy Monte Carlo (OpenMC 0.15.3, ENDF/B-VIII.0) validated against four ICSBEP LEU-COMP-THERM-008 measured criticals (mean bias −50 pcm, worst case 0.86σ) and against a NuScale-like rod-worth sequence reproduced to within ±80 pcm across 19,400 pcm of total worth. A complete 2 × 2 matrix over two design levers — absorber B-10 enrichment and cluster count — spans 13,409 to 21,509 pcm of bank worth. The levers are approximately additive, with a small positive interaction of +392 ± 137 pcm (2.9σ). The 12-cluster natural-B₄C base configuration cannot achieve hot shutdown at all (k = 1.00255 with all rods inserted), and either lever alone recovers it: enrichment gives +2.01 % Δk/k and the four added clusters alone give +5.20 %, while both together reach 7.85 %. Of the sixteen clusters, only the four centre-adjacent positions exceed one dollar in single-cluster worth. For context, a published SBF core of near-identical geometry — 37 assemblies, 17×17, 200 cm active height — requires 29 to 37 Ag–In–Cd clusters to reach 14,906 to 20,570 pcm of available worth.
 
-At the top of the ladder the highest-worth cluster is worth 844 ± 82 pcm at hot zero power and 902 ± 34 pcm at full-power fuel temperature; against a directly computed effective delayed-neutron fraction of 704.5 ± 28.2 pcm these are **1.20 ± 0.13 $** and **1.28 ± 0.07 $**. Both exceed one dollar, by 1.5σ and 4.0σ of the combined uncertainty respectively. For an externally driven plant this configuration would require a dedicated rod-ejection transient analysis; it is reachable here because the ejection mechanism does not apply to the in-vessel architecture. The upgrade holds the core subcritical through a main-steam-line-break cooldown to ≈443 K but does not close cold shutdown: with the most reactive cluster stuck, the cold core remains supercritical at k = 1.031, and 771 ppm of emergency boron is still required to reach the k_adj ≤ 0.95 acceptance line, against 3,000 ppm credited in the design. For this core at 43 % rodded fraction, therefore, cold shutdown with a stuck rod rather than rod ejection is the constraint that remains unsatisfied; published results at full-core rodding indicate the cold condition is soluble by rodding more of the core, so the finding characterises partially rodded compact cores rather than boron-free operation in general. The design is boron-free in normal operation — no dilution accident, no boron plant, and the associated moderator-temperature-coefficient benefit — but it is not boron-free as a plant, and we suggest that SBF design reporting should make that distinction explicit. All results are steady-state eigenvalue calculations at beginning of cycle; no transient analysis is performed or claimed.
+At the top of the ladder the highest-worth cluster is worth 844 ± 82 pcm at hot zero power and 902 ± 34 pcm at full-power fuel temperature; against a directly computed effective delayed-neutron fraction of 704.5 ± 28.2 pcm these are **1.20 ± 0.13 $** and **1.28 ± 0.07 $**. Both exceed one dollar, by 1.5σ and 4.0σ of the combined uncertainty respectively. For an externally driven plant this configuration would require a dedicated rod-ejection transient analysis; it is reachable here because the ejection mechanism does not apply to the in-vessel architecture. The upgrade holds the core subcritical through a main-steam-line-break cooldown to ≈443 K but does not close cold shutdown: with the most reactive cluster stuck, the cold core remains supercritical at k = 1.031, and 771 ppm of emergency boron is still required to reach the k_adj ≤ 0.95 acceptance line, against 3,000 ppm credited in the design. At beginning of cycle and 43 % rodded fraction, therefore, cold shutdown with a stuck rod rather than rod ejection is the constraint that remains unsatisfied for this core; published results at full-core rodding indicate the cold condition is soluble by rodding more of the core, so the finding characterises partially rodded compact cores rather than boron-free operation in general. The design is boron-free in normal operation — no dilution accident, no boron plant, and the associated moderator-temperature-coefficient benefit — but it is not boron-free as a plant, and we suggest that SBF design reporting should make that distinction explicit. All results are steady-state eigenvalue calculations at beginning of cycle; no transient analysis is performed or claimed.
 
 **Keywords:** soluble-boron-free; small modular reactor; integral PWR; control-rod worth; rod-ejection accident; shutdown margin; Monte Carlo
 
@@ -55,7 +55,9 @@ What has not been quantified, to our knowledge, is the intermediate case a compa
 | i-SMR loading pattern 2026 [21] | ● | ● | ○ | ● BA types | ● | ○ |
 | **This work** | **●** | **●** | **mechanism not applicable; worth allowed above 1 $** | **● full 2 × 2, B-10 × cluster count** | **● (unresolved at 43 % rodded)** | **● 771 ppm** |
 
-The distinguishing row is the fourth column combined with the last two: no prior study deliberately admits individual cluster worth above one dollar on the grounds that the ejection mechanism does not apply, then asks what constraint replaces it.
+The distinguishing row is the fourth column combined with the last two: **we found no prior study** that deliberately admits individual cluster worth above one dollar on the grounds that the conventional ejection mechanism does not apply, and then quantifies the constraint that replaces it.
+
+*Classifications in Table 1 are based on the analyses actually reported in the cited studies. "Not addressed" means the quantity was not quantitatively evaluated in that work, not that the authors were unaware of it.*
 
 This paper addresses that question for a specific reference core. We (i) construct a rod-worth ladder over two independent design levers and quantify the shutdown states each reaches; (ii) compute the ejected-rod worth at the top of the ladder and show that it exceeds one dollar, i.e. that the configuration is only admissible because the drives are in-vessel; and (iii) quantify what remains — the residual soluble-boron requirement for cold shutdown, which the rod upgrade reduces substantially but does not remove. The last result is the practically important one: it identifies cold shutdown with a stuck rod, not rod ejection, as the binding constraint for SBF cores of this class.
 
@@ -122,7 +124,11 @@ SRP 15.4.8 requires the ejected-rod case at both hot zero power and hot full pow
 
 ### 3.1.1 The bounding cluster is identified, not assumed
 
-The cluster used above is the one nearest the core centre. That it is the maximum-worth position was verified rather than presumed. Under the 8-fold dihedral symmetry of the core map the sixteen CRA positions collapse into three equivalence classes, and because enrichment and gadolinia are both zoned by ring, positions within a class are neutronically equivalent. One representative of each class was evaluated at full statistics, together with a second member of the largest class as an explicit symmetry check (Table 2).
+The cluster used above is the one nearest the core centre. That it is the maximum-worth position was verified rather than presumed.
+
+Positions are written (i, j) on the 7 × 7 assembly grid of Fig. 1, with the central instrument position at (3, 3), so the bounding cluster (3, 2) is its immediate neighbour. A symmetry class is labelled by the pair (min |Δi|, max |Δj|) of offsets from the centre, so that class (0,1) is the set of four positions one lattice pitch from centre along a row or column, (0,2) the four at two pitches, and (1,2) the eight off-diagonal positions.
+
+Under the 8-fold dihedral symmetry of the core map the sixteen CRA positions collapse into these three equivalence classes, and because enrichment and gadolinia are both zoned by ring, positions within a class are neutronically equivalent. One representative of each class was evaluated at full statistics, together with a second member of the largest class as an explicit symmetry check (Table 2).
 
 **Table 2.** Single-cluster worth by symmetry class, measured from the all-rods-out state at fuel 900 K / moderator 556 K with 90 at % B-10 absorber. k(ARO) = 1.15042 ± 24 pcm. Dollars use β_eff = 704.5 ± 28.2 pcm (§3.2).
 
@@ -164,13 +170,14 @@ conclusion that the worth exceeds one dollar survives it.
 
 Because β_eff directly determines that conclusion, its robustness is worth stating explicitly rather
 than leaving to the quoted uncertainty. For the hot-fuel case to fall to exactly one dollar, β_eff
-would have to be 902 pcm — 197 pcm, or 7.0σ, above the computed value, and 39 % above the 650 pcm
-literature figure. For the HZP case the corresponding threshold is 844 pcm, 4.9σ above the computed
-value. Prompt-k and IFP estimates for light-water lattices differ by of order a few per cent, far
-short of either threshold, so the conclusion is not sensitive to the choice of β_eff method within
-its plausible range. An independent IFP or perturbation-theory calculation would nonetheless remove
-the residual methodological objection, and is recommended before the dollar comparison is relied upon
-for any licensing purpose.
+would have to be 902 pcm — **28 % above** the computed value, or 7.0σ; for the HZP case the threshold
+is 844 pcm, **20 % above**, or 4.9σ. Published intercomparisons of Monte-Carlo β_eff methods report
+spreads of order a few per cent, reaching roughly ten per cent in some configurations [23]. Even a
+ten-per-cent underestimate would leave the hot-fuel case at 1.16 $ and the HZP case at 1.09 $, so the
+conclusion that both exceed one dollar is not sensitive to the choice of β_eff method within its
+plausible range. An independent IFP or perturbation-theory calculation would nonetheless remove the
+residual methodological objection, and is recommended before the dollar comparison is relied upon for
+any licensing purpose.
 
 ### 3.3 Consequence of drive-line topology
 
@@ -193,7 +200,13 @@ Measuring each lever at both settings of the other separates the effects and qua
 | **Enrichment lever** (natural → 90 % B-10) | +2,264 pcm | +2,656 pcm |
 | **Cluster-count lever** (12 → 16) | +5,444 pcm *(natural)* | +5,836 pcm *(90 % B-10)* |
 
-The two levers are therefore **approximately but not exactly additive**. The interaction term, (16 B-10 − 12 B-10) − (16 natural − 12 natural), is **+392 pcm**: enriching the absorber is worth 17 % more when sixteen clusters are present than when twelve are, and adding four clusters is worth 7 % more when the absorber is enriched. Against a statistical uncertainty of about 32 pcm on each bank worth the interaction is roughly 9σ, so it is a real effect rather than noise, but it is small beside either main effect. Bank worth may be estimated by adding the two lever contributions with an accuracy of a few hundred pcm; it should not be assumed exactly separable. An independent full-power-fuel evaluation of the same configuration gives 21,479 pcm, the 30 pcm difference confirming that bank worth is insensitive to the evaluation state.
+The two levers are therefore **approximately but not exactly additive**. The interaction term, (16 B-10 − 12 B-10) − (16 natural − 12 natural), is **+392 pcm**: enriching the absorber is worth 17 % more when sixteen clusters are present than when twelve are, and adding four clusters is worth 7 % more when the absorber is enriched.
+
+Its uncertainty follows from all four corners in quadrature,
+
+  σ_int = √( σ²(16,B-10) + σ²(12,B-10) + σ²(16,nat) + σ²(12,nat) )
+
+Each bank worth is itself a difference of two eigenvalues, so its uncertainty is the quadrature sum of the all-rods-out and all-rods-in contributions. The three configurations evaluated at the ladder statistics give 71, 81 and 78 pcm, and the 16-cluster natural case, computed at the higher statistics of §3.1.1, gives 32 pcm — whence **σ_int = 137 pcm**. The interaction is therefore **+392 ± 137 pcm, about 2.9σ**: suggestive of a genuine positive interaction, but not firmly established at these statistics, and in any case small beside either main effect. Bank worth may be estimated by adding the two lever contributions to an accuracy of a few hundred pcm; it should not be assumed exactly separable, and confirming the interaction would require the three ladder points to be repeated at the higher statistics. An independent full-power-fuel evaluation of the same configuration gives 21,479 pcm, the 30 pcm difference confirming that bank worth is insensitive to the evaluation state.
 
 **Table 3.** Rod-worth ladder and shutdown states, evaluated at isothermal hot zero power (fuel = moderator) — the physically consistent state for a rods-in condition — so that the four configurations are directly comparable. All values BOC, fresh fuel; k(ARO) = 1.15826 at this state throughout. SDM signed, positive = subcritical.
 
@@ -225,7 +238,7 @@ That economy is not free, and its price is exactly the quantity the ejection eve
 
 > **Figure 3.** The soluble-boron-free control-rod design space.
 > **(a)** Attainable total bank worth against cluster count: this work as a complete 2 × 2 matrix (circles; open = natural B₄C, filled = 90 at % B-10; vertical arrows give the enrichment lever measured at each cluster count) and van der Merwe and Hah [5] (squares). The near-parallel lever lines show the two effects to be approximately additive; the interaction term is +392 pcm (§4). Reference values are N−1 available worths at cold zero power; present values are full-bank worths at hot zero power, so the panel indicates the *cluster-count* requirement rather than a like-for-like worth comparison.
-> **(b)** Maximum single-cluster worth on the dollar scale, using the computed β_eff = 704.5 ± 28.2 pcm of §3.2; error bars are the propagated 1σ Monte Carlo uncertainty. Configurations left of the 1 $ line are admissible with externally mounted drives, and the published SBF optimisation literature works to remain there [2,4]; the region to its right is reachable only where the drive-line topology eliminates the ejection path. All three configurations of the present core lie to the right of the line.
+> **(b)** Maximum single-cluster worth on the dollar scale, using the computed β_eff = 704.5 ± 28.2 pcm of §3.2; error bars are the propagated 1σ Monte Carlo uncertainty. The one-dollar line is a **screening threshold, not an acceptance criterion**: configurations to its left do not exceed it and the published SBF optimisation literature works to remain there [2,4], while configurations to its right would require a dedicated rod-ejection transient analysis for an externally driven plant. No such transient analysis is performed in this work (§6.3). All three configurations of the present core lie to the right of the line.
 > `figures/fig3_design_space.png`
 
 ## 5. Residual soluble-boron dependency
@@ -242,16 +255,18 @@ The design provides an Emergency Boron Injection System (EBIS) as the second, di
 
 **Table 4.** Emergency boron requirement at the cold (294 K) stuck-rod state, 16 CRA, 90 % B-10. The 700–900 ppm points bracket the acceptance crossing directly.
 
-| Boron (ppm) | k_eff | k_adj | Acceptance (k_adj ≤ 0.95) |
-|---|---|---|---|
-| 0 | 1.03115 | 1.0374 | fail |
-| 500 | 0.97205 | 0.9781 | fail |
-| **700** | **0.95110** | **0.9566** | **fail** |
-| **800** | **0.94183** | **0.9473** | **pass** |
-| **900** | **0.93280** | **0.9383** | **pass** |
-| 1000 | 0.92278 | 0.9288 | pass |
-| 1500 | 0.88273 | 0.8889 | pass |
-| 2000 | 0.84489 | 0.8510 | pass |
+| Boron (ppm) | k_eff | k + 2σ | k_adj = k + 2σ + 0.005 | Acceptance (k_adj ≤ 0.95) |
+|---|---|---|---|---|
+| 0 | 1.03115 | 1.0324 | 1.0374 | fail |
+| 500 | 0.97205 | 0.9731 | 0.9781 | fail |
+| **700** | **0.95110** | **0.9516** | **0.9566** | **fail** |
+| **800** | **0.94183** | **0.9423** | **0.9473** | **pass** |
+| **900** | **0.93280** | **0.9333** | **0.9383** | **pass** |
+| 1000 | 0.92278 | 0.9238 | 0.9288 | pass |
+| 1500 | 0.88273 | 0.8839 | 0.8889 | pass |
+| 2000 | 0.84489 | 0.8460 | 0.8510 | pass |
+
+The middle column is shown so that the statistical and modelling contributions can be separated: the crossing of 0.95 moves from 771 ppm on k_adj to about 730 ppm on k + 2σ, so roughly 40 ppm of the stated requirement — about 5 % — comes from the 0.005 bias-and-modelling allowance rather than from the calculation itself.
 
 The acceptance crossing is bracketed directly by the 700 and 800 ppm points, placing the requirement at **771 ppm**. Linear interpolation across the wider 500–1000 ppm interval would have given 785 ppm, so the coarser estimate was conservative by 14 ppm, or 1.8 %. The k_adj(boron) relation is smooth but not strictly linear — successive 500 ppm increments give −0.0593, −0.0493, −0.0399 and −0.0379 in k_adj as self-shielding progresses — which is why the crossing was determined directly rather than interpolated across the gap. The requirement is also a function of the k_adj definition of §2.3: dropping the 0.005 allowance and interpolating on k + 2σ instead moves it to approximately 730 ppm. The design credits 3,000 ppm, which reaches k_adj = 0.790 — a factor of 3.9 margin on the concentration actually required. For comparison, an independent sweep at the cold all-rods-*out* state (no rod credit at all) requires 2,040 ppm to reach criticality, so the rod system is carrying the substantial majority of the cold shutdown duty even though it cannot complete it alone.
 
@@ -276,7 +291,7 @@ For the reference core the results reorder the constraint hierarchy. The rod-eje
 
 This last conclusion must be stated with its scope attached, because a third lever exists that we did not exercise. Sixteen clusters in thirty-seven assemblies is a rodded fraction of 43 %. Flexblue reports that at **100 %** rodding, cold shutdown with the most reactive rod stuck is readily achieved even with natural B₄C or Ag–In–Cd [1]. The cold-state problem is therefore not intrinsic to boron-free operation: it is a function of rodded fraction, and it is soluble by rodding more of the core. What the present results show is that at a rodded fraction typical of a compact integral core — where guide-tube positions, in-vessel drive count and instrument positions all compete — the two levers available *within* a fixed cluster layout do not close it. The design choice is then between rodding substantially more of the core and crediting a small diverse boron system.
 
-The practical implication is that for integral designs with in-vessel drives, the relative importance of the REA constraint may change, while the cold-state reactivity swing — which receives comparatively little attention at partial rodding — can become the limiting problem. Design responses that act on *that* problem — a higher rodded fraction, heavier reflectors to reduce the density-swing sensitivity, spectral-shift devices, higher erbium loading, or simply accepting a small credited boron system — are the ones that move the constraint.
+The practical implication is that for integral designs with in-vessel drives, the relative importance of the REA constraint may change, while the cold-state reactivity swing can become the limiting problem in partially rodded compact cores. Design responses that act on *that* problem — a higher rodded fraction, heavier reflectors to reduce the density-swing sensitivity, spectral-shift devices, higher erbium loading, or simply accepting a small credited boron system — are the ones that move the constraint.
 
 ### 6.2 What "soluble-boron-free" means
 
@@ -302,7 +317,7 @@ Six limitations bound the strength of these conclusions.
 
 ## 7. Conclusions
 
-1. For a 125 MWth soluble-boron-free integral PWR, total control-rod bank worth can be raised from 13,409 to 21,509 pcm by two levers — absorber B-10 enrichment and cluster count — without introducing soluble boron. Measured as a complete 2 × 2 matrix, the levers are approximately additive: enrichment is worth +2,264 pcm at 12 clusters and +2,656 pcm at 16, cluster count is worth +5,444 pcm with natural absorber and +5,836 pcm with enriched, and the interaction between them is +392 pcm, about 9σ and small beside either main effect.
+1. For a 125 MWth soluble-boron-free integral PWR, total control-rod bank worth can be raised from 13,409 to 21,509 pcm by two levers — absorber B-10 enrichment and cluster count — without introducing soluble boron. Measured as a complete 2 × 2 matrix, the levers are approximately additive: enrichment is worth +2,264 pcm at 12 clusters and +2,656 pcm at 16, cluster count is worth +5,444 pcm with natural absorber and +5,836 pcm with enriched, and the interaction between them is +392 ± 137 pcm, about 2.9σ — suggestive but not firmly established, and small beside either main effect.
 
 2. The base 12-cluster natural-boron configuration cannot achieve hot shutdown at all (k = 1.00255 with all rods inserted). Either lever alone recovers it — enrichment to +2.01 % Δk/k, the four added clusters to +5.20 % — so cluster count is the more powerful lever and enrichment buys margin rather than capability. Both together reach 7.85 % Δk/k.
 
@@ -310,7 +325,7 @@ Six limitations bound the strength of these conclusions.
 
 4. The rod upgrade does not close cold shutdown. With the most reactive cluster stuck, the cold core remains supercritical at k = 1.03115 (signed SDM −3.02 %), improved from −10.25 % but not resolved.
 
-5. A residual emergency boron requirement of 771 ppm therefore persists, against 3,000 ppm credited — a factor of 3.9. At this rodded fraction — 16 clusters in 37 assemblies, or 43 % — cold shutdown with a stuck rod, not rod ejection, is the constraint that remains unsatisfied. Published work reports that full-core rodding resolves the cold condition even with unenriched absorber [1], so the finding is a statement about partially rodded compact cores rather than about boron-free operation as such.
+5. A residual emergency boron requirement of 771 ppm therefore persists, against 3,000 ppm credited — a factor of 3.9. **At beginning of cycle and at this rodded fraction — 16 clusters in 37 assemblies, or 43 % —** cold shutdown with a stuck rod, not rod ejection, is the constraint that remains unsatisfied. Published work reports that full-core rodding resolves the cold condition even with unenriched absorber [1], so the finding is a statement about partially rodded compact cores rather than about boron-free operation as such.
 
 ## Acknowledgements
 
@@ -318,7 +333,11 @@ The reference core was developed for the TEKNOFEST 2026 Detailed Design Competit
 
 ## Data availability
 
-The core model, the run scripts and the complete result files for every eigenvalue reported here are archived at Zenodo, together with SHA-256 checksums for each file: **[Zenodo DOI to be inserted on deposit]**. The archive contains the locked OpenMC model and its case suite, the scripts for the single-cluster worth, lever-matrix and boron-sweep cases, the four manuscript figures at publication resolution, and the generating script for Fig. 3. Code is released under the MIT licence and result files and figures under CC BY 4.0.
+The core model, the run scripts and the complete result files for every eigenvalue reported here are openly available in the project repository at https://github.com/aegis-40/OpenMC, under `docs/competition/papers/01_rod-worth-invessel-crdm/`, together with SHA-256 checksums for each file and a `CITATION.cff`. The exact state used for this paper is tagged **`paper1-v1.0.0`**.
+
+**⚠ AUTHOR ACTION BEFORE SUBMISSION — a DOI is still required.** A GitHub repository is not a persistent archive: it carries no DOI, and its contents can be altered or deleted. Elsevier data-availability policy expects a persistent identifier in a recognised repository. Deposit the tagged snapshot in one of these and insert the DOI here, keeping the GitHub URL as the working location:
+> **Mendeley Data** (Elsevier's own repository, integrated with the submission system — the natural choice for this journal) · **Zenodo** via its GitHub release integration, which avoids the web uploader · **OSF** or **figshare**.
+> If the deposit cannot be completed before submission, change this section to state that the data *will be deposited on acceptance* rather than implying it is already archived. The archive contains the locked OpenMC model and its case suite, the scripts for the single-cluster worth, lever-matrix and boron-sweep cases, the four manuscript figures at publication resolution, and the generating script for Fig. 3. Code is released under the MIT licence and result files and figures under CC BY 4.0.
 
 A model-reproduction check is included in the archive: six published states were recomputed independently, of which four reproduce to 0 pcm and the worst deviates by 1.3σ.
 
@@ -346,3 +365,4 @@ A model-reproduction check is included in the archive: six published states were
 20. Song, Y., & Sánchez-Espinoza, V. H. (2026). Safety-related investigations designing a soluble-boron-free small modular reactor core at equilibrium. *EPJ Nuclear Sciences & Technologies*, **12**, 6. ✅ *verified* — Karlsruhe Institute of Technology; the academic KSMR core, two-batch equilibrium, CASMO5/SIMULATE5; evaluates cold shutdown with the highest-worth rod stuck at BOC/MOC/EOC.
 21. Latoch, M., & Yoon, J. (2026). Loading pattern design of the soluble boron-free SMR using LEU+ fuel and multitype burnable absorbers. *EPJ Nuclear Sciences & Technologies*, **12**, 18. https://doi.org/10.1051/epjn/2026004 ✅ *verified* — KEPCO International Nuclear Graduate School; fully soluble-boron-free i-SMR operation using gadolinia in HIGA and IGD rods together with erbia in LEU+ fuel.
 22. Lee, W. J., et al. (2025). Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations. *Nuclear Engineering and Technology*, published online 1 November 2025. ✅ *record confirmed* — i-SMR control-rod pattern study; a 24-finger cluster of 20 Inconel-625 and 4 Ag–In–Cd fingers, ~37-month cycle. **[complete the author list, volume and pages from the publisher record]**
+23. Review and comparison of effective delayed neutron fraction calculation methods with Monte Carlo codes. *Annals of Nuclear Energy* (2013). ✅ *record confirmed* — supports the statement in §3.2 that Monte-Carlo β_eff methods agree to within a few per cent, reaching roughly ten per cent in some configurations. **[complete the author list, volume and pages from the publisher record]**

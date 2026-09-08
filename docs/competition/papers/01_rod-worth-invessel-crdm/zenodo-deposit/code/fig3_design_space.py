@@ -53,6 +53,8 @@ axa.text(23.0, 23100, "comparable bank worth\nfrom 16 clusters, not 37",
 
 axa.text(39.4, 13900, "van der Merwe & Hah (2018)\n37-FA SBF core, Ag$-$In$-$Cd",
          fontsize=6.8, color=GREY, ha="right", va="top")
+axa.text(24.6, 25700, "Not like-for-like: reference N$-$1 at CZP,\npresent work full bank at HZP",
+         fontsize=6.3, color=GREY, ha="center", va="top", style="italic")
 
 axa.set_xlabel("Number of control-rod clusters")
 axa.set_ylabel("Total bank worth (pcm)")
@@ -83,10 +85,10 @@ axb.text(1.345, 1.0, "16 CRA, 90 % B-10, HZP",
 axb.text(1.225, 0.0, "16 CRA, natural B$_4$C\n(absorber sensitivity)",
          fontsize=6.9, color=NAVY, ha="left", va="center")
 
-axb.text(0.795, 1.0, "published SBF cores\nare optimised to stay\nleft of this line [2,4]",
-         fontsize=6.4, color="#4A5A68", ha="center", va="center", style="italic")
-axb.text(1.375, 2.92, "prompt-critical $-$\nreachable only with\nin-vessel drives",
-         fontsize=6.9, color=WARM, ha="center", va="center", style="italic")
+axb.text(0.778, 1.0, "below the screening\nthreshold; published SBF\ncores stay here [2,4]",
+         fontsize=6.2, color="#4A5A68", ha="center", va="center", style="italic")
+axb.text(1.375, 2.92, "above one dollar $-$ external\ndrives would require dedicated\nREA transient analysis",
+         fontsize=6.7, color=WARM, ha="center", va="center", style="italic")
 axb.text(1.012, -0.66, "1 $", fontsize=8, color=WARM, weight="bold")
 
 axb.set_xlim(0.60, 1.75)
@@ -96,7 +98,7 @@ axb.set_yticks([])
 axb.set_xlabel(r"Maximum single-cluster worth  ($\$$ = $\rho\,/\,\beta_{\mathrm{eff}}$)")
 axb.grid(axis="x", alpha=0.18, lw=0.6)
 axb.set_axisbelow(True)
-axb.set_title("(b)  The rod-ejection constraint", fontsize=8.5, loc="left",
+axb.set_title(r"(b)  Single-cluster worth relative to $\beta_{\mathrm{eff}}$", fontsize=8.5, loc="left",
               weight="bold", color=NAVY, pad=6)
 
 fig.savefig(OUT, dpi=300, bbox_inches="tight", facecolor="white")

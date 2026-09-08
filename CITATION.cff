@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: >-
+  Aegis-40 soluble-boron-free integral PWR — OpenMC core model, scripts
+  and neutronics results
+message: >-
+  If you use this model, these scripts or these results, please cite both
+  the software (this file) and the associated article once published.
+type: software
+authors:
+  - family-names: Achilova
+    given-names: Samira
+    affiliation: New Uzbekistan University, Tashkent, Uzbekistan
+    email: s.achilova@newuu.uz
+  - family-names: Ismailov
+    given-names: Laziz
+    affiliation: New Uzbekistan University, Tashkent, Uzbekistan
+  - family-names: Abdikarimov
+    given-names: Adilbek
+    affiliation: New Uzbekistan University, Tashkent, Uzbekistan
+repository-code: 'https://github.com/aegis-40/OpenMC'
+abstract: >-
+  Continuous-energy Monte Carlo model (OpenMC 0.15.3, ENDF/B-VIII.0) of a
+  125 MWth, 37-assembly, 17x17, 2.0 m active-height natural-circulation
+  soluble-boron-free integral PWR with in-vessel control-rod drives,
+  together with the run scripts and complete result files behind the study
+  "Relaxing the rod-ejection constraint in soluble-boron-free PWR cores:
+  attainable control-rod worth and residual boron dependency with in-vessel
+  drives". The model is fully three-dimensional and explicit at pin level
+  across all 37 assemblies; no assembly homogenisation or few-group
+  condensation is used at any stage. Results cover a complete 2x2 rod-worth
+  matrix over absorber B-10 enrichment and cluster count, single-cluster
+  worth resolved by symmetry class, a directly computed effective
+  delayed-neutron fraction, the quasi-static reactivity response along a
+  prescribed cooldown path, and the residual emergency-boron requirement
+  for cold shutdown with the most reactive cluster stuck.
+keywords:
+  - soluble-boron-free
+  - small modular reactor
+  - integral PWR
+  - control-rod worth
+  - rod-ejection accident
+  - shutdown margin
+  - effective delayed neutron fraction
+  - Monte Carlo
+  - OpenMC
+  - reactor physics
+license: MIT
+license-url: >-
+  https://github.com/aegis-40/OpenMC/blob/main/docs/competition/papers/01_rod-worth-invessel-crdm/zenodo-deposit/LICENSE-CODE.txt
+version: paper1-v1.0.0
+date-released: '2026-09-08'

@@ -203,7 +203,7 @@ a1.plot(T, ka_fin, "^:", color=ACC, ms=4.0, lw=1.0, mfc="white", mew=1.1,
         label="16 CRA, 90 % B-10 ($k_{\\mathrm{adj}}$)", zorder=3)
 a1.plot([443], [1.0], marker="*", ms=11, color=WARM, zorder=6,
         markeredgecolor="white", mew=.6)
-a1.annotate("443 K", xy=(443, 1.0), xytext=(413, 0.958),
+a1.annotate("$k_{\mathrm{adj}}=1$\nat 443 K", xy=(443, 1.0), xytext=(408, 0.952),
             fontsize=7, color=WARM, weight="bold",
             arrowprops=dict(arrowstyle="->", color=WARM, lw=.9))
 a1.text(549, 1.005, "$k=1$", fontsize=7, color=WARM, va="bottom")
