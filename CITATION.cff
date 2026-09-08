@@ -18,6 +18,11 @@ authors:
     given-names: Adilbek
     affiliation: New Uzbekistan University, Tashkent, Uzbekistan
 repository-code: 'https://github.com/aegis-40/OpenMC'
+doi: 10.5281/zenodo.22657948
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22657948
+    description: Archived snapshot of the model, scripts and results
 abstract: >-
   Continuous-energy Monte Carlo model (OpenMC 0.15.3, ENDF/B-VIII.0) of a
   125 MWth, 37-assembly, 17x17, 2.0 m active-height natural-circulation

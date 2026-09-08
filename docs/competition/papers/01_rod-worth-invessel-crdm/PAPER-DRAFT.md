@@ -333,11 +333,7 @@ The reference core was developed for the TEKNOFEST 2026 Detailed Design Competit
 
 ## Data availability
 
-The core model, the run scripts and the complete result files for every eigenvalue reported here are openly available in the project repository at https://github.com/aegis-40/OpenMC, under `docs/competition/papers/01_rod-worth-invessel-crdm/`, together with SHA-256 checksums for each file and a `CITATION.cff`. The exact state used for this paper is tagged **`paper1-v1.0.0`**.
-
-**⚠ AUTHOR ACTION BEFORE SUBMISSION — a DOI is still required.** A GitHub repository is not a persistent archive: it carries no DOI, and its contents can be altered or deleted. Elsevier data-availability policy expects a persistent identifier in a recognised repository. Deposit the tagged snapshot in one of these and insert the DOI here, keeping the GitHub URL as the working location:
-> **Mendeley Data** (Elsevier's own repository, integrated with the submission system — the natural choice for this journal) · **Zenodo** via its GitHub release integration, which avoids the web uploader · **OSF** or **figshare**.
-> If the deposit cannot be completed before submission, change this section to state that the data *will be deposited on acceptance* rather than implying it is already archived. The archive contains the locked OpenMC model and its case suite, the scripts for the single-cluster worth, lever-matrix and boron-sweep cases, the four manuscript figures at publication resolution, and the generating script for Fig. 3. Code is released under the MIT licence and result files and figures under CC BY 4.0.
+The core model, the run scripts and the complete result files for every eigenvalue reported here are openly archived at Zenodo under **https://doi.org/10.5281/zenodo.22657948**, together with SHA-256 checksums for each file. Code is released under the MIT licence, and result files and figures under CC BY 4.0. The working repository is https://github.com/aegis-40/OpenMC, where the state corresponding to this archive is tagged `paper1-v1.0.0`. The archive contains the locked OpenMC model and its case suite, the scripts for the single-cluster worth, lever-matrix and boron-sweep cases, the four manuscript figures at publication resolution, and the generating script for Fig. 3. Code is released under the MIT licence and result files and figures under CC BY 4.0.
 
 A model-reproduction check is included in the archive: six published states were recomputed independently, of which four reproduce to 0 pcm and the worst deviates by 1.3σ.
 
