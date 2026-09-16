@@ -55,6 +55,7 @@
 | R1 | **Individual worth of all 16 clusters** (or the top 3) | The bounding-cluster assumption — cheapest and highest value |
 | R2 | **16 CRA + natural B₄C** — the missing fourth corner | Lets the two levers be shown separable rather than asserted |
 | R3 | **Boron sweep at 700/800/900 ppm** | Replaces the 785 ppm interpolation with a direct determination |
+| **R4** | **Adjoint-weighted β_eff by IFP** — `code/run_ifp_beta_eff.py`, one eigenvalue run, ready to go | **⚠ Corrects an error.** The draft claimed OpenMC 0.15.3 exposes no IFP scores. It does: `settings.ifp_n_generation`, `Model.add_kinetics_parameters_tallies()`, `StatePoint.get_kinetics_parameters()`. The text is fixed, but running IFP would replace §3.2's robustness argument with a direct value and delete the §6.3 limitation outright. Cheapest remaining improvement in the paper. |
 
 Lower priority: burnup snapshots (BOC/MOC/EOC) for the cold stuck-rod state, and an independent β_eff by IFP or perturbation theory.
 

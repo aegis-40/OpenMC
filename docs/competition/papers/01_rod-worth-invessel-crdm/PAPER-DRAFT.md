@@ -80,7 +80,19 @@ Control-rod cluster assemblies (CRAs) occupy guide-tube positions in a checkerbo
 
 All results are continuous-energy Monte Carlo eigenvalue calculations with OpenMC 0.15.3 [8] and ENDF/B-VIII.0 cross sections [9]. The model is fully three-dimensional and explicit at pin level across all 37 assemblies; no assembly homogenisation or few-group condensation is used at any stage. Each case runs 180 batches of 20,000 particles with 50 inactive batches, giving a typical statistical uncertainty of 50–65 pcm on k_eff.
 
-All states reported here are beginning-of-cycle with fresh fuel. BOC is expected to be the limiting condition for the shutdown questions addressed here, because unburned excess reactivity — and hence the demand on the rod system — is highest then. We note, however, that this expectation is not demonstrated by the present calculations: the gadolinia hold-down produces a mid-cycle reactivity maximum in this core, and establishing that the cold stuck-rod state is genuinely bounding at BOC would require the burnup-dependent repeat identified as future work in §6.3. The BOC results should therefore be read as the beginning-of-cycle condition rather than as a demonstrated envelope.
+All states reported here are beginning-of-cycle with fresh fuel. That BOC is the limiting condition for the reactivity demand on the rod system is not merely assumed: the depletion record for this core gives the eigenvalue at three burnup states (Table 2).
+
+**Table 2.** Core eigenvalue and power peaking through the cycle, from the high-statistics depletion record. All states hot full power, all rods out.
+
+| State | Burnup (GWd/tHM) | k_eff | F_ΔH | F_q |
+|---|---|---|---|---|
+| **BOC** | 0.0 | **1.1502** | 1.513 | 1.937 |
+| MOC | 13.5 | 1.1358 | 1.729 | **2.435** |
+| EOC | 30.8 | 0.9910 | 1.497 | 2.121 |
+
+The gadolinia hold-down does produce a mid-cycle feature, but it is a **peaking** maximum, not a reactivity one: as the integral Gd₂O₃ burns out near mid-cycle the radial peaking rebounds from F_q = 1.937 to 2.435, while the eigenvalue falls monotonically from 1.1502 at BOC to 1.1358 at MOC. **BOC is the most reactive state the core occupies**, so the excess reactivity the rod system must hold — and hence the shutdown-margin demand — is greatest there. The mid-cycle peaking rebound is a thermal-margin question, addressed separately in the design's hot-channel analysis, and does not bear on shutdown.
+
+One qualification remains. The cold stuck-rod state itself was evaluated only at BOC. The argument that BOC bounds it combines the eigenvalue ordering above with the observation (§4) that bank worth is insensitive to the evaluation state — 30 pcm between the isothermal and full-power-fuel evaluations of the same configuration. A direct burnup-dependent repeat of the cold stuck-rod case would convert that inference into a demonstration, and is identified as future work in §6.3.
 
 ### 2.3 Acceptance metric
 
@@ -128,9 +140,9 @@ The cluster used above is the one nearest the core centre. That it is the maximu
 
 Positions are written (i, j) on the 7 × 7 assembly grid of Fig. 1, with the central instrument position at (3, 3), so the bounding cluster (3, 2) is its immediate neighbour. A symmetry class is labelled by the pair (min |Δi|, max |Δj|) of offsets from the centre, so that class (0,1) is the set of four positions one lattice pitch from centre along a row or column, (0,2) the four at two pitches, and (1,2) the eight off-diagonal positions.
 
-Under the 8-fold dihedral symmetry of the core map the sixteen CRA positions collapse into these three equivalence classes, and because enrichment and gadolinia are both zoned by ring, positions within a class are neutronically equivalent. One representative of each class was evaluated at full statistics, together with a second member of the largest class as an explicit symmetry check (Table 2).
+Under the 8-fold dihedral symmetry of the core map the sixteen CRA positions collapse into these three equivalence classes, and because enrichment and gadolinia are both zoned by ring, positions within a class are neutronically equivalent. One representative of each class was evaluated at full statistics, together with a second member of the largest class as an explicit symmetry check (Table 3).
 
-**Table 2.** Single-cluster worth by symmetry class, measured from the all-rods-out state at fuel 900 K / moderator 556 K with 90 at % B-10 absorber. k(ARO) = 1.15042 ± 24 pcm. Dollars use β_eff = 704.5 ± 28.2 pcm (§3.2).
+**Table 3.** Single-cluster worth by symmetry class, measured from the all-rods-out state at fuel 900 K / moderator 556 K with 90 at % B-10 absorber. k(ARO) = 1.15042 ± 24 pcm. Dollars use β_eff = 704.5 ± 28.2 pcm (§3.2).
 
 | Symmetry class | Positions in class | Representative | Worth (pcm) | In dollars |
 |---|---|---|---|---|
@@ -160,7 +172,11 @@ with every fission neutron forced prompt, giving
   k = 1.150421 ± 0.000239,  k_p = 1.142316 ± 0.000222,  β_eff = 1 − k_p/k = **704.5 ± 28.2 pcm**
 
 This is the prompt-k Monte-Carlo estimate rather than an adjoint-weighted iterated-fission-probability
-value — OpenMC 0.15.3 exposes no IFP tally scores through its Python API — and the two methods
+(IFP) value. OpenMC does provide an IFP capability for eigenvalue calculations, with adjoint-weighted
+β_eff and Λ_eff retrievable from the statepoint [24]; the prompt-k estimator was used here because it
+requires no additional tallies and is directly comparable with the eigenvalues reported throughout,
+and an IFP cross-check is identified as the recommended confirmation (§6.3) rather than as an
+unavailable one. The two methods
 typically agree to within a few per cent for light-water lattices. The computed value is about 8 %
 above the 650 pcm often quoted for low-enriched UO₂ PWRs. Because the dollar is ρ/β_eff, the larger
 computed β_eff *reduces* the dollar figure of §3.1 rather than raising it: the hot-fuel ejected-rod
@@ -191,7 +207,7 @@ In-vessel drives also carry an engineering burden of their own — in-service in
 
 ## 4. Attainable bank worth
 
-Table 3 and Fig. 2 give the ladder, evaluated as a complete 2 × 2 matrix over the two design levers — absorber enrichment {natural, 90 at % B-10} × cluster count {12, 16}. Total bank worth spans 13,409 to 21,509 pcm, a 60 % increase over the base configuration.
+Table 4 and Fig. 2 give the ladder, evaluated as a complete 2 × 2 matrix over the two design levers — absorber enrichment {natural, 90 at % B-10} × cluster count {12, 16}. Total bank worth spans 13,409 to 21,509 pcm, a 60 % increase over the base configuration.
 
 Measuring each lever at both settings of the other separates the effects and quantifies their interaction:
 
@@ -208,7 +224,7 @@ Its uncertainty follows from all four corners in quadrature,
 
 Each bank worth is itself a difference of two eigenvalues, so its uncertainty is the quadrature sum of the all-rods-out and all-rods-in contributions. The three configurations evaluated at the ladder statistics give 71, 81 and 78 pcm, and the 16-cluster natural case, computed at the higher statistics of §3.1.1, gives 32 pcm — whence **σ_int = 137 pcm**. The interaction is therefore **+392 ± 137 pcm, about 2.9σ**: suggestive of a genuine positive interaction, but not firmly established at these statistics, and in any case small beside either main effect. Bank worth may be estimated by adding the two lever contributions to an accuracy of a few hundred pcm; it should not be assumed exactly separable, and confirming the interaction would require the three ladder points to be repeated at the higher statistics. An independent full-power-fuel evaluation of the same configuration gives 21,479 pcm, the 30 pcm difference confirming that bank worth is insensitive to the evaluation state.
 
-**Table 3.** Rod-worth ladder and shutdown states, evaluated at isothermal hot zero power (fuel = moderator) — the physically consistent state for a rods-in condition — so that the four configurations are directly comparable. All values BOC, fresh fuel; k(ARO) = 1.15826 at this state throughout. SDM signed, positive = subcritical.
+**Table 4.** Rod-worth ladder and shutdown states, evaluated at isothermal hot zero power (fuel = moderator) — the physically consistent state for a rods-in condition — so that the four configurations are directly comparable. All values BOC, fresh fuel; k(ARO) = 1.15826 at this state throughout. SDM signed, positive = subcritical.
 
 | Configuration | Bank worth (pcm) | k (HZP, all in) | Hot SDM (%) | k (cold, all in) | k (cold, stuck rod) | Cold stuck SDM (%) |
 |---|---|---|---|---|---|---|
@@ -251,9 +267,9 @@ For the reference core the swing is of order 10,000 pcm. The 16-CRA bank covers 
 
 ### 5.2 Emergency boron requirement
 
-The design provides an Emergency Boron Injection System (EBIS) as the second, diverse shutdown system required by IAEA SSR-2/1 Requirement 46. Its actual requirement was quantified by sweeping soluble boron concentration at the cold stuck-rod endpoint (Table 4).
+The design provides an Emergency Boron Injection System (EBIS) as the second, diverse shutdown system required by IAEA SSR-2/1 Requirement 46. Its actual requirement was quantified by sweeping soluble boron concentration at the cold stuck-rod endpoint (Table 5).
 
-**Table 4.** Emergency boron requirement at the cold (294 K) stuck-rod state, 16 CRA, 90 % B-10. The 700–900 ppm points bracket the acceptance crossing directly.
+**Table 5.** Emergency boron requirement at the cold (294 K) stuck-rod state, 16 CRA, 90 % B-10. The 700–900 ppm points bracket the acceptance crossing directly.
 
 | Boron (ppm) | k_eff | k + 2σ | k_adj = k + 2σ + 0.005 | Acceptance (k_adj ≤ 0.95) |
 |---|---|---|---|---|
@@ -309,7 +325,7 @@ Six limitations bound the strength of these conclusions.
 
 *Evaluation state.* The ladder and the HZP ejected-rod case are evaluated at isothermal hot zero power, i.e. fuel at moderator temperature. This is the physically consistent state for a rods-in condition — the reactor is shut down, so the fuel is not at full-power temperature — and it is the conventional basis for shutdown-margin reporting. Quantities that *are* full-power properties (k at BOL, the reactivity coefficients, burnup and cycle length) are taken from a separate full-power calculation. Where the two states are compared in §3.1 and §4, the difference is the Doppler reactivity between them (~590 pcm) and is reported explicitly rather than reconciled away.
 
-*β_eff is a prompt-k estimate.* §3.2 uses the prompt-k method (k_p with delayed neutrons suppressed) rather than adjoint-weighted iterated fission probability, which this code version does not expose. The two typically agree within a few per cent for light-water lattices, but an IFP or perturbation-theory cross-check would further strengthen the dollar comparison.
+*β_eff is a prompt-k estimate.* §3.2 uses the prompt-k method (k_p with delayed neutrons suppressed) rather than adjoint-weighted iterated fission probability. IFP is available in OpenMC [24], so this is a choice rather than a constraint, and running it would replace the robustness argument of §3.2 with a direct adjoint-weighted value. That cross-check is the single cheapest remaining improvement to this work: it is one additional eigenvalue calculation on the existing model and it closes the only methodological objection to the dollar comparison.
 
 *Single core, BOC only.* One core size, one lattice type and one absorber strategy are examined, at beginning of cycle. The BOC cold state is the bounding one for the shutdown questions asked, but the ladder's generality to other core sizes is asserted rather than demonstrated.
 
@@ -362,3 +378,4 @@ A model-reproduction check is included in the archive: six published states were
 21. Latoch, M., & Yoon, J. (2026). Loading pattern design of the soluble boron-free SMR using LEU+ fuel and multitype burnable absorbers. *EPJ Nuclear Sciences & Technologies*, **12**, 18. https://doi.org/10.1051/epjn/2026004 ✅ *verified* — KEPCO International Nuclear Graduate School; fully soluble-boron-free i-SMR operation using gadolinia in HIGA and IGD rods together with erbia in LEU+ fuel.
 22. Lee, W. J., et al. (2025). Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations. *Nuclear Engineering and Technology*, published online 1 November 2025. ✅ *record confirmed* — i-SMR control-rod pattern study; a 24-finger cluster of 20 Inconel-625 and 4 Ag–In–Cd fingers, ~37-month cycle. **[complete the author list, volume and pages from the publisher record]**
 23. Review and comparison of effective delayed neutron fraction calculation methods with Monte Carlo codes. *Annals of Nuclear Energy* (2013). ✅ *record confirmed* — supports the statement in §3.2 that Monte-Carlo β_eff methods agree to within a few per cent, reaching roughly ten per cent in some configurations. **[complete the author list, volume and pages from the publisher record]**
+24. OpenMC Documentation — *Kinetics parameters* (user's guide), https://docs.openmc.org/en/stable/usersguide/kinetics.html, together with the adjoint-weighted kinetics implementation described in *Calculation of adjoint-weighted reactor kinetics parameters in OpenMC*, *Annals of Nuclear Energy* (2019). ✅ *capability confirmed* — OpenMC supports the iterated-fission-probability method for eigenvalue calculations, returning adjoint-weighted β_eff and Λ_eff from the statepoint. **[complete the author list, volume and pages for the journal reference]**
