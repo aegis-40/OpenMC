@@ -81,7 +81,7 @@ for f in sorted((PAPER / "figures").glob("*.png")):
 # ---------------------------------------------------------------- licences
 (DEP / "LICENSE-CODE.txt").write_text(
     "MIT License\n\n"
-    "Copyright (c) 2026 S. Achilova, L. Ismailov, A. Abdikarimov,\n"
+    "Copyright (c) 2026 S. Achilova and L. Ismailov,\n"
     "New Uzbekistan University, Tashkent, Uzbekistan.\n\n"
     "Permission is hereby granted, free of charge, to any person obtaining a copy\n"
     "of this software and associated documentation files (the \"Software\"), to deal\n"
@@ -112,8 +112,6 @@ CREATORS = [
     dict(name="Achilova, Samira",
          affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
     dict(name="Ismailov, Laziz",
-         affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
-    dict(name="Abdikarimov, Adilbek",
          affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
 ]
 
@@ -188,7 +186,7 @@ Supplementary model, scripts and results for:
 
 > **Relaxing the rod-ejection constraint in soluble-boron-free PWR cores:
 > attainable control-rod worth and residual boron dependency with in-vessel drives**
-> S. Achilova, L. Ismailov, A. Abdikarimov — New Uzbekistan University, Tashkent, Uzbekistan
+> S. Achilova, L. Ismailov — New Uzbekistan University, Tashkent, Uzbekistan
 
 Version 1.0.0 is archived at doi:10.5281/zenodo.22657948. This version adds the
 adjoint-weighted beta_eff runs.

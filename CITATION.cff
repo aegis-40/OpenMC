@@ -14,9 +14,6 @@ authors:
   - family-names: Ismailov
     given-names: Laziz
     affiliation: New Uzbekistan University, Tashkent, Uzbekistan
-  - family-names: Abdikarimov
-    given-names: Adilbek
-    affiliation: New Uzbekistan University, Tashkent, Uzbekistan
 repository-code: 'https://github.com/aegis-40/OpenMC'
 doi: 10.5281/zenodo.22657948
 identifiers:

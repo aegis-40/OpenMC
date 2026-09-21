@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 S. Achilova, L. Ismailov, A. Abdikarimov,
+Copyright (c) 2026 S. Achilova and L. Ismailov,
 New Uzbekistan University, Tashkent, Uzbekistan.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
