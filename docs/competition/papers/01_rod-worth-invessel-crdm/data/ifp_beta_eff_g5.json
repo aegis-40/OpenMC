@@ -1,0 +1,58 @@
+{
+  "state": "BOC / HFP / all rods out - same state as manuscript section 3.2",
+  "openmc_version": "0.15.3",
+  "statistics": {
+    "batches": 400,
+    "inactive": 80,
+    "particles": 50000
+  },
+  "ifp_n_generation": 5,
+  "runtime_min": 1.9,
+  "k_eff": 1.1504212017430924,
+  "k_sigma": 0.00023863125625665877,
+  "Lambda_eff_s": 1.9003044532581613e-05,
+  "Lambda_eff_sigma_s": 2.168023880960176e-08,
+  "beta_eff_ifp_pcm": 708.1,
+  "beta_eff_ifp_sigma_pcm": 5.35,
+  "beta_eff_ifp_groups_pcm": [
+    22.03,
+    122.78,
+    120.06,
+    269.02,
+    124.26,
+    49.94
+  ],
+  "beta_eff_ifp_groups_sigma_pcm": [
+    1.0,
+    2.18,
+    2.21,
+    3.37,
+    2.38,
+    1.44
+  ],
+  "beta_eff_ifp_groups_sum_pcm": 708.09,
+  "beta_eff_promptk_pcm": 704.5,
+  "beta_eff_promptk_sigma_pcm": 28.2,
+  "difference_pcm": 3.6,
+  "difference_percent": 0.51,
+  "ejected_rod_dollars": [
+    {
+      "case": "HZP, isothermal 556 K",
+      "worth_pcm": 844.0,
+      "worth_sigma_pcm": 82.0,
+      "dollars_promptk": 1.198,
+      "dollars_ifp": 1.192,
+      "dollars_ifp_sigma": 0.116,
+      "still_above_one_dollar": true
+    },
+    {
+      "case": "hot fuel 900 K",
+      "worth_pcm": 902.0,
+      "worth_sigma_pcm": 34.0,
+      "dollars_promptk": 1.28,
+      "dollars_ifp": 1.274,
+      "dollars_ifp_sigma": 0.049,
+      "still_above_one_dollar": true
+    }
+  ]
+}
