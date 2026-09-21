@@ -15,10 +15,10 @@ authors:
     given-names: Laziz
     affiliation: New Uzbekistan University, Tashkent, Uzbekistan
 repository-code: 'https://github.com/aegis-40/OpenMC'
-doi: 10.5281/zenodo.22657948
+doi: 10.5281/zenodo.22878679
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.22657948
+    value: 10.5281/zenodo.22878679
     description: Archived snapshot of the model, scripts and results
 abstract: >-
   Continuous-energy Monte Carlo model (OpenMC 0.15.3, ENDF/B-VIII.0) of a
