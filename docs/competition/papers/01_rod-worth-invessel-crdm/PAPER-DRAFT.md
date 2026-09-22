@@ -345,6 +345,10 @@ Six limitations bound the strength of these conclusions.
 
 The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
+## Declaration of generative AI and AI-assisted technologies in the writing process
+
+During the preparation of this work the authors used Claude (Anthropic) to assist with drafting and editing the manuscript text, and with writing the Python scripts used to run the supplementary cases reported here and to generate the figures. All calculations were executed by the authors, who verified the numerical results and are responsible for the design choices, the analysis and the conclusions drawn. After using this tool the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
+
 ## Acknowledgements
 
 The reference core was developed for the TEKNOFEST 2026 Detailed Design Competition (Nuclear — 40 MWe Modular PWR). The authors thank the Aegis-40 team at New Uzbekistan University for the plant-level design context within which this core analysis was carried out.
