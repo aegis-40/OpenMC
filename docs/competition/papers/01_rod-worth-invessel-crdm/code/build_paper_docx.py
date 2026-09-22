@@ -268,8 +268,15 @@ cp.identifier = ""
 cp.language = "en-GB"
 cp.version = ""
 cp.revision = 1
+# "created" is the date the manuscript source was actually started -- the
+# first commit touching PAPER-DRAFT.md, 8 September 2026 -- not the date this
+# script last ran. Setting it to the build date made a document with a
+# fortnight of history look as though it appeared the same morning.
+# Refresh SOURCE_STARTED only if the manuscript is genuinely restarted:
+#     git log --reverse --format=%ad --date=short -- PAPER-DRAFT.md | head -1
+SOURCE_STARTED = datetime.datetime(2026, 9, 8, 9, 0, 0)
 _now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0, tzinfo=None)
-cp.created = _now
+cp.created = SOURCE_STARTED
 cp.modified = _now
 # lastPrinted takes only a datetime, so it cannot be cleared through the API;
 # the template does not set it, so there is nothing to clear.
