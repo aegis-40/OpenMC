@@ -9,7 +9,9 @@ Differences from the working markdown:
     verification annotations on the reference list
 The markdown keeps all of that; the DOCX is the clean reading copy.
 """
+import datetime
 import io, os, re
+import zipfile
 import docx
 from docx.shared import Pt, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
@@ -237,6 +239,82 @@ while i < n:
     i += 1
 
 flush()
+
+# --------------------------------------------------------------------------
+# document properties
+# --------------------------------------------------------------------------
+# python-docx builds every file from its own bundled default.docx, whose
+# metadata then travels into the output: a creation date of 2013-12-23, a
+# lastModifiedBy of "Pol'zovatel' Windows", AppVersion 14 (Word 2010) and a
+# Russian-language HeadingPairs entry. None of that describes this manuscript,
+# and an editor or reviewer can read all of it from File > Info. So set the
+# properties we want and overwrite the rest.
+TITLE = "Relaxing the rod-ejection constraint in soluble-boron-free PWR cores"
+AUTHOR = "Samira Achilova"
+KEYWORDS = ("soluble-boron-free core; in-vessel control-rod drive; "
+            "rod-ejection accident; control-rod worth; shutdown margin; "
+            "integral pressurised water reactor")
+
+cp = doc.core_properties
+cp.title = TITLE
+cp.author = AUTHOR
+cp.last_modified_by = AUTHOR
+cp.keywords = KEYWORDS
+cp.subject = ""
+cp.comments = ""            # Word shows this as "Comments" in File > Info
+cp.category = ""
+cp.content_status = ""
+cp.identifier = ""
+cp.language = "en-GB"
+cp.version = ""
+cp.revision = 1
+_now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0, tzinfo=None)
+cp.created = _now
+cp.modified = _now
+# lastPrinted takes only a datetime, so it cannot be cleared through the API;
+# the template does not set it, so there is nothing to clear.
+
 doc.save(OUT)
+
+# --------------------------------------------------------------------------
+# extended properties (docProps/app.xml)
+# --------------------------------------------------------------------------
+# python-docx exposes no API for app.xml, so rewrite that one part in place.
+# TotalTime is the "Total Editing Time" Word displays; the template leaves it
+# at 1 minute, which is both wrong and conspicuous on a manuscript. The word
+# and page counts are dropped rather than faked -- Word recomputes them on
+# open, whereas the template's "Pages: 1" is simply false.
+XML_DECL = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + "\n"
+APP_XML = (
+    XML_DECL +
+    '<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/'
+    'extended-properties" xmlns:vt="http://schemas.openxmlformats.org/'
+    'officeDocument/2006/docPropsVTypes">'
+    '<Template>Normal</Template>'
+    '<TotalTime>0</TotalTime>'
+    '<Application>Microsoft Office Word</Application>'
+    '<DocSecurity>0</DocSecurity>'
+    '<ScaleCrop>false</ScaleCrop>'
+    '<Manager></Manager>'
+    '<Company></Company>'
+    '<LinksUpToDate>false</LinksUpToDate>'
+    '<SharedDoc>false</SharedDoc>'
+    '<HyperlinkBase></HyperlinkBase>'
+    '<HyperlinksChanged>false</HyperlinksChanged>'
+    '<AppVersion>16.0000</AppVersion>'
+    '</Properties>'
+)
+
+_tmp = OUT + ".tmp"
+with zipfile.ZipFile(OUT, "r") as zin,      zipfile.ZipFile(_tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+    for item in zin.infolist():
+        data = zin.read(item.filename)
+        if item.filename == "docProps/app.xml":
+            data = APP_XML.encode("utf-8")
+        zout.writestr(item, data)
+os.replace(_tmp, OUT)
+
 print("saved:", OUT)
+print("  author        :", AUTHOR)
+print("  editing time  : 0 min")
 print("size: %.1f KB" % (os.path.getsize(OUT) / 1024))
