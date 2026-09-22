@@ -13,7 +13,7 @@
 
 **Target journal:** *Nuclear Engineering and Technology* (Korean Nuclear Society / Elsevier) — subsidised open access, no charge to eight printed pages, US$200 per page thereafter.
 
-> **Draft status.** All numerical results below are computed and archived (see *Data availability*). All references are verified against the publisher record except **[22]**, which is in press and has no volume or page numbers assigned yet.
+> **Draft status.** All numerical results below are computed and archived (see *Data availability*). All references are verified against the publisher record.
 
 ---
 
@@ -339,7 +339,7 @@ Six limitations bound the strength of these conclusions.
 
 ## CRediT author contribution statement
 
-**S. Achilova:** conceptualisation, methodology, formal analysis, investigation, writing — original draft, writing — review and editing, visualisation, project administration. **L. Ismailov:** software, validation, investigation, data curation, writing — review and editing. **A. Sanetullaev:** investigation, writing — review and editing.
+**S. Achilova:** conceptualisation, methodology, formal analysis, investigation, writing — original draft, writing — review and editing, visualisation, project administration. **L. Ismailov:** software, validation, investigation, data curation, writing — review and editing. **A. Sanetullaev:** supervision, resources, writing — review and editing.
 
 ## Declaration of competing interest
 
@@ -359,25 +359,25 @@ A model-reproduction check is included in the archive: six published states were
 
 1. J.-J. Ingremeau, M. Cordiez, Flexblue® core design: optimisation of fuel poisoning for a soluble boron free core with full or half core refuelling, EPJ Nucl. Sci. Technol. 1 (2015) 11. https://doi.org/10.1051/epjn/e2015-50025-3
 2. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Analysis of a control rod ejection accident in a boron-free small modular reactor with coupled neutronics/thermal-hydraulics code, Ann. Nucl. Energy 134 (2019) 114–124. https://doi.org/10.1016/j.anucene.2019.06.009
-3. L. Wang, H. Ju, Q. Li, D. Qin, L. Wang, Y. Yu, Z. Ning, C. Wang, R. Guo, S. Wang, B. Zhang, H. Xiang, L. Lou, W. Sun, Multiple choices of reactor core nuclear design for ACP100's application in different scenarios, EPJ Web Conf. 247 (2021) 19002.
-4. Optimization strategies to improve the safety behaviour of a soluble-boron-free SMR core during a rod ejection accident, J. Nucl. Eng. 7 (2026) 43. https://doi.org/10.3390/jne7030043 **[author list to be completed from the publisher record]**
+3. L. Wang, H. Ju, Q. Li, D. Qin, L. Wang, Y. Yu, Z. Ning, C. Wang, R. Guo, S. Wang, B. Zhang, H. Xiang, L. Lou, W. Sun, Multiple choices of reactor core nuclear design for ACP100's application in different scenarios, EPJ Web Conf. 247 (2021) 19002. https://doi.org/10.1051/epjconf/202124719002
+4. Y. Song, V.H. Sánchez-Espinoza, Optimization strategies to improve the safety behaviour of a soluble-boron-free SMR core during a rod ejection accident, J. Nucl. Eng. 7 (2026) 43. https://doi.org/10.3390/jne7030043
 5. L. van der Merwe, C.J. Hah, Reactivity balance for a soluble boron-free small modular reactor, Nucl. Eng. Technol. 50 (2018) 648–653. https://doi.org/10.1016/j.net.2018.01.019
 6. L.E. Conway, B. Petrovic, Internal control rod drive mechanisms, design options for IRIS, in: Proc. ICAPP '04, Pittsburgh, PA, 13–17 June 2004. OSTI 21160774.
 7. T. Ishida, S. Imayoshi, T. Yoritsune, H. Nunokawa, M. Ochiai, Y. Ishizaki, Development of in-vessel type control rod drive mechanism for marine reactor, J. Nucl. Sci. Technol. 38 (2001) 557–570. https://doi.org/10.1080/18811248.2001.9715067
-8. P.K. Romano, N.E. Horelik, B.R. Herman, A.G. Nelson, B. Forget, K. Smith, OpenMC: a state-of-the-art Monte Carlo code for research and development, Ann. Nucl. Energy 82 (2015) 90–97.
-9. D.A. Brown, M.B. Chadwick, R. Capote, et al., ENDF/B-VIII.0: the 8th major release of the nuclear reaction data library with CIELO-project cross sections, new standards and thermal scattering data, Nucl. Data Sheets 148 (2018) 1–142.
+8. P.K. Romano, N.E. Horelik, B.R. Herman, A.G. Nelson, B. Forget, K. Smith, OpenMC: a state-of-the-art Monte Carlo code for research and development, Ann. Nucl. Energy 82 (2015) 90–97. https://doi.org/10.1016/j.anucene.2014.07.048
+9. D.A. Brown, M.B. Chadwick, R. Capote, et al., ENDF/B-VIII.0: the 8th major release of the nuclear reaction data library with CIELO-project cross sections, new standards and thermal scattering data, Nucl. Data Sheets 148 (2018) 1–142. https://doi.org/10.1016/j.nds.2018.02.001
 10. International handbook of evaluated criticality safety benchmark experiments, LEU-COMP-THERM-008, NEA/NSC/DOC(95)03, OECD Nuclear Energy Agency.
-11. E. Fridman, Dataset for neutronics benchmark of a NuScale-like core, RODARE, Helmholtz-Zentrum Dresden-Rossendorf, record 2457 (2023). https://rodare.hzdr.de/record/2457
-12. P.K. Romano, C.J. Josey, A.E. Johnson, J. Liang, Depletion capabilities in the OpenMC Monte Carlo particle transport code, Ann. Nucl. Energy 152 (2021) 107989. **[verify title and author list]**
-13. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Analysis of a steam line break accident of a generic SMART-plant with a boron-free core using the coupled code TRACE/PARCS, Nucl. Eng. Des. 350 (2019) 33–42.
-14. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Core neutronics and safety characteristics of a boron-free core for small modular reactors, Ann. Nucl. Energy 132 (2019) 70–81.
+11. E. Fridman, Dataset for neutronics benchmark of NuScale-like core (version 3), RODARE, Helmholtz-Zentrum Dresden-Rossendorf, 2023. https://doi.org/10.14278/rodare.2457
+12. P.K. Romano, C.J. Josey, A.E. Johnson, J. Liang, Depletion capabilities in the OpenMC Monte Carlo particle transport code, Ann. Nucl. Energy 152 (2021) 107989. https://doi.org/10.1016/j.anucene.2020.107989
+13. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Analysis of a steam line break accident of a generic SMART-plant with a boron-free core using the coupled code TRACE/PARCS, Nucl. Eng. Des. 350 (2019) 33–42. https://doi.org/10.1016/j.nucengdes.2019.05.002
+14. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Core neutronics and safety characteristics of a boron-free core for small modular reactors, Ann. Nucl. Energy 132 (2019) 70–81. https://doi.org/10.1016/j.anucene.2019.04.017
 15. U.S. Nuclear Regulatory Commission, Standard review plan, NUREG-0800, Section 15.4.8, Spectrum of rod ejection accidents.
 16. U.S. Nuclear Regulatory Commission, Assumptions used for evaluating a control rod ejection accident for pressurized water reactors, Regulatory Guide 1.77.
 17. International Atomic Energy Agency, Safety of nuclear power plants: design, IAEA Safety Standards Series No. SSR-2/1 (Rev. 1), Requirement 46, IAEA, Vienna, 2016.
-18. A. Halimi, K. Shirvan, Fuel behavior implications of reactor design choices in pressurized water SMRs, Nucl. Technol. (2024). https://doi.org/10.1080/00295450.2024.2426416
+18. A. Halimi, K. Shirvan, Fuel behavior implications of reactor design choices in pressurized water SMRs, Nucl. Technol. 211 (2025) 1723–1746. https://doi.org/10.1080/00295450.2024.2426416
 19. International Atomic Energy Agency, Innovative small and medium sized reactors: design features, safety approaches and R&D trends, IAEA-TECDOC-1451, IAEA, Vienna, 2005.
-20. Y. Song, V.H. Sánchez-Espinoza, Safety-related investigations designing a soluble-boron-free small modular reactor core at equilibrium, EPJ Nucl. Sci. Technol. 12 (2026) 6.
+20. Y. Song, V.H. Sánchez-Espinoza, Safety-related investigations designing a soluble-boron-free small modular reactor core at equilibrium, EPJ Nucl. Sci. Technol. 12 (2026) 6. https://doi.org/10.1051/epjn/2025077
 21. M. Latoch, J. Yoon, Loading pattern design of the soluble boron-free SMR using LEU+ fuel and multitype burnable absorbers, EPJ Nucl. Sci. Technol. 12 (2026) 18. https://doi.org/10.1051/epjn/2026004
-22. W.J. Lee, et al., Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations, Nucl. Eng. Technol. (2025), in press. **[add volume and pages once assigned; complete the author list]**
+22. W.J. Lee, S.H. Cho, S.H. Choi, S.G. Hong, Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations, Nucl. Eng. Technol. 58 (2026) 104029. https://doi.org/10.1016/j.net.2025.104029
 23. Y. Nagaya, G. Chiba, T. Mori, D. Irwanto, K. Nakajima, Comparison of Monte Carlo calculation methods for effective delayed neutron fraction, Ann. Nucl. Energy 37 (2010) 1308–1315. https://doi.org/10.1016/j.anucene.2010.05.017
-24. X. Peng, J. Liang, B. Forget, K. Smith, Calculation of adjoint-weighted reactor kinetics parameters in OpenMC, Ann. Nucl. Energy 128 (2019) 231–235. See also OpenMC user's guide, Kinetics parameters. https://docs.openmc.org/en/stable/usersguide/kinetics.html
+24. X. Peng, J. Liang, B. Forget, K. Smith, Calculation of adjoint-weighted reactor kinetics parameters in OpenMC, Ann. Nucl. Energy 128 (2019) 231–235. https://doi.org/10.1016/j.anucene.2019.01.007 See also OpenMC user's guide, Kinetics parameters. https://docs.openmc.org/en/stable/usersguide/kinetics.html
