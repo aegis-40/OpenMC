@@ -1,7 +1,9 @@
 MIT License
 
-Copyright (c) 2026 S. Achilova (New Uzbekistan University, Tashkent,
-Uzbekistan) and L. Ismailov (independent researcher).
+Copyright (c) 2026 S. Achilova and A. Sanetullaev (New Uzbekistan
+University, Tashkent, Uzbekistan) and L. Ismailov (Central Asian
+University of Environmental and Climate Change Studies, Tashkent,
+Uzbekistan).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -7,7 +7,7 @@
 
 ¹ New Uzbekistan University, Tashkent, Uzbekistan
 
-² Independent researcher, Tashkent, Uzbekistan
+² Central Asian University of Environmental and Climate Change Studies (Green University), Tashkent, Uzbekistan
 
 **\*Corresponding author:** S. Achilova, s.achilova@newuu.uz
 

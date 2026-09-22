@@ -4,7 +4,9 @@ Supplementary model, scripts and results for:
 
 > **Relaxing the rod-ejection constraint in soluble-boron-free PWR cores:
 > attainable control-rod worth and residual boron dependency with in-vessel drives**
-> S. Achilova (New Uzbekistan University, Tashkent, Uzbekistan) and L. Ismailov (independent researcher)
+> S. Achilova and A. Sanetullaev (New Uzbekistan University, Tashkent, Uzbekistan)
+> and L. Ismailov (Central Asian University of Environmental and Climate Change
+> Studies (Green University), Tashkent, Uzbekistan)
 
 Version 1.0.0 is archived at doi:10.5281/zenodo.22657948. This version adds the
 adjoint-weighted beta_eff runs.

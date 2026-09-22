@@ -19,8 +19,10 @@
 > 1. **Add the third creator:** `Sanetullaev, Alisher` —
 >    `New Uzbekistan University, Tashkent, Uzbekistan`, third in order.
 > 2. **Laziz's affiliation is blank on the live record.** Set it to
->    `Independent researcher`. (It does *not* wrongly say New Uzbekistan
->    University — that error never reached Zenodo.)
+>    `Central Asian University of Environmental and Climate Change Studies (Green University), Tashkent, Uzbekistan` — taken from his ORCID employment record
+>    (Chief Specialist, from July 2026). (The live record does *not* wrongly say
+>    New Uzbekistan University — that error never reached Zenodo, and
+>    “Independent researcher” was only ever a placeholder.)
 > 3. **The notes field says "Nuclear Engineering and Design".** It should read
 >    *Nuclear Engineering and Technology* — see the Additional notes section below.
 > 4. **On acceptance:** add the article DOI as `isSupplementTo`.
@@ -41,7 +43,7 @@
 
 # Canonical metadata (reference copy)
 
-Paste each field below into the Zenodo deposit form, top to bottom. This replaces the earlier scratchpad copy of this guide, which is gone; it also **corrects** an earlier instruction of mine that gave Laziz's affiliation as New Uzbekistan University — it is *Independent researcher*.
+Paste each field below into the Zenodo deposit form, top to bottom. This replaces the earlier scratchpad copy of this guide, which is gone; it also **supersedes** two earlier affiliations given for Laziz Ismailov: New Uzbekistan University (wrong) and *Independent researcher* (a placeholder). His affiliation is the Central Asian University of Environmental and Climate Change Studies (Green University), Tashkent, per his ORCID employment record.
 
 **Upload the file:** `Aegis40-SBF-rod-worth-zenodo-v1.1.0.zip` (1.5 MB)
 
@@ -59,14 +61,17 @@ SHA-256: `6d273d4b522abb70226ad4bdec47161b7c561a6e7d397de82ab3e1d5431597ff`
 Model, scripts and results for: Relaxing the rod-ejection constraint in soluble-boron-free PWR cores (Aegis-40 integral PWR, OpenMC)
 ```
 
-## Authors — exactly two, in this order
+## Authors — exactly three, in this order
 
 | # | Name (family, given) | Affiliation |
 |---|---|---|
 | 1 | `Achilova, Samira` | `New Uzbekistan University, Tashkent, Uzbekistan` |
-| 2 | `Ismailov, Laziz` | `Independent researcher` |
+| 2 | `Ismailov, Laziz` | `Central Asian University of Environmental and Climate Change Studies (Green University), Tashkent, Uzbekistan` |
+| 3 | `Sanetullaev, Alisher` | `New Uzbekistan University, Tashkent, Uzbekistan` |
 
-> ⚠ Do **not** put New Uzbekistan University against Laziz Ismailov. Also fix this on the superseded v1.0.0 record (`10.5281/zenodo.22657948`) — metadata stays editable after publishing even though files do not.
+> ⚠ Do **not** put New Uzbekistan University against Laziz Ismailov — only against Achilova and Sanetullaev. The live v1.1.0 record still lists two creators with Laziz's affiliation blank, so both the third creator and his affiliation need adding. Metadata stays editable after publishing even though files do not.
+
+> **ORCID iDs:** Zenodo accepts an ORCID per creator and Elsevier's submission system will ask for one. Laziz's affiliation above comes from his ORCID record, so the iD is to hand — add all three iDs here and on the record when you have them.
 
 ## Description
 

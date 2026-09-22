@@ -81,8 +81,10 @@ for f in sorted((PAPER / "figures").glob("*.png")):
 # ---------------------------------------------------------------- licences
 (DEP / "LICENSE-CODE.txt").write_text(
     "MIT License\n\n"
-    "Copyright (c) 2026 S. Achilova (New Uzbekistan University, Tashkent,\n"
-    "Uzbekistan) and L. Ismailov (independent researcher).\n\n"
+    "Copyright (c) 2026 S. Achilova and A. Sanetullaev (New Uzbekistan\n"
+    "University, Tashkent, Uzbekistan) and L. Ismailov (Central Asian\n"
+    "University of Environmental and Climate Change Studies, Tashkent,\n"
+    "Uzbekistan).\n\n"
     "Permission is hereby granted, free of charge, to any person obtaining a copy\n"
     "of this software and associated documentation files (the \"Software\"), to deal\n"
     "in the Software without restriction, including without limitation the rights\n"
@@ -112,7 +114,8 @@ CREATORS = [
     dict(name="Achilova, Samira",
          affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
     dict(name="Ismailov, Laziz",
-         affiliation="Independent researcher"),
+         affiliation="Central Asian University of Environmental and Climate "
+                     "Change Studies (Green University), Tashkent, Uzbekistan"),
     dict(name="Sanetullaev, Alisher",
          affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
 ]
@@ -188,7 +191,9 @@ Supplementary model, scripts and results for:
 
 > **Relaxing the rod-ejection constraint in soluble-boron-free PWR cores:
 > attainable control-rod worth and residual boron dependency with in-vessel drives**
-> S. Achilova (New Uzbekistan University, Tashkent, Uzbekistan) and L. Ismailov (independent researcher)
+> S. Achilova and A. Sanetullaev (New Uzbekistan University, Tashkent, Uzbekistan)
+> and L. Ismailov (Central Asian University of Environmental and Climate Change
+> Studies (Green University), Tashkent, Uzbekistan)
 
 Version 1.0.0 is archived at doi:10.5281/zenodo.22657948. This version adds the
 adjoint-weighted beta_eff runs.
