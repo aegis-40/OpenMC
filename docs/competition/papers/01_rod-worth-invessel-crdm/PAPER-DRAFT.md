@@ -11,11 +11,19 @@
 
 **\*Corresponding author:** S. Achilova, s.achilova@newuu.uz
 
-**Target journal:** *Nuclear Engineering and Technology* (Korean Nuclear Society / Elsevier) — subsidised open access, no charge to eight printed pages, US$200 per page thereafter.
+**Target journal:** *Annals of Nuclear Energy* (Elsevier) — subscription route, no author charges and no page limit. Reference style is Elsevier Harvard (author–date), alphabetical.
 
 > **Draft status.** All numerical results below are computed and archived (see *Data availability*). All references are verified against the publisher record.
 
 ---
+
+## Highlights
+
+- In-vessel control-rod drives remove the pressure-boundary rod-ejection mechanism
+- Bank worth raised 13,409 to 21,509 pcm by B-10 enrichment and cluster count
+- Bounding cluster found by symmetry, not assumed: 902 +/- 26 pcm, 6.3 sigma clear
+- Ejected-rod worth 1.19 +/- 0.12 $ on an adjoint-weighted IFP beta_eff
+- Cold shutdown still unmet: 771 ppm emergency boron against 3,000 ppm credited
 
 ## Abstract
 
@@ -29,17 +37,17 @@ For a 125 MWth, 37-assembly integral PWR with in-vessel drives, Monte Carlo (Ope
 
 ## 1. Introduction
 
-Eliminating soluble boron from the primary coolant of a pressurised water reactor is attractive for several independent reasons. It removes the boron-dilution accident as an initiating event; it simplifies the plant by deleting the boron make-up, recovery and purification trains; it removes a corrosion and crud-deposition driver; and it makes the moderator temperature coefficient (MTC) more negative across the cycle, because the positive boron-density feedback term disappears. These advantages have made SBF operation a recurring feature of small modular reactor (SMR) design studies (Flexblue [1], boron-free SMART-type cores [2,14], ACP100 [3]). We refer throughout to *design studies* rather than to licensed designs: of these, only Flexblue adopts SBF operation as a design commitment, while the SMART-type boron-free cores are research variants of a plant whose licensed configuration uses soluble boron.
+Eliminating soluble boron from the primary coolant of a pressurised water reactor is attractive for several independent reasons. It removes the boron-dilution accident as an initiating event; it simplifies the plant by deleting the boron make-up, recovery and purification trains; it removes a corrosion and crud-deposition driver; and it makes the moderator temperature coefficient (MTC) more negative across the cycle, because the positive boron-density feedback term disappears. These advantages have made SBF operation a recurring feature of small modular reactor (SMR) design studies (Flexblue (Ingremeau and Cordiez, 2015), boron-free SMART-type cores (Alzaben et al., 2019a; Alzaben et al., 2019c), ACP100 (Wang et al., 2021)). We refer throughout to *design studies* rather than to licensed designs: of these, only Flexblue adopts SBF operation as a design commitment, while the SMART-type boron-free cores are research variants of a plant whose licensed configuration uses soluble boron.
 
 The cost is concentrated in one place. A boron-free core must hold its entire cycle excess reactivity with fixed burnable absorbers and movable control rods alone. Burnable absorbers can flatten the reactivity trace but cannot provide shutdown; the shutdown function therefore falls entirely on the rod system, and the required total bank worth rises accordingly. In a conventional PWR, soluble boron supplies several thousand pcm of cold shutdown depth that the SBF designer must find elsewhere.
 
-Raising total bank worth by adding worth to each cluster has a well-known consequence. The rod-ejection accident (REA) — the mechanical failure of a control-rod drive-mechanism pressure housing, expelling one rod at full system pressure — is bounded by the worth of the single highest-worth rod. When that worth exceeds one dollar (the delayed-neutron fraction β_eff), the excursion becomes prompt-critical and the event drives fuel-enthalpy limits. The SBF literature is explicit about this coupling: reported designs need high total worth, which produces individual rod worths large enough that the REA becomes the design-limiting transient, and recent work is devoted to optimising SBF cores specifically to survive it [4,5].
+Raising total bank worth by adding worth to each cluster has a well-known consequence. The rod-ejection accident (REA) — the mechanical failure of a control-rod drive-mechanism pressure housing, expelling one rod at full system pressure — is bounded by the worth of the single highest-worth rod. When that worth exceeds one dollar (the delayed-neutron fraction β_eff), the excursion becomes prompt-critical and the event drives fuel-enthalpy limits (U.S. NRC, 2007; U.S. NRC, 1974). The SBF literature is explicit about this coupling: reported designs need high total worth, which produces individual rod worths large enough that the REA becomes the design-limiting transient, and recent work is devoted to optimising SBF cores specifically to survive it (Song and Sánchez-Espinoza, 2026a; van der Merwe and Hah, 2018).
 
-That coupling is not, however, a property of the core. It is a property of where the drive mechanisms are mounted. Integral PWRs with in-vessel control-rod drive mechanisms (CRDMs) place the drive inside the pressure boundary; there is no head penetration to fail and therefore no ejection path. This is a long-standing and explicitly safety-motivated design choice — IRIS adopted internal CRDMs partly to eliminate the REA [6], and in-vessel drives have been developed for marine propulsion reactors for the same reason [7].
+That coupling is not, however, a property of the core. It is a property of where the drive mechanisms are mounted. Integral PWRs with in-vessel control-rod drive mechanisms (CRDMs) place the drive inside the pressure boundary; there is no head penetration to fail and therefore no ejection path. This is a long-standing and explicitly safety-motivated design choice — IRIS adopted internal CRDMs partly to eliminate the REA (Conway and Petrovic, 2004), and in-vessel drives have been developed for marine propulsion reactors for the same reason (Ishida et al., 2001).
 
-Neither observation is new on its own, and it is worth being precise about what is. Soluble-boron-free operation and in-vessel drives already coexist in several integral SMR concepts: mPower, SMR-160 and CAREM are described in exactly those terms [2], the SCOR concept placed its drive mechanisms inside the vessel as early as 2005 [19], and the Korean i-SMR is a boron-free integral PWR with in-vessel CRDMs whose control-rod arrangements are the subject of current work [20,21]. That in-vessel drives remove the conventional ejection mechanism is likewise well established [6,7]. We therefore make no claim to have identified an unexplored architecture.
+Neither observation is new on its own, and it is worth being precise about what is. Soluble-boron-free operation and in-vessel drives already coexist in several integral SMR concepts: mPower, SMR-160 and CAREM are described in exactly those terms (Alzaben et al., 2019a), the SCOR concept placed its drive mechanisms inside the vessel as early as 2005 (IAEA, 2005), and the Korean i-SMR is a boron-free integral PWR with in-vessel CRDMs whose control-rod arrangements are the subject of current work (Song and Sánchez-Espinoza, 2026b; Latoch and Yoon, 2026; Lee et al., 2026). That in-vessel drives remove the conventional ejection mechanism is likewise well established (Conway and Petrovic, 2004; Ishida et al., 2001). We therefore make no claim to have identified an unexplored architecture.
 
-The closest single antecedent is the Flexblue core study [1], which identifies cold shutdown and rod ejection as the two governing difficulties of boron-free operation, examines B-10 enrichment and the number of rodded assemblies as the available levers, and evaluates the most-reactive-rod-stuck cold condition. Two of its findings bear directly on the present work. First, Flexblue retains the ejection constraint and answers it mechanically, selecting a compact drive incorporating an anti-ejection device — the constraint is mitigated rather than sidestepped by architecture. Second, with **100 % of assemblies rodded**, Flexblue reports that cold shutdown with the most reactive rod stuck is readily achieved, even with natural B₄C or Ag–In–Cd absorber. **The cold-shutdown difficulty is therefore not a universal feature of SBF cores; it is a function of how much of the core is rodded.** A design that can afford a cluster in every assembly can buy its way out of it.
+The closest single antecedent is the Flexblue core study (Ingremeau and Cordiez, 2015), which identifies cold shutdown and rod ejection as the two governing difficulties of boron-free operation, examines B-10 enrichment and the number of rodded assemblies as the available levers, and evaluates the most-reactive-rod-stuck cold condition. Two of its findings bear directly on the present work. First, Flexblue retains the ejection constraint and answers it mechanically, selecting a compact drive incorporating an anti-ejection device — the constraint is mitigated rather than sidestepped by architecture. Second, with **100 % of assemblies rodded**, Flexblue reports that cold shutdown with the most reactive rod stuck is readily achieved, even with natural B₄C or Ag–In–Cd absorber. **The cold-shutdown difficulty is therefore not a universal feature of SBF cores; it is a function of how much of the core is rodded.** A design that can afford a cluster in every assembly can buy its way out of it.
 
 What has not been quantified, to our knowledge, is the intermediate case a compact integral core actually presents. Although SBF studies have extensively investigated the increased bank-worth requirement and the resulting rod-ejection constraint, and integral concepts have demonstrated that in-vessel drives remove the conventional pressure-boundary-mediated ejection mechanism, the neutron-physics consequence of *relaxing the individual-cluster-worth constraint* has not been systematically quantified. In particular, the trade-off between attainable total bank worth and the residual cold-shutdown requirement under a stuck rod, at a rodded fraction well below full-core rodding, has received little attention. Table 1 positions this work against the closest published studies.
 
@@ -47,12 +55,12 @@ What has not been quantified, to our knowledge, is the intermediate case a compa
 
 | Study | SBF core | In-vessel drives | REA treated as | Worth levers quantified | Cold stuck-rod | Residual boron quantified |
 |---|---|---|---|---|---|---|
-| Ingremeau & Cordiez 2015 [1] | ● | ○ (anti-ejection device) | constraint, mitigated mechanically | ● B-10, rodded fraction | ● (solved at 100 % rodded) | ○ |
-| van der Merwe & Hah 2018 [5] | ● | ○ | not treated | ● cluster count | ● | ○ |
-| Alzaben et al. 2019 [2] | ● | noted for mPower/CAREM | transient analysis | ○ | ○ | ○ |
-| Song & Sánchez-Espinoza 2026 [4] | ● | ○ | constraint, design optimised to satisfy | ● pattern, hybrid absorber | ○ | ○ |
-| KSMR equilibrium core 2026 [20] | ● | ○ | ○ | ● enrichment, BA | ● BOC/MOC/EOC | ○ |
-| i-SMR loading pattern 2026 [21] | ● | ● | ○ | ● BA types | ● | ○ |
+| Ingremeau and Cordiez (2015) | ● | ○ (anti-ejection device) | constraint, mitigated mechanically | ● B-10, rodded fraction | ● (solved at 100 % rodded) | ○ |
+| van der Merwe and Hah (2018) | ● | ○ | not treated | ● cluster count | ● | ○ |
+| Alzaben et al. (2019a) | ● | noted for mPower/CAREM | transient analysis | ○ | ○ | ○ |
+| Song and Sánchez-Espinoza (2026a) | ● | ○ | constraint, design optimised to satisfy | ● pattern, hybrid absorber | ○ | ○ |
+| Song and Sánchez-Espinoza (2026b), KSMR equilibrium core | ● | ○ | ○ | ● enrichment, BA | ● BOC/MOC/EOC | ○ |
+| Latoch and Yoon (2026), i-SMR | ● | ● | ○ | ● BA types | ● | ○ |
 | **This work** | **●** | **●** | **mechanism not applicable; worth allowed above 1 $** | **● full 2 × 2, B-10 × cluster count** | **● (unresolved at 43 % rodded)** | **● 771 ppm** |
 
 The distinguishing row is the fourth column combined with the last two: **we found no prior study** that deliberately admits individual cluster worth above one dollar on the grounds that the conventional ejection mechanism does not apply, and then quantifies the constraint that replaces it.
@@ -78,7 +86,7 @@ Control-rod cluster assemblies (CRAs) occupy guide-tube positions in a checkerbo
 
 ### 2.2 Monte Carlo model and statistics
 
-All results are continuous-energy Monte Carlo eigenvalue calculations with OpenMC 0.15.3 [8] and ENDF/B-VIII.0 cross sections [9]. The model is fully three-dimensional and explicit at pin level across all 37 assemblies; no assembly homogenisation or few-group condensation is used at any stage. Each case runs 180 batches of 20,000 particles with 50 inactive batches, giving a typical statistical uncertainty of 50–65 pcm on k_eff.
+All results are continuous-energy Monte Carlo eigenvalue calculations with OpenMC 0.15.3 (Romano et al., 2015) and ENDF/B-VIII.0 cross sections (Brown et al., 2018). The model is fully three-dimensional and explicit at pin level across all 37 assemblies; no assembly homogenisation or few-group condensation is used at any stage. Each case runs 180 batches of 20,000 particles with 50 inactive batches, giving a typical statistical uncertainty of 50–65 pcm on k_eff.
 
 All states reported here are beginning-of-cycle with fresh fuel. That BOC is the limiting condition for the reactivity demand on the rod system is not merely assumed: the depletion record for this core gives the eigenvalue at three burnup states (Table 2).
 
@@ -90,7 +98,7 @@ All states reported here are beginning-of-cycle with fresh fuel. That BOC is the
 | MOC | 13.5 | 1.1358 | 1.729 | **2.435** |
 | EOC | 30.8 | 0.9910 | 1.497 | 2.121 |
 
-The gadolinia hold-down does produce a mid-cycle feature, but it is a **peaking** maximum, not a reactivity one: as the integral Gd₂O₃ burns out near mid-cycle the radial peaking rebounds from F_q = 1.937 to 2.435, while the eigenvalue falls monotonically from 1.1502 at BOC to 1.1358 at MOC. **BOC is the most reactive state the core occupies**, so the excess reactivity the rod system must hold — and hence the shutdown-margin demand — is greatest there. The mid-cycle peaking rebound is a thermal-margin question, addressed separately in the design's hot-channel analysis, and does not bear on shutdown.
+The gadolinia hold-down does produce a mid-cycle feature, but it is a **peaking** maximum, not a reactivity one: as the integral Gd₂O₃ burns out near mid-cycle the radial peaking rebounds from F_q = 1.937 to 2.435, while the eigenvalue falls monotonically from 1.1502 at BOC to 1.1358 at MOC. **BOC is the most reactive state the core occupies**, so the excess reactivity the rod system must hold — and hence the shutdown-margin demand — is greatest there. The mid-cycle peaking rebound is a thermal-margin question, addressed separately in the design's hot-channel analysis, and does not bear on shutdown; the fuel-behaviour implications of design choices of this kind in pressurised-water SMRs are treated in depth elsewhere (Halimi and Shirvan, 2025).
 
 One qualification remains. The cold stuck-rod state itself was evaluated only at BOC. The argument that BOC bounds it combines the eigenvalue ordering above with the observation (§4) that bank worth is insensitive to the evaluation state — 30 pcm between the isothermal and full-power-fuel evaluations of the same configuration. A direct burnup-dependent repeat of the cold stuck-rod case would convert that inference into a demonstration, and is identified as future work in §6.3.
 
@@ -112,11 +120,11 @@ Shutdown margin is reported *signed*, as SDM = −(k − 1)/k, so that a positiv
 
 Two independent checks support the rod-worth results. Both are benchmarks of the computational chain — criticality behaviour and control-rod worth — rather than validation of the Aegis-40 core itself, which is a conceptual design with no experimental counterpart.
 
-*Measured criticals.* Four low-enriched UO₂ light-water lattice benchmarks from the OECD/NEA ICSBEP Handbook, LEU-COMP-THERM-008 [10], were run with the production toolchain. The evaluated benchmark-model eigenvalue is 1.0007 ± 0.0016; computed values were 1.00047, 1.00042, 1.00062 and 0.99927, giving C − E of −23, −28, −8 and −143 pcm respectively. The mean bias is −50 pcm and every case falls within the handbook experimental uncertainty (worst case 0.86σ).
+*Measured criticals.* Four low-enriched UO₂ light-water lattice benchmarks from the OECD/NEA ICSBEP Handbook, LEU-COMP-THERM-008 (OECD/NEA, 2020), were run with the production toolchain. The evaluated benchmark-model eigenvalue is 1.0007 ± 0.0016; computed values were 1.00047, 1.00042, 1.00062 and 0.99927, giving C − E of −23, −28, −8 and −143 pcm respectively. The mean bias is −50 pcm and every case falls within the handbook experimental uncertainty (worst case 0.86σ).
 
-*Rod worth, code-to-code.* Because this paper's central quantity is control-rod worth, the most relevant check is against a published SMR core with documented rod states. The open NuScale-like benchmark deck of the Euratom McSAFER project [11], whose reference solution is Serpent 2 (v2.2) with ENDF/B-VII.1, was run in six control-rod configurations spanning approximately 19,400 pcm of total worth. Agreement with the reference Serpent solution is within ±80 pcm at every state (all-rods-out −6 pcm, all-rods-in −80 pcm, intermediate states +18 to +58 pcm), i.e. within about 2σ combined. Rod worths lie on the parity line over a range wider than the ladder examined here.
+*Rod worth, code-to-code.* Because this paper's central quantity is control-rod worth, the most relevant check is against a published SMR core with documented rod states. The open NuScale-like benchmark deck of the Euratom McSAFER project (Fridman, 2023), whose reference solution is Serpent 2 (v2.2) with ENDF/B-VII.1, was run in six control-rod configurations spanning approximately 19,400 pcm of total worth. Agreement with the reference Serpent solution is within ±80 pcm at every state (all-rods-out −6 pcm, all-rods-in −80 pcm, intermediate states +18 to +58 pcm), i.e. within about 2σ combined. Rod worths lie on the parity line over a range wider than the ladder examined here.
 
-Depletion is not used anywhere in this paper — all states are beginning-of-cycle — so no depletion benchmarking is claimed in support of these results.
+No depletion calculation underpins the results of this paper: every state evaluated for rod worth, shutdown margin and boron requirement is beginning-of-cycle. The cycle survey of Table 2 comes from a separate depletion run made with OpenMC's depletion capability (Romano et al., 2021), and is used only to establish that BOC bounds the reactivity demand. No depletion benchmarking is therefore claimed in support of these results.
 
 ## 3. The rod-ejection constraint
 
@@ -171,7 +179,7 @@ with every fission neutron forced prompt, giving
 
   k = 1.150421 ± 0.000239,  k_p = 1.142316 ± 0.000222,  β_eff = 1 − k_p/k = **704.5 ± 28.2 pcm**
 
-This prompt-k estimate was checked by an **adjoint-weighted iterated-fission-probability (IFP) calculation**, using OpenMC's IFP capability for eigenvalue calculations [24], on the same model, state and statistics — reproducing k = 1.150421 ± 0.000239. It gives
+This prompt-k estimate was checked by an **adjoint-weighted iterated-fission-probability (IFP) calculation**, using OpenMC's IFP capability for eigenvalue calculations (Peng et al., 2019), on the same model, state and statistics — reproducing k = 1.150421 ± 0.000239. It gives
 
 | IFP generations | β_eff (pcm) | Λ_eff (µs) |
 |---|---|---|
@@ -185,7 +193,7 @@ with six-group adjoint-weighted fractions at 5 generations of 22.0, 122.8, 120.1
 
 Prompt-k and IFP typically agree to within a few per cent for light-water lattices, consistent with the 0.5–0.8 % found here. The prompt-k value is about 8 % and the IFP value about 9 % above the 650 pcm often quoted for low-enriched UO₂ PWRs. Because the dollar is ρ/β_eff, the larger computed β_eff *reduces* the dollar figure of §3.1 rather than raising it: the hot-fuel ejected-rod worth is 1.28 $ on the prompt-k value and 1.27 $ on the IFP value, where 650 pcm would have given 1.39 $. Using the core's own β_eff is therefore the less favourable choice for the argument made here, and the conclusion that the worth exceeds one dollar survives it.
 
-Because β_eff directly determines that conclusion, its robustness is worth stating explicitly rather than leaving to the quoted uncertainty. For the hot-fuel case to fall to exactly one dollar, β_eff would have to be 902 pcm — **27 % above** the IFP value; for the HZP case the threshold is 844 pcm, **19 % above**. Both thresholds lie more than ten times further from the IFP value than its 0.8 % statistical uncertainty or the 1.3 % spread between the estimators and generation counts computed here, and far larger than the differences reported between Monte-Carlo β_eff estimators in published method intercomparisons [23,24]. As a sensitivity, even a ten-per-cent underestimate of the IFP value would leave the hot-fuel case at 1.16 $ and the HZP case at 1.08 $.
+Because β_eff directly determines that conclusion, its robustness is worth stating explicitly rather than leaving to the quoted uncertainty. For the hot-fuel case to fall to exactly one dollar, β_eff would have to be 902 pcm — **27 % above** the IFP value; for the HZP case the threshold is 844 pcm, **19 % above**. Both thresholds lie more than ten times further from the IFP value than its 0.8 % statistical uncertainty or the 1.3 % spread between the estimators and generation counts computed here, and far larger than the differences reported between Monte-Carlo β_eff estimators in published method intercomparisons (Nagaya et al., 2010; Peng et al., 2019). As a sensitivity, even a ten-per-cent underestimate of the IFP value would leave the hot-fuel case at 1.16 $ and the HZP case at 1.08 $.
 
 The IFP calculation removes the methodological objection to the prompt-k estimate. Both estimates rest on the same ENDF/B-VIII.0 delayed-neutron data, whose uncertainty is not evaluated here; before the dollar comparison is relied upon for any licensing purpose, that nuclear-data uncertainty and the dependence of the worth on evaluation state and bank position (§3.1.2) would still need to be quantified.
 
@@ -240,15 +248,15 @@ The cold stuck-rod state improves monotonically but **remains supercritical acro
 
 ### 4.1 Comparison with a published SBF core of the same geometry
 
-The cluster-count requirement can be placed against published work on a nearly identical core. van der Merwe and Hah [5] report a reactivity balance for a soluble-boron-free SMR at 180 MWth with 37 fuel assemblies, Westinghouse 17×17 lattice, 200 cm active height and 4.95 w/o enrichment — the same core geometry as the present design at a different power rating. Using Ag–In–Cd control element assemblies (CEAs) they find that 37 CEAs give 20,570 pcm of available worth with the highest-worth rod stuck at cold zero power, and that a reduced 29-CEA arrangement gives 14,906 pcm against a net requirement of 12,354 pcm.
+The cluster-count requirement can be placed against published work on a nearly identical core. van der Merwe and Hah (van der Merwe and Hah, 2018) report a reactivity balance for a soluble-boron-free SMR at 180 MWth with 37 fuel assemblies, Westinghouse 17×17 lattice, 200 cm active height and 4.95 w/o enrichment — the same core geometry as the present design at a different power rating. Using Ag–In–Cd control element assemblies (CEAs) they find that 37 CEAs give 20,570 pcm of available worth with the highest-worth rod stuck at cold zero power, and that a reduced 29-CEA arrangement gives 14,906 pcm against a net requirement of 12,354 pcm.
 
 Figure 3(a) places both studies on the same axes. The present core reaches 21,509 pcm from **16** clusters. Two caveats bound the comparison: the reference worths are N−1 values evaluated at cold zero power whereas ours are full-bank worths at hot zero power, and the two cores differ in thermal power and therefore in cycle excess reactivity. Because of those differences we draw only the weaker conclusion the data support: the comparison suggests that substantially higher total bank worth can be obtained from fewer cluster positions with a 90 % B-10 enriched B₄C absorber than with Ag–In–Cd, while noting that the reported worth definitions and evaluation states are not directly equivalent. A like-for-like statement would require recomputing the reference core on a common basis, which we have not done.
 
 That economy is not free, and its price is exactly the quantity the ejection event constrains. Concentrating comparable bank worth into fewer clusters raises the worth of each, and Fig. 3(b) shows where this places the design relative to the one-dollar line. SBF studies working under an REA constraint have reason to stay below that line; the present configuration sits above it, which is a position available to this architecture but not to an externally driven one.
 
 > **Figure 3.** The soluble-boron-free control-rod design space.
-> **(a)** Attainable total bank worth against cluster count: this work as a complete 2 × 2 matrix (circles; open = natural B₄C, filled = 90 at % B-10; vertical arrows give the enrichment lever measured at each cluster count) and van der Merwe and Hah [5] (squares). The near-parallel lever lines show the two effects to be approximately additive; the interaction term is +392 pcm (§4). Reference values are N−1 available worths at cold zero power; present values are full-bank worths at hot zero power, so the panel indicates the *cluster-count* requirement rather than a like-for-like worth comparison.
-> **(b)** Maximum single-cluster worth on the dollar scale, using the computed β_eff = 704.5 ± 28.2 pcm of §3.2; error bars are the propagated 1σ Monte Carlo uncertainty. The one-dollar line is a **screening threshold, not an acceptance criterion**: configurations to its left do not exceed it and the published SBF optimisation literature works to remain there [2,4], while configurations to its right would require a dedicated rod-ejection transient analysis for an externally driven plant. No such transient analysis is performed in this work (§6.3). All three configurations of the present core lie to the right of the line.
+> **(a)** Attainable total bank worth against cluster count: this work as a complete 2 × 2 matrix (circles; open = natural B₄C, filled = 90 at % B-10; vertical arrows give the enrichment lever measured at each cluster count) and van der Merwe and Hah (van der Merwe and Hah, 2018) (squares). The near-parallel lever lines show the two effects to be approximately additive; the interaction term is +392 pcm (§4). Reference values are N−1 available worths at cold zero power; present values are full-bank worths at hot zero power, so the panel indicates the *cluster-count* requirement rather than a like-for-like worth comparison.
+> **(b)** Maximum single-cluster worth on the dollar scale, using the computed β_eff = 704.5 ± 28.2 pcm of §3.2; error bars are the propagated 1σ Monte Carlo uncertainty. The one-dollar line is a **screening threshold, not an acceptance criterion**: configurations to its left do not exceed it and the published SBF optimisation literature works to remain there (Alzaben et al., 2019a; Song and Sánchez-Espinoza, 2026a), while configurations to its right would require a dedicated rod-ejection transient analysis for an externally driven plant. No such transient analysis is performed in this work (§6.3). All three configurations of the present core lie to the right of the line.
 > `figures/fig3_design_space.png`
 
 ## 5. Residual soluble-boron dependency
@@ -261,7 +269,7 @@ For the reference core the swing is of order 10,000 pcm. The 16-CRA bank covers 
 
 ### 5.2 Emergency boron requirement
 
-The design provides an Emergency Boron Injection System (EBIS) as the second, diverse shutdown system required by IAEA SSR-2/1 Requirement 46. Its actual requirement was quantified by sweeping soluble boron concentration at the cold stuck-rod endpoint (Table 5).
+The design provides an Emergency Boron Injection System (EBIS) as the second, diverse shutdown system required by IAEA SSR-2/1 Requirement 46 (IAEA, 2016). Its actual requirement was quantified by sweeping soluble boron concentration at the cold stuck-rod endpoint (Table 5).
 
 **Table 5.** Emergency boron requirement at the cold (294 K) stuck-rod state, 16 CRA, 90 % B-10. The 700–900 ppm points bracket the acceptance crossing directly.
 
@@ -291,7 +299,7 @@ Among design-basis events, main-steam-line break is the overcooling transient co
 
 The difference is qualitative rather than incremental. In the base configuration the core is supercritical at *every* temperature examined, beginning at k = 1.0183 at 556 K — the rods cannot hold it even at hot conditions. In the final configuration the core is subcritical from 556 K down to approximately 443 K on the graded metric (≈431 K on the raw eigenvalue), and reaches only k = 1.03115 at 294 K rather than 1.11422. The 443 K crossing is a property of the reactivity-versus-temperature curve; whether a given transient actually reaches that temperature is a thermal-hydraulic question this paper does not answer.
 
-This is worth stating plainly because it reconciles the present design with the SBF literature. Published analyses of boron-free cores report that high rod worth largely removes the steam-line break as a re-criticality concern [13,14], and that is consistent with what we find: the rods do handle the transient over most of its range. What they do not handle is the deep cold endpoint, and it is there — not in the return-to-power phase — that the diverse boron system is actually required.
+This is worth stating plainly because it reconciles the present design with the SBF literature. Published analyses of boron-free cores report that high rod worth largely removes the steam-line break as a re-criticality concern (Alzaben et al., 2019b; Alzaben et al., 2019c), and that is consistent with what we find: the rods do handle the transient over most of its range. What they do not handle is the deep cold endpoint, and it is there — not in the return-to-power phase — that the diverse boron system is actually required.
 
 ## 6. Discussion
 
@@ -299,7 +307,7 @@ This is worth stating plainly because it reconciles the present design with the 
 
 For the reference core the results reorder the constraint hierarchy. The rod-ejection mechanism that bounds individual cluster worth in the published SBF optimisation literature does not apply to this architecture, and the configuration reached — 1.20–1.28 $ single-cluster worth — is one an externally driven plant could not adopt without dedicated transient analysis. Cold shutdown with a stuck rod, by contrast, remains unsatisfied even after both rod-worth levers examined here are exhausted.
 
-This last conclusion must be stated with its scope attached, because a third lever exists that we did not exercise. Sixteen clusters in thirty-seven assemblies is a rodded fraction of 43 %. Flexblue reports that at **100 %** rodding, cold shutdown with the most reactive rod stuck is readily achieved even with natural B₄C or Ag–In–Cd [1]. The cold-state problem is therefore not intrinsic to boron-free operation: it is a function of rodded fraction, and it is soluble by rodding more of the core. What the present results show is that at a rodded fraction typical of a compact integral core — where guide-tube positions, in-vessel drive count and instrument positions all compete — the two levers available *within* a fixed cluster layout do not close it. The design choice is then between rodding substantially more of the core and crediting a small diverse boron system.
+This last conclusion must be stated with its scope attached, because a third lever exists that we did not exercise. Sixteen clusters in thirty-seven assemblies is a rodded fraction of 43 %. Flexblue reports that at **100 %** rodding, cold shutdown with the most reactive rod stuck is readily achieved even with natural B₄C or Ag–In–Cd (Ingremeau and Cordiez, 2015). The cold-state problem is therefore not intrinsic to boron-free operation: it is a function of rodded fraction, and it is soluble by rodding more of the core. What the present results show is that at a rodded fraction typical of a compact integral core — where guide-tube positions, in-vessel drive count and instrument positions all compete — the two levers available *within* a fixed cluster layout do not close it. The design choice is then between rodding substantially more of the core and crediting a small diverse boron system.
 
 The practical implication is that for integral designs with in-vessel drives, the relative importance of the REA constraint may change, while the cold-state reactivity swing can become the limiting problem in partially rodded compact cores. Design responses that act on *that* problem — a higher rodded fraction, heavier reflectors to reduce the density-swing sensitivity, spectral-shift devices, higher erbium loading, or simply accepting a small credited boron system — are the ones that move the constraint.
 
@@ -335,7 +343,7 @@ Six limitations bound the strength of these conclusions.
 
 4. The rod upgrade does not close cold shutdown. With the most reactive cluster stuck, the cold core remains supercritical at k = 1.03115 (signed SDM −3.02 %), improved from −10.25 % but not resolved.
 
-5. A residual emergency boron requirement of 771 ppm therefore persists, against 3,000 ppm credited — a factor of 3.9. **At beginning of cycle and at this rodded fraction — 16 clusters in 37 assemblies, or 43 % —** cold shutdown with a stuck rod, not rod ejection, is the constraint that remains unsatisfied. Published work reports that full-core rodding resolves the cold condition even with unenriched absorber [1], so the finding is a statement about partially rodded compact cores rather than about boron-free operation as such.
+5. A residual emergency boron requirement of 771 ppm therefore persists, against 3,000 ppm credited — a factor of 3.9. **At beginning of cycle and at this rodded fraction — 16 clusters in 37 assemblies, or 43 % —** cold shutdown with a stuck rod, not rod ejection, is the constraint that remains unsatisfied. Published work reports that full-core rodding resolves the cold condition even with unenriched absorber (Ingremeau and Cordiez, 2015), so the finding is a statement about partially rodded compact cores rather than about boron-free operation as such.
 
 ## CRediT author contribution statement
 
@@ -361,27 +369,50 @@ A model-reproduction check is included in the archive: six published states were
 
 ## References
 
-1. J.-J. Ingremeau, M. Cordiez, Flexblue® core design: optimisation of fuel poisoning for a soluble boron free core with full or half core refuelling, EPJ Nucl. Sci. Technol. 1 (2015) 11. https://doi.org/10.1051/epjn/e2015-50025-3
-2. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Analysis of a control rod ejection accident in a boron-free small modular reactor with coupled neutronics/thermal-hydraulics code, Ann. Nucl. Energy 134 (2019) 114–124. https://doi.org/10.1016/j.anucene.2019.06.009
-3. L. Wang, H. Ju, Q. Li, D. Qin, L. Wang, Y. Yu, Z. Ning, C. Wang, R. Guo, S. Wang, B. Zhang, H. Xiang, L. Lou, W. Sun, Multiple choices of reactor core nuclear design for ACP100's application in different scenarios, EPJ Web Conf. 247 (2021) 19002. https://doi.org/10.1051/epjconf/202124719002
-4. Y. Song, V.H. Sánchez-Espinoza, Optimization strategies to improve the safety behaviour of a soluble-boron-free SMR core during a rod ejection accident, J. Nucl. Eng. 7 (2026) 43. https://doi.org/10.3390/jne7030043
-5. L. van der Merwe, C.J. Hah, Reactivity balance for a soluble boron-free small modular reactor, Nucl. Eng. Technol. 50 (2018) 648–653. https://doi.org/10.1016/j.net.2018.01.019
-6. L.E. Conway, B. Petrovic, Internal control rod drive mechanisms, design options for IRIS, in: Proc. ICAPP '04, Pittsburgh, PA, 13–17 June 2004. OSTI 21160774.
-7. T. Ishida, S. Imayoshi, T. Yoritsune, H. Nunokawa, M. Ochiai, Y. Ishizaki, Development of in-vessel type control rod drive mechanism for marine reactor, J. Nucl. Sci. Technol. 38 (2001) 557–570. https://doi.org/10.1080/18811248.2001.9715067
-8. P.K. Romano, N.E. Horelik, B.R. Herman, A.G. Nelson, B. Forget, K. Smith, OpenMC: a state-of-the-art Monte Carlo code for research and development, Ann. Nucl. Energy 82 (2015) 90–97. https://doi.org/10.1016/j.anucene.2014.07.048
-9. D.A. Brown, M.B. Chadwick, R. Capote, et al., ENDF/B-VIII.0: the 8th major release of the nuclear reaction data library with CIELO-project cross sections, new standards and thermal scattering data, Nucl. Data Sheets 148 (2018) 1–142. https://doi.org/10.1016/j.nds.2018.02.001
-10. International handbook of evaluated criticality safety benchmark experiments, LEU-COMP-THERM-008, NEA/NSC/DOC(95)03, OECD Nuclear Energy Agency.
-11. E. Fridman, Dataset for neutronics benchmark of NuScale-like core (version 3), RODARE, Helmholtz-Zentrum Dresden-Rossendorf, 2023. https://doi.org/10.14278/rodare.2457
-12. P.K. Romano, C.J. Josey, A.E. Johnson, J. Liang, Depletion capabilities in the OpenMC Monte Carlo particle transport code, Ann. Nucl. Energy 152 (2021) 107989. https://doi.org/10.1016/j.anucene.2020.107989
-13. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Analysis of a steam line break accident of a generic SMART-plant with a boron-free core using the coupled code TRACE/PARCS, Nucl. Eng. Des. 350 (2019) 33–42. https://doi.org/10.1016/j.nucengdes.2019.05.002
-14. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Core neutronics and safety characteristics of a boron-free core for small modular reactors, Ann. Nucl. Energy 132 (2019) 70–81. https://doi.org/10.1016/j.anucene.2019.04.017
-15. U.S. Nuclear Regulatory Commission, Standard review plan, NUREG-0800, Section 15.4.8, Spectrum of rod ejection accidents.
-16. U.S. Nuclear Regulatory Commission, Assumptions used for evaluating a control rod ejection accident for pressurized water reactors, Regulatory Guide 1.77.
-17. International Atomic Energy Agency, Safety of nuclear power plants: design, IAEA Safety Standards Series No. SSR-2/1 (Rev. 1), Requirement 46, IAEA, Vienna, 2016.
-18. A. Halimi, K. Shirvan, Fuel behavior implications of reactor design choices in pressurized water SMRs, Nucl. Technol. 211 (2025) 1723–1746. https://doi.org/10.1080/00295450.2024.2426416
-19. International Atomic Energy Agency, Innovative small and medium sized reactors: design features, safety approaches and R&D trends, IAEA-TECDOC-1451, IAEA, Vienna, 2005.
-20. Y. Song, V.H. Sánchez-Espinoza, Safety-related investigations designing a soluble-boron-free small modular reactor core at equilibrium, EPJ Nucl. Sci. Technol. 12 (2026) 6. https://doi.org/10.1051/epjn/2025077
-21. M. Latoch, J. Yoon, Loading pattern design of the soluble boron-free SMR using LEU+ fuel and multitype burnable absorbers, EPJ Nucl. Sci. Technol. 12 (2026) 18. https://doi.org/10.1051/epjn/2026004
-22. W.J. Lee, S.H. Cho, S.H. Choi, S.G. Hong, Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations, Nucl. Eng. Technol. 58 (2026) 104029. https://doi.org/10.1016/j.net.2025.104029
-23. Y. Nagaya, G. Chiba, T. Mori, D. Irwanto, K. Nakajima, Comparison of Monte Carlo calculation methods for effective delayed neutron fraction, Ann. Nucl. Energy 37 (2010) 1308–1315. https://doi.org/10.1016/j.anucene.2010.05.017
-24. X. Peng, J. Liang, B. Forget, K. Smith, Calculation of adjoint-weighted reactor kinetics parameters in OpenMC, Ann. Nucl. Energy 128 (2019) 231–235. https://doi.org/10.1016/j.anucene.2019.01.007 See also OpenMC user's guide, Kinetics parameters. https://docs.openmc.org/en/stable/usersguide/kinetics.html
+Alzaben, Y., Sánchez-Espinoza, V.H., Stieglitz, R., 2019a. Analysis of a control rod ejection accident in a boron-free small modular reactor with coupled neutronics/thermal-hydraulics code. Ann. Nucl. Energy 134, 114–124. https://doi.org/10.1016/j.anucene.2019.06.009
+
+Alzaben, Y., Sánchez-Espinoza, V.H., Stieglitz, R., 2019b. Analysis of a steam line break accident of a generic SMART-plant with a boron-free core using the coupled code TRACE/PARCS. Nucl. Eng. Des. 350, 33–42. https://doi.org/10.1016/j.nucengdes.2019.05.002
+
+Alzaben, Y., Sánchez-Espinoza, V.H., Stieglitz, R., 2019c. Core neutronics and safety characteristics of a boron-free core for small modular reactors. Ann. Nucl. Energy 132, 70–81. https://doi.org/10.1016/j.anucene.2019.04.017
+
+Brown, D.A., Chadwick, M.B., Capote, R., et al., 2018. ENDF/B-VIII.0: the 8th major release of the nuclear reaction data library with CIELO-project cross sections, new standards and thermal scattering data. Nucl. Data Sheets 148, 1–142. https://doi.org/10.1016/j.nds.2018.02.001
+
+Conway, L.E., Petrovic, B., 2004. Internal control rod drive mechanisms, design options for IRIS, in: Proceedings of ICAPP '04, Pittsburgh, PA, 13–17 June 2004. OSTI 21160774.
+
+Fridman, E., 2023. Dataset for neutronics benchmark of NuScale-like core (version 3). RODARE, Helmholtz-Zentrum Dresden-Rossendorf. https://doi.org/10.14278/rodare.2457
+
+Halimi, A., Shirvan, K., 2025. Fuel behavior implications of reactor design choices in pressurized water SMRs. Nucl. Technol. 211, 1723–1746. https://doi.org/10.1080/00295450.2024.2426416
+
+Ingremeau, J.-J., Cordiez, M., 2015. Flexblue® core design: optimisation of fuel poisoning for a soluble boron free core with full or half core refuelling. EPJ Nucl. Sci. Technol. 1, 11. https://doi.org/10.1051/epjn/e2015-50025-3
+
+International Atomic Energy Agency (IAEA), 2005. Innovative small and medium sized reactors: design features, safety approaches and R&D trends. IAEA-TECDOC-1451, IAEA, Vienna.
+
+International Atomic Energy Agency (IAEA), 2016. Safety of nuclear power plants: design. IAEA Safety Standards Series No. SSR-2/1 (Rev. 1), Requirement 46, IAEA, Vienna.
+
+Ishida, T., Imayoshi, S., Yoritsune, T., Nunokawa, H., Ochiai, M., Ishizaki, Y., 2001. Development of in-vessel type control rod drive mechanism for marine reactor. J. Nucl. Sci. Technol. 38, 557–570. https://doi.org/10.1080/18811248.2001.9715067
+
+Latoch, M., Yoon, J., 2026. Loading pattern design of the soluble boron-free SMR using LEU+ fuel and multitype burnable absorbers. EPJ Nucl. Sci. Technol. 12, 18. https://doi.org/10.1051/epjn/2026004
+
+Lee, W.J., Cho, S.H., Choi, S.H., Hong, S.G., 2026. Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations. Nucl. Eng. Technol. 58, 104029. https://doi.org/10.1016/j.net.2025.104029
+
+Nagaya, Y., Chiba, G., Mori, T., Irwanto, D., Nakajima, K., 2010. Comparison of Monte Carlo calculation methods for effective delayed neutron fraction. Ann. Nucl. Energy 37, 1308–1315. https://doi.org/10.1016/j.anucene.2010.05.017
+
+OECD Nuclear Energy Agency (OECD/NEA), 2020. International handbook of evaluated criticality safety benchmark experiments, LEU-COMP-THERM-008. NEA/NSC/DOC(95)03, OECD Nuclear Energy Agency, Paris.
+
+Peng, X., Liang, J., Forget, B., Smith, K., 2019. Calculation of adjoint-weighted reactor kinetics parameters in OpenMC. Ann. Nucl. Energy 128, 231–235. https://doi.org/10.1016/j.anucene.2019.01.007 See also OpenMC user's guide, Kinetics parameters. https://docs.openmc.org/en/stable/usersguide/kinetics.html
+
+Romano, P.K., Horelik, N.E., Herman, B.R., Nelson, A.G., Forget, B., Smith, K., 2015. OpenMC: a state-of-the-art Monte Carlo code for research and development. Ann. Nucl. Energy 82, 90–97. https://doi.org/10.1016/j.anucene.2014.07.048
+
+Romano, P.K., Josey, C.J., Johnson, A.E., Liang, J., 2021. Depletion capabilities in the OpenMC Monte Carlo particle transport code. Ann. Nucl. Energy 152, 107989. https://doi.org/10.1016/j.anucene.2020.107989
+
+Song, Y., Sánchez-Espinoza, V.H., 2026a. Optimization strategies to improve the safety behaviour of a soluble-boron-free SMR core during a rod ejection accident. J. Nucl. Eng. 7, 43. https://doi.org/10.3390/jne7030043
+
+Song, Y., Sánchez-Espinoza, V.H., 2026b. Safety-related investigations designing a soluble-boron-free small modular reactor core at equilibrium. EPJ Nucl. Sci. Technol. 12, 6. https://doi.org/10.1051/epjn/2025077
+
+U.S. Nuclear Regulatory Commission (U.S. NRC), 1974. Assumptions used for evaluating a control rod ejection accident for pressurized water reactors. Regulatory Guide 1.77, U.S. NRC, Washington, DC.
+
+U.S. Nuclear Regulatory Commission (U.S. NRC), 2007. Spectrum of rod ejection accidents (PWR). Standard review plan NUREG-0800, Section 15.4.8, Revision 3, U.S. NRC, Washington, DC.
+
+van der Merwe, L., Hah, C.J., 2018. Reactivity balance for a soluble boron-free small modular reactor. Nucl. Eng. Technol. 50, 648–653. https://doi.org/10.1016/j.net.2018.01.019
+
+Wang, L., Ju, H., Li, Q., Qin, D., Wang, L., Yu, Y., Ning, Z., Wang, C., Guo, R., Wang, S., Zhang, B., Xiang, H., Lou, L., Sun, W., 2021. Multiple choices of reactor core nuclear design for ACP100's application in different scenarios. EPJ Web Conf. 247, 19002. https://doi.org/10.1051/epjconf/202124719002

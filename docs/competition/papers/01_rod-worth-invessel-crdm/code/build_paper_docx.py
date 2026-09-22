@@ -235,6 +235,20 @@ while i < n:
         i += 1
         continue
 
+    # ---- top-level bullet list (the Highlights)
+    # Without this the soft-wrap joiner runs all five bullets into a single
+    # paragraph, which is exactly what Highlights must not be.
+    if s.startswith("- "):
+        flush()
+        par = doc.add_paragraph()
+        par.paragraph_format.left_indent = Inches(0.3)
+        par.paragraph_format.line_spacing_rule = WD_LINE_SPACING.SINGLE
+        par.paragraph_format.space_after = Pt(4)
+        par.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        emit(par, "•  " + clean(s[2:]))
+        i += 1
+        continue
+
     buf.append(s)
     i += 1
 

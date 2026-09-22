@@ -171,8 +171,8 @@ DESC = (
         "effective delayed neutron fraction", "iterated fission probability",
         "Monte Carlo", "OpenMC", "ENDF/B-VIII.0", "reactor physics",
     ],
-    "notes": ("Supplementary material for a manuscript submitted to Nuclear "
-              "Engineering and Technology. The reference core was developed for the "
+    "notes": ("Supplementary material for a manuscript submitted to Annals of "
+              "Nuclear Energy. The reference core was developed for the "
               "TEKNOFEST 2026 Detailed Design Competition (Nuclear, 40 MWe "
               "Modular PWR)."),
     "related_identifiers": [
