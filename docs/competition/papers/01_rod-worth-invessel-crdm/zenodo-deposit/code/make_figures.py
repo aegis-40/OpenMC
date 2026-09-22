@@ -27,7 +27,7 @@ plt.rcParams.update({
     "xtick.direction": "out", "ytick.direction": "out",
     "xtick.labelsize": 7.5, "ytick.labelsize": 7.5,
     "axes.labelsize": 8.5, "legend.fontsize": 7,
-    "figure.dpi": 300, "savefig.dpi": 300,
+    "figure.dpi": 600, "savefig.dpi": 600,
 })
 W = 7.48                                     # double-column width, inches
 
@@ -40,7 +40,7 @@ def panel(ax, letter, title):
 
 
 def save(fig, name):
-    fig.savefig(OUT / name, dpi=300, bbox_inches="tight", facecolor="white")
+    fig.savefig(OUT / name, dpi=600, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     print("  saved", name)
 

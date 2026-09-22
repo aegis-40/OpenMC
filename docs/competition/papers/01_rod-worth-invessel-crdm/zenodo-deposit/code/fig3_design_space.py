@@ -101,5 +101,5 @@ axb.set_axisbelow(True)
 axb.set_title(r"(b)  Single-cluster worth relative to $\beta_{\mathrm{eff}}$", fontsize=8.5, loc="left",
               weight="bold", color=NAVY, pad=6)
 
-fig.savefig(OUT, dpi=300, bbox_inches="tight", facecolor="white")
+fig.savefig(OUT, dpi=600, bbox_inches="tight", facecolor="white")
 print("saved:", OUT)

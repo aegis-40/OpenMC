@@ -9,7 +9,7 @@
 
 **\*Corresponding author:** S. Achilova, s.achilova@newuu.uz
 
-**Target journal:** *Nuclear Engineering and Design* (Elsevier) — subscription route, no author charges.
+**Target journal:** *Nuclear Engineering and Technology* (Korean Nuclear Society / Elsevier) — subsidised open access, no charge to eight printed pages, US$200 per page thereafter.
 
 > **Draft status.** All numerical results below are computed and archived (see *Data availability*). All references are verified against the publisher record except **[22]**, which is in press and has no volume or page numbers assigned yet.
 
@@ -17,11 +17,11 @@
 
 ## Abstract
 
-Soluble-boron-free (SBF) operation removes the boron-dilution accident but transfers the whole cycle excess reactivity onto the control-rod system. The resulting demand for bank worth raises individual cluster worth until the rod-ejection accident becomes design-limiting. That constraint belongs to the drive-line topology rather than the core: with in-vessel drives there is no head penetration, so the pressure-boundary-mediated ejection mechanism does not apply. The consequence of deliberately relaxing the individual-cluster-worth constraint has not, to our knowledge, been quantified.
+Soluble-boron-free (SBF) operation removes the boron-dilution accident but transfers the cycle excess reactivity onto the control rods. The resulting demand raises cluster worth until the rod-ejection accident becomes design-limiting. That constraint belongs to the drive-line topology, not the core: with in-vessel drives there is no head penetration, so the pressure-boundary-mediated ejection mechanism does not apply. The consequence of relaxing the individual-cluster-worth constraint has not, to our knowledge, been quantified.
 
-For a 125 MWth, 37-assembly natural-circulation integral PWR with in-vessel drives, continuous-energy Monte Carlo (OpenMC 0.15.3, ENDF/B-VIII.0) gives bank worths of 13,409–21,509 pcm over absorber B-10 enrichment and cluster count, reaching a hot shutdown margin of 7.85 % Δk/k. The bounding cluster is worth 844 ± 82 pcm (hot zero power) and 902 ± 34 pcm (full-power fuel); against an adjoint-weighted β_eff of 708.1 ± 5.4 pcm these are **1.19 ± 0.12 $** and **1.27 ± 0.05 $**. It does not close cold shutdown: with the most reactive cluster stuck the cold core stays supercritical at k = 1.031, needing 771 ppm of emergency boron against 3,000 credited. At beginning of cycle and 43 % rodded fraction, cold shutdown with a stuck rod — not rod ejection — is what binds. No transient analysis is performed.
+For a 125 MWth, 37-assembly integral PWR with in-vessel drives, Monte Carlo (OpenMC 0.15.3, ENDF/B-VIII.0) gives bank worths of 13,409–21,509 pcm over absorber B-10 enrichment and cluster count, reaching 7.85 % Δk/k hot shutdown margin. The bounding cluster is worth 844 ± 82 pcm (hot zero power) and 902 ± 34 pcm (full-power fuel); against an adjoint-weighted β_eff of 708.1 ± 5.4 pcm these are **1.19 ± 0.12 $** and **1.27 ± 0.05 $**. Cold shutdown does not close: with the most reactive cluster stuck the cold core stays supercritical at k = 1.031, needing 771 ppm of emergency boron against 3,000 credited. At beginning of cycle and 43 % rodded fraction, cold shutdown with a stuck rod — not rod ejection — is what binds. No transient analysis is performed.
 
-**Keywords:** soluble-boron-free; small modular reactor; integral PWR; control-rod worth; rod-ejection accident; shutdown margin; Monte Carlo
+**Keywords:** soluble-boron-free; small modular reactor; integral PWR; control-rod worth; rod-ejection accident; shutdown margin
 
 ---
 
@@ -335,6 +335,14 @@ Six limitations bound the strength of these conclusions.
 
 5. A residual emergency boron requirement of 771 ppm therefore persists, against 3,000 ppm credited — a factor of 3.9. **At beginning of cycle and at this rodded fraction — 16 clusters in 37 assemblies, or 43 % —** cold shutdown with a stuck rod, not rod ejection, is the constraint that remains unsatisfied. Published work reports that full-core rodding resolves the cold condition even with unenriched absorber [1], so the finding is a statement about partially rodded compact cores rather than about boron-free operation as such.
 
+## CRediT author contribution statement
+
+**S. Achilova:** conceptualisation, methodology, formal analysis, investigation, writing — original draft, writing — review and editing, visualisation, project administration. **L. Ismailov:** software, validation, investigation, data curation, writing — review and editing.
+
+## Declaration of competing interest
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
 ## Acknowledgements
 
 The reference core was developed for the TEKNOFEST 2026 Detailed Design Competition (Nuclear — 40 MWe Modular PWR). The authors thank the Aegis-40 team at New Uzbekistan University for the plant-level design context within which this core analysis was carried out.
@@ -347,27 +355,27 @@ A model-reproduction check is included in the archive: six published states were
 
 ## References
 
-1. Ingremeau, J.-J., & Cordiez, M. (2015). Flexblue® core design: optimisation of fuel poisoning for a soluble boron free core with full or half core refuelling. *EPJ Nuclear Sciences & Technologies*, **1**, 11. https://doi.org/10.1051/epjn/e2015-50025-3 ✅ *verified* — Flexblue is 550 MWth / 160 MWe.
-2. Alzaben, Y., Sánchez-Espinoza, V. H., & Stieglitz, R. (2019). Analysis of a control rod ejection accident in a boron-free small modular reactor with coupled neutronics/thermal-hydraulics code. *Annals of Nuclear Energy*, **134**, 114–124. https://doi.org/10.1016/j.anucene.2019.06.009 ✅ *verified* — 330 MWth, 57-assembly boron-free core, PARCS/SUBCHANFLOW. **Replaces the previous SMART citation, which was inaccurate: the licensed SMART design uses soluble boron; only research variants are boron-free.**
-3. Wang, L., Ju, H., Li, Q., Qin, D., Wang, L., Yu, Y., Ning, Z., Wang, C., Guo, R., Wang, S., Zhang, B., Xiang, H., Lou, L., & Sun, W. (2021). Multiple choices of reactor core nuclear design for ACP100's application in different scenarios. *EPJ Web of Conferences*, **247**, 19002 (PHYSOR 2020). ✅ *verified* — Nuclear Power Institute of China; ACP100 is 125 MWe, and the paper presents a boron-free option alongside a boron-and-rod co-controlled option.
-4. Optimization Strategies to Improve the Safety Behaviour of a Soluble-Boron-Free SMR Core During a Rod Ejection Accident. *J. Nucl. Eng.* 7(3) (2026) 43. https://doi.org/10.3390/jne7030043
-5. van der Merwe, L., & Hah, C. J. (2018). Reactivity balance for a soluble boron-free small modular reactor. *Nuclear Engineering and Technology*, **50**(4), 648–653. https://doi.org/10.1016/j.net.2018.01.019 ✅ *verified*
-6. Conway, L. E., & Petrovic, B. (2004). Internal control rod drive mechanisms, design options for IRIS. *Proceedings of ICAPP '04*, Pittsburgh, PA, 13–17 June 2004. OSTI 21160774. ✅ *verified* — states that placing the drives inside the vessel removes the drive-rod penetration and the pressure differential across the boundary, eliminating "by design" the possibility of a rod-ejection accident.
-7. Ishida, T., Imayoshi, S., Yoritsune, T., Nunokawa, H., Ochiai, M., & Ishizaki, Y. (2001). Development of in-vessel type control rod drive mechanism for marine reactor. *Journal of Nuclear Science and Technology*, **38**(7), 557–570. https://doi.org/10.1080/18811248.2001.9715067 ✅ *verified* — states that the in-vessel drive "can eliminate the possibility of a rod ejection accident".
-8. Romano, P.K., et al. OpenMC: A state-of-the-art Monte Carlo code for research and development. *Ann. Nucl. Energy* 82 (2015) 90–97.
-9. Brown, D.A., et al. ENDF/B-VIII.0. *Nucl. Data Sheets* 148 (2018) 1–142.
-10. International Handbook of Evaluated Criticality Safety Benchmark Experiments, LEU-COMP-THERM-008. NEA/NSC/DOC(95)03.
-11. Fridman, E. (2023). *Dataset for neutronics benchmark of a NuScale-like core.* RODARE (Rossendorf Data Repository), Helmholtz-Zentrum Dresden-Rossendorf, record 2457, 30 August 2023. https://rodare.hzdr.de/record/2457 ✅ *verified* — the Euratom McSAFER benchmark; reference solution is Serpent 2 (v2.2) with ENDF/B-VII.1. *(An independent OpenMC study of this same benchmark exists — Simulation of NuScale-like SMR benchmark with OpenMC, J. Nucl. Eng. 6(4) 44 — and is worth citing alongside §2.4 as prior OpenMC work on the reference case.)*
-12. Romano, P.K., et al. *Ann. Nucl. Energy* 152 (2021) 107989.
-13. Alzaben, Y., Sánchez-Espinoza, V. H., & Stieglitz, R. (2019). Analysis of a steam line break accident of a generic SMART-plant with a boron-free core using the coupled code TRACE/PARCS. *Nuclear Engineering and Design*, **350**, 33–42. ✅ *verified*
-14. Alzaben, Y., Sánchez-Espinoza, V. H., & Stieglitz, R. (2019). Core neutronics and safety characteristics of a boron-free core for small modular reactors. *Annals of Nuclear Energy*, **132**, 70–81. ✅ *verified*
-15. U.S. NRC, NUREG-0800 Standard Review Plan, SRP 15.4.8 (rod ejection).
-16. U.S. NRC, Regulatory Guide 1.77.
-17. IAEA, SSR-2/1 (Rev. 1), Safety of Nuclear Power Plants: Design, Requirement 46.
-18. Halimi, A., Shirvan, K. Fuel Behavior Implications of Reactor Design Choices in Pressurized Water SMRs. *Nucl. Technol.* (2024). https://doi.org/10.1080/00295450.2024.2426416
-19. IAEA (2005). *Innovative Small and Medium Sized Reactors: Design Features, Safety Approaches and R&D Trends.* IAEA-TECDOC-1451, International Atomic Energy Agency, Vienna. ✅ *verified* — describes the SCOR concept, a soluble-boron-free design with the control-rod drives inside the reactor vessel.
-20. Song, Y., & Sánchez-Espinoza, V. H. (2026). Safety-related investigations designing a soluble-boron-free small modular reactor core at equilibrium. *EPJ Nuclear Sciences & Technologies*, **12**, 6. ✅ *verified* — Karlsruhe Institute of Technology; the academic KSMR core, two-batch equilibrium, CASMO5/SIMULATE5; evaluates cold shutdown with the highest-worth rod stuck at BOC/MOC/EOC.
-21. Latoch, M., & Yoon, J. (2026). Loading pattern design of the soluble boron-free SMR using LEU+ fuel and multitype burnable absorbers. *EPJ Nuclear Sciences & Technologies*, **12**, 18. https://doi.org/10.1051/epjn/2026004 ✅ *verified* — KEPCO International Nuclear Graduate School; fully soluble-boron-free i-SMR operation using gadolinia in HIGA and IGD rods together with erbia in LEU+ fuel.
-22. Lee, W. J., et al. (2025). Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations. *Nuclear Engineering and Technology*, available online 13 November 2025 (in press). ✅ *record confirmed* — i-SMR control-rod pattern study; a 24-finger cluster of 20 Inconel-625 and 4 Ag–In–Cd fingers. **[add the volume and page numbers once the issue is assigned; complete the author list]**
-23. Nagaya, Y., Chiba, G., Mori, T., Irwanto, D., & Nakajima, K. (2010). Comparison of Monte Carlo calculation methods for effective delayed neutron fraction. *Annals of Nuclear Energy*, **37**(10), 1308–1315. https://doi.org/10.1016/j.anucene.2010.05.017 ✅ *verified* — intercomparison of Monte-Carlo β_eff estimators with adjoint weighting.
-24. Peng, X., Liang, J., Forget, B., & Smith, K. (2019). Calculation of adjoint-weighted reactor kinetics parameters in OpenMC. *Annals of Nuclear Energy*, **128**, 231–235. ✅ *verified* — implements the next-fission-probability, iterated-fission-probability and CLUTCH methods in OpenMC. See also the OpenMC user's guide, *Kinetics parameters*, https://docs.openmc.org/en/stable/usersguide/kinetics.html
+1. J.-J. Ingremeau, M. Cordiez, Flexblue® core design: optimisation of fuel poisoning for a soluble boron free core with full or half core refuelling, EPJ Nucl. Sci. Technol. 1 (2015) 11. https://doi.org/10.1051/epjn/e2015-50025-3
+2. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Analysis of a control rod ejection accident in a boron-free small modular reactor with coupled neutronics/thermal-hydraulics code, Ann. Nucl. Energy 134 (2019) 114–124. https://doi.org/10.1016/j.anucene.2019.06.009
+3. L. Wang, H. Ju, Q. Li, D. Qin, L. Wang, Y. Yu, Z. Ning, C. Wang, R. Guo, S. Wang, B. Zhang, H. Xiang, L. Lou, W. Sun, Multiple choices of reactor core nuclear design for ACP100's application in different scenarios, EPJ Web Conf. 247 (2021) 19002.
+4. Optimization strategies to improve the safety behaviour of a soluble-boron-free SMR core during a rod ejection accident, J. Nucl. Eng. 7 (2026) 43. https://doi.org/10.3390/jne7030043 **[author list to be completed from the publisher record]**
+5. L. van der Merwe, C.J. Hah, Reactivity balance for a soluble boron-free small modular reactor, Nucl. Eng. Technol. 50 (2018) 648–653. https://doi.org/10.1016/j.net.2018.01.019
+6. L.E. Conway, B. Petrovic, Internal control rod drive mechanisms, design options for IRIS, in: Proc. ICAPP '04, Pittsburgh, PA, 13–17 June 2004. OSTI 21160774.
+7. T. Ishida, S. Imayoshi, T. Yoritsune, H. Nunokawa, M. Ochiai, Y. Ishizaki, Development of in-vessel type control rod drive mechanism for marine reactor, J. Nucl. Sci. Technol. 38 (2001) 557–570. https://doi.org/10.1080/18811248.2001.9715067
+8. P.K. Romano, N.E. Horelik, B.R. Herman, A.G. Nelson, B. Forget, K. Smith, OpenMC: a state-of-the-art Monte Carlo code for research and development, Ann. Nucl. Energy 82 (2015) 90–97.
+9. D.A. Brown, M.B. Chadwick, R. Capote, et al., ENDF/B-VIII.0: the 8th major release of the nuclear reaction data library with CIELO-project cross sections, new standards and thermal scattering data, Nucl. Data Sheets 148 (2018) 1–142.
+10. International handbook of evaluated criticality safety benchmark experiments, LEU-COMP-THERM-008, NEA/NSC/DOC(95)03, OECD Nuclear Energy Agency.
+11. E. Fridman, Dataset for neutronics benchmark of a NuScale-like core, RODARE, Helmholtz-Zentrum Dresden-Rossendorf, record 2457 (2023). https://rodare.hzdr.de/record/2457
+12. P.K. Romano, C.J. Josey, A.E. Johnson, J. Liang, Depletion capabilities in the OpenMC Monte Carlo particle transport code, Ann. Nucl. Energy 152 (2021) 107989. **[verify title and author list]**
+13. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Analysis of a steam line break accident of a generic SMART-plant with a boron-free core using the coupled code TRACE/PARCS, Nucl. Eng. Des. 350 (2019) 33–42.
+14. Y. Alzaben, V.H. Sánchez-Espinoza, R. Stieglitz, Core neutronics and safety characteristics of a boron-free core for small modular reactors, Ann. Nucl. Energy 132 (2019) 70–81.
+15. U.S. Nuclear Regulatory Commission, Standard review plan, NUREG-0800, Section 15.4.8, Spectrum of rod ejection accidents.
+16. U.S. Nuclear Regulatory Commission, Assumptions used for evaluating a control rod ejection accident for pressurized water reactors, Regulatory Guide 1.77.
+17. International Atomic Energy Agency, Safety of nuclear power plants: design, IAEA Safety Standards Series No. SSR-2/1 (Rev. 1), Requirement 46, IAEA, Vienna, 2016.
+18. A. Halimi, K. Shirvan, Fuel behavior implications of reactor design choices in pressurized water SMRs, Nucl. Technol. (2024). https://doi.org/10.1080/00295450.2024.2426416
+19. International Atomic Energy Agency, Innovative small and medium sized reactors: design features, safety approaches and R&D trends, IAEA-TECDOC-1451, IAEA, Vienna, 2005.
+20. Y. Song, V.H. Sánchez-Espinoza, Safety-related investigations designing a soluble-boron-free small modular reactor core at equilibrium, EPJ Nucl. Sci. Technol. 12 (2026) 6.
+21. M. Latoch, J. Yoon, Loading pattern design of the soluble boron-free SMR using LEU+ fuel and multitype burnable absorbers, EPJ Nucl. Sci. Technol. 12 (2026) 18. https://doi.org/10.1051/epjn/2026004
+22. W.J. Lee, et al., Application and analysis of Cr-coated GdN-CBA to i-SMR core with two control rod patterns for load-following operations, Nucl. Eng. Technol. (2025), in press. **[add volume and pages once assigned; complete the author list]**
+23. Y. Nagaya, G. Chiba, T. Mori, D. Irwanto, K. Nakajima, Comparison of Monte Carlo calculation methods for effective delayed neutron fraction, Ann. Nucl. Energy 37 (2010) 1308–1315. https://doi.org/10.1016/j.anucene.2010.05.017
+24. X. Peng, J. Liang, B. Forget, K. Smith, Calculation of adjoint-weighted reactor kinetics parameters in OpenMC, Ann. Nucl. Energy 128 (2019) 231–235. See also OpenMC user's guide, Kinetics parameters. https://docs.openmc.org/en/stable/usersguide/kinetics.html

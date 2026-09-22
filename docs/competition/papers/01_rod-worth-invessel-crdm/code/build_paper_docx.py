@@ -35,7 +35,7 @@ st.font.name = FONT
 st.font.size = Pt(BODY_PT)
 st.element.rPr.rFonts.set(qn("w:eastAsia"), FONT)
 st.element.rPr.rFonts.set(qn("w:cs"), FONT)
-st.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
+st.paragraph_format.line_spacing_rule = WD_LINE_SPACING.DOUBLE
 st.paragraph_format.space_after = Pt(6)
 st.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
