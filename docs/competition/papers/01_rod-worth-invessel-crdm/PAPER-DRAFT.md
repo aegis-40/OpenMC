@@ -1,11 +1,13 @@
 # Relaxing the rod-ejection constraint in soluble-boron-free PWR cores: attainable control-rod worth and residual boron dependency with in-vessel drives
 
 **Authors:**
-**S. Achilova**¹'\*, L. Ismailov¹
+**S. Achilova**¹'\*, L. Ismailov²
 
 *(Samira Achilova, Laziz Ismailov — confirm the spelling and initials of both names before submission.)*
 
 ¹ New Uzbekistan University, Tashkent, Uzbekistan
+
+² Independent researcher, Tashkent, Uzbekistan
 
 **\*Corresponding author:** S. Achilova, s.achilova@newuu.uz
 
@@ -349,7 +351,7 @@ The reference core was developed for the TEKNOFEST 2026 Detailed Design Competit
 
 ## Data availability
 
-The core model, the run scripts and the complete result files for every eigenvalue reported here are openly archived at Zenodo under **https://doi.org/10.5281/zenodo.22878679**, together with SHA-256 checksums for each file. Code is released under the MIT licence, and result files and figures under CC BY 4.0. The working repository is https://github.com/aegis-40/OpenMC, where the state corresponding to this archive is tagged `paper1-v1.0.0`. The archive contains the locked OpenMC model and its case suite, the scripts for the single-cluster worth, lever-matrix and boron-sweep cases, the four manuscript figures at publication resolution, and the generating script for Fig. 3. Code is released under the MIT licence and result files and figures under CC BY 4.0.
+The core model, the run scripts and the complete result files for every eigenvalue reported here are openly archived at Zenodo under **https://doi.org/10.5281/zenodo.22878679**, together with SHA-256 checksums for each file. The archive contains the locked OpenMC model and its case suite, the scripts for the single-cluster worth, lever-matrix and boron-sweep cases, the four manuscript figures at publication resolution, and the generating script for Fig. 3. Code is released under the MIT licence and result files and figures under CC BY 4.0.
 
 A model-reproduction check is included in the archive: six published states were recomputed independently, of which four reproduce to 0 pcm and the worst deviates by 1.3σ.
 

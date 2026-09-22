@@ -1,6 +1,6 @@
 # Submission checklist — rod-worth / in-vessel-CRDM paper
 
-**Target:** *Nuclear Engineering and Design* (Elsevier). Subscription route = **no author charges**.
+**Target:** *Nuclear Engineering and Technology* (NET, Elsevier on behalf of KNS). Open access, **free for the first 8 printed pages**, $200/page thereafter; recommended limit 10 pages. Current draft typesets to ~12 pages — see the page-count item below.
 **Draft:** `PAPER-DRAFT.md` · **Figures:** `figures/` · **Data:** `data/`
 
 ---

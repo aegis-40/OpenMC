@@ -81,8 +81,8 @@ for f in sorted((PAPER / "figures").glob("*.png")):
 # ---------------------------------------------------------------- licences
 (DEP / "LICENSE-CODE.txt").write_text(
     "MIT License\n\n"
-    "Copyright (c) 2026 S. Achilova and L. Ismailov,\n"
-    "New Uzbekistan University, Tashkent, Uzbekistan.\n\n"
+    "Copyright (c) 2026 S. Achilova (New Uzbekistan University, Tashkent,\n"
+    "Uzbekistan) and L. Ismailov (independent researcher).\n\n"
     "Permission is hereby granted, free of charge, to any person obtaining a copy\n"
     "of this software and associated documentation files (the \"Software\"), to deal\n"
     "in the Software without restriction, including without limitation the rights\n"
@@ -112,7 +112,7 @@ CREATORS = [
     dict(name="Achilova, Samira",
          affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
     dict(name="Ismailov, Laziz",
-         affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
+         affiliation="Independent researcher"),
 ]
 
 DESC = (
@@ -143,7 +143,7 @@ DESC = (
     "&mdash; generate the four manuscript figures.</li>"
     "<li><code>data/</code> &mdash; every eigenvalue reported in the manuscript, "
     "as JSON, plus a run log with a model-reproduction check.</li>"
-    "<li><code>figures/</code> &mdash; the four manuscript figures at 300 dpi.</li>"
+    "<li><code>figures/</code> &mdash; the four manuscript figures at 600 dpi.</li>"
     "<li><code>MANIFEST.sha256</code> &mdash; SHA-256 of every file.</li></ul>"
     "<p>Code is released under the MIT licence; result files and figures under "
     "CC BY 4.0.</p>"
@@ -167,7 +167,7 @@ DESC = (
         "Monte Carlo", "OpenMC", "ENDF/B-VIII.0", "reactor physics",
     ],
     "notes": ("Supplementary material for a manuscript submitted to Nuclear "
-              "Engineering and Design. The reference core was developed for the "
+              "Engineering and Technology. The reference core was developed for the "
               "TEKNOFEST 2026 Detailed Design Competition (Nuclear, 40 MWe "
               "Modular PWR)."),
     "related_identifiers": [
@@ -186,7 +186,7 @@ Supplementary model, scripts and results for:
 
 > **Relaxing the rod-ejection constraint in soluble-boron-free PWR cores:
 > attainable control-rod worth and residual boron dependency with in-vessel drives**
-> S. Achilova, L. Ismailov — New Uzbekistan University, Tashkent, Uzbekistan
+> S. Achilova (New Uzbekistan University, Tashkent, Uzbekistan) and L. Ismailov (independent researcher)
 
 Version 1.0.0 is archived at doi:10.5281/zenodo.22657948. This version adds the
 adjoint-weighted beta_eff runs.

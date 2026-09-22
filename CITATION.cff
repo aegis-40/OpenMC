@@ -13,7 +13,7 @@ authors:
     email: s.achilova@newuu.uz
   - family-names: Ismailov
     given-names: Laziz
-    affiliation: New Uzbekistan University, Tashkent, Uzbekistan
+    affiliation: Independent researcher
 repository-code: 'https://github.com/aegis-40/OpenMC'
 doi: 10.5281/zenodo.22878679
 identifiers:
@@ -47,7 +47,5 @@ keywords:
   - OpenMC
   - reactor physics
 license: MIT
-license-url: >-
-  https://github.com/aegis-40/OpenMC/blob/main/docs/competition/papers/01_rod-worth-invessel-crdm/zenodo-deposit/LICENSE-CODE.txt
-version: paper1-v1.0.0
-date-released: '2026-09-08'
+version: paper1-v1.1.0
+date-released: '2026-09-22'
