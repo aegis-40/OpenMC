@@ -113,6 +113,8 @@ CREATORS = [
          affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
     dict(name="Ismailov, Laziz",
          affiliation="Independent researcher"),
+    dict(name="Sanetullaev, Alisher",
+         affiliation="New Uzbekistan University, Tashkent, Uzbekistan"),
 ]
 
 DESC = (

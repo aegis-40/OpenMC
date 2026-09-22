@@ -1,9 +1,9 @@
 # Relaxing the rod-ejection constraint in soluble-boron-free PWR cores: attainable control-rod worth and residual boron dependency with in-vessel drives
 
 **Authors:**
-**S. Achilova**¹'\*, L. Ismailov²
+**S. Achilova**¹'\*, L. Ismailov², A. Sanetullaev¹
 
-*(Samira Achilova, Laziz Ismailov — confirm the spelling and initials of both names before submission.)*
+*(Samira Achilova, Laziz Ismailov, Alisher Sanetullaev — confirm the spelling and initials of all three names before submission. The team documents give both “Sanetullaev” and “Santullaev”; the deck uses “Sanetullaev”.)*
 
 ¹ New Uzbekistan University, Tashkent, Uzbekistan
 
@@ -339,7 +339,7 @@ Six limitations bound the strength of these conclusions.
 
 ## CRediT author contribution statement
 
-**S. Achilova:** conceptualisation, methodology, formal analysis, investigation, writing — original draft, writing — review and editing, visualisation, project administration. **L. Ismailov:** software, validation, investigation, data curation, writing — review and editing.
+**S. Achilova:** conceptualisation, methodology, formal analysis, investigation, writing — original draft, writing — review and editing, visualisation, project administration. **L. Ismailov:** software, validation, investigation, data curation, writing — review and editing. **A. Sanetullaev:** investigation, writing — review and editing.
 
 ## Declaration of competing interest
 

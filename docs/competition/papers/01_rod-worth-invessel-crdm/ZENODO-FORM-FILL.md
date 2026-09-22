@@ -1,4 +1,45 @@
-# Zenodo form-fill guide — record 10.5281/zenodo.22878679 (v1.1.0)
+# Zenodo record status — checked 2026-09-22
+
+> **Both records are already PUBLISHED and Open Access.** Verified against the
+> Zenodo API on 22 Sep 2026. Nothing needs uploading; the deposit task is done.
+>
+> | DOI | Version | Access | Files | State |
+> |---|---|---|---|---|
+> | `10.5281/zenodo.22657948` | v1.0.0 | Open, CC BY 4.0 | 20 | superseded |
+> | `10.5281/zenodo.22878679` | v1.1.0 | Open, CC BY 4.0 | 24 | **current — cited by the manuscript** |
+>
+> The v1.1.0 file list matches the built package exactly, including
+> `ifp_beta_eff_g{5,10,20}.json` and `run_ifp_beta_eff.py`.
+>
+> **Files on a published record are immutable. Metadata is not** — the edits
+> below can and should still be made.
+>
+> ### Metadata corrections outstanding on `22878679`
+>
+> 1. **Add the third creator:** `Sanetullaev, Alisher` —
+>    `New Uzbekistan University, Tashkent, Uzbekistan`, third in order.
+> 2. **Laziz's affiliation is blank on the live record.** Set it to
+>    `Independent researcher`. (It does *not* wrongly say New Uzbekistan
+>    University — that error never reached Zenodo.)
+> 3. **The notes field says "Nuclear Engineering and Design".** It should read
+>    *Nuclear Engineering and Technology* — see the Additional notes section below.
+> 4. **On acceptance:** add the article DOI as `isSupplementTo`.
+>
+> ### Same corrections on `22657948` (optional, tidiness only)
+>
+> Add Laziz's affiliation. Leave the creator list at two names if you prefer —
+> that record is a snapshot of the pre-IFP state and is superseded.
+>
+> ### Restricting access is not an option
+>
+> Considered and ruled out: open files on a published Zenodo record cannot be
+> pulled back to restricted, and v1.0.0 has been openly downloadable with the
+> complete model since publication. The manuscript's *Data availability*
+> section therefore stays as it is, citing `10.5281/zenodo.22878679`.
+
+---
+
+# Canonical metadata (reference copy)
 
 Paste each field below into the Zenodo deposit form, top to bottom. This replaces the earlier scratchpad copy of this guide, which is gone; it also **corrects** an earlier instruction of mine that gave Laziz's affiliation as New Uzbekistan University — it is *Independent researcher*.
 
