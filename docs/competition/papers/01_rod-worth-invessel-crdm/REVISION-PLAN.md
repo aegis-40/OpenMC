@@ -1,5 +1,32 @@
 # Revision plan — rod-worth / in-vessel-CRDM paper
 
+> ## ⚠ SUPERSEDED, 2026-09-25 — read `CHANGES_v6_RU.md` instead
+>
+> L. Ismailov's v6 revision covers everything useful in this plan and goes
+> further. **Two things in this document are wrong and are corrected here:**
+>
+> 1. **The xenon figure below is wrong by about 6.5×.** It was computed from
+>    `openmc_model/depletion_results.h5`, dated **27 June**, which was superseded
+>    by the volume-error fix of 2 July. On the corrected 3 July record
+>    (`aegis40_neutronics_outputs (2)/.../08_depletion_baseline/`) the xenon-free
+>    mid-cycle maximum exceeds BOC by **+576 pcm at 13.45 GWd/tHM**, not
+>    +3,764 pcm, and the Xe/Sm defect is **1,726 pcm**, not 4,416. Verified
+>    2026-09-25.
+> 2. **The conclusion drawn from it was also wrong.** BOC *does* bound the
+>    shutdown states, because rods and boron are more effective in the Gd-free
+>    mid-cycle region. The hot stuck-rod margin is −1.4 % at BOC against −0.2 %
+>    at the xenon-free maximum.
+>
+> A far more serious error was found independently: the locked model filled the
+> whole guide-tube bore with solid B₄C at 2.52 g/cm³, roughly **3.2× the
+> absorber of a standard rodlet**, so every rod worth in v5 was over-credited.
+> That is what actually changed the paper's conclusions — not xenon.
+>
+> Kept for the record only. Do not work from the numbers below.
+
+---
+
+
 **Date:** 2026-09-24 · **Target:** *Annals of Nuclear Energy* · **Status:** not ready to submit
 
 This plan responds to an external referee-style review of the current draft. Every
