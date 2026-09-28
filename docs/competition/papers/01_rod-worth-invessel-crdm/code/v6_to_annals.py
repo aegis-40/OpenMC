@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Convert manuscript6_clean.docx from Elsevier numbered style to Elsevier
+"""Convert manuscript7_clean.docx from Elsevier numbered style to Elsevier
 Harvard (author-date), as Annals of Nuclear Energy requires.
 
     python v6_to_annals.py            # dry run: print everything, change nothing
-    python v6_to_annals.py --apply    # write manuscript6_annals.docx
+    python v6_to_annals.py --apply    # write manuscript7_annals.docx
 
 Citations never span runs in this document (checked: 0 of 106 in the body,
 0 in tables), so in-text replacement is a per-run text substitution.
@@ -16,8 +16,8 @@ import docx
 
 BASE = (r"D:\projects\teknofest-2026-aegis-40-ipwr\docs\competition\papers"
         r"\01_rod-worth-invessel-crdm")
-SRC = BASE + r"\manuscript6_clean.docx"
-DST = BASE + r"\manuscript6_annals.docx"
+SRC = BASE + r"\manuscript7_clean.docx"
+DST = BASE + r"\manuscript7_annals.docx"
 APPLY = "--apply" in sys.argv
 
 YEAR_TODO = "[YEAR TO CONFIRM]"

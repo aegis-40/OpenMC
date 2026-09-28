@@ -6,7 +6,7 @@ import re
 import docx
 
 P = (r"D:\projects\teknofest-2026-aegis-40-ipwr\docs\competition\papers"
-     r"\01_rod-worth-invessel-crdm\manuscript6_annals.docx")
+     r"\01_rod-worth-invessel-crdm\manuscript7_annals.docx")
 
 # One declaration covering both rounds of assistance: the v5 drafting and
 # supplementary-case scripts, and the v6 model revision, analysis and plotting.
@@ -21,8 +21,8 @@ MERGED = (
     "for the content of the published article.")
 
 HIGHLIGHTS = [
-    "No standard-rodlet bank meets the 1 % hot zero-power stuck-rod shutdown margin",
-    "The most reactive stuck cluster is an outer one, not the highest-worth one",
+    "Symmetric extensions of the 16-cluster pattern: hot 1 % margin met at 54 % rodded",
+    "With 16 clusters the most reactive stuck cluster is outer, not the highest-worth one",
     "At hot zero power an outer cluster ejected from the critical bank is worth 2.46 $",
     "At 294 K the core stays supercritical with all 16 clusters inserted",
     "Cold shutdown by boron alone needs 2,220 ppm against 3,000 ppm credited",
